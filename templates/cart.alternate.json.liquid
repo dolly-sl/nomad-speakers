@@ -1,0 +1,47 @@
+{%- layout none -%}
+
+{ "items":[
+{%- for item in cart.items -%}
+  { "product_title":
+  {% if item.product.metafields.product.display_name != blank -%}
+    {{- item.product.metafields.product.display_name | json -}}
+  {%- else -%}
+    {{- item.product.title | json -}}
+  {%- endif -%}
+  ,
+  {% if item.variant.compare_at_price != blank %}
+    "comparePrice": {{ item.variant.compare_at_price }},
+  {% endif %}
+  "productImage": {{ item.product.images[0] | product_img_url: '200x200' | json -}},
+  "id": {{ item.id | json }}, "quantity": {{ item.quantity | json }}
+
+  }
+  {% unless forloop.last %},{% endunless %}{%- endfor -%}
+], "addons":[
+{%- assign first_addon = true -%}
+{%- for item in cart.items -%}
+  {%- assign addon_field = item.product.metafields.custom.addon_products -%}
+  {%- if addon_field -%}
+    {%- if addon_field.type == 'list.product_reference' -%}
+      {%- for addon_product in addon_field.value -%}
+        {%- for variant in addon_product.variants -%}
+          {%- if variant.available -%}
+            {%- unless first_addon -%},{%- endunless -%}
+            {%- assign first_addon = false -%}
+            {
+              "product_title": {{ addon_product.title | json }},
+              "productImage": {{ addon_product.featured_image | img_url: '200x200' | json }},
+              "id": {{ variant.id | json }},
+              "quantity": 0,
+              "isAddon": true,
+              "variant_title": {{ variant.title | json }},
+              "variant_price": {{ variant.price | json }}{% if variant.compare_at_price %},
+              "variant_compare_at_price": {{ variant.compare_at_price | json }}{% endif %}
+            }
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+] }

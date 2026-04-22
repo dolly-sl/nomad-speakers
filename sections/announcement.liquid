@@ -1,0 +1,90 @@
+{% if section.blocks.size > 0 %}
+  <!-- Announcement -->
+
+  {% if section.settings.show_announcement %}
+    <div class="announcement-bar relative" style="background-color: {{section.settings.announcementColor}};">
+      <div class="container-1410 flex-align-center">
+        <div class="js__announcement-slider ">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'announcement' %}
+                {% if block.settings.announcement_link != blank %}
+                  <div class="slide swiper-slide">
+                    <div class="content">
+                      {{ block.settings.header_text }}
+                      <a
+                        href="{{block.settings.announcement_link}}"
+                        title="{{block.settings.announcement_link_text}}"
+                      >
+                        {{- block.settings.announcement_link_text -}}
+                      </a>
+                    </div>
+                  </div>
+
+                {% else %}
+                  <div class="slide swiper-slide">
+                    {{ block.settings.header_text }}
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Close Button -->
+        {% comment %} <a href="#" title="close" id="announcement-close" class="close"> </a> {% endcomment %}
+      </div>
+    </div>
+    <script>
+      $('body').addClass('announcement-visible');
+    </script>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "info": "Toggle to display or hide the announcement bar at the top of your site to share important updates, promotions, or company news with visitors",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "announcementColor",
+      "label": "Announcement Color",
+      "info": "Choose the background color for the announcement bar to match your brand colors and create a cohesive visual experience",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "header_text",
+          "label": "Text",
+          "info": "Main announcement text content displayed in the announcement bar to inform customers about promotions, shipping updates, or important news"
+        },
+        {
+          "type": "url",
+          "id": "announcement_link",
+          "label": "Link",
+          "info": "Optional URL link where customers will be directed when clicking the announcement (leave blank for non-clickable announcements)"
+        },
+        {
+          "type": "text",
+          "id": "announcement_link_text",
+          "label": "Link Text",
+          "info": "Text displayed on the clickable link button within the announcement to encourage customer action"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

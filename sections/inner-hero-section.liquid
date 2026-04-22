@@ -1,0 +1,193 @@
+{% if section.settings.image != blank and section.settings.title != blank %}
+  <div class="inner-hero-section  {%if section.settings.smallHeight == true%} small-height {%endif%}   color-{{ section.settings.color_scheme }}">
+    {%- if section.settings.videobanner -%}
+      <div class="image-section video-section">
+        <div class="video-wrapper none-980">
+          {% if section.settings.video contains '.mp4' %}
+            <video
+              muted
+              loop
+              autoplay
+              playsinline
+            >
+              <source src="{{ section.settings.video }}" type="video/mp4">
+            </video>
+          {% else %}
+            {% if section.settings.video != blank %}
+              {% assign videoId = section.settings.video | split: 'vimeo.com/' %}
+              <iframe
+                src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                frameborder="0"
+                allow="fullscreen"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            {% endif %}
+          {% endif %}
+        </div>
+        {% if section.settings.videoMobile != blank %}
+          <div class="video-wrapper block-980">
+            {% if section.settings.videoMobile contains '.mp4' %}
+              <video
+                muted
+                loop
+                autoplay
+                playsinline
+              >
+                <source src="{{ section.settings.videoMobile }}" type="video/mp4">
+              </video>
+            {% else %}
+              {% if section.settings.videoMobile != blank %}
+                {% assign videoId = section.settings.videoMobile | split: 'vimeo.com/' %}
+                <iframe
+                  src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                  frameborder="0"
+                  allow="fullscreen"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="video-wrapper block-980">
+            {% if section.settings.video contains '.mp4' %}
+              <video
+                muted
+                loop
+                autoplay
+              >
+                <source src="{{ section.settings.video }}" type="video/mp4">
+              </video>
+            {% else %}
+              {% if section.settings.video != blank %}
+                {% assign videoId = section.settings.video | split: 'vimeo.com/' %}
+                <iframe
+                  src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                  frameborder="0"
+                  allow="fullscreen"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% else %}
+      <div class="image-section">
+        {% assign imageAlt = section.settings.image.alt %}
+        {% if imageAlt == blank %}
+          {% assign imageAlt = section.settings.title %}
+        {% endif %}
+        {% include 'image_code'  with  mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt %}
+      </div>
+    {% endif %}
+    <div
+      class="container-1420"
+    >
+      <div class="content">
+        {% if section.settings.pretitle %}
+          <span class="pre-title">
+            {{ section.settings.pretitle }}
+          </span>
+        {% endif %}
+        {% if section.settings.title != blank %}
+          <h1 class="small h2">
+            {{ section.settings.title }}
+          </h1>
+        {% else %}
+          <h1 class="small h2">
+            {{ page.title }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          {{ section.settings.description }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Inner Hero Section",
+  "tag": "section",
+  "class": "section-inner-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎬 Background Media Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Background Image",
+      "info": "Upload a high-quality background image for desktop/laptop screens. This will be the main visual element of your inner hero section (typically used on inner pages like About, Contact, etc.). Recommended size: 2880 x 700px for optimal display on large screens."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobileImage",
+      "label": "Mobile Background Image",
+      "info": "Upload a mobile-optimized background image for smartphone devices. This should be optimized for mobile viewing and may have different dimensions than the desktop version. Recommended size: 720 x 600px for optimal display on smaller screens."
+    },
+    {
+      "type": "checkbox",
+      "id": "videobanner",
+      "label": "Enable Video Background Mode",
+      "info": "Toggle to use a video background instead of an image. When enabled, videos will automatically play, loop continuously, and be muted by default for optimal user experience without audio interruption.",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Desktop Video URL",
+      "info": "Enter the URL for your desktop background video. Supports MP4 video files or Vimeo URLs (paste the full Vimeo URL). Videos will autoplay, loop, and be muted automatically. Keep file sizes optimized for faster loading."
+    },
+    {
+      "type": "url",
+      "id": "videoMobile",
+      "label": "Mobile Video URL",
+      "info": "Enter the URL for your mobile background video. If left blank, the desktop video will be used on mobile devices. Supports MP4 files or Vimeo URLs. Consider using smaller file sizes for mobile for better performance."
+    },
+    {
+      "type": "header",
+      "content": "📝 Section Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Optional Pre-Title / Subtitle",
+      "info": "Add a small prefix text that appears above the main title (e.g., 'About Us', 'Our Story', 'Get In Touch'). This helps create visual hierarchy and adds context to the page title below."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Page Title / Heading",
+      "info": "Enter the primary heading for this inner page section. This will be displayed prominently on top of the background image. If left blank, the page title will be used automatically."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Page Description / Supporting Text",
+      "info": "Add supporting text that appears below the title. Use rich text formatting to create paragraphs, add bullet points, emphasize key information, or include links. Perfect for providing additional context or a brief introduction to the page content."
+    },
+    {
+      "type": "header",
+      "content": "📏 Banner Height Control"
+    },
+    {
+      "type": "checkbox",
+      "id": "smallHeight",
+      "label": "Enable Compact / Short Height",
+      "info": "When checked, the banner will use a reduced height setting for a more compact, condensed display. When unchecked, the banner uses the standard extended height. Useful when you need to conserve vertical space or create a more streamlined look."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inner Hero Section"
+    }
+  ]
+}
+{% endschema %}

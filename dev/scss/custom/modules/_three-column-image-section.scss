@@ -1,0 +1,48 @@
+.three-column-image-section {
+  position: relative;
+  .columns {
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
+    width: calc(100% + 40px);
+    @include MQ(MQ-980) {
+      margin-left: -20px;
+      width: calc(100% + 20px);
+    }
+    @include MQ(MQ-600) {
+      margin-left: 0;
+      width: 100%;
+    }
+    li {
+      margin-left: 40px;
+      width: calc((100% / 3) - 40px);
+      @include MQ(MQ-980) {
+        margin-left: 20px;
+        width: calc((100% / 3) - 20px);
+      }
+
+      @include MQ(MQ-600) {
+        display: none;
+        &:first-child {
+          display: block;
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+      .image-section {
+        border-radius: 10px;
+        background: $color-gray;
+        overflow: hidden;
+        max-height: 609px;
+        height: 50vw;
+        @include MQ(MQ-600) {
+          height: 404px;
+        }
+        img {
+          @include img-object-cover;
+          position: relative;
+        }
+      }
+    }
+  }
+}

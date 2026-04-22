@@ -1,0 +1,242 @@
+/* Forms */
+
+.form-section {
+  h1 {
+    text-align: center;
+  }
+  form {
+    .contact-section-title {
+      margin-bottom: 25px;
+      a {
+        margin-left: 10px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        font-family: var(--font-family-primary);
+        color: $color-green !important;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    label {
+      font-size: 12px !important;
+      font-weight: normal !important;
+      font-style: normal !important;
+      line-height: normal !important;
+      color: $color-black !important;
+      margin-bottom: 4px !important;
+      display: inline-block !important;
+    }
+    input[type="text"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      width: 100%;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      border: var(--input-border-thickness) solid var(--input-border-color) !important;
+      width: 100%;
+      border-radius: var(--input-radius) !important;
+      height: 45px !important;
+      font-family: var(--font-family-primary) !important;
+      font-size: var(--input-font-size) !important;
+      font-weight: var(--input-font-weight) !important;
+      font-style: var(--input-font-style) !important;
+      line-height: var(--input-line-height) !important;
+      color: var(--input-text-color) !important;
+      text-transform: var(--input-text-transform) !important;
+      padding: 0px 10px !important;
+      background: $color-white !important;
+      // @include MQ(MQ-480) {
+      //   padding: 7px 20px 6px;
+      //   // height: 34px;
+      // }
+      margin-bottom: 20px !important;
+
+      opacity: 1;
+      -webkit-text-fill-color: var(--input-text-color) !important;
+      -webkit-box-shadow: 1000px 0px 0px 0px $color-white inset;
+      &::placeholder {
+        opacity: 1 !important;
+        font-size: var(--input-font-size) !important;
+        font-weight: var(--input-font-weight) !important;
+        font-style: var(--input-font-style) !important;
+        line-height: var(--input-line-height) !important;
+        color: var(--input-text-color) !important;
+      }
+      option {
+        color: var(--input-text-color);
+      }
+    }
+    button[aria-label="Search Countries"] {
+      height: 45px !important;
+    }
+    input[type="tel"] {
+      border: none !important;
+      margin: 0 !important;
+    }
+    select {
+      padding: 0px 45px 0px 23px;
+      background: url("icon-arrow-down.webp") no-repeat right 20px center / 13px
+        var(--input-border-background-color);
+      -webkit-text-fill-color: none !important;
+      -webkit-box-shadow: none !important;
+    }
+    textarea {
+      height: 200px;
+      padding: 20px 30px;
+      border-radius: 10px;
+    }
+    .checkboxOuter {
+      margin: 0;
+      margin-bottom: 20px;
+      label {
+        display: inline-block !important;
+        top: 0px !important;
+        position: relative;
+        padding-left: 15px;
+        font-family: var(--font-family-primary);
+        font-size: var(--input-font-size);
+        font-weight: var(--input-font-weight);
+        font-style: var(--input-font-style);
+        line-height: var(--input-ine-height);
+        color: var(--input-text-color);
+        cursor: pointer;
+        &:after {
+          z-index: 2;
+          content: "";
+          vertical-align: middle;
+          text-align: center;
+          position: absolute;
+          cursor: pointer;
+          height: 20px;
+          width: 20px;
+          top: 0px;
+          left: -17px;
+          background: transparent;
+          border-radius: 0px;
+          background: $color-white;
+          border: solid 1px $color-dark-gray !important;
+        }
+      }
+      input[type="checkbox"]:checked + label:after {
+        background: url("boost-icon-ui-check-mark-yes.webp") no-repeat center /
+          20px;
+      }
+      input[type="checkbox"] {
+        visibility: hidden;
+        margin: 0;
+      }
+    }
+    // labl animation
+    .floating-label-main {
+      position: relative;
+      margin-bottom: 20px;
+      @include MQ(MQ-480) {
+        margin-bottom: 33px;
+      }
+      input {
+        margin-bottom: 0 !important;
+      }
+      &.textarea {
+        .floating-label {
+          left: 23px;
+        }
+      }
+    }
+    .floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 23px;
+      top: 11px;
+      margin-bottom: 0;
+      transition: 0.2s ease all;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.71;
+      color: $color-dark-gray;
+    }
+    input {
+      &:focus {
+        ~ {
+          .floating-label {
+            top: 7px;
+            // left: 20px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: normal;
+            color: $color-black;
+          }
+        }
+      }
+      &:not(:placeholder-shown) {
+        ~ {
+          .floating-label {
+            top: 7px;
+            // left: 20px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: normal;
+            color: $color-black;
+          }
+        }
+      }
+    }
+    textarea {
+      &:focus {
+        padding-top: 20px !important;
+        ~ {
+          .floating-label {
+            top: 7px;
+            // left: 20px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: normal;
+            color: $color-black;
+          }
+        }
+      }
+      &:not(:placeholder-shown) {
+        ~ {
+          .floating-label {
+            top: 7px;
+            // left: 20px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: normal;
+            color: $color-black;
+          }
+        }
+      }
+    }
+  }
+}
+
+input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}

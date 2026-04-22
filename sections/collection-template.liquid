@@ -1,0 +1,233 @@
+{% assign collectionBanner = collection.metafields.custom.collection_hero_banner.value %}
+{% assign collectionImage = collectionBanner.image %}
+<div class="collection-hero-section">
+  <div class="image-section">
+    {% if collectionImage != blank %}
+      {% assign imageAlt = collectionImage.alt %}
+      {% if imageAlt == blank %}
+        {% assign imageAlt = collectionBanner.title %}
+      {% endif %}
+      {% include 'image_code'  with  mobileImage: collectionImage, tabletImage: collectionImage, desktopImage: collectionImage, imageAlt: imageAlt %}
+    {% else %}
+      {% include 'image_code'  with  mobileImage: collection.image, tabletImage: collection.image, desktopImage: collection.image, imageAlt: imageAlt %}
+      {% comment %} <img src="https://cdn.shopify.com/s/files/1/1812/7853/files/collection-hero-1.jpg?v=1759178777"> {% endcomment %}
+    {% endif %}
+  </div>
+  <div class="container-1590">
+    <span class="pre-title">{{ collectionBanner.pre_title }}</span>
+    {% if collectionBanner.title != blank %}
+      <h1 class="h2 small">{{ collectionBanner.title }}</h1>
+    {% else %}
+      <h1 class="h2 small">{{ collection.title }}</h1>
+    {% endif %}
+  </div>
+</div>
+
+{%- assign limit = 24 -%}
+{% paginate collection.products by limit %}
+  <div class="collection" data-section-id="{{ section.id }}" data-section-type="collection-template">
+    <div
+      class="collection-section"
+      id="CollectionSection"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-template"
+      data-sort-enabled="{{ section.settings.sort_enable }}"
+    >
+      <div class="container-1530">
+        <div class="collection-list">
+          <ul class="flex-wrap">
+            {% for collection in collections %}
+              <li>
+                <a href="{{ collection.url }}">{{ collection.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="collection-filter-section flex">
+          <div class="item--count">
+            {% comment %}
+                 {% if paginate.current_page == paginate.pages %}
+                {% assign currentOffset = paginate.current_offset %}
+                {% assign items = paginate.items %}
+                {% assign lastPageItem = items | to_i | minus: currentOffset | to_i %}
+
+                Showing {{ lastPageItem }} of {{ collection.products_count }} items
+              {% else %}
+                Showing {{ limit }} of {{ collection.products_count }} items
+              {% endif %}
+            {% endcomment %}
+            {{ collection.products_count }} Products
+          </div>
+          {% if section.settings.sort_enable %}
+            <div class="sort-by">
+              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+              <select
+                name="sort_by"
+                id="SortBy"
+                class="filters-toolbar__input hidden custom-dropdown-select"
+                aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                data-default-sortby="{{ collection.default_sort_by }}"
+                data-select-input
+              >
+                {%- for option in collection.sort_options -%}
+                  <option
+                    value="{{ option.value }}"
+                    {% if option.value == sort_by %}
+                      selected="selected"
+                    {% endif %}
+                  >
+                    {{ option.name }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {% endif %}
+        </div>
+        <ul class="collection__product-list flex">
+          {% for productRelated in collection.products %}
+            {% if productRelated.handle contains 'docapp-free-gift-' %}{% continue %}{% endif %}
+
+            <li class="product-card">
+              {% include 'product_Card'  with  productRelated: productRelated , show_price: true, show_tags: true, show_auto_tags: true, show_title: true, show_fav: false, show_secondary_button: false %}
+            </li>
+          {% else %}
+            {% comment %}
+              Add default products to help with onboarding for collections/all only.
+              The onboarding styles and products are only loaded if the
+              store has no products.
+            {% endcomment %}
+            {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+              <li class="grid__item product-card 22">
+                <div class="grid grid--uniform">
+                  {% for i in (1..limit) %}
+                    <div class="grid__item">
+                      <div class="grid-view-item">
+                        <a href="#" class="grid-view-item__link">
+                          <div class="grid-view-item__image">
+                            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                          </div>
+                          <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+                          <div class="grid-view-item__meta">
+                            <span class="product-price__price">$19.99</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </li>
+            {% else %}
+              {%- assign is_empty_collection = true -%}
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        {% if is_empty_collection %}
+          <div class="grid__item small--text-center">
+            <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+          </div>
+        {% endif %}
+
+        {%- if paginate.pages > 1 -%}
+          {% include 'pagination', paginate: paginate %}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {% for productRelated in collection.products %}
+    {% render 'product-modal', productData: productRelated %}
+  {% endfor %}
+{% endpaginate %}
+
+{% if collection.metafields.custom.collection_full_width_content_section.value != blank %}
+  {% assign collectionSection = collection.metafields.custom.collection_full_width_content_section.value %}
+
+  <div class="collection-full-width-content">
+    <div class="container-930">
+      <h2 class="h5">{{ collectionSection.title }}</h2>
+      <div class="full-format medium">
+        {{ collectionSection.content | metafield_tag }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Collection pages"
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "subTitle",
+      "label": "SubTitle for Collection All",
+      "info": "Subtitle text displayed below the main collection title on the All Products collection page to provide additional context or description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image for Collection All",
+      "info": "Hero banner image displayed at the top of the All Products collection page to set the visual tone and create brand presence"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Products per row (grid only)"
+      },
+      "info": "Set how many products to display in each row on the collection grid view. Adjust based on your product images and design preferences.",
+      "default": 4,
+      "min": 2,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": {
+        "en": "Rows per page (grid only)"
+      },
+      "info": "Control how many rows of products to show per page before pagination. This affects initial page load and user experience.",
+      "default": 2,
+      "min": 2,
+      "max": 8,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": {
+        "en": "Show product vendors"
+      },
+      "info": "Toggle to display the manufacturer or vendor name on each product card to help customers identify product sources",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sort_enable",
+      "label": {
+        "en": "Enable sorting"
+      },
+      "info": "Allow customers to sort products by various criteria such as price, title, or newest additions to improve browsing experience",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "tags_enable",
+      "label": {
+        "en": "Enable tag filtering"
+      },
+      "info": "Enable product tag filtering to help customers quickly find products by specific attributes, categories, or features",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection"
+    }
+  ]
+}
+{% endschema %}

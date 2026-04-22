@@ -1,0 +1,214 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  {% if section.settings.title != blank %}
+    <div class="three-column-blog  three-column-blog-slider section-{{ section.id }}-padding ">
+      <div class="container-1590">
+        <div class="top-section">
+          <h2 class="h4">
+            {{ section.settings.title }}
+          </h2>
+        </div>
+        <div class="slider-outer">
+          <div class="swiper js_blog-slider section-{{ section.id }}">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {% assign articleRelated = block.settings.article %}
+                <div class="swiper-slide articlecard--outer ">
+                  {%
+                    include 'article_Card' with articleRelated: articleRelated
+                    , show_tags: true
+                    , show_title: true
+                    , show_shortdescription: true
+                    , show_readMore: true
+                  %}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="swiper-pagination swiper-pagination-blog pagination-{{ section.id }}"></div>
+          <div
+            class="swiper-button-prev swiper-button-blog-prev-section-{{ section.id }} swiper-button-blog-prev "
+          ></div>
+          <div
+            class="swiper-button-next swiper-button-blog-next-section-{{ section.id }} swiper-button-blog-next"
+          ></div>
+        </div>
+      </div>
+     
+    </div>
+  {%- endif -%}
+{%- endif -%}
+ {%- for block in section.blocks -%}
+              {% assign articleRelated = block.settings.article %}
+      {% render 'video-model', articleData: articleRelated %}
+    {% endfor %}
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.section-{{ section.id }}', {
+      slidesPerView: 3,
+      spaceBetween: 28,
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-blog-next-section-{{ section.id }}',
+        prevEl: '.swiper-button-blog-prev-section-{{ section.id }}',
+      },
+      pagination: {
+        el: '.pagination-{{ section.id }}',
+        clickable: true,
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 10,
+          slidesPerView: 1.2, // or 1.3 depending on how much you want to show
+          centeredSlides: true,
+        },
+        601: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        1025: {
+          slidesPerView: 3,
+          spaceBetween: 28,
+        },
+      },
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Three Column Blog Slider",
+  "tag": "section",
+
+  "settings": [
+    {
+      "type": "header",
+      "content": "Blog Slider Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure the heading for your blog article slider section. This section displays featured blog posts in a responsive three-column slider that adapts beautifully across all device sizes."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter the main heading for the blog slider (e.g., 'Latest Blog Posts', 'Featured Articles', 'From Our Blog', 'News & Updates'). This title appears above the blog post slider and should clearly communicate what type of content visitors will find below."
+    },
+
+    {
+      "type": "header",
+      "content": "Call-to-Action Button"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add an optional call-to-action button below the blog slider to encourage visitors to explore more blog content. This provides a clear path for readers who want to see all your blog posts or visit your main blog page."
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button Text",
+      "info": "Enter the text that will appear on the call-to-action button (e.g., 'View All Posts', 'Read More Articles', 'Browse Blog', 'See All'). This should be a short, action-oriented phrase that clearly communicates what visitors will find when they click. Keep it concise and compelling."
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button Link",
+      "info": "Enter the URL where the button should link to. This could be your main blog page (/blogs/news), a specific blog category or tag, or any other relevant page you want to direct visitors to. This button only appears if button text is also provided."
+    },
+
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Use these settings to control the spacing around your blog slider section. Adjust the padding to create proper visual separation from other sections on the page."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the blog slider and content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the blog slider and content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Blog Article",
+
+      "settings": [
+        {
+          "type": "header",
+          "content": "Article Selection"
+        },
+        {
+          "type": "paragraph",
+          "content": "Select the specific blog article you want to feature in this slider slot. Each article block creates one card in the three-column blog slider, so you can feature multiple articles."
+        },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Select Article",
+          "info": "Choose a blog article from your store's blog to display in this slider card. The article card will automatically display its featured image, title, publication date, excerpt, and a read more link. For best visual results, ensure the article has an engaging featured image and a compelling excerpt or summary. You can add multiple article blocks to create a slider with multiple blog posts."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Column Blog Slider"
+    }
+  ]
+}
+{% endschema %}

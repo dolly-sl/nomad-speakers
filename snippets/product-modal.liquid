@@ -1,0 +1,182 @@
+<div
+  id="modal-{{ productData.id }}"
+  class="modal-quick-view 2222 modal modal-{{ productData.id }}"
+  style="display: none"
+  data-recharge="{% if productData.selling_plan_groups[0].selling_plans %}true{%else%}false{%endif%}"
+>
+  <!-- Modal content -->
+
+  <div class="modal-content collection-popup">
+    <button class="close js__quick-view-popup-close" aria-label="Close Popup" ></button>
+
+ 
+    
+    <div class="product flex">
+      <div class="image-wrapper">
+      <div class="image-section">
+
+          {% assign imageAlt = productData.featured_image.alt %}
+      {% if imageAlt == blank %}
+       {% assign imageAlt = productData.title %}
+      {% endif %}
+          {% render 'image_code_small'  with  mobileImage:  productData.featured_image, tabletImage:  productData.featured_image, desktopImage:  productData.featured_image, imageAlt:  imageAlt %}
+  
+      </div>
+      </div>
+      <div class="product__information">
+        <!-- Hide in Small Screen Devices -->
+{% if show_tags %}
+      <span class="product-card__tags-status">
+        {% render 'product_tags' with productData %}
+
+        {% if productData.compare_at_price > productData.price %}
+          <span class="tag sale">Sale</span>
+        {% endif %}
+      </span>
+    {% endif %}
+        <h2 class="h5  js__popup-product-name-{{ productData.id }}">
+         {{ productData.title }}
+        </h2>
+        <div
+          class="product-single__prices js__price-popup-price-{{ productData.id }}"
+          itemprop="price"
+          content="{{ productData.price_min | divided_by: 100.00 }}"
+        >
+          <span>{{ productData.price_min | money_without_trailing_zeros }}</span>
+        </div>
+      {%- if productData.description != blank -%}
+        <div class="description">
+          <p>{{ productData.description | strip_html | truncate: 150 }}</p>
+         
+        </div>
+      {%- endif -%}
+        
+        
+
+        {% if productData.variants != blank %}
+          {% unless productData.has_only_default_variant %}
+            <div class="pdp-variant-options">
+              {% comment %} Custom {% endcomment %}
+              {% for option in productData.options_with_values %}
+                <div class="variant-option" rc-option{{ forloop.index }}-selector data-type="TYPE">
+                  <div class="label">
+                    Select {{ option.name -}}
+                    <span class="hide selected"></span>
+                  </div>
+
+                  <ul
+                    data-index="{{ forloop.index }}"
+                    class="variant-option-radio js__popup-variant-select js__popup-variant-select-{{ productData.id }} js__popup-variant-select{{ forloop.index }}"
+                  >
+                    {% for value in option.values %}
+                      <li
+                        class="box "
+                        data-option="{{ forloop.index }}"
+                        data-id="{{productData.id}}"
+                        data-value="{{ value | escape }}"
+                      >
+                        {{ value }}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+
+              {% comment %} SM {% endcomment %}
+
+              {% for variant in productData.variants %}
+                <div class="variant form__group form__group--radio hide">
+                  <label
+                    class="pdp-option__select{% if forloop.first == true %} active{% endif %}"
+                    data-variant_id="{{ variant.id }}"
+                  >
+                    <input
+                      {% if forloop.first == true %}
+                        checked
+                      {% endif %}
+                      name="radio--{{ productData.id }}"
+                      type="radio"
+                    >
+                    <span class="checkmark"></span>
+                    <span class="variant__info">
+                      {{ variant.title }} - {{ variant.price | money }}
+
+                      {% assign basePrice = productData.price_min %}
+                      {% assign varNumber = variant.title | abs %}
+
+                      {% assign normalPrice = basePrice | times: varNumber %}
+                      {% assign savedPrice = normalPrice | minus: variant.price %}
+
+                      {% if savedPrice != 0 and product.variants.size > 1 %}
+                        <span class="saved"> (Save {{ savedPrice | money }}) </span>
+                      {% endif %}
+                    </span>
+                  </label>
+                </div>
+              {% endfor %}
+              <div class="hide">
+                
+                <select id="product-select-{{productData.id}}" name="id" style="display: none;" aria-label="Product Variant">
+                  {% for variant in productData.variants %}
+                  {% if variant.available %}
+                  <option {% if variant==current_variant %}selected="selected"  {% endif %} data-price="{{variant.price | money_without_trailing_zeros}}" value="{{ variant.id }}">
+                    {{ variant.title }}
+                  </option>
+                  {% else %}
+                  <option disabled="disabled" data-soldout="true" data-price="{{variant.price |money_without_trailing_zeros}}" value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              
+            </div>
+            </div>
+          {% endunless %}
+        {% endif %}
+
+     
+        
+          {% if productData.available %}
+          <div class="product__actions flex">
+            <div class="btn-quantity-outer flex">
+              <div class="action action--qty js__modal-popup-qty-{{productData.id}}">
+                <div class="qty js__popup-quantity quantity-outer">
+                  <button class="minus-qty js-plus-minus-qty" aria-label="Minus" data-type="minus"></button>
+                  <input
+                    type="text"
+                    class="quantity-selector qty-val js-quantity-selector-{{productData.id}}"
+                    value="1" aria-label="Quantity"
+                    id="Quantity"
+                    name="quantity"
+                  >
+                  <button class="plus-qty js-plus-minus-qty" aria-label="Plus" data-type="plus"></button>
+                </div>
+              </div>
+              <div class="action action--atc">
+                {%- assign current_variant = productData.selected_or_first_available_variant -%}
+                <button data-variant-id="{{current_variant.id}}"  data-id="{{productData.id}}" class="btn--primary js__modal-popup-addtocart js__modal-popup-addtocart-{{productData.id}}">Add To Cart
+                </button>
+              </div>
+            </div>
+          
+          </div>
+
+        {% else %}
+          <div class="product__actions flex">
+            <div class="action action--atc">
+              <button disabled class="btn--primary yellow">Sold Out</button>
+            </div>
+          
+          </div>
+        {% endif %}
+       
+
+        <a class="link--primary" href="{{productData.url}}" aria-label="Learn More About {{ productData.title }}">
+          Learn More About the Product
+        </a>
+        {% comment %} Product information ends {% endcomment %}
+      </div>
+      {% comment %} Actions {% endcomment %}
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="full-width-help-center">
+  <div class="container-1498">
+    <div class="faq-section">
+      <div class="inner-div">
+        <div class="heading-section">
+          {% if section.settings.pretitle != blank %}
+            <span class="pre-title">{{ section.settings.pretitle }}</span>
+          {% endif %}
+          {%if section.settings.pagetitle != blank %}
+            <h1 class="small">{{ section.settings.pagetitle }}</h1>
+            {%else %}
+          <h1 class="small">{{ page.title }}</h1>
+          {%endif %}
+          <div class="description ipad-block ">
+            {% if section.settings.description != blank %}
+              {{ section.settings.description }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="flex main-faq-content">
+          {% if section.settings.title != blank %}
+            <div class="left-content ipad-none">
+              <h2 class="h6">
+                {{ section.settings.title }}
+              </h2>
+              {% if section.settings.description != blank %}
+                {{ section.settings.description }}
+              {% endif %}
+              <ul class="left-links">
+                {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'list' -%}
+                <li><a href="#{{ block.settings.heading | handleize }}">{{block.settings.heading}}</a></li>
+                {%- endcase -%}
+            {%- endfor -%}
+              </ul>
+            </div>
+          {% endif %}
+
+          <ul class="accordian js__accordian">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'list' -%}
+                  <li class="heading" id="{{ block.settings.heading | handleize }}">
+                    <h3 class="h4">
+                      {{ block.settings.heading }}
+                    </h3>
+                  </li>
+                {%- when 'question' -%}
+                  <li class="faq-block">
+                    {% if block.settings.title != blank %}
+                      {% include 'icon-cross' %}
+                      {% include 'icon-faq-plus' %}
+                      <h4 class="h6">
+                        {{ block.settings.title }}
+                      </h4>
+                    {%- endif -%}
+                    <div class="content full-format medium">
+                      {{ block.settings.faqAnswer }}
+                    </div>
+                  </li>
+              {%- endcase -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📄 Page Header Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure the main header section that appears at the top of your FAQ page. These settings control the page title, pre-title, and introductory description."
+    },
+    {
+      "type": "text",
+      "id": "pagetitle",
+      "label": "Page Title",
+      "info": "Enter the main page title that will be displayed prominently at the top of the FAQ section. This overrides the page title if left blank."
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre Title",
+      "info": "Add a small text label that appears above the main page title. This is typically used for section identification like 'Support' or 'Help Center'."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Page Description",
+      "info": "Enter an introductory description or summary that appears below the page title on desktop and mobile. This helps visitors understand what information they'll find in the FAQ section."
+    },
+    {
+      "type": "header",
+      "content": "📋 Sidebar & Content Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "These settings control the left sidebar navigation and FAQ content organization. The sidebar displays section headings for easy navigation."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Sidebar Heading",
+      "info": "Enter a heading for the left sidebar navigation. This appears on desktop views and provides quick access to different FAQ sections."
+    },
+    {
+      "type": "header",
+      "content": "🔗 Additional Links"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure optional links to additional resources or related pages."
+    },
+    {
+      "type": "text",
+      "id": "linkText",
+      "label": "Link Text",
+      "info": "Enter the text that will appear on an optional link button. This could be 'Contact Support', 'View Documentation', or any relevant action you want to promote."
+    },
+    {
+      "type": "url",
+      "id": "textLink",
+      "label": "Link URL",
+      "info": "Enter the URL where the optional link should navigate to. This could be a support page, documentation, or any relevant destination."
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "list",
+      "name": "Section Separator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Section Heading",
+          "info": "Enter a heading that will create a visual separator in the FAQ list. This heading appears in both the sidebar navigation and as a section header in the FAQ content. Use this to organize FAQ items into logical groups (e.g., 'Account Questions', 'Shipping Information', 'Returns & Refunds')."
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "info": "Enter the frequently asked question that customers can click to reveal the answer. Make it clear, concise, and searchable. This text appears as the clickable accordion header."
+        },
+        {
+          "type": "richtext",
+          "id": "faqAnswer",
+          "label": "Answer",
+          "info": "Provide a detailed, helpful answer to the question. You can format text (bold, italic, links, etc.) and include multiple paragraphs. This content appears when the question is clicked, providing the full response to the customer's query."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ's",
+      "category": "Support & Help"
+    }
+  ]
+}
+{% endschema %}

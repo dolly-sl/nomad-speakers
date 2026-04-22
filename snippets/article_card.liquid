@@ -1,0 +1,202 @@
+{% include 'article_img-script' %}
+
+<div class="article-card">
+  {{ articleRelated.metafields.custom.video_blog.video.value }}
+  <div class="inner-section">
+    {% capture img_id %}ArticleImage-{{ articleRelated.image.id }}{% endcapture %}
+    {% capture img_wrapper_id %}ArticleImageWrapper-{{ articleRelated.image.id }}{% endcapture %}
+    {%- assign img_url = articleRelated.image | img_url: 'master' -%}
+
+    {% if articleRelated.metafields.custom.video_blog.value != blank and articleRelated.block != 'video' %}
+      <div class="video-wrapper" data-id="{{ articleRelated.id }}">
+        <div data-image-loading-animation class="image-section custom-article-image-{{ articleRelated.id }}">
+          <img
+            class="lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 720, 905, 1090, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ articleRelated.image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ articleRelated.title }}"
+          >
+        </div>
+      </div>
+
+    {% else %}
+      {% if articleRelated.image != blank %}
+        <a
+          href="{{ articleRelated.url }}"
+          aria-label="Read More About {{ articleRelated.title }}"
+          title="Read More About {{ articleRelated.title }}"
+          data-image-loading-animation
+
+          class="image-section custom-article-image-{{ articleRelated.id }}"
+        >
+          <img
+            class="lazyload"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 720, 905, 1090, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ articleRelated.image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ articleRelated.title }}"
+          >
+        </a>
+      {% endif %}
+    {% endif %}
+    {% comment %} video {% endcomment %}
+
+    <noscript>
+      <p>
+        <a href="{{ articleRelated.url }}" title="{{ articleRelated.title }}">
+          {{ article | img_url: '455x300', scale: 2 | img_tag: articleRelated.title }}
+        </a>
+      </p>
+    </noscript>
+
+    <div class="content">
+      {%- if show_tags -%}
+        <ul class="tags-wrapper">
+          {% assign split_1 = articleRelated.url | split: '/blogs/' %}
+          {% assign split_2 = split_1[1] | split: '/' %}
+          {% assign blog_handle = split_2[0] | strip %}
+          {% assign article_blog = blogs[blog_handle] %}
+
+          {% for tag in articleRelated.tags %}
+            <li class="tags">
+              <a href="{{article_blog.url}}/tagged/{{ tag | handleize }}" title="{{tag}}" class="tag">{{ tag }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {%- if show_tags_with_limits -%}
+        <ul class="tags-wrapper">
+          {% assign split_1 = articleRelated.url | split: '/blogs/' %}
+          {% assign split_2 = split_1[1] | split: '/' %}
+          {% assign blog_handle = split_2[0] | strip %}
+          {% assign article_blog = blogs[blog_handle] %}
+
+          {% for tag in articleRelated.tags limit: 2 %}
+            <li class="tags">
+              <a href="{{article_blog.url}}/tagged/{{ tag | handleize }}" title="{{tag}}" class="tag">{{ tag }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <h3>
+        <a
+          aria-label="Read More About {{ articleRelated.title }}"
+          title="Read More About {{ articleRelated.title }}"
+          href="{{ articleRelated.url }}"
+        >
+          {{ articleRelated.title | strip_html | truncate: 73 }}
+        </a>
+      </h3>
+
+      {% comment %}
+        {%- if show_time -%}
+          <time>{{ articleRelated.published_at | date: '%d/%m/%Y' }}</time>
+        {% endif %}
+      {% endcomment %}
+
+      {%- if show_description -%}
+        <div class="full-format small">
+          <p class="medium ">
+            {%- if articleRelated.excerpt.size > 0 -%}
+              {{ articleRelated.excerpt | strip_html | truncate: 120 }}
+            {%- else -%}
+              {{ articleRelated.content | strip_html | truncate: 120 }}
+            {%- endif -%}
+          </p>
+        </div>
+      {%- endif -%}
+      {%- if show_shortdescription -%}
+        <div class="description">
+          <p class="medium ">
+            {%- if articleRelated.excerpt.size > 0 -%}
+              {{ articleRelated.excerpt | strip_html | truncate: 120 }}
+            {%- else -%}
+              {{ articleRelated.content | strip_html | truncate: 120 }}
+            {%- endif -%}
+          </p>
+        </div>
+      {%- endif -%}
+      {%- if show_moreshortdescription -%}
+        <div class="description">
+          <p>
+            {%- if articleRelated.excerpt.size > 0 -%}
+              {{ articleRelated.excerpt | strip_html | truncate: 120 }}
+            {%- else -%}
+              {{ articleRelated.content | strip_html | truncate: 120 }}
+            {%- endif -%}
+          </p>
+        </div>
+      {%- endif -%}
+
+      {%- if show_readMore -%}
+        <a
+          href="{{ articleRelated.url }}"
+          class="link--primary small"
+          aria-label="Read More About {{ articleRelated.title }}"
+          title="Read More About {{ articleRelated.title }}"
+          >Read More</a
+        >
+      {% endif %}
+    </div>
+  </div>
+</div>
+ {% comment %} {% assign videolink = articleRelated.metafields.custom.video_blog.value %}
+{% assign videoUrl = videolink.video | file_url %}
+<div class="article-video-popup">
+  <div class="video-popup-inner">
+    <div class="top-block flex">
+      <h2 class="h4">{{ articleRelated.title }}</h2>
+      <button class="close-popup" data-close-video-popup aria-label="Close Video">
+        {% include 'icon-cross' %}
+      </button>
+    </div>
+
+    <div class="video-container">
+      {% comment %}
+        <video loop autoplay playsinline>
+          <source src="{{ videolink.video | file_url }}" type="video/mp4">
+        </video>
+      {% endcomment %}
+      {% if videoUrl contains '.mp4' %}
+        <video loop autoplay playsinline controls>
+          <source src="{{ videoUrl }}" type="video/mp4">
+        </video>
+      {% else %}
+        {% if videoUrl != blank %}
+          {% assign videoId = videoUrl | split: 'vimeo.com/' %}
+          <iframe
+            src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+            frameborder="0"
+            allow="fullscreen"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+  jQuery(function ($) {
+    const $popup = $('.article-video-popup');
+    const $iframe = $popup.find('iframe');
+
+    $('.video-wrapper').on('click', function () {
+      const videoSrc = $(this).data('video');
+      $iframe.attr('src', videoSrc + '?autoplay=1');
+      $popup.fadeIn(200).css('display', 'flex');
+    });
+
+    $('.close-popup, .article-video-popup').on('click', function (e) {
+      if ($(e.target).is('.article-video-popup, .close-popup')) {
+        $popup.fadeOut(200, function () {
+          $iframe.attr('src', '');
+        });
+      }
+    });
+  });
+</script>  {% endcomment %}

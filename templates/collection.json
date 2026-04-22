@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "inner_hero_section_P46iWe": {
+      "type": "inner-hero-section",
+      "settings": {
+        "videobanner": false,
+        "video": "",
+        "videoMobile": "",
+        "pretitle": "",
+        "title": "{{ collection.title }}",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate nibh quis convallis auctor.</p>"
+      }
+    },
+    "collection_template_89TFqw": {
+      "type": "collection-template",
+      "name": "Collection",
+      "settings": {
+        "subTitle": "",
+        "image": "shopify://shop_images/Collections-All.jpg",
+        "grid": 3,
+        "rows": 2,
+        "show_vendor": false,
+        "sort_enable": true,
+        "tags_enable": true
+      }
+    }
+  },
+  "order": [
+    "inner_hero_section_P46iWe",
+    "collection_template_89TFqw"
+  ]
+}

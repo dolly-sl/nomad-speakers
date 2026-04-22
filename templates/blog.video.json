@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "inner_hero_section_3CGhN9": {
+      "type": "inner-hero-section",
+      "name": "Inner Hero Section",
+      "settings": {
+        "image": "shopify://shop_images/video-hero.jpg",
+        "videobanner": false,
+        "video": "",
+        "videoMobile": "",
+        "pretitle": "More From P2",
+        "title": "VIDEO Help CEnter",
+        "description": "",
+        "smallHeight": true
+      }
+    },
+    "three_column_blog_slider_F8x76R": {
+      "type": "three-column-blog-slider",
+      "blocks": {
+        "block_ydhdpV": {
+          "type": "block",
+          "settings": {
+            "article": "news/golf-ball-pyramids-adding-elegance-to-the-range"
+          }
+        },
+        "block_4mT8Yg": {
+          "type": "block",
+          "settings": {
+            "article": "news/the-history-of-the-golf-ball-from-feathers-to-flight"
+          }
+        },
+        "block_6Q8Gx3": {
+          "type": "block",
+          "settings": {
+            "article": "news/catch-your-wave-at-the-2025-gcssa-show"
+          }
+        },
+        "block_hmQqJT": {
+          "type": "block",
+          "settings": {
+            "article": "news/the-hidden-costs-of-cheap-golf-range-equipment-why-quality-matters"
+          }
+        }
+      },
+      "block_order": [
+        "block_ydhdpV",
+        "block_4mT8Yg",
+        "block_6Q8Gx3",
+        "block_hmQqJT"
+      ],
+      "name": "Three Column Blog Slider",
+      "settings": {
+        "title": "PopULAR VIDEOS",
+        "buttonText": "",
+        "buttonLink": "",
+        "paddingtop": 80,
+        "paddingtopmobile": 40,
+        "paddingbottom": 98,
+        "paddingbottomMobile": 44
+      }
+    },
+    "three_column_blog_slider_FkKpw3": {
+      "type": "three-column-blog-slider",
+      "blocks": {
+        "block_icTEjt": {
+          "type": "block",
+          "settings": {
+            "article": "news/walk-the-course-innisbrook"
+          }
+        },
+        "block_Ba8Kf7": {
+          "type": "block",
+          "settings": {
+            "article": "video/the-p2-shag-picker-plus"
+          }
+        },
+        "block_mygWyE": {
+          "type": "block",
+          "settings": {
+            "article": "news/catch-your-wave-at-the-2025-gcssa-show"
+          }
+        }
+      },
+      "block_order": [
+        "block_icTEjt",
+        "block_Ba8Kf7",
+        "block_mygWyE"
+      ],
+      "name": "Three Column Blog Slider",
+      "settings": {
+        "title": "Replacement & Repair",
+        "buttonText": "",
+        "buttonLink": "",
+        "paddingtop": 0,
+        "paddingtopmobile": 0,
+        "paddingbottom": 100,
+        "paddingbottomMobile": 48
+      }
+    },
+    "blog_template_8dPq6L": {
+      "type": "blog-template",
+      "name": "Blog Section",
+      "settings": {
+        "pretitle": "",
+        "title": "OUR VIDEO LIBRARY",
+        "show_featured_article": true,
+        "featured_article": "",
+        "blogItems": 1
+      }
+    }
+  },
+  "order": [
+    "inner_hero_section_3CGhN9",
+    "three_column_blog_slider_F8x76R",
+    "three_column_blog_slider_FkKpw3",
+    "blog_template_8dPq6L"
+  ]
+}

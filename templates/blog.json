@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "inner_hero_section_3CGhN9": {
+      "type": "inner-hero-section",
+      "name": "Inner Hero Section",
+      "settings": {
+        "image": "shopify://shop_images/blog-hero.jpg",
+        "videobanner": false,
+        "video": "",
+        "videoMobile": "",
+        "pretitle": "The P2 Blog",
+        "title": "Behind the scenes Insights & Perspectives",
+        "description": "",
+        "smallHeight": true
+      }
+    },
+    "featured_article_EnXbmw": {
+      "type": "featured-article",
+      "blocks": {
+        "featuredblog_dCbxWW": {
+          "type": "featuredblog",
+          "settings": {
+            "blog": "news/the-history-of-the-golf-ball-from-feathers-to-flight",
+            "image": "shopify://shop_images/c8c9b2352ad94f78b18495adb58e3a667ca9200b.jpg"
+          }
+        },
+        "featuredblog_bDDXRr": {
+          "type": "featuredblog",
+          "settings": {
+            "blog": "news/enhance-your-course-with-premium-golf-mats"
+          }
+        },
+        "featuredblog_jRXa8t": {
+          "type": "featuredblog",
+          "settings": {
+            "blog": "news/standing-out-in-a-sea-of-sameness-the-power-behind-our-new-tagline-the-difference-is-us",
+            "image": "shopify://shop_images/c8c9b2352ad94f78b18495adb58e3a667ca9200b.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "featuredblog_dCbxWW",
+        "featuredblog_bDDXRr",
+        "featuredblog_jRXa8t"
+      ],
+      "name": "Featured Blog",
+      "settings": {
+        "pretitle": "",
+        "title": "The Latest Featured Story",
+        "paddingtop": 100,
+        "paddingtopmobile": 42,
+        "paddingbottom": 50,
+        "paddingbottomMobile": 62
+      }
+    },
+    "three_column_blog_slider_F8x76R": {
+      "type": "three-column-blog-slider",
+      "blocks": {
+        "block_4mT8Yg": {
+          "type": "block",
+          "settings": {
+            "article": "news/driving-success-why-p2-golf-is-the-ultimate-choice-for-commercial-golf-ball-washers-golf-ball-pickers"
+          }
+        },
+        "block_6Q8Gx3": {
+          "type": "block",
+          "settings": {
+            "article": "news/how-p2-golf-products-teed-up-big-support-on-givingtuesday"
+          }
+        },
+        "block_hmQqJT": {
+          "type": "block",
+          "settings": {
+            "article": "news/a-comprehensive-guide-to-choosing-the-right-equipment-for-different-golf-course-sizes"
+          }
+        },
+        "block_ydhdpV": {
+          "type": "block",
+          "settings": {
+            "article": "news/say-what-moments-that-define-our-customer-experience"
+          }
+        }
+      },
+      "block_order": [
+        "block_4mT8Yg",
+        "block_6Q8Gx3",
+        "block_hmQqJT",
+        "block_ydhdpV"
+      ],
+      "name": "Three Column Blog Slider",
+      "settings": {
+        "title": "Popular Articles",
+        "buttonText": "",
+        "buttonLink": "",
+        "paddingtop": 72,
+        "paddingtopmobile": 0,
+        "paddingbottom": 80,
+        "paddingbottomMobile": 48
+      }
+    },
+    "blog_template_8dPq6L": {
+      "type": "blog-template",
+      "name": "Blog Section",
+      "settings": {
+        "pretitle": "",
+        "title": "All Our ARTICLES",
+        "show_featured_article": true,
+        "featured_article": "",
+        "blogItems": 12
+      }
+    }
+  },
+  "order": [
+    "inner_hero_section_3CGhN9",
+    "featured_article_EnXbmw",
+    "three_column_blog_slider_F8x76R",
+    "blog_template_8dPq6L"
+  ]
+}

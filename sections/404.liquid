@@ -1,0 +1,128 @@
+{% if section.settings.title != blank %}
+  <div class="error-page hero-banner">
+    {%- if section.settings.videobanner -%}
+      <div class="image-section video-section">
+        <div class="video-wrapper">
+          {% if section.settings.video contains '.mp4' %}
+            <video
+              muted
+              loop
+              autoplay
+              playsinline
+            >
+              <source src="{{ section.settings.video }}" type="video/mp4">
+            </video>
+          {% else %}
+            {% if section.settings.video != blank %}
+              {% assign videoId = section.settings.video | split: 'vimeo.com/' %}
+              <iframe
+                src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                frameborder="0"
+                allow="fullscreen"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <div class="image-section">
+        {% assign imageAlt = section.settings.backgroundImage.alt %}
+        {% if imageAlt == blank %}
+          {% assign imageAlt = section.settings.title %}
+        {% endif %}
+        {% include 'image_code'  with  mobileImage: section.settings.backgroundImageMobile, tabletImage: section.settings.backgroundImage, desktopImage: section.settings.backgroundImage, imageAlt: imageAlt %}
+      </div>
+    {% endif %}
+
+    <div class="container-1570">
+      <div class="content">
+        {% if section.settings.pretitle != blank %}
+          <span class="pre-title">{{ section.settings.pretitle }}</span>
+        {% endif %}
+        {% if section.settings.title != blank %}
+          <h1 class="h2 small">{{ section.settings.title }}</h1>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <p>{{ section.settings.subtitle }}</p>
+        {% endif %}
+
+        {% if section.settings.buttonText != blank %}
+          <a
+            class="btn--primary"
+            href="{{ section.settings.buttonUrl }}"
+            title="{{ section.settings.title }}"
+            aria-label="Read More About {{ section.settings.title }}"
+          >
+            {{ section.settings.buttonText }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "404",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "backgroundImage",
+      "label": "Background Image (desktop)",
+      "info": "Background image displayed on the 404 error page for desktop screens. Recommended dimensions: 2880 x 1600px for optimal display quality"
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundImageMobile",
+      "label": "Background Image (mobile)",
+      "info": "Background image displayed on the 404 error page for mobile devices. Recommended dimensions: 640 x 1108px for optimal mobile display"
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Background Video",
+      "info": "URL link to a video file to display as a background (supports .mp4 files or Vimeo links) for a dynamic error page experience"
+    },
+    {
+      "type": "checkbox",
+      "id": "videobanner",
+      "label": "Video Banner",
+      "info": "Enable this option to display a video background instead of a static image for a more engaging 404 page experience",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pretitle",
+      "info": "Small introductory text that appears before the main title to set context for the 404 error message"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "info": "Main heading text displayed on the 404 error page to inform visitors that the page they're looking for doesn't exist"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "info": "Supporting text or description displayed below the main title to provide helpful context or suggest next steps for visitors"
+    },
+
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button Text (home)",
+      "info": "Text label displayed on the call-to-action button to guide visitors back to your homepage or main content"
+    },
+    {
+      "type": "url",
+      "id": "buttonUrl",
+      "label": "Button Url (home)",
+      "info": "URL destination for the button - typically set to your homepage to help visitors navigate back to your main content"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0 ">
+
+    {% render 'head' %}
+    {% render 'sm-og-data' %}
+    {% render 'scripts_head' %}
+    {% comment %}
+        {% render 'noindex' %}
+    {% endcomment %}
+  
+    {{ content_for_header }}
+  
+  </head>
+
+  <body class="template-{{ request.page_type | handle }} ">
+    {% section 'announcement' %}
+    {% section 'header' %}
+    <div class="page-container drawer-page-content" id="PageContainer">
+      <main
+        class="main-content js-focus-hidden js__main-content"
+        id="MainContent"
+        role="main"
+        tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+      {% section 'footer' %}
+    </div>
+  {% render 'scripts_footer' %}
+   
+    <script>
+    /*  AOS.init();
+      var options = {
+        startEvent: 'cloneDOMContentLoaded',
+      };
+      AOS.init(options);
+
+      document.addEventListener('DOMContentLoaded', function (event) {
+        var cloneDOMContentLoaded = new Event('cloneDOMContentLoaded');
+        document.dispatchEvent(cloneDOMContentLoaded);
+      });*/
+    </script>
+  </body>
+</html>

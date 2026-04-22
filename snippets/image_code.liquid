@@ -1,0 +1,76 @@
+{% comment %}
+  Responsive Image Snippet - Hero Banner (Full Width)
+  Usage:
+  {% render 'responsive-image-hero', 
+    mobileImage: section.settings.mobile_image,
+    tabletImage: section.settings.tablet_image,
+    desktopImage: section.settings.desktop_image,
+    imageAlt: 'Your alt text here',
+    critical: true
+  %}
+{% endcomment %}
+
+{% assign critical = critical | default: false %}
+{% assign mobile_image = mobileImage | default: desktopImage %}
+{% assign tablet_image = tabletImage | default: desktopImage %}
+{% assign desktop_image = desktopImage %}
+{% assign mobile_width = 750 %}
+{% assign tablet_width = 1200 %}
+{% assign desktop_width = 1400 %}
+
+{% if critical %}
+  {{ desktop_image | image_url: width: desktop_width, format: 'webp' | preload_tag: as: 'image' }}
+{% endif %}
+
+<picture>
+  <!-- Mobile sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(max-width: 768px)" 
+    srcset="
+      {{ mobile_image | image_url: width: 375, format: 'webp' }} 375w,
+      {{ mobile_image | image_url: width: 550, format: 'webp' }} 550w,
+      {{ mobile_image | image_url: width: mobile_width, format: 'webp' }} {{ mobile_width }}w
+    "
+    sizes="100vw">
+
+  <!-- Tablet sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(min-width: 769px) and (max-width: 1023px)" 
+    srcset="
+      {{ tablet_image | image_url: width: 768, format: 'webp' }} 768w,
+      {{ tablet_image | image_url: width: tablet_width, format: 'webp' }} {{ tablet_width }}w
+    "
+    sizes="100vw">
+
+  <!-- Desktop sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(min-width: 1024px)" 
+    srcset="
+      {{ desktop_image | image_url: width: desktop_width, format: 'webp' }} {{ desktop_width }}w,
+      {{ desktop_image | image_url: width: 1800, format: 'webp' }} 1800w
+    "
+    sizes="100vw">
+
+  <!-- Fallback for browsers that don't support WebP -->
+  <img
+    src="{{ mobile_image | image_url: width: mobile_width }}"
+    srcset="
+      {{ mobile_image | image_url: width: mobile_width }} {{ mobile_width }}w,
+      {{ tablet_image | image_url: width: tablet_width }} {{ tablet_width }}w,
+      {{ desktop_image | image_url: width: desktop_width }} {{ desktop_width }}w
+    "
+    sizes="(max-width: 768px) 100vw, (max-width: 1023px) 100vw, 100vw"
+    width="{{ mobile_width }}"
+    height="auto"
+    {% if critical %}
+      fetchpriority="high" loading="eager"
+    {% else %}
+      loading="lazy"
+    {% endif %}
+    decoding="async"
+    alt="{{ imageAlt }}"
+    style="display: block;">
+</picture>

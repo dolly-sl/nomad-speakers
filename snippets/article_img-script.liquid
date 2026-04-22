@@ -1,0 +1,32 @@
+<script>
+    $(document).ready(function() {
+
+  // To save all images in an array named img_array
+      var img_array = $('.article-content-{{ articleRelated.id }} img').map(function() {
+        return $(this).attr("src");
+      });
+      var img_arr = $('.article-excerpt-{{ articleRelated.id }} img').map(function() {
+        return $(this).attr("src");
+      });
+      var firstexcerptImage = img_arr[0];
+
+      var firstImage = img_array[0];
+
+      var excerptImage = img_arr[0];{% if articleRelated.image %}
+      {% else %}
+
+      //$(".custom-article-image-{{ articleRelated.id }} img").parent("a").parent(".image-section").addClass("no-image");
+        if (img_array.length > 0) {
+          $(".custom-article-image-{{ articleRelated.id }} img").attr("src", firstImage);
+          $(".custom-article-image-{{ articleRelated.id }} img").parent("a").parent(".image-section").removeClass("no-image");
+        } else {
+          if (img_arr.length > 0) {
+            $(".custom-article-image-{{ articleRelated.id }} img").parent("a").parent(".image-section").removeClass("no-image");
+            $(".custom-article-image-{{ articleRelated.id }} img").attr("src", firstexcerptImage);
+          }
+
+        }
+
+      {% endif %}
+    });
+</script>

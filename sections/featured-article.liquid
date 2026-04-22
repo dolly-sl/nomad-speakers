@@ -1,0 +1,218 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+  .swiper-pagination-featuredBlog{
+    bottom:30px !important;
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <div class="featured-blog-section section-{{ section.id }}-padding">
+    <div class="container-1590">
+      {% if section.settings.title != blank or section.settings.pretitle != blank %}
+        <div class="top-section text-center">
+          {% if section.settings.pretitle != blank %}
+            <span class="pre-title">{{ section.settings.pretitle }}</span>
+          {% endif %}
+
+          {% if section.settings.title != blank %}
+            <h2 class="h3">
+              {{ section.settings.title }}
+            </h2>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="slider-outer">
+        <div class="swiper js_featuredblog-slider">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              {% assign featured_blog = block.settings.blog %}
+               {% if featured_blog != blank %}
+              <div class="featured-blog flex swiper-slide">
+                {% if block.settings.image != blank %}
+                  <div class="image-section">
+                    {% assign imageAlt = block.settings.image.alt %}
+                    {% if imageAlt == blank %}
+                      {% assign imageAlt = featured_blog.title %}
+                    {% endif %}
+                    {% include 'image_code'  with  mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+                  </div>
+                {% else %}
+                  {% if featured_blog.image %}
+                    <div class="image-section">
+                      {% assign imageAlt = featured_blog.image.alt %}
+                      {% if imageAlt == blank %}
+                        {% assign imageAlt = featured_blog.title %}
+                      {% endif %}
+                      {% include 'image_code'  with  mobileImage: featured_blog.image, tabletImage: featured_blog.image, desktopImage: featured_blog.image, imageAlt: imageAlt %}
+                    </div>
+                  {% endif %}
+                {% endif %}
+                <div class="content">
+                  <ul class="tags-wrapper">
+                    {% assign split_1 = featured_blog.url | split: '/blogs/' %}
+                    {% assign split_2 = split_1[1] | split: '/' %}
+                    {% assign blog_handle = split_2[0] | strip %}
+                    {% assign article_blog = blogs[blog_handle] %}
+
+                    {% for tag in featured_blog.tags %}
+                      <li class="tags">
+                        <a href="{{article_blog.url}}/tagged/{{ tag | handleize }}" title="{{tag}}" class="tag">
+                          {{- tag -}}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+
+                  <h3 class="featured-title">
+                    {{ featured_blog.title }}
+                  </h3>
+                  <div class="description">
+                    <p>{{ featured_blog.content | strip_html | truncate: 250 }}</p>
+                  </div>
+                  <a class="btn--primary ipad-none" href="{{ featured_blog.url }}">Read More</a>
+                  <a class="link--primary ipad-block" href="{{ featured_blog.url }}">Read More</a>
+                  <div class="swiper-pagination swiper-pagination-featuredBlog"></div>
+                </div>
+              </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    jQuery(function () {
+      var swiper = new Swiper('.js_featuredblog-slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        pagination: {
+          el: '.swiper-pagination-featuredBlog',
+          clickable: true,
+        },
+      });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Featured Blog",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📝 Content & Article Selection"
+    },
+    {
+      "type": "paragraph",
+      "content": "Select a featured article or blog post to display prominently on the page. This section displays the article image, title, excerpt, tags, and a call-to-action button."
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre Title",
+      "info": "Add a small label that appears above the main title (e.g., 'Latest Update', 'Featured Story', 'Editor's Pick'). This is optional and helps create visual hierarchy."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter a main heading for the featured blog section (e.g., 'Featured Article', 'Latest Blog Post', 'What's New'). This appears centered above the featured article card."
+    },
+
+    {
+      "type": "header",
+      "content": "📏 Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Control the vertical spacing around this section to ensure proper visual separation from other page elements on both desktop and mobile devices."
+    },
+
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above the featured blog section on desktop devices. Use this to create proper visual separation from content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below the featured blog section on desktop devices. Use this to create proper visual separation from content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featuredblog",
+      "name": "Featured Blog",
+      "settings": [
+        {
+          "type": "article",
+          "id": "blog",
+          "label": "Select Article",
+          "info": "Choose the article or blog post to feature in this section. The article's title, excerpt, featured image, tags, and content will be automatically displayed from the selected article."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Change Image",
+          "info": "Recommended size: 1350 x 1000px for optimal display quality across all devices."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blog",
+      "category": "Blog & Content"
+    }
+  ]
+}
+{% endschema %}

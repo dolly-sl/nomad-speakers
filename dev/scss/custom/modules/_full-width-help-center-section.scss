@@ -1,0 +1,186 @@
+.full-width-help-center {
+  background: $color-cream;
+  padding: 58px 0 110px;
+  @include MQ(MQ-768) {
+    padding: 30px 0 50px;
+  }
+  .container-1498 {
+    max-width: 1498px;
+    width: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+    .faq-section {
+      background: $color-white;
+      width: 100%;
+      padding: 74.49px 0 122px;
+      @include MQ(MQ-768) {
+        padding: 31px 0 50px;
+      }
+      .inner-div {
+        max-width: 1190px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 21px;
+        .heading-section {
+          text-align: center;
+          margin-bottom: 50px;
+          @include MQ(MQ-768) {
+            margin-bottom: 40px;
+          }
+        }
+        .main-faq-content {
+          justify-content: space-between;
+          @include MQ(MQ-768) {
+            flex-direction: column;
+          }
+        }
+        .left-content {
+          padding-right: 60px;
+          width: 335px;
+          @include MQ(MQ-1100) {
+            padding-right: 30px;
+          }
+          .left-links {
+            margin-top: 22px;
+            li {
+              margin-bottom: 26px;
+              a {
+                color: $color-blueish;
+                text-transform: capitalize;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                &:hover {
+                  color: $color-teal;
+                }
+              }
+            }
+          }
+          .h6 {
+            margin-bottom: 7px;
+            text-transform: capitalize;
+            position: relative;
+          }
+        }
+        .accordian {
+          max-width: 710px;
+          width: 100%;
+          @include MQ(MQ-980) {
+            max-width: 600px;
+          }
+          li {
+            &.faq-block {
+              border-bottom: 1px solid $color-gray;
+              padding: 20px 0 20px;
+              position: relative;
+              padding-left: 25px;
+              @include MQ(MQ-768) {
+                padding-left: 0;
+              }
+            }
+            &.heading {
+              padding-top: 100px;
+              border-bottom: 1px solid $color-gray;
+              padding-bottom: 8px;
+              padding-left: 0;
+              .h4 {
+                @include MQ(MQ-600) {
+                  font-size: 20px;
+                  line-height: 26px;
+                }
+              }
+              @include MQ(MQ-1100) {
+                padding-top: 80px;
+              }
+              @include MQ(MQ-768) {
+                padding-top: 60px;
+              }
+
+              &:nth-child(1) {
+                padding-top: 0;
+              }
+            }
+            .icon-plus {
+              display: block;
+              position: absolute;
+              left: 25px;
+              top: 26px;
+              cursor: pointer;
+              @include MQ(MQ-768) {
+                left: 0;
+              }
+              @include MQ(MQ-600) {
+                top: 24px;
+              }
+            }
+            .icon-cross {
+              display: none;
+              position: absolute;
+              left: 20px;
+              top: 22px;
+              cursor: pointer;
+              @include MQ(MQ-768) {
+                left: 0;
+              }
+              @include MQ(MQ-600) {
+                top: 19px;
+                left: -4px;
+              }
+            }
+            &.active {
+              // .icon-plus {
+              //   display: none;
+              // }
+              // .icon-cross {
+              //   display: block;
+              // }
+              .h6 {
+                &:after {
+                  background: url("icon-close.svg") no-repeat left/20px;
+                  left: -3px;
+                  width: 20px;
+                }
+              }
+              .content {
+                display: block;
+              }
+            }
+            .h6 {
+              text-transform: none !important;
+              padding-left: 32px;
+              z-index: 1;
+              position: relative;
+              cursor: pointer;
+              @include MQ(MQ-768) {
+                padding-left: 22px;
+              }
+              @include MQ(MQ-600) {
+                font-size: 16px !important;
+              }
+              &:after {
+                background: url("icon-accordion-plus.svg") no-repeat left/13px;
+                position: absolute;
+                content: "";
+                width: 13px;
+                height: 21px;
+                left: 0;
+                top: 1px;
+              }
+            }
+            .content {
+              //   line-height: 1.5;
+              padding-top: 10px;
+              padding-left: 34px;
+              padding-bottom: 8px;
+              display: none;
+              @include MQ(MQ-768) {
+                padding-left: 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

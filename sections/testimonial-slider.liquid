@@ -1,0 +1,368 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{%- assign testimonial = false -%}
+{%- assign insta = false -%}
+{% if section.blocks.size > 0 %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'testimonial' -%}
+        {% if block.settings.image != blank or block.settings.description != blank %}
+          {%- assign testimonial = true -%}
+        {% endif %}
+
+      {%- when 'insta' -%}
+        {% if block.settings.instaImage != blank %}
+          {%- assign insta = true -%}
+        {% endif %}
+    {%- endcase -%}
+  {% endfor %}
+{% endif %}
+
+{% if section.blocks.size > 0 %}
+  {% if testimonial == true or insta == true %}
+    <div class="testimonial-insta-slider section-{{ section.id }}-padding">
+      {% if testimonial == true %}
+        <div class="testimonial-slider">
+          <div class="container-1590">
+            {% if section.settings.title != blank or section.settings.pretitle != blank %}
+              <div
+                class="top-section text-center"
+              >
+                {% if section.settings.pretitle != blank %}
+                  <span class="pre-title">{{ section.settings.pretitle }}</span>
+                {% endif %}
+                {% if section.settings.title != blank %}
+                  <h1 class="{{ section.settings.text_size }}">
+                    {{ section.settings.title }}
+                  </h1>
+                {% endif %}
+              </div>
+            {% endif %}
+            <div class="slider-outer">
+              <div class="swiper js_testimonial-slider">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when 'testimonial' -%}
+                        {% if block.settings.image != blank or block.settings.description != blank %}
+                          <div class=" swiper-slide flex">
+                            {% if block.settings.image != blank or block.settings.video != blank %}
+                              <div class="image-section">
+                                {% if block.settings.video != blank %}
+                                  {{
+                                    block.settings.video
+                                    | video_tag:
+                                      image_size: '1100x',
+                                      loop: true,
+                                      autoplay: true,
+                                      controls: false,
+                                      muted: true,
+                                      alt:block.settings.pretitle
+                                  }}
+                                {% else %}
+                                  {% assign imageAlt = block.settings.image.alt %}
+                                  {% if imageAlt == blank %}
+                                    {% assign imageAlt = block.settings.pretitle %}
+                                  {% endif %}
+                                  {% if imageAlt == blank %}
+                                    {% assign imageAlt = shop.name %}
+                                  {% endif %}
+                                  {% include 'image_code'  with  mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+                                {% endif %}
+                              </div>
+                            {% endif %}
+
+                            {% if block.settings.description != blank %}
+                              <div class="content">
+                                <div class="inner-content">
+                                  {% if block.settings.pretitle != blank %}
+                                    <span class="pre-title">{{ block.settings.pretitle }}</span>
+                                  {% endif %}
+                                  <div class="description">
+                                    {{ block.settings.description }}
+                                  </div>
+                                  {% if block.settings.userInfo != blank %}
+                                    <div class="user-info">
+                                      {{ block.settings.userInfo }}
+                                    </div>
+                                  {% endif %}
+                                  {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
+                                    <a
+                                      class="link--primary small-green"
+                                      href="{{ block.settings.buttonLink }}"
+                                      title="Read More About {{ block.settings.pretitle }}"
+                                      aria-label="Read More About {{ block.settings.pretitle }}"
+                                    >
+                                      {{- block.settings.buttonText -}}
+                                    </a>
+                                  {% endif %}
+                                </div>
+                                <div class="swiper-pagination swiper-pagination-testimonial "></div>
+                              </div>
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                    {%- endcase -%}
+                  {% endfor %}
+                </div>
+              </div>
+              </div>
+              </div>
+              </div>
+      {% endif %}
+      {% if insta == true %}
+        <div class="social-media-slider">
+          <div class="slider-outer-social-media">
+            <div class="swiper js_social-media-slider">
+              <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                  {%- case block.type -%}
+                    {%- when 'insta' -%}
+                      {% if block.settings.instaImage != blank %}
+                        <div class=" swiper-slide">
+                          {% assign imageAlt = block.settings.instaImage.alt %}
+                          {% if imageAlt == blank %}
+                            {% assign imageAlt = shop.name %}
+                          {% endif %}
+
+                          {{
+                            block.settings.instaImage
+                            | image_url: width: 480
+                            | image_tag: loading: 'lazy', widths: '480x800', alt: imageAlt
+                          }}
+                          {% if block.settings.cardUrl != blank %}
+                            <a
+                              class="full-link"
+                              href="{{ block.settings.cardUrl }}"
+                              title="Read More About {{ shop.name }}"
+                              aria-label="Read More About {{ shop.name }}"
+                            >
+                            </a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                  {%- endcase -%}
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="swiper-button-prev swiper-button-prev-social"></div>
+            <div class="swiper-button-next swiper-button-next-social "></div>
+            <div class="swiper-pagination swiper-pagination-social "></div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.js_testimonial-slider', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      effect: 'fade',
+      autoplay: {
+      delay: 5000,             // autoplay every 3 seconds
+      disableOnInteraction: false, // keep autoplay after user scrolls
+    },
+      fadeEffect: {
+        crossFade: true,
+      },
+      pagination: {
+        el: '.swiper-pagination-testimonial',
+        clickable: true,
+      },
+    });
+  });
+  jQuery(function () {
+    var swiper = new Swiper('.js_social-media-slider', {
+      slidesPerView: 'auto',
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination-social',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-social',
+        prevEl: '.swiper-button-prev-social',
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Insta Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure the heading and introduction for your testimonial and social media slider section. These elements appear at the top and help set context for the content displayed in the sliders below."
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pretitle/Subtitle",
+      "info": "Enter an optional subtitle or pre-title that appears above the main heading (e.g., 'Customer Stories', 'Follow Us', 'Social Proof'). This smaller text helps create visual hierarchy and provides additional context for the slider section."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter the main heading for the testimonial slider (e.g., 'What Our Customers Say', 'Hear From Our Community', '@OurStore on Instagram'). This title will be displayed prominently above the sliders and should clearly communicate the purpose of this section - showcasing customer feedback and social media content."
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title Size",
+      "info": "Choose the appropriate heading size for your page title. Large headings work well for main pages, while smaller ones are better for sub-pages.",
+      "default": "h1",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Small (H3)"
+        },
+        {
+          "value": "h2",
+          "label": "Medium (H2)"
+        },
+        {
+          "value": "h1",
+          "label": "Large (H1)"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Use these settings to control the spacing around your three-column section. Adjust the padding to create proper visual separation from other sections on the page."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the three-column section and content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the three-column section and content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video File",
+          "info": "Upload a video file (MP4, WebM, or OGG format). The video will autoplay, loop, and be muted by default for better user experience."
+        },
+        {
+          "type": "text",
+          "id": "pretitle",
+          "label": "Pretitle"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "userInfo",
+          "label": "Info"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Link"
+        }
+      ]
+    },
+    {
+      "type": "insta",
+      "name": "insta",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "instaImage",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "cardUrl",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Insta Slider"
+    }
+  ]
+}
+{% endschema %}

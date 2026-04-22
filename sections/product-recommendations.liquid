@@ -1,0 +1,250 @@
+<!-- Product Recommendations -->
+{% assign metafieldsHandleForProducts = product.metafields.custom.pdp_recommandation_products.value %}
+{% if metafieldsHandleForProducts != blank %}
+  <div
+    class="pdp-recommendations four-column-product-slider"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
+    <div class="container-1686">
+      {% if metafieldsHandleForProducts.heading != blank %}
+        <div class="top-section">
+          <h2 class="h3">
+            {{ metafieldsHandleForProducts.heading }}
+          </h2>
+
+          {% if metafieldsHandleForProducts.link_text != blank and metafieldsHandleForProducts.link_url != blank %}
+            <a
+              href="{{ metafieldsHandleForProducts.link_url }}"
+              title="Read More About {{ metafieldsHandleForProducts.link_text  }}"
+              aria-label="Read More About {{  metafieldsHandleForProducts.link_text  }}"
+              class="link--primary"
+            >
+              {{ metafieldsHandleForProducts.link_text }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="slider-outer">
+        <div class="swiper js__recommendations-product-slider">
+          <div class="swiper-wrapper">
+            {% for productRelated in metafieldsHandleForProducts.products.value %}
+              <div class="product-card swiper-slide  ">
+                {% include 'product_Card'  with  productRelated: productRelated , show_price: true, show_tags: true, show_auto_tags: true, show_title: true, show_fav: false, show_secondary_button: false %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="swiper-button-prev swiper-button-prev-product"></div>
+        <div class="swiper-button-next swiper-button-next-product "></div>
+        <div class="swiper-pagination swiper-pagination-product "></div>
+      </div>
+    </div>
+  </div>
+
+{% else %}
+  <div
+    class="product-recommendations "
+    data-base-url="{{ routes.product_recommendations_url }}"
+    data-product-id="{{ product.id }}"
+    data-section-title="{% if section.settings.title != blank %}{{ section.settings.title }}{% else %}You may also like{% endif %}"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
+    {%- if recommendations.products_count > 0 -%}
+      <div class="pdp-recommendations  four-column-product-slider">
+        <div class="container-1686">
+          <div class="top-section">
+            <h2 class="h3">
+              {% if section.settings.title != blank %}
+                {{ section.settings.title }}
+              {% else %}
+                You may also like
+              {% endif %}
+            </h2>
+
+            <a
+              href="/collections/all"
+              title="Read More About Shop"
+              aria-label="Read More About Shop"
+              class="link--primary"
+            >
+              Shop All Products
+            </a>
+          </div>
+
+          <div class="slider-outer">
+            <div class="swiper js__recommendations-product-slider  ">
+              <div class="swiper-wrapper">
+                {% comment %}
+                  <di
+                    class="product-recommendations-list flex-wrap "
+                    {%- if settings.product_recommendation_slider == 'on' -%}
+                      id="js__pdp-recommendation-slider"
+                    {%- endif -%}
+                  >
+                {% endcomment %}
+                {%- for productRelated in recommendations.products -%}
+                  <div class="product-card swiper-slide ">
+                    {% include 'product_Card'  with  productRelated: productRelated , show_price: true, show_tags: true, show_auto_tags: true, show_title: true, show_fav: false, show_secondary_button: false %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="swiper-button-prev swiper-button-prev-product"></div>
+            <div class="swiper-button-next swiper-button-next-product "></div>
+            <div class="swiper-pagination swiper-pagination-product "></div>
+          </div>
+        </div>
+        {%- for productRelated in recommendations.products -%}
+          {% render 'product-modal', productData: productRelated %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <script>
+      var loadProductRecommendationsIntoSection = function () {
+        // Look for an element with class 'product-recommendations'
+        var productRecommendationsSection = document.querySelector('.product-recommendations');
+        if (productRecommendationsSection === null) {
+          return;
+        }
+        // Read product id from data attribute
+        var productId = productRecommendationsSection.dataset.productId;
+        // Read base URL from data attribute
+        var baseUrl = productRecommendationsSection.dataset.baseUrl;
+        // Read limit from data attribute
+        var limit = 8;
+        // Build request URL
+        var requestUrl = baseUrl + '?section_id=product-recommendations&product_id=' + productId + '&limit=' + limit;
+        // Create request and submit it using Ajax
+        var request = new XMLHttpRequest();
+        request.open('GET', requestUrl);
+        request.onload = function () {
+          if (request.status >= 200 && request.status < 300) {
+            var container = document.createElement('div');
+            var sectionTitle = productRecommendationsSection.dataset.sectionTitle;
+
+            container.innerHTML = request.response;
+            var newContent = container.querySelector('.product-recommendations');
+
+            // Always use the section title from data attribute to ensure correct title is displayed
+            if (sectionTitle && newContent) {
+              var titleElement = newContent.querySelector('.top-section h2.h3');
+              if (titleElement) {
+                titleElement.textContent = sectionTitle;
+              }
+            }
+
+            productRecommendationsSection.parentElement.innerHTML = newContent.innerHTML;
+            var swiper = new Swiper('.js__recommendations-product-slider', {
+              slidesPerView: 1,
+              spaceBetween: 21,
+              slidesPerGroup: 1,
+              pagination: {
+                el: '.swiper-pagination-product',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: '.swiper-button-next-product',
+                prevEl: '.swiper-button-prev-product',
+              },
+              breakpoints: {
+                601: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                  spaceBetween: 25,
+                },
+                981: {
+                  slidesPerView: 3,
+                  slidesPerGroup: 3,
+                  spaceBetween: 25,
+                },
+                1101: {
+                  slidesPerView: 4,
+                  slidesPerGroup: 4,
+                  spaceBetween: 25,
+                },
+              },
+            });
+          }
+        };
+        request.send();
+      };
+
+      // Listen for changes done in the Theme Editor
+      document.addEventListener('shopify:section:load', function (event) {
+        if (event.detail.sectionId === 'product-recommendations') {
+          loadProductRecommendationsIntoSection();
+        }
+      });
+
+      // Fetching the recommendations on page load
+      loadProductRecommendationsIntoSection();
+    </script>
+{% endif %}
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.js__recommendations-product-slider', {
+      slidesPerView: 1,
+      spaceBetween: 21,
+      slidesPerGroup: 1,
+      pagination: {
+        el: '.swiper-pagination-product',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-product',
+        prevEl: '.swiper-button-prev-product',
+      },
+      breakpoints: {
+        601: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 25,
+        },
+        981: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 25,
+        },
+        1101: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+          spaceBetween: 25,
+        },
+      },
+    });
+  });
+</script>
+<!-- reviews -->
+
+{% schema %}
+{
+  "name": "Product Recommendations",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product Recommendations Configuration"
+    },
+    {
+      "type": "paragraph",
+      "content": "Display personalized product recommendations on your product pages. This section shows related products that customers might be interested in, helping increase cross-selling and average order value. Products are displayed in a responsive slider that adapts to different screen sizes."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter a custom heading for the product recommendations section (e.g., 'You may also like', 'Customers also viewed', 'Complete your set'). This title appears above the recommended products. If left blank, the default 'You may also like' will be used. This helps guide customers' attention to related items."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Recommendations",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,198 @@
+<div class="js__show-cart-items-section">
+  <div id="cart" class="cart-section ">
+    <div class="container-1480 container-section">
+      <div class="title-shipping-section flex">
+        <h1 class="h4">Your Cart [<span class="js__ajax-cart-count"></span>]</h1>
+
+    
+
+     </div>
+      <form action="/cart" method="post">
+    
+        <div class="inner">
+          <div class="wrapper">
+          <div class="header flex">
+            <div class="table-head">
+              <span>Product</span>
+            </div>
+            <div class="table-head">
+              <span>Price</span>
+            </div>
+            <div class="table-head ">
+              <span> Quantity</span>
+            </div>
+            <div class="table-head">
+              <span> Total</span>
+            </div>
+              <div class="table-head">
+              <span> </span>
+            </div>
+          </div>
+            <div class="cart-list"></div>
+              <div class="addon-product js__cart-page-addon-product" style="display: none;">
+        <span class="title">Complete Your Purchase</span>
+        <ul class="flex-wrap js__cart-page-addon-wrapper">
+          <!-- Addon products will be populated dynamically -->
+        </ul>
+      </div>
+          </div>
+          <!-- START TOTAL -->
+          <div class="wrapper-total">
+
+             <div class="header"><div class="table-head"><span>Cart SUMMARY</span></div></div>
+          
+            <div class="total">
+            
+              <div class="cart-total">
+                <div class="flex ">
+                  <b>Subtotal</b>
+                  <span class="js__cart-sub-total"></span>
+                </div>
+                <div class="flex js__cartSubtotalDiscountWraper hide">
+                  <b>You Savings</b><span class="js__cart-total-saved">-</span>
+                </div>
+                 <div class="flex">
+                  <b>Taxes</b><span>calculated at checkout</span>
+                </div>
+                <div class="flex">
+                  <b>Shipping</b>
+                  <span>Free!</span>
+                </div>
+              </div>
+              <div class="order-total-section">
+            
+              <div class="order-total flex ">
+                <b>Order Total </b>
+                <span class="js__cart-total"
+                  ><span>
+                    {{ cart.total_price | mone }}
+                  </span></span
+                >
+              </div>
+              <div class="tax">
+                <span>Taxes and shipping calculated at checkout</span>
+              </div>
+              </div>
+              <div class="btn-wrapper">
+                <button class="btn--primary white-bg" type="submit" id="checkout" name="checkout">Checkout</button>
+             {% if section.settings.buttonText != blank %}
+                  <a class="link--primary"
+                   
+                    href="{{ section.settings.buttonLink }}"
+                    title="{{ section.settings.buttonText }}"
+                    aria-label="{{ section.settings.buttonText }}"
+                  >
+                    {{- section.settings.buttonText -}}
+                  </a>
+                   {% endif %}
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+      </form>
+    
+    </div>
+  </div>
+</div>
+<!-- Empty Cart -->
+<div style="display: none;" class="empty-cart-section">
+  <style>
+    #cart_overlay.active {
+      display: none;
+    }
+  </style>
+
+  <div class="cart-section">
+    <div class="container-1480">
+      <h2 class="h4">
+        
+       {{- section.settings.titleEmptyCart -}}
+      </h2>
+       {% if section.settings.buttonText != blank %}
+                  <a class="btn--primary"
+                   
+                    href="{{ section.settings.buttonLink }}"
+                    title="{{ section.settings.buttonText }}"
+                    aria-label="{{ section.settings.buttonText }}"
+                  >
+                    {{- section.settings.buttonText -}}
+                  </a>
+                   {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+<style>
+  .scroll-to-top {
+    display: none !important;
+  }
+
+  .forMiniCart {
+    display: none !important;
+  }
+</style>
+{% schema %}
+{
+  "name": {
+    "en": "Shopping Cart Page"
+  },
+  "settings": [ 
+       
+        {
+          "type": "header",
+          "content": "Continue Shopping Button"
+        },
+        { 
+          "type": "text",
+          "id": "buttonText",
+          "label": "Continue Shopping Button Text",
+          "info": "Label text for the button that allows customers to continue browsing products without emptying their cart"
+        },
+
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Continue Shopping Button URL",
+          "info": "Enter the URL where customers will be redirected when clicking the continue shopping button (typically the product catalog or homepage)"
+        },
+        {
+          "type": "header",
+          "content": "Empty Cart"
+        },
+        { 
+          "type": "text",
+          "id": "titleEmptyCart",
+          "label": "Empty Cart Title",
+          "info": "Custom message to display when a customer's shopping cart is empty to encourage them to start shopping"
+        },
+        { 
+          "type": "text",
+          "id": "buttonText2",
+          "label": "Continue Shopping Button Text",
+          "info": "Label text for the button that appears when the cart is empty to encourage browsing products"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink2",
+          "label": "Continue Shopping Button URL",
+          "info": "URL where customers will be redirected from the empty cart page (typically product collections or homepage)"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Shopping Cart Page",
+      "settings": {
+        
+        "buttonText": "Continue Shopping",
+        "buttonLink": "/collections/all",
+        "titleEmptyCart": "Your Cart IS EMPTY",
+        "buttonText2": "Continue Shopping",
+        "buttonLink2": "/collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}

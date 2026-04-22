@@ -1,0 +1,75 @@
+{% comment %}
+  Responsive Image Snippet - Small/Medium Image (around 600px + retina)
+  Usage:
+  {% render 'responsive-image-sm', 
+    mobileImage: section.settings.mobile_image,
+    tabletImage: section.settings.tablet_image,
+    desktopImage: section.settings.desktop_image,
+    imageAlt: 'Your alt text here',
+    critical: true
+  %}
+{% endcomment %}
+
+{% assign critical = critical | default: false %}
+{% assign mobile_image = mobileImage | default: desktopImage %}
+{% assign tablet_image = tabletImage | default: desktopImage %}
+{% assign desktop_image = desktopImage %}
+{% assign mobile_width = 400 %}
+{% assign tablet_width = 500 %}
+{% assign desktop_width = 600 %}
+
+{% if critical %}
+  {{ desktop_image | image_url: width: desktop_width, format: 'webp' | preload_tag: as: 'image' }}
+{% endif %}
+
+<picture>
+  <!-- Mobile sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(max-width: 768px)"
+    srcset="
+      {{ mobile_image | image_url: width: mobile_width, format: 'webp' }} 400w,
+      {{ mobile_image | image_url: width: mobile_width, format: 'webp' }} 800w
+    "
+    sizes="100vw">
+
+  <!-- Tablet sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(min-width: 769px) and (max-width: 1023px)"
+    srcset="
+      {{ tablet_image | image_url: width: tablet_width, format: 'webp' }} 500w,
+      {{ tablet_image | image_url: width: tablet_width, format: 'webp' }} 1000w
+    "
+    sizes="100vw">
+
+  <!-- Desktop sizes WebP -->
+  <source 
+    type="image/webp" 
+    media="(min-width: 1024px)"
+    srcset="
+      {{ desktop_image | image_url: width: desktop_width, format: 'webp' }} 600w,
+      {{ desktop_image | image_url: width: desktop_width, format: 'webp' }} 1200w
+    "
+    sizes="100vw">
+
+  <!-- Fallback for browsers that don't support WebP -->
+  <img
+    src="{{ mobile_image | image_url: width: mobile_width }}"
+    srcset="
+      {{ mobile_image | image_url: width: mobile_width }} {{ mobile_width }}w,
+      {{ tablet_image | image_url: width: tablet_width }} {{ tablet_width }}w,
+      {{ desktop_image | image_url: width: desktop_width }} {{ desktop_width }}w
+    "
+    sizes="(max-width: 768px) 100vw, (max-width: 1023px) 100vw, 100vw"
+    width="{{ mobile_width }}"
+    height="{{ mobile_width | divided_by: mobile_image.aspect_ratio | round }}"
+    {% if critical %}
+      fetchpriority="high" loading="eager"
+    {% else %}
+      loading="lazy"
+    {% endif %}
+    decoding="async"
+    alt="{{ imageAlt }}"
+    style="display: block;">
+</picture>

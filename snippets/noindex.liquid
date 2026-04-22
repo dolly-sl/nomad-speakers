@@ -1,0 +1,127 @@
+
+
+{% comment %}
+canonical URL
+{% endcomment %}
+
+{% if template contains 'collection' and current_tags %}
+  <link rel="canonical" href="{{ collection.url }}">
+{% endif %}
+{% if template contains 'blog' and current_tags %}
+  <link rel="canonical" href="{{ blog.url }}">
+{% endif %}
+
+<!-- No-Index Pages -->
+{% if handle contains '2-0' %}
+  <meta name="robots" content="noindex">
+{% endif %}
+
+{% comment %}
+  // SETTING NOINDEX ON ALL TAGS //
+{% endcomment %}
+  {% if current_tags %}
+    <!--  set duplicate tagged pages to noindex -->  
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
+
+{% comment %}
+ // SETTING NOINDEX ON ALL PAGINATIONS e.g. https://domain.com/collections/all?page=6 //
+{% endcomment %}
+  {% if canonical_url contains '?page=' %}
+    <!--  set paginations to noindex -->  
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
+  
+{% comment %}
+ // SETTING NOINDEX ON ALL VENDOR PAGES e.g. https://domain.com/collections/vendors?q=new+balance //
+{% endcomment %}
+  {% if canonical_url contains 'collections/vendors?q=' %}
+    <!--  set vendor pages to noindex -->  
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
+
+{% comment %}
+ // SETTING NOINDEX ON ALL CUSTOM PAGES //
+{% endcomment %}
+
+{% assign noindex_page_url  = '' %}
+
+<!-- noindex custom URL -->
+  {% if canonical_url == noindex_page_url  %}
+    <meta name="robots" content="noindex, follow">
+  {% endif %} 
+
+
+{% comment %}
+ // STRUCTURED DATA SETTINGS //
+{% endcomment %}  
+
+{% if template == 'index' %}  
+<script type="application/ld+json" >
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": "https://{{ shop.domain }}",
+    "id": "https://{{ shop.domain }}/#organization",
+    "description": {{ shop.description | json }},
+    "email": "{{ shop.email }}",
+    "telephone": "{{ shop.phone }}",
+    "acceptedPaymentMethod": [
+      "http://purl.org/goodrelations/v1#PaymentMethodCreditCard",
+      "http://purl.org/goodrelations/v1#GoogleCheckout",
+      "http://purl.org/goodrelations/v1#PayPal",
+      "http://purl.org/goodrelations/v1#DirectDebit"
+    ]
+  }
+</script>
+{% elsif template contains 'collection' %}
+<script type="application/ld+json"> 
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "name": "{{ collection.title | escape | strip_html }}",
+  "url": "{{ shop.secure_url }}{{ collection.url }}",
+   {% if collection.image != blank %} 
+  "image": "{{ collection.image | image_url }}",
+    {% endif %}
+  "description":" {{ page_description | truncatewords:500 | strip_html | escape }}",
+  "itemListElement": [
+    {% for product in collection.products %}
+    
+        {% if forloop.last %}
+		{%- assign position1 = position1 | plus: 1 -%}
+		{
+            "@type": "ListItem",
+            "position": {{ position1 }},
+            "name": "{{ product.title | escape }}",
+            "url": "{{ shop.secure_url }}{{ product.url }}",
+            "image": "https:{{ product.images[0].src | img_url }}"
+            }         
+          {% else %}
+         {%- assign position1 = position1 | plus: 1 -%}
+        {
+            "@type": "ListItem",
+            "position": {{ position1 }},
+            "name": "{{ product.title | escape }}",
+            "url": "{{ shop.secure_url }}{{ product.url }}",
+            "image": "https:{{ product.images[0].src | img_url }}"
+    	 },    
+          {% endif %}
+		{% endfor %} 
+		
+
+    ]
+}
+</script>
+{% elsif template contains 'product' %}
+<script type="application/ld+json">  
+  {{ product | structured_data }}
+</script> 
+{%- elsif request.page_type == 'article' -%}
+<script type="application/ld+json">  
+  {{article | structured_data }}
+</script> 
+{% endif %}
+
+      

@@ -1,0 +1,46 @@
+<div class="form-section not-logged-tempate  account-activate ">
+    <div class="inner">
+      <div class="container-1340">
+        <h1 class="text-center">{{ 'customer.activate_account.title' | t }}</h1>
+      </div>
+    </div>
+  <div class="container-530">
+    {% form 'activate_customer_password' %}
+      {%- if form.errors -%}
+        <div class="form-message form-message--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+      <input
+        type="password"
+        value=""
+        name="customer[password]"
+        id="CustomerPassword"
+        placeholder="{{ 'customer.activate_account.password' | t }}"
+      >
+      <input
+        type="password"
+        value=""
+        name="customer[password_confirmation]"
+        id="CustomerPasswordConfirmation"
+        placeholder="{{ 'customer.activate_account.password_confirm' | t }}"
+      >
+      <div class="btn-wrapper">
+        <p>{{ 'customer.activate_account.subtext' | t }}</p>
+        <input
+          type="submit"
+          class="btn--primary"
+          value="{{ 'customer.activate_account.submit' | t }}"
+        >
+        <div class="link--wrapper">
+          <input
+            type="submit"
+            name="decline"
+            value="{{ 'customer.activate_account.cancel' | t }}"
+            class="link--primary button"
+          >
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</div>

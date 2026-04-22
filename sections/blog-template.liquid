@@ -1,0 +1,115 @@
+<div class="blog-section">
+  {% paginate blog.articles by section.settings.blogItems %}
+    <input
+      type="hidden"
+      class="js__perpage-item"
+      value="{{section.settings.blogItems}}"
+    >
+    <input
+      type="hidden"
+      class="js__total-page"
+      value="{{ paginate.pages }}"
+    >
+    <input
+      type="hidden"
+      class="js__current-page"
+      value="{{ paginate.current_page }}"
+    >
+    <input
+      type="hidden"
+      class="js__items-count"
+      value="{{blog.articles_count}}"
+    >
+    <div
+      class="blog_wrapper"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
+      <div class="container-1590">
+        <div class="heading">
+          <h2 class="h4">{{ section.settings.title }}</h2>
+          {% include 'blog_category' %}
+        </div>
+        <ul class="blog-list-view flex-wrap">
+          {% for article in blog.articles %}
+            {% assign articleTitle = article.id %}
+
+            <li class="articlecard--outer">
+              {%
+                include 'article_Card' with articleRelated: article, isFeatured: false,
+                show_tags:true, show_time: false, show_description: true, show_readMore: true
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% comment %} Pagination {% endcomment %}
+    {%- if paginate.pages > 1 -%}
+      <div class="pagination-section">
+        <div class="container-1360">
+          <div class="pagination-wrapper">
+            {% include 'pagination', paginate: paginate %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+      {% for articleRelated in blog.articles %}
+   
+      {% render 'video-model', articleData: articleRelated %}
+
+    {% endfor %}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Blog Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre Title",
+      "info": "Small introductory text that appears above the main blog title to provide context or set the tone"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "info": "Main heading text displayed at the top of the blog listing page to introduce the blog section"
+    },
+    {
+      "type": "header",
+      "content": "Featured Article Info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_article",
+      "label": "Show Featured Article",
+      "info": "Toggle to display a prominently featured article at the top of the blog listing page",
+      "default": true
+    },
+    {
+      "type": "article",
+      "id": "featured_article",
+      "label": "Featured Article",
+      "info": "Choose an article from your blog to be prominently displayed at the top of the listing page"
+    },
+    {
+      "type": "number",
+      "id": "blogItems",
+      "label": "How Many Blogs Per Page",
+      "info": "Set the maximum number of blog posts to display on each page of your blog listing. Use pagination to browse additional posts.",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Section"
+    }
+  ]
+}
+{% endschema %}
+
+

@@ -1,0 +1,137 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+<div class="full-width-form-section section-{{ section.id }}-padding">
+  <div class="container-1200">
+    <div class="content">
+      {% if section.settings.title != blank %}
+        <h2 class="small">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+      {% if section.settings.phoneNumber != blank %}
+        <div class="flex number">
+          <span class="label">{{ section.settings.contactHeading }}</span>
+          <a class="call" href="tel:{{section.settings.phoneNumber | replace: '-', '' }}">
+            {{ settings.phoneNumber }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+    <div class="form-section">
+      <p>General Information</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Full Width Form Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📝 Content Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Create a full-width content section with optional pre-title and main heading. This section is perfect for displaying key messages, promotional content, or important announcements across the full width of the page."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter the main heading for this content section. This title will be displayed prominently and can be used to introduce key information, announcements, or promotional content."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description / Body Text"
+    },
+    {
+      "type": "text",
+      "id": "contactHeading",
+      "label": "Contact Heading"
+    },
+    {
+      "type": "text",
+      "id": "phoneNumber",
+      "label": "Phone Number",
+      "info": "Enter your business phone number. This will be displayed as a clickable link in the contact section. Format: (555) 123-4567 or 555-123-4567"
+    },
+    {
+      "type": "header",
+      "content": "📏 Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Control the vertical spacing around this full-width content section to ensure proper visual separation from other page elements on both desktop and mobile devices. Proper spacing helps your content stand out and improves readability."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above the full-width content section on desktop devices (768px and wider). Use this to create proper visual separation from content above it, ensuring the section has adequate breathing room.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above the full-width content section on mobile devices (767px and smaller). Mobile spacing is typically smaller than desktop to optimize screen space while maintaining readability.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below the full-width content section on desktop devices. Use this to create proper visual separation from content below it, ensuring the section has adequate closure.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below the full-width content section on mobile devices. Maintains visual hierarchy and prevents cramped layouts on smaller screens.",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Width Form Section",
+      "category": "Content & Text"
+    }
+  ]
+}
+{% endschema %}

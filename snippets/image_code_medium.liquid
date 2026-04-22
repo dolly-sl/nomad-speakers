@@ -1,0 +1,69 @@
+{% comment %}
+  Responsive Image Snippet - Medium Image (around 800px + retina)
+  Usage:
+  {% render 'responsive-image-m', 
+    mobileImage: section.settings.mobile_image,
+    tabletImage: section.settings.tablet_image,
+    desktopImage: section.settings.desktop_image,
+    imageAlt: 'Your alt text here',
+    critical: true
+  %}
+{% endcomment %}
+
+{% assign critical = critical | default: false %}
+{% assign mobile_image = mobileImage | default: desktopImage %}
+{% assign tablet_image = tabletImage | default: desktopImage %}
+{% assign desktop_image = desktopImage %}
+{% assign desktop_width = 800 %}
+
+<picture>
+  <!-- Mobile sizes WebP -->
+  <source
+    type="image/webp"
+    media="(max-width: 768px)"
+    srcset="
+      {{ mobile_image | image_url: width: 375, format: 'webp' }} 375w,
+      {{ mobile_image | image_url: width: 500, format: 'webp' }} 500w
+    "
+    sizes="100vw">
+
+  <!-- Tablet sizes WebP -->
+  <source
+    type="image/webp"
+    media="(min-width: 769px) and (max-width: 1023px)"
+    srcset="
+      {{ tablet_image | image_url: width: 600, format: 'webp' }} 600w
+    "
+    sizes="100vw">
+
+  <!-- Desktop sizes WebP -->
+  <source
+    type="image/webp"
+    media="(min-width: 1024px)"
+    srcset="
+      {{ desktop_image | image_url: width: 800, format: 'webp' }} 800w,
+      {{ desktop_image | image_url: width: 1000, format: 'webp' }} 1000w,
+      {{ desktop_image | image_url: width: 1200, format: 'webp' }} 1200w
+    "
+    sizes="100vw">
+
+  <!-- Fallback for browsers that don't support WebP -->
+  <img
+    src="{{ mobile_image | image_url: width: 500 }}"
+    srcset="
+      {{ mobile_image | image_url: width: 500 }} 500w,
+      {{ tablet_image | image_url: width: 600 }} 600w,
+      {{ desktop_image | image_url: width: desktop_width }} {{ desktop_width }}w
+    "
+    sizes="(max-width: 768px) 100vw, (max-width: 1023px) 100vw, 100vw"
+    width="500"
+    height="{{ 500 | divided_by: mobile_image.aspect_ratio | round }}"
+    {% if critical %}
+      fetchpriority="high" loading="eager"
+    {% else %}
+      loading="lazy"
+    {% endif %}
+    decoding="async"
+    alt="{{ imageAlt }}"
+    style="display: block;">
+</picture>

@@ -1,0 +1,372 @@
+.account-section {
+    padding: 80px 0 100px;
+    @include MQ(MQ-480) {
+        padding: 40px 0 60px;
+    }
+    .order-detail-info {
+        margin-bottom: -20px;
+        h4 {
+            margin-bottom: 8px;
+        }
+    }
+    .heading-section {
+        text-align: center;
+        position: relative;
+        #customer_logout_link,
+        .link--primary {
+            position: relative;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        p {
+            margin-top: 10px;
+        }
+    }
+    #customer_logout_link,
+    .link--primary {
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.01px;
+        text-align: center;
+        color: $color-green;
+        position: relative;
+        text-transform: capitalize;
+        padding-bottom: 5px;
+        text-decoration: none;
+        &:after,
+        &:before {
+            position: absolute;
+            content: "";
+            left: auto;
+            right: 0;
+            bottom: 0px;
+            height: 1px;
+            width: 100%;
+            background: $color-green;
+            transition: 0.4s ease-in-out;
+        }
+        &:before {
+            width: 0;
+            left: 0;
+            right: auto;
+            transition: 0.6s ease-in-out;
+        }
+        &:hover {
+            &:after {
+                width: 0;
+                transition: 0.4s ease-in-out;
+            }
+            &:before {
+                width: 100%;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+    &__wrapper {
+        margin-top: 60px;
+        @include MQ(MQ-980) {
+            flex-direction: column;
+        }
+    }
+    &__address {
+        &.width-230 {
+            width: 230px;
+            flex: none;
+            margin-left: 70px;
+            @include MQ(MQ-980) {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }
+        strong {
+            font-weight: 600;
+            font-family: var(--font-family-secondary);
+            color: $color-green;
+        }
+        text-transform: capitalize;
+        .shipping-info {
+            margin-top: 40px;
+        }
+        .h5 {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: $color-green;
+        }
+        p {
+            a {
+                margin-top: 0px;
+                text-decoration: none;
+                color: $color-black;
+            }
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        a.link--primary {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    }
+    &__table {
+        width: 100%;
+        flex: auto;
+        strong {
+            font-weight: 600;
+            color: $color-green;
+        }
+        table {
+            width: 100%;
+            border-spacing: 0px;
+            dl {
+                margin: 0;
+            }
+            th {
+                text-align: left;
+                font-family: var(--font-family-primary);
+                font-size: 12px;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: normal;
+                text-transform: uppercase;
+                color: $color-black;
+                border-bottom: solid 1px $color-border-dark-gray;
+                padding: 0px 0 13px;
+                text-align: center;
+                &:first-child {
+                    text-align: left;
+                }
+                &:last-child {
+                    text-align: right;
+                }
+            }
+            tbody,
+            tfoot {
+                td,
+                th {
+                    padding: 20px 0;
+                    border-bottom: solid 1px $color-border-dark-gray;
+                    font-family: var(--font-family-primary);
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 1.43;
+                    letter-spacing: normal;
+                    color: $color-black;
+                    a {
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 1.43;
+                        letter-spacing: normal;
+                    }
+                    strong {
+                        font-weight: 600;
+                    }
+                    text-align: center;
+                    &:first-child {
+                        text-align: left;
+                    }
+                    &:last-child {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        table.account-section__table-overwrite-order {
+            thead,
+            tbody {
+                tr {
+                    th,
+                    td {
+                        width: 20% !important;
+                        @include MQ(MQ-768) {
+                            width: 100% !important;
+                        }
+                        &:first-child {
+                            width: 30% !important;
+                            @include MQ(MQ-768) {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .backtoaccount {
+        margin-top: 20px;
+        display: inline-block;
+    }
+    @include MQ(MQ-768) {
+        .heading-section {
+            #customer_logout_link,
+            .link--primary {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-top: 10px;
+                display: inline-block;
+            }
+        }
+        &__wrapper {
+            .order-table__product {
+                div {
+                    width: 100%;
+                }
+            }
+        }
+        &__table {
+            table {
+                thead {
+                    display: none;
+                }
+                tbody,
+                tfoot {
+                    tr {
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 20px;
+                        border: solid 1px $color-border-dark-gray;
+                    }
+                    td {
+                        float: left;
+                        clear: left;
+                        width: 100%;
+                        text-align: right !important;
+                        padding: 22px 15px 16px!important;
+                        display: flex;
+                        justify-content: space-between;
+                        position: relative;
+                        min-height: 52px;
+                        a {
+                            text-align: right;
+                        }
+                    }
+                    td:first-child {
+                        border-top: none;
+                    }
+                    td:before {
+                        content: attr(data-label);
+                        font-family: var(--font-family-primary);
+                        font-size: 14px !important;
+                        font-weight: bold;
+                        line-height: 1.29;
+                        letter-spacing: 0.01px;
+                        max-width: 50%;
+                        text-align: left;
+                        text-transform: uppercase;
+                        color: $color-black;
+                    }
+                }
+                tfoot {
+                    tr {
+                        margin-bottom: 0px;
+                        border-bottom: solid 1px $color-border-dark-gray;
+                        border-left: none;
+                        border-right: none;
+                        border-top: none;
+                    }
+                    td {
+                        display: flex;
+                        padding-left: 20px !important;
+                        align-items: center;
+                        justify-content: space-between;
+                        &::before {
+                            order: 1;
+                            position: relative !important;
+                            top: 0;
+                            left: 0;
+                            text-align: left;
+                        }
+                        span,
+                        strong {
+                            order: 2;
+                        }
+                    }
+                }
+                thead,
+                tfoot th {
+                    display: none !important;
+                }
+                tfoot tr td,
+                tfoot tr th {
+                    border: solid 1px $color-border-dark-gray;
+                    border-top: none;
+                    border-bottom: none;
+                }
+                tfoot tr:last-child {
+                    border-bottom: solid 1px $color-border-dark-gray;
+                }
+            }
+            tbody {
+                tr {
+                    margin-bottom: 20px;
+                    &:last-child {
+                        margin-bottom: 0px;
+                    }
+                    td,
+                    th {
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        }
+        .order-discount-wrapper {
+            display: block;
+            text-align: right !important;
+            .medium-up--hide {
+                display: none;
+            }
+        }
+    }
+}
+
+.account-section__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    a {
+        margin-top: 0px !important;
+        @include MQ(MQ-480) {
+            &:last-child {
+                margin-top: 20px;
+            }
+        }
+    }
+    @include MQ(MQ-480) {
+        flex-direction: column;
+    }
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0 10px;
+        line-height: 1.5;
+        display: inline-block;
+        @include MQ(MQ-480) {
+            margin-top: 10px;
+            margin-bottom: 2px;
+            rotate: 90deg;
+        }
+    }
+}
+
+.account-address-info {
+    .customer-name {
+        display: block;
+        margin-bottom: 0px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+}
+
+.rc_layout__container {
+    .col-md-6 {
+        margin: 0 auto;
+    }
+}

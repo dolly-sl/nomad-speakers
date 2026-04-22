@@ -1,0 +1,374 @@
+
+{% if section.blocks.size > 0 %}
+  <div class="slider hero-banner-slider   {% if section.blocks.size > 1 %} js__hero-banner-slider  padding-left-right {% endif %} color-{{ section.settings.color_scheme }}">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.backgroundImage != blank or block.settings.videobanner != blank %}
+          <div
+            class="
+              section-{{ section.id }}-padding block-{{ block.id }}
+              slide swiper-slide
+              hero-banner {% if block.settings.content_alignment == "center" %} center-align{% endif %} {% if block.settings.content_alignment == "right" %} right-align{% endif %}
+              {% if block.settings.content_alignment == "left" %} left-align{% endif %} {% if section.blocks.size > 1 %} padding-left-right {% endif %}
+            "
+          >
+
+           
+
+            
+            {%- if block.settings.videobanner -%}
+              <div class="video-section {%if block.settings.gradient == true%} gradient-none{%endif%}">
+                <div class="video-wrapper none-980">
+                  {% if block.settings.video contains '.mp4' %}
+                    <video muted loop autoplay playsinline>
+                      <source src="{{ block.settings.video }}" type="video/mp4">
+                    </video>
+                  {% else %}
+                    {% if block.settings.video != blank %}
+                      {% assign videoId = block.settings.video | split: 'vimeo.com/' %}
+                      <iframe
+                        src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                        frameborder="0"
+                        allow="fullscreen"
+                        allowfullscreen
+                        loading="lazy"
+                      ></iframe>
+                    {% endif %}
+                  {% endif %}
+                </div>
+                 {% if block.settings.mobileMediaType == 'video' %}
+          <div class="video-wrapper block-980">
+            {% if block.settings.videoMobile != blank %}
+              {% if block.settings.videoMobile contains '.mp4' %}
+                <video
+                  muted
+                  loop
+                  autoplay playsinline>
+                  <source src="{{ block.settings.videoMobile }}" type="video/mp4">
+                </video>
+              {% else %}
+                {% assign videoId = block.settings.videoMobile | split: 'vimeo.com/' %}
+                <iframe
+                  src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                  frameborder="0"
+                  allow="fullscreen"
+                  allowfullscreen
+                  loading="lazy"></iframe>
+              {% endif %}
+            {% else %}
+              {% if block.settings.video contains '.mp4' %}
+                <video
+                  muted
+                  loop
+                  autoplay playsinline>
+                  <source src="{{ block.settings.video }}" type="video/mp4">
+                </video>
+              {% else %}
+                {% if block.settings.video != blank %}
+                  {% assign videoId = block.settings.video | split: 'vimeo.com/' %}
+                  <iframe
+                    src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                    frameborder="0"
+                    allow="fullscreen"
+                    allowfullscreen
+                    loading="lazy"></iframe>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="image-section block-980">
+            {% assign imageAlt = block.settings.backgroundImageMobile.alt %}
+            {% if imageAlt == blank %}
+              {% assign imageAlt = block.settings.title %}
+            {% endif %}
+            {% include 'image_code'  with  mobileImage:  block.settings.backgroundImageMobile, tabletImage:  block.settings.backgroundImageMobile, desktopImage:  block.settings.backgroundImageMobile, imageAlt:  imageAlt , critical: true %}
+          </div>
+        {% endif %}
+                
+              </div>
+            {% else %}
+              <div class="image-section {%if block.settings.gradient == true%} gradient-none{%endif%}">
+                {% assign imageAlt = block.settings.backgroundImage.alt %}
+                {% if imageAlt == blank %}
+                  {% assign imageAlt = block.settings.title %}
+                {% endif %}
+                {% if block.settings.mobileMediaType == 'video' %}
+                  {% include 'image_code'  with  mobileImage:  block.settings.backgroundImage, tabletImage:  block.settings.backgroundImage, desktopImage:  block.settings.backgroundImage, imageAlt:  imageAlt , critical: true %}
+                {% else %}
+                  {% include 'image_code'  with  mobileImage:  block.settings.backgroundImageMobile, tabletImage:  block.settings.backgroundImage, desktopImage:  block.settings.backgroundImage, imageAlt:  imageAlt , critical: true %}
+                {% endif %}
+              </div>
+              {% if block.settings.mobileMediaType == 'video' %}
+                <div class="video-section block-980">
+                  <div class="video-wrapper">
+                    {% if block.settings.videoMobile != blank %}
+                      {% if block.settings.videoMobile contains '.mp4' %}
+                        <video
+                          muted
+                          loop
+                          autoplay playsinline>
+                          <source src="{{ block.settings.videoMobile }}" type="video/mp4">
+                        </video>
+                      {% else %}
+                        {% assign videoId = block.settings.videoMobile | split: 'vimeo.com/' %}
+                        <iframe
+                          src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                          frameborder="0"
+                          allow="fullscreen"
+                          allowfullscreen
+                          loading="lazy"></iframe>
+                      {% endif %}
+                    {% else %}
+                      {% if block.settings.video != blank %}
+                        {% if block.settings.video contains '.mp4' %}
+                          <video
+                            muted
+                            loop
+                            autoplay playsinline>
+                            <source src="{{ block.settings.video }}" type="video/mp4">
+                          </video>
+                        {% else %}
+                          {% assign videoId = block.settings.video | split: 'vimeo.com/' %}
+                          <iframe
+                            src="https://player.vimeo.com/video/{{ videoId[1] }}?loop=1&autoplay=1&muted=1"
+                            frameborder="0"
+                            allow="fullscreen"
+                            allowfullscreen
+                            loading="lazy"></iframe>
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+            <div class="container-1320">
+              <div
+                class="content"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
+                   {% if block.settings.pretitle != blank %}
+                  <span class="pre-title">{{ block.settings.pretitle }}</span>
+                   {% endif %}
+
+                {% if block.settings.title != blank %}
+                  {% if section.blocks.size > 1 %}
+                    <p class="{{block.settings.text_size}}">
+                      {{ block.settings.title }}
+                    </p>
+                    
+                  {% else %}
+                    {% comment %} <h1 class="{{block.settings.text_size}}">{{ block.settings.title }}</h1> {% endcomment %}
+                   
+                      <h1  class="{{block.settings.text_size}}">{{ block.settings.title }}</h1>
+                   
+                  {% endif %}
+                {% endif %}
+              
+                  
+                     {% if block.settings.buttonText != blank %}
+                  <a
+                    class="btn bg-btn {{block.settings.button_style}}"
+                    href="{{ block.settings.buttonLink }}"
+                    title="Read More About {{ block.settings.title }}"
+                    aria-label="Read More About {{ block.settings.title }}"
+                  >
+                    {{- block.settings.buttonText -}}
+                  </a>
+                   {% endif %}
+                  
+               
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.blocks.size > 1 %}
+      <div
+        class="swiper-pagination swiper-pagination-herobanner"
+      ></div>
+    {% endif %}
+  </div>
+{% endif %}
+
+  
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Hero Slide",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "header",
+          "content": "🎬 Background Media Settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImage",
+          "label": "Desktop Background Image",
+          "info": "Upload a high-quality background image for desktop/laptop screens. This will be the main visual element of your hero banner. Recommended size: 2880 x 1620px for optimal display on large screens."
+        },
+        {
+          "type": "checkbox",
+          "id": "videobanner",
+          "label": "Enable Video Background Mode",
+          "info": "Toggle to use a video background instead of an image. When enabled, videos will automatically play, loop continuously, and be muted by default for optimal user experience.",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "video",
+          "label": "Desktop Video URL",
+          "info": "Enter the URL for your background video. Supports MP4 video files or Vimeo URLs (paste the full Vimeo URL). Videos will autoplay, loop, and be muted automatically. Keep file sizes optimized for faster loading."
+        },
+        {
+          "type": "select",
+          "id": "mobileMediaType",
+          "label": "Mobile Media Type Selection",
+          "info": "Choose whether to display an image or video on mobile devices. This allows you to optimize the mobile experience differently from desktop, potentially using smaller/lighter files for better performance.",
+          "default": "image",
+          "options": [
+            {
+              "value": "image",
+              "label": "Static Image"
+            },
+            {
+              "value": "video",
+              "label": "Autoplay Video"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImageMobile",
+          "label": "Mobile Background Image",
+          "info": "Upload a mobile-optimized background image for smartphone devices. This will be used when 'Static Image' is selected for mobile media type. Recommended size: 750 x 1400px for vertical mobile displays."
+        },
+        {
+        "type": "url",
+        "id": "videoMobile",
+        "label": "Mobile Video URL",
+        "info": "Enter the URL for your mobile background video. This will be used when 'Autoplay Video' is selected for mobile media type. If left blank, the desktop video will be used on mobile. Supports MP4 files or Vimeo URLs."
+        },
+        {
+          "type": "header",
+          "content": "📝 Slide Content & Text"
+        },
+        {
+          "type": "text",
+          "id": "pretitle",
+          "label": "Optional Pre-Title / Subtitle",
+          "info": "Add a small prefix text that appears above the main title (e.g., 'New Collection', 'Welcome', 'Featured'). This helps create visual hierarchy and adds context to your hero message."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Main Hero Title / Headline",
+          "info": "Enter the primary headline for this hero slide. This will be the most prominent text element and should capture attention immediately. Keep it concise, compelling, and action-oriented."
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Heading Size / Typography",
+          "info": "Controls the visual prominence of your hero title. H1 (Large) for impactful hero sections, H2 (Medium) for balanced emphasis, H3 (Small) for more subtle secondary slides.",
+          "default": "h1",
+          "options": [
+            {
+              "value": "h3",
+              "label": "Small - H3 Heading"
+            },
+            {
+              "value": "h2",
+              "label": "Medium - H2 Heading"
+            },
+            {
+              "value": "h1",
+              "label": "Large - H1 Heading"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "🔘 Call-to-Action Button"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button Label / Text",
+          "info": "The clickable text displayed on the button (e.g., 'Shop Now', 'Explore Collection', 'Get Started'). Leave blank to completely hide the button from this hero slide."
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Destination URL",
+          "info": "The web address where users will be directed when they click the button. Can link to product pages, collections, custom pages, external sites, or anchor links within the same page."
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Visual Style / Button Type",
+          "info": "Controls the button's appearance. Primary (bold and high-contrast) for main actions, Secondary (subtle) for less prominent actions, Underline (minimal) for text-like links.",
+          "options": [
+            {
+              "value": "btn--primary",
+              "label": "Primary Button (Bold)"
+            },
+            {
+              "value": "btn--secondary",
+              "label": "Secondary Button (Subtle)"
+            },
+            {
+              "value": "btn--tertiary",
+              "label": "Underline Button (Minimal)"
+            }
+          ],
+          "default": "btn--primary"
+        },
+        
+        {
+          "type": "header",
+          "content": "⚙️ Advanced Layout Settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "Fine-tune the visual presentation of your hero slide. These settings control how content is positioned and displayed across different screen sizes."
+        },
+        {
+          "type": "select",
+          "id": "content_alignment",
+          "options": [
+            { "value": "left", "label": "Left Aligned" },
+            { "value": "right", "label": "Right Aligned" },
+            { "value": "center", "label": "Center Aligned" }
+          ],
+          "label": "Text Content Alignment",
+          "info": "Controls how the text content (title and button) is positioned within the hero slide. Center alignment is most common for hero banners, while left/right can create more dynamic layouts.",
+          "default": "center"
+        }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

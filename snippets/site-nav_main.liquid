@@ -1,0 +1,317 @@
+<ul class="flex-justify-center main-nav-list">
+  {% for link in mainMenu.links %}
+    {% if link.links != blank %}
+      <!-- If first child menus are there -->
+      {% assign parent_index = forloop.index %}
+      {% assign linkTitle = link.title | downcase | remove: ' ' %}
+
+      <li
+        class="{% if link.levels ==  2 %}has-big-nav{%else%}has-sub-nav{%endif%}"
+        aria-haspopup="true"
+      >
+        {% comment %} href=" {{ link.url}}" {% endcomment %}
+
+        <a
+          title=" {{ link.title | escape }}"
+          class="site-nav__link none-980"
+          data-meganav-type="parent"
+          aria-controls="MenuParent-{{ parent_index }}"
+          aria-expanded="false"
+          {% unless request.page_type == 'index' %}
+            {%- if link.active %}aria-current="page" {% endif -%}
+          {% endunless %}
+        >
+          {{ link.title | escape }}
+        </a>
+        <p
+          class="site-nav__link js__big-nav-link block-980"
+          data-meganav-type="parent"
+          aria-controls="MenuParent-{{ parent_index }}"
+          aria-expanded="false"
+          {% unless request.page_type == 'index' %}
+            {%- if link.active %}aria-current="page" {% endif -%}
+          {% endunless %}
+        >
+          {{ link.title | escape }}
+        </p>
+        {% comment %} BIG NAV {% endcomment %}
+
+        {% if link.levels == 2 %}
+          <div class="big-nav js__big-nav accordion-content">
+            <div class="container-1570">
+              <div class="flex">
+                {% if linkTitle contains 'shop' %}
+                  <div class="big-nav-menu flex product-icon-links">
+                    {% for childlink in link.links %}
+                      {% if childlink.links != blank %}
+                        {% assign childlinkTitle = childlink.title | downcase | remove: ' ' %}
+
+                        <div class="big-nav-links">
+                          <a
+                            href="{{childlink.url}}"
+                            title=" {{ childlink.title | escape }}"
+                            class="none-980 sub-link "
+
+                            aria-controls="MenuParent-{{ child_index }}"
+                            aria-expanded="false"
+                          >
+                            {{ childlink.title }}
+                          </a>
+                          <p class="accordion-toggle-inner block-980">
+                            {{ childlink.title | escape }}
+                          </p>
+
+                          <ul class="accordion-content-inner product-inner">
+                            {% for subChildlink in childlink.links %}
+                              {% assign subChildlinkTitle = subChildlink.title | downcase | remove: ' ' %}
+                              <li class="flex">
+                                {% assign _object = subChildlink.object %}
+
+                                {% if childlinkTitle contains 'shopbyhealth' %}
+                                  {% if _object.metafields.menu.icons != blank %}
+                                    {% assign pageImage = _object.metafields.menu.icons | first %}
+                                    <img loading="lazy" src="{{ pageImage.cloudinary_src}}" class="none-980">
+                                  {% endif %}
+                                  <a
+                                    href="{{ _object.url }}"
+
+                                    data-meganav-type="parent"
+                                    aria-controls="MenuParent-{{ parent_index }}"
+                                    aria-expanded="false"
+                                    {% unless request.page_type == 'index' %}
+                                      {%- if subChildlink.active %}aria-current="page" {% endif -%}
+                                    {% endunless %}
+                                  >
+                                    {{ subChildlink.title | escape }}
+                                  </a>
+                                {% else %}
+                                  <a
+                                    href="{{ subChildlink.url }}"
+                                    data-meganav-type="parent"
+                                    aria-controls="MenuParent-{{ parent_index }}"
+                                    aria-expanded="false"
+                                    {% unless request.page_type == 'index' %}
+                                      {%- if subChildlink.active %}aria-current="page" {% endif -%}
+                                    {% endunless %}
+                                  >
+                                    {{ subChildlink.title | escape }}
+                                  </a>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <div class="big-nav-menu flex">
+                    {% for childlink in link.links %}
+                      {% if childlink.links != blank %}
+                        {% assign childlinkTitle = childlink.title | downcase | remove: ' ' %}
+
+                        <div class="big-nav-links">
+                          <a
+                            href="{{childlink.url}}"
+                            title=" {{ childlink.title | escape }}"
+                            class="none-980 sub-link pre-title border"
+
+                            aria-controls="MenuParent-{{ child_index }}"
+                            aria-expanded="false"
+                          >
+                            {{ childlink.title }}
+                          </a>
+                          <p class="accordion-toggle-inner block-980">
+                            {{ childlink.title | escape }}
+                          </p>
+                          <ul class="accordion-content-inner">
+                            {% for subChildlink in childlink.links %}
+                              <li>
+                                <a
+                                  href="{{ subChildlink.url }}"
+                                  data-meganav-type="parent"
+                                  aria-controls="MenuParent-{{ parent_index }}"
+                                  aria-expanded="false"
+                                  {% unless request.page_type == 'index' %}
+                                    {%- if subChildlink.active %}aria-current="page" {% endif -%}
+                                  {% endunless %}
+                                >
+                                  {{ subChildlink.title | escape }}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <div class="two-column-product-section none-980 {% if linkTitle contains 'shop' %} one-column-product{%endif%}">
+                  <ul class="flex">
+                    {% for block in section.blocks -%}
+                      {% assign linkTitlecat = block.settings.category | downcase | remove: ' ' %}
+                      {% if linkTitle contains linkTitlecat %}
+                        {% if block.settings.title != blank %}
+                          <li class="featured-card ">
+                            <a
+                              href="{{block.settings.link}}"
+                              title="{{ block.settings.title}}"
+                              class="inner-wrapper"
+                            >
+                              <div class="image-section">
+                                <img src="{{ block.settings.image | img_url: '360x200' }}" alt="">
+                              </div>
+                              <div class="content">
+                                <span class="title">{{ block.settings.title }}</span>
+                              </div>
+                            </a>
+                          </li>
+                        {% endif %}
+                      {% endif %}
+                    {%- endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          {% comment %} SUB NAV {% endcomment %}
+          {% if link.levels == 1 %}
+            <div class="sub-nav accordion-content">
+              <div class="flex">
+                <ul class="sub-nav-links">
+                  {% for childlink in link.links %}
+                    <li>
+                      <a
+                        href="{{ childlink.url }}"
+                        title="{{ childlink.title | escape }}"
+                        aria-controls="MenuChildren-{{ parent_index }}-{{ child_index }}"
+                        data-meganav-type="parent"
+                        {% unless request.page_type == 'index' %}
+                          {%- if childlink.active %}aria-current="page" {% endif -%}
+                        {% endunless %}
+                      >
+                        {{ childlink.title | escape -}}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      </li>
+    {% else %}
+      <!-- If NO child menus are there -->
+
+      {% assign linkTitle = link.title | downcase | remove: ' ' %}
+
+      <li class="{% if linkTitle contains 'Shop' %}has-big-nav{%endif%}">
+        <a
+          href=" {{ link.url}}"
+          title="{{ link.title | escape }}"
+          class="{% if linkTitle contains 'Shop' %}site-nav__link none-980{%endif%}"
+        >
+          {{ link.title | escape }}
+        </a>
+        {% if linkTitle contains 'Shop' %}
+          <p class="accordion-toggle block-980">{{ link.title | escape }}</p>
+        {% endif %}
+        {% if linkTitle contains 'Shop' %}
+          <div class="big-nav none-980">
+            <div class="container-1360">
+              <div class="flex center">
+                <div class="two-column-product-section none-980">
+                  <ul class="flex-wrap">
+                    {% for block in section.blocks -%}
+                      {% assign linkTitlecat = block.settings.category | downcase | remove: ' ' %}
+                      {% if linkTitle contains linkTitlecat %}
+                        {% if block.settings.title != blank %}
+                          <li
+                            class="
+                              featured-card {% if block.settings.content_alignment == "center" %} center-align{%endif%} {% if block.settings.content_alignment == "right" %} right-align{%endif%}{% if
+                              block.settings.content_alignment == "left" %} left-align{%endif%}
+                            "
+                          >
+                            <a href="{{block.settings.link}}" title="{{block.settings.linkText}}" class="inner-wrapper">
+                              <div class="image-section">
+                                <img src="{{ block.settings.image | img_url: '360x200' }}" alt="">
+                              </div>
+                              <div class="content">
+                                <span class="title">{{ block.settings.title }}</span>
+                                <span class="link--primary">
+                                  {{- block.settings.linkText -}}
+                                </span>
+                              </div>
+                            </a>
+                          </li>
+                        {% endif %}
+                      {% endif %}
+                    {%- endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% if linkTitle contains 'support' %}
+          <div class="sub-nav accordion-content">
+            <div class="flex">
+              <ul class="sub-nav-links">
+                <div class="contact-into-section">
+                  <ul>
+                    {% if settings.chatText != blank %}
+                      <li>
+                        <span class="title">Chat:</span>
+                        <a href="{{settings.chatLink}}" title="{{settings.chatText }}">{{ settings.chatText }}</a>
+                      </li>
+                    {% endif %}
+                    {% if settings.number != blank %}
+                      <li>
+                        <span class="title">Phone:</span>
+                        <a
+                          href="tel:{% if settings.numberPlusSign == true %}+{%endif%}{{settings.number}}"
+                          title="call-{{settings.number}}"
+                        >
+                          {{- settings.number -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% if settings.textnumber != blank %}
+                      <li>
+                        <span class="title">Text Us:</span>
+                        <a
+                          href="{{settings.textnumber}}"
+                          title="text-{{settings.textnumber}}"
+                        >
+                          {{- settings.textnumber -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% if settings.emailAddress != blank %}
+                      <li>
+                        <span class="title">Email:</span>
+                        <a href="mailto:{{settings.emailAddress}}" title="mail-{{settings.emailAddress}}">
+                          {{ settings.emailAddress -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% if settings.trackLinkText != blank and settings.trackLink != bank %}
+                      <li>
+                        <span class="title">Orders:</span>
+                        <a href="{{settings.trackLink }}" title="{{settings.trackLinkText }}">
+                          {{- settings.trackLinkText -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,167 @@
+.half-content-half-form{
+    
+       overflow: hidden;
+      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-cream;
+ 
+   .container-1500{
+    @include MQ(MQ-768) {
+    flex-direction: column;
+    }
+   }
+   .content >p{
+    max-width: 327px;
+   }
+   h1{
+    margin-bottom: 2px;
+   }
+   p,a{
+        font-size: 14px;
+font-weight: 400;
+line-height: normal;
+    }
+   ul{
+    
+    .link--primary{
+        margin-top: 6px;
+    }
+    .label{
+        display: block;
+       
+font-family: var(--font-family-secondary);
+font-size: 16px;
+font-weight: 900;
+margin-bottom: 7px;
+line-height: normal;
+text-transform: uppercase;
+    }
+    li{ margin-top:  34px;}
+    a{
+        color: $color-blueish;
+    }
+   }
+    .content{
+        
+        width: 350px;
+        margin-right: 86px;
+        flex: none;
+          @include MQ(MQ-1200) {
+  margin-right: 40px;
+          }
+        @include MQ(MQ-980) {
+            margin-right: 40px;
+            width: 280px;
+        }
+        @include MQ(MQ-768) {
+            width: 100%;
+            margin: 0;
+            order: 1;
+
+        }
+       
+    }
+    .form-section{
+        width: 100%;
+        background: $color-white;
+        
+        padding: 62px 93px 52px;
+           @include MQ(MQ-1200) {
+            padding: 50px 50px 42px;
+           }
+            @include MQ(MQ-768) {
+            padding: 30px 20px 0px;
+           
+           }
+        >p{
+           margin-bottom: 34px;
+           display: block;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 116%; /* 18.56px */
+ @include MQ(MQ-768) {
+    text-align: center;
+ }
+        }
+         div[data-testid="form-row"]{
+   gap: 27px;
+   
+            margin-bottom: 20px!important;
+                     @include MQ(MQ-768) {
+    display: block !important;
+      margin-bottom: 0px!important;
+      >div {
+        margin-bottom: 20px !important;
+      }
+ }
+                div[data-testid="form-component"]{
+                 
+                    padding:  0!important;
+                    >button{
+                     margin-top: 10px!important;
+  transition: 0.3s ease all!important;
+ font-family: var(--font-family-button)!important;
+  cursor: pointer!important;
+  display: block!important;
+  font-size: var(--buttons-desktop-fontsize)!important;
+  font-style: var(--buttons-desktop-fontstyle)!important;
+  font-weight: var(--buttons-desktop-fontweight)!important;
+  line-height: var(--buttons-desktop-lineheight)!important;
+  letter-spacing: var(--buttons-desktop-letterspacing)!important;
+  text-align: center!important;
+  color: $color-black !important;
+  width: fit-content!important;
+  border-width: var(--buttons-border-width)!important;
+  border-style: solid!important;
+  border-color: $color-light-orange!important;
+  //  border-image: linear-gradient(96deg, #55DBAA 0%, #11D5FF 100%);
+  border-radius: var(--buttons-radius-outset)!important;
+  background: $color-light-orange!important;
+  min-width: var(--buttons-minimum-width)!important;
+  -webkit-appearance: none!important;
+  -moz-appearance: none!important;
+  text-decoration: none!important;
+  padding: 0px 14px 0px!important;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  text-transform: var(--buttons-desktop-texttransform)!important;
+  height: 50px!important;
+  @include MQ(MQ-480) {
+    font-size: var(--buttons-mobile-fontsize)!important;
+    line-height: var(--buttons-mobile-lineheight)!important;
+    letter-spacing: var(--buttons-mobile-letterspacing)!important;
+  }
+  position: relative!important;
+  &:hover {
+    transition: 0.3s ease all !important;
+    color: $color-white !important;
+    background: $color-black!important;
+    border-color: $color-black!important;
+  }
+                    }
+                    >div.needsclick {
+                        >div.needsclick.go725027734  {
+                            overflow: hidden !important;
+                            border-radius: 3px !important;
+                            border: 1px solid $color-black !important;
+                        }
+                    }
+                }
+         }
+         div.needsclick {
+            height: auto!important;
+         }
+
+         input[type="text"],
+        input[type="search"],
+         input[type="tel"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            margin-bottom: 0 !important;
+        }
+        
+       
+    }
+}

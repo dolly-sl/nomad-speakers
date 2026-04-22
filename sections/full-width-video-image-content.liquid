@@ -1,0 +1,211 @@
+{% if section.settings.desktop_image != blank or section.settings.desktop_video != blank %}
+    <div class="full-width-video-image-content">
+  {% if section.settings.use_video_background %}
+    <!-- Video Background Mode -->
+  
+      <div class="video-section image-section">
+        <div class="video-wrapper">
+          {% if section.settings.desktop_video != blank %}
+            <video  {% if section.settings.mobile_video != blank %} class="desktop-video" {% endif %} muted loop autoplay playsinline>
+              <source src="{{ section.settings.desktop_video }}" type="video/mp4">
+            </video>
+          {% endif %}
+
+          {% if section.settings.mobile_video != blank %}
+            <video class="mobile-video" muted loop autoplay playsinline>
+              <source src="{{ section.settings.mobile_video }}" type="video/mp4">
+            </video>
+          {% endif %}
+        </div>
+     
+      </div>
+   
+  {% else %}
+    <!-- Image Background Mode -->
+   
+      <div class="image-section">
+        {% if section.settings.desktop_image != blank %}
+          <img
+            {% if section.settings.mobile_image != blank %} class="desktop-image"  {% endif %}
+            src="{{ section.settings.desktop_image | img_url: 'master' }}"
+            alt="{{ section.settings.desktop_image.alt | escape }}"
+          >
+        {% endif %}
+
+        {% if section.settings.mobile_image != blank %}
+          <img
+            class="mobile-image"
+            src="{{ section.settings.mobile_image | img_url: 'master' }}"
+            alt="{{ section.settings.mobile_image.alt | escape }}"
+          >
+        {% endif %}
+
+        
+      </div>
+  
+  {% endif %}
+  <div class="container-1400">
+     <div
+                class="content"
+               
+              >
+                   {% if section.settings.pretitle != blank %}
+                  <span class="pre-title">{{ section.settings.pretitle }}</span>
+                   {% endif %}
+
+                {% if section.settings.title != blank %}
+                
+                    <h2 class="{{section.settings.text_size}}">
+                      {{ section.settings.title }}
+                    </h2>
+                    
+                 
+                {% endif %}
+              
+                  
+                     {% if section.settings.buttonText != blank %}
+                  <a
+                    class="btn bg-btn {{section.settings.button_style}}"
+                    href="{{ section.settings.buttonLink }}"
+                    title="Read More About {{ section.settings.title }}"
+                    aria-label="Read More About {{ section.settings.title }}"
+                  >
+                    {{- section.settings.buttonText -}}
+                  </a>
+                   {% endif %}
+                  
+               
+              </div>
+  </div>
+    </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Full Width Image/Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎬 Background Media Mode"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_video_background",
+      "label": "Enable Video Background Mode",
+      "default": false,
+      "info": "Toggle between video or image backgrounds. When checked (ON), videos will display as backgrounds. When unchecked (OFF), static images will be used instead."
+    },
+    {
+      "type": "header",
+      "content": "🖼️ Background Images (When Video Mode is OFF)"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Background Image",
+      "info": "Select the background image for desktop/laptop screens. This image should be high-resolution and optimized for large displays. Recommended size: 1920px or wider."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Background Image",
+      "info": "Optional separate background image optimized for mobile devices (recommended for better mobile experience). If left blank, the desktop image will be used on mobile. Recommended size: 768px or smaller."
+    },
+    {
+      "type": "header",
+      "content": "🎥 Background Videos (When Video Mode is ON)"
+    },
+    {
+      "type": "url",
+      "id": "desktop_video",
+      "label": "Desktop Video URL (MP4)",
+      "info": "Enter the direct URL to your MP4 video file for desktop/laptop screens. Videos should be optimized for web (compressed, typically 5-10MB for best performance). The video will autoplay, loop, and be muted."
+    },
+    {
+      "type": "url",
+      "id": "mobile_video",
+      "label": "Mobile Video URL (MP4)",
+      "info": "Optional separate video URL optimized for mobile devices. If left blank, the desktop video will be used on mobile. Mobile videos should be smaller file sizes for faster loading."
+    },
+    {
+          "type": "header",
+          "content": "📝 Content Settings"
+        },
+        {
+          "type": "text",
+          "id": "pretitle",
+          "label": "Optional Pre-Title / Overline Text",
+          "info": "Add a small prefix text that appears above the main title (e.g., 'New Collection', 'Featured', 'Welcome'). This helps create visual hierarchy and adds context."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Main Heading / Title Text",
+          "info": "Enter the primary heading that overlays the background media. This should be compelling and clearly communicate your message (e.g., 'Welcome to Our Store', 'Summer Collection 2024')."
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Heading Size / Typography",
+          "info": "Controls the visual prominence of your heading. H1 (Large) for hero sections and main banners, H2 (Medium) for secondary sections, H3 (Small) for less prominent areas.",
+          "default": "h1",
+          "options": [
+            {
+              "value": "h3",
+              "label": "Small - H3 Heading"
+            },
+            {
+              "value": "h2",
+              "label": "Medium - H2 Heading"
+            },
+            {
+              "value": "h1",
+              "label": "Large - H1 Heading"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "🔘 Call-to-Action Button"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button Label / Text",
+          "info": "The clickable text displayed on the button (e.g., 'Shop Now', 'Explore Collection', 'Learn More'). Leave blank to hide the button completely."
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Destination URL",
+          "info": "The web address where users will be directed when they click the button. Can link to product pages, collections, custom pages, external sites, or anchor links."
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Visual Style / Button Type",
+          "info": "Controls the button's appearance. Primary (bold and high-contrast) for main actions, Secondary (subtle) for less prominent actions, Underline (minimal) for text-like links.",
+          "options": [
+            {
+              "value": "btn--primary",
+              "label": "Primary Button (Bold)"
+            },
+            {
+              "value": "btn--secondary",
+              "label": "Secondary Button (Subtle)"
+            },
+            {
+              "value": "btn--tertiary",
+              "label": "Underline Button (Minimal)"
+            }
+          ],
+          "default": "btn--primary"
+        }
+    
+  ],
+  "presets": [
+    {
+      "name": "Full Width Video/Image Content"
+    }
+  ]
+}
+{% endschema %}

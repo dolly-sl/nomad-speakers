@@ -1,0 +1,291 @@
+<!-- Header -->
+<header class="header site-header transparent" id="mainHeader">
+  <div class="main-header js__main-header">
+    <div class="container-1570 flex-align-center">
+      <div class="header-logo relative">
+        <a href="{{ routes.root_url }}" itemprop="url" alt="{{shop.name}}">
+          {% if section.settings.logo != blank %}
+            <img
+              src="{{section.settings.logo | img_url: 'master' }}"
+              class="logo"
+              alt="{{shop.name}} Logo"
+              loading="lazy"
+            >
+            <img
+              src="{{section.settings.whiteLogo | img_url: 'master' }}"
+              class="whitelogo"
+              alt="{{shop.name}} Logo"
+              loading="lazy"
+            >
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </a>
+      </div>
+      <div class="middle-menu flex-align-center">
+        <!-- Main Nav -->
+        <div class="navbar-collapse" id="navbarNavDropdown">
+          {% assign mainMenu = linklists[section.settings.nav_menu] %}
+          <nav class="main-menu">
+            {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
+              <div class="btn block-980">
+                <a href="{{ section.settings.btnLink }}" title="{{- section.settings.btnText -}}" class="btn--menu">
+                  {{- section.settings.btnText -}}
+                </a>
+              </div>
+            {% endif %}
+            {% include 'site-nav_main' with mainMenu %}
+          </nav>
+          <div class="bottom-menu">
+            <ul>
+              <li>
+                {% if customer %}
+                  <a href="/account" title="My Account" class="user site-nav__link">
+                    <img src="{{'icon-account.svg' | asset_url }}" alt="Account Icon">
+                    <span>Account Log Out</span>
+                  </a>
+                {% else %}
+                  <a href="/account/login" title="Log In" class="user site-nav__link">
+                    <img src="{{'icon-account.svg' | asset_url }}" alt="Account Icon">
+                    <span>Account Sign In</span>
+                  </a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Logo -->
+      <!-- Account, Cart -->
+      <ul class="right-nav flex-align-center">
+        {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
+          <li class="btn none-980">
+            <a href="{{ section.settings.btnLink }}" title="{{ section.settings.btnText }}" class="btn--menu">
+              {{- section.settings.btnText -}}
+            </a>
+          </li>
+        {% endif %}
+        <li class=" search-li ">
+          <button type="button" id="js__header-search-btn" class="js__search search-icon" title="Search">
+            <img src="{{'icon-search.svg' | asset_url }}" alt="Search Icon">
+            <span>Search</span>
+          </button>
+          <div class="header-search-section " id="js-header-search-section">
+            <div class="container-750">
+              <form method="get" action="/search" class="flex-align-center relative" data-form-type="">
+                <a href="javascript:;" class=" toggle-icon" aria-label="Seach Open Close">
+                  <img src="{{'icon-search.svg' | asset_url }}" alt="Search Icon">
+                </a>
+                <input type="hidden" name="type" value="product">
+                <input class="search" type="search" placeholder="Search Our Store" aria-label="Search" name="q">
+                <input type="submit" aria-label="Submit" class="submit btn--primary" value="Search">
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="none-980 ">
+          {% if customer %}
+            <a href="/account" title="My Account" class="user site-nav__link">
+              <img src="{{'icon-account.svg' | asset_url }}" alt="Account Icon">
+            </a>
+          {% else %}
+            <a href="/account/login" title="Log In" class="user site-nav__link">
+              <img src="{{'icon-account.svg' | asset_url }}" alt="Account Icon">
+            </a>
+          {% endif %}
+        </li>
+
+        <li>
+          <a class="js__cart-expand js__update-cart-icon cart" href="javascript:;" title="cart">
+            <img src="{{'icon-cart.svg' | asset_url }}" alt="Cart Icon">
+            <p class="js__ajax-cart-count cart-count">
+              {{ cart.item_count }}
+            </p>
+          </a>
+        </li>
+        <li class="mobile-hamburger block-980">
+          <button id="hamburger" type="button" aria-label="hamburger">
+            <span class="hamburger"> <img src="{{'icon-hamburger.svg' | asset_url }}" alt="Hamburger"></span>
+            <span class="close"> <img src="{{'icon-cross.svg' | asset_url }}" alt="Hamburger Close"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Mini Cart -->
+  <div id="cart_overlay"></div>
+  {% include 'cart_drawer' %}
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("mainHeader");
+    const body = document.body;
+    const hamburger = document.getElementById("hamburger");
+    const nav = document.getElementById("navbarNavDropdown");
+    const hasHero = !!document.querySelector(
+      ".hero-banner, .inner-hero-section, .error-page, .collection-hero-section"
+    );
+
+    if (!header) return;
+
+    // Check if search is open
+    function isSearchOpen() {
+      return !!document.querySelector(
+        ".header-search-section.visible, .header-search-section.active, .js__search.active"
+      );
+    }
+
+    // Check if menu is open
+    function isMenuOpen() {
+      return (
+        (hamburger && hamburger.classList.contains("active")) ||
+        (nav && nav.classList.contains("active"))
+      );
+    }
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+      const searchOpen = isSearchOpen();
+      const menuOpen = isMenuOpen();
+
+      // No hero: always white
+      if (!hasHero) {
+        header.classList.add("white");
+        header.classList.remove("transparent");
+        body.classList.add("white-header");
+        return;
+      }
+
+      // Scrolled down
+      if (scrollY > 50) {
+        header.classList.add("fixed", "white");
+        header.classList.remove("transparent");
+        {% comment %} body.classList.add("white-header"); {% endcomment %}
+        return;
+      }
+
+      // At top of page
+      header.classList.remove("fixed");
+
+      // Keep white if search or menu open
+      if (searchOpen || menuOpen) {
+        header.classList.add("white");
+        header.classList.remove("transparent");
+        body.classList.add("white-header");
+      } else {
+        // Normal transparent header at top
+        header.classList.remove("white");
+        header.classList.add("transparent");
+        body.classList.remove("white-header");
+      }
+    }
+
+    // --- Event bindings ---
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("resize", updateHeader);
+
+    if (hamburger) {
+      hamburger.addEventListener("click", function () {
+        setTimeout(updateHeader, 50);
+      });
+    }
+
+    // Search toggle buttons (update when opened/closed)
+    document.addEventListener("click", function () {
+      setTimeout(updateHeader, 50);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setTimeout(updateHeader, 50);
+    });
+
+    // Initialize on page load
+    updateHeader();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "Main brand logo displayed in the site header. Recommended dimensions: 188 x 40px for optimal display quality across devices"
+    },
+    {
+      "type": "image_picker",
+      "id": "whiteLogo",
+      "label": "White Logo",
+      "info": "White version of your logo used when the header background is transparent or colored. This logo appears when the header overlays hero banners"
+    },
+    {
+      "type": "link_list",
+      "id": "nav_menu",
+      "label": "Main Menu",
+      "info": "Select the primary navigation menu that appears in the header to help customers browse your site structure and collections"
+    },
+
+    {
+      "type": "header",
+      "content": "Button Menu"
+    },
+    {
+      "type": "text",
+      "id": "btnText",
+      "label": "Button Text",
+      "info": "Text label displayed on the call-to-action button in the header to encourage customer engagement"
+    },
+    {
+      "type": "url",
+      "id": "btnLink",
+      "label": "Button Link",
+      "info": "Destination URL where customers will be redirected when clicking the header call-to-action button"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Menu"
+    },
+    {
+      "type": "text",
+      "id": "callNumber",
+      "label": "Call Contact",
+      "info": "Phone number displayed in the mobile menu header to allow customers to call your business directly from their device"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Menu Title",
+          "info": "Enter the exact title of the main menu item where you want to display this featured product in the mega menu dropdown"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Display title for the featured product shown in the mega menu to highlight special products or promotions"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Product image displayed in the mega menu to showcase featured items and improve visual navigation"
+        },
+
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "URL link to the featured product page where customers will be directed when clicking from the mega menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

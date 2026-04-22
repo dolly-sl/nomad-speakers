@@ -1,0 +1,15 @@
+{% if productRelated.tags contains settings.tag1 %}
+  <div class="tag custom" style="background: {{settings.tagColor1}}!important; --my-color-var: {{settings.tagColor1}};">
+    {{ settings.tagLabel1 }}
+  </div>
+{% endif %}
+{% if productRelated.tags contains settings.tag2 %}
+  <div class="tag custom" style="background: {{settings.tagColor2}}!important; --my-color-var: {{settings.tagColor2}};">
+    {{ settings.tagLabel2 }}
+  </div>
+{% endif %}
+{% if productRelated.tags contains settings.tag3 %}
+  <div class="tag custom" style="background: {{settings.tagColor3}}!important; --my-color-var: {{settings.tagColor3}};">
+    {{ settings.tagLabel3 }}
+  </div>
+{% endif %}

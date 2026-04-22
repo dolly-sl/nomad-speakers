@@ -1,0 +1,105 @@
+
+{% assign variantFilterType = '' %}
+<div class="product__media-outer">
+ 
+
+  <div class="product__media active js-pdp-media">
+ 
+    <!-- BELOW - OLD CODE NOT TO BE USED -->
+    <div class="js__pdp-slider pdp-slider">
+      
+     
+      
+      <div class="   swiper-wrapper">
+        {% for media in product.media %}
+          {% assign variantFilterType2 = variant[1] | split: '~' %}
+          {% assign variantFilterType2 = variantFilterType2[0] | strip %}
+          {% if variantFilterType == '' %}
+            {% assign variantFilterType = variantFilterType2 | strip %}
+          {% endif %}
+          {% assign variant = media.alt | split: '/' %}
+          {% assign variantColor = variant[1] | split: '~' %}
+          {% assign variantColor = variantColor[1] | strip %}
+          {% assign variantColor = variantColor | replace: ' ', '-' %}
+          {% assign variantColor = variantColor | downcase %}
+          {% if variantColor == '' %}
+            {% assign variantColor = 'all' %}
+          {% endif %}
+          {% assign imageAlt = media.alt %}
+          {% if imageAlt == blank %}
+           {% assign imageAlt = product.title %}
+         {% endif %}
+          {% case media.media_type %}
+            {% when 'image' %}
+              <div class="{{variantColor}} swiper-slide slide" data-alt="{{variantColor}}">
+                <a class="image-section" data-fancybox="product">
+                  <img src="{{ media.src | img_url: '1200x1200' }}" alt="{{ imageAlt}}">
+                </a>
+              </div>
+            {% when 'video' %}
+              <div class=" {{variantColor | downcase}} swiper-slide slide">
+                <div class="image-section video-section">
+                  <button data-href="#product{{ media.id | escape }}">
+                    {{ media | video_tag: controls: true, loop: true, autoplay: true, muted: true }}
+                  </button>
+                </div>
+              </div>
+            {% when 'external_video' %}
+              <div class=" {{variantColor | downcase}} swiper-slide slide">
+                <div class="image-section video-section">
+                  {{ media | external_video_tag }}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+     
+    </div>
+    <div class=" outer-pdp-thumbnail-slider">
+      <div class="js__pdp-thumbnail-slider pdp-thumbnail-outer">
+        <div class="pdp-thumbnail swiper-wrapper  js__pdp-thumbnail mt-45">
+          {% for media in product.media %}
+            {% assign variant2 = media.alt | split: '/' %}
+            {% assign variantColor = variant2[1] | split: '~' %}
+            {% assign variantColor = variantColor[1] | strip %}
+            {% assign variantColor = variantColor | replace: ' ', '-' %}
+            {% assign variantColor = variantColor | downcase %}
+            {% if variantColor == '' %}
+              {% assign variantColor = 'all' %}
+            {% endif %}
+            {% assign imageAlt = media.alt %}
+          {% if imageAlt == blank %}
+           {% assign imageAlt = product.title %}
+         {% endif %}
+            {% case media.media_type %}
+              {% when 'image' %}
+                <div class="{{variantColor}} swiper-slide slide" data-alt="{{variantColor}}">
+                  <div class="image-section">
+                    <img src="{{ media.src | img_url: '160x160' }}" alt="{{ imageAlt }}">
+                  </div>
+                </div>
+              {% when 'video' %}
+                <div class=" {{variantColor | downcase}} swiper-slide slide">
+                  <div class="image-section video-section">
+                    <button data-href="#product{{ media.id | escape }}"> </button>
+                  </div>
+                </div>
+              {% when 'external_video' %}
+                <div class=" {{variantColor | downcase}} swiper-slide slide">
+                  <div class="image-section video-section">
+                    <button data-href="#product{{ media.id | escape }}"> </button>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+      
+      
+    
+    </div>
+     <div class="swiper-pagination swiper-pagination-pdp "></div>
+  </div>
+</div>
+
+<input type="hidden" value="{{variantFilterType | upcase}}" id="variantFilterType">

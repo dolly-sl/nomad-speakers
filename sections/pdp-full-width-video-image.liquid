@@ -1,0 +1,103 @@
+{% if section.settings.desktop_image != blank or section.settings.video != blank %}
+  <div class="full-width-video-image pdp">
+    {% if section.settings.video != blank %}
+      <!-- Video Background Mode -->
+      <div class="video-section image-section">
+        <div class="video-wrapper">
+          {% if section.settings.video != blank %}
+            <video
+              {% if section.settings.mobile_video != blank %}
+                class="desktop-video"
+              {% endif %}
+              muted
+              loop
+              autoplay
+              playsinline
+            >
+              {% if section.settings.video.sources %}
+                {% assign mp4_source = section.settings.video.sources | where: 'format', 'mp4' | first %}
+                {% if mp4_source %}
+                  <source src="{{ mp4_source.url }}" type="video/mp4">
+                {% endif %}
+              {% endif %}
+            </video>
+          {% endif %}
+          {% if section.settings.mobile_video != blank %}
+            <video class="mobile-video" muted loop autoplay playsinline>
+              {% if section.settings.mobile_video.sources %}
+                {% assign mp4_source = section.settings.mobile_video.sources | where: 'format', 'mp4' | first %}
+                {% if mp4_source %}
+                  <source src="{{ mp4_source.url }}" type="video/mp4">
+                {% endif %}
+              {% endif %}
+            </video>
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <!-- Image Background Mode -->
+      <div class="image-section">
+        {% if section.settings.desktop_image != blank %}
+          <img
+            {% if section.settings.mobile_image != blank %}
+              class="desktop-image"
+            {% endif %}
+            src="{{ section.settings.desktop_image | img_url: 'master' }}"
+            alt="{{ section.settings.desktop_image.alt | escape }}"
+          >
+        {% endif %}
+        {% if section.settings.mobile_image != blank %}
+          <img
+            class="mobile-image"
+            src="{{ section.settings.mobile_image | img_url: 'master' }}"
+            alt="{{ section.settings.mobile_image.alt | escape }}"
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Full Width Image/Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🖼️ Background Images (Default Mode)"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Background Image",
+      "info": "Upload a high-quality background image for desktop/laptop screens. This will be displayed as the main visual element when no video is selected. Recommended size: 1920px or wider."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Background Image",
+      "info": "Upload a mobile-optimized background image for smartphone devices (recommended for better mobile experience). If left blank, the desktop image will be used on mobile. Recommended size: 768px or smaller."
+    },
+    {
+      "type": "header",
+      "content": "🎥 Background Videos (When Videos Are Added)"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Desktop Video File",
+      "info": "Upload or select a video file from your media library for desktop/laptop screens. Videos will autoplay, loop continuously, and be muted by default for optimal user experience. Keep file sizes optimized (typically 5-10MB)."
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video File",
+      "info": "Optional: Upload or select a separate video file optimized for mobile devices. If left blank, the desktop video will be used on mobile. Mobile videos should be smaller file sizes for faster loading and better performance."
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Full Width Video/Image"
+    }
+  ]
+}
+{% endschema %}

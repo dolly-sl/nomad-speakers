@@ -1,0 +1,321 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.settings.title != blank %}
+  <div class="pdp-tab-section section-{{ section.id }}-padding" id="{{ section.settings.sectionID }}">
+    <div class="container-1480" id="pdp-tab-section">
+      <div class="heading text-center">
+        {% if section.settings.pretitle != blank %}
+          <span class="pre-title">{{ section.settings.pretitle }}</span>
+        {% endif %}
+        <h2 class="small">{{ section.settings.title }}</h2>
+      </div>
+      <div class="tab-section-wrapper">
+        {% comment %}
+          <div class="ipad-block">
+            <select class="filter-select js__pdp-tab-select">
+              {% for col in product.metafields.custom.pdp_tab_section.value %}
+                <option value="{{ col.tab_title | handleize }}">{{- col.tab_title -}}</option>
+
+              {% endfor %}
+            </select>
+          </div>
+        {% endcomment %}
+        <div class="tab-head">
+          <ul class="pdp-tab-head flex">
+            <li>
+              <a class="tab-link" href="javascript:;" id="tab-link-features" data-attr="features">Features</a>
+            </li>
+            <li>
+              <a class="tab-link" href="javascript:;" id="tab-link-technology" data-attr="technology">Technology</a>
+            </li>
+            {% comment %} custom.pdp_faq_section {% endcomment %}
+            <li>
+              <a class="tab-link" href="javascript:;" id="tab-faqs" data-attr="faqs">FAQs</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="main-tab-content">
+          {% assign featured = product.metafields.custom.pdp_features_tab_section.value %}
+          {% if product.metafields.custom.pdp_features_tab_section.value != blank %}
+            {% assign featuredImage = featured.image %}
+            {% assign firstIcon = featured.first_icon %}
+            {% assign firstTitle = featured.first_title %}
+            {% assign firstDescription = featured.first_description %}
+
+            {% assign secondIcon = featured.second_icon %}
+            {% assign secondTitle = featured.second_title %}
+            {% assign secondDescription = featured.second_description %}
+
+            {% assign thirdIcon = featured.third_icon %}
+            {% assign thirdTitle = featured.third_title %}
+            {% assign thirdDescription = featured.third_description %}
+            <div class="tab-content active js-tab-content" id="features" data-attr="tab-link-features">
+              <div class="half-list-half-image flex">
+                <ul>
+                  <li>
+                    <div class="image">
+                      {% comment %} <img src="{{ firstIcon }}"> {% endcomment %}
+                      {% include 'image_code'  with  mobileImage: firstIcon, tabletImage: firstIcon, desktopImage: firstIcon, imageAlt: firstIcon.alt %}
+                    </div>
+                    <div class="content">
+                      <a class="h5">{{ firstTitle }}</a>
+                      <p class="medium">
+                        {{ firstDescription | metafield_tag }}
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="image">
+                      {% comment %} <img src="{{secondIcon}}"> {% endcomment %}
+                      {% include 'image_code'  with  mobileImage: secondIcon, tabletImage: secondIcon, desktopImage: secondIcon, imageAlt: secondIcon.alt %}
+                    </div>
+                    <div class="content">
+                      <a class="h5">{{ secondTitle }}</a>
+                      <p class="medium">
+                        {{ secondDescription | metafield_tag }}
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="image">
+                      {% comment %} <img src="{{thirdIcon }}"> {% endcomment %}
+                      {% include 'image_code'  with  mobileImage: thirdIcon, tabletImage: thirdIcon, desktopImage: thirdIcon, imageAlt: thirdIcon.alt %}
+                    </div>
+                    <div class="content">
+                      <a class="h5">{{ thirdTitle }}</a>
+                      <p class="medium">
+                        {{ thirdDescription | metafield_tag }}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="image-section">
+                  {% include 'image_code'  with  mobileImage: featuredImage, tabletImage: featuredImage, desktopImage: featuredImage, imageAlt: featuredImage.alt %}
+                  {% comment %} <img src="https://p2golfproducts.com/cdn/shop/articles/Driving_Range_Mats_Blog_Post.png?v=1717007778"> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.pdp_technology_tab_section.value != blank %}
+            {% assign tech = product.metafields.custom.pdp_technology_tab_section.value %}
+            {% assign techPretitle = tech.pre_title %}
+            {% assign techTitle = tech.title %}
+            {% assign techDescription = tech.description %}
+            {% assign techImage = tech.image %}
+            <div
+              class="tab-content js-tab-content"
+              id="technology"
+              data-attr="tab-link-technology"
+            >
+              <div class="half-content-image flex">
+                <div class="content">
+                  <div class="inner">
+                    <span class="pre-title">{{ techPretitle }}</span>
+                    <h3 class="h4">{{ techTitle }}</h3>
+                    <div class="description full-format medium">
+                      {{ techDescription | metafield_tag }}
+                    </div>
+                  </div>
+                </div>
+                <div class="image-section">
+                  {% include 'image_code'  with  mobileImage:techImage, tabletImage: techImage, desktopImage: techImage, imageAlt: techImage.alt %}
+                  {% comment %} <img src="https://p2golfproducts.com/cdn/shop/articles/Driving_Range_Mats_Blog_Post.png?v=1717007778"> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% if product.metafields.custom.pdp_faq_tab_section.value != blank %}
+            {% assign faq = product.metafields.custom.pdp_faq_tab_section.value %}
+            <div
+              class="tab-content js-tab-content"
+              id="faqs"
+              data-attr="tab-link-faqs"
+            >
+              <div class="pdp-faqs-section">
+                <span class="pre-title">{{ faq.pre_title }}</span>
+                <div class="heading-button flex">
+                  <h3 class="h1 small">{{ faq.title }}</h3>
+                  <a href="{{ faq.links }}" class="link--primary"> {{ faq.link_title }} </a>
+                </div>
+
+                <ul class="accordian js__accordian">
+                  {% for col in product.metafields.custom.pdp_faq_section.value %}
+                    <li>
+                      <h4 class="h6">{{ col.questions }}</h4>
+                      <div class="content full-format medium">
+                        {{ col.answers | metafield_tag }}
+                        {% comment %}
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </p>
+                        {% endcomment %}
+                      </div>
+                    </li>
+                  {% endfor %}
+                  {% comment %}
+                    <li>
+                      <h4 class="h6">Frequently Asked Question Label?</h4>
+                      <div class="content full-format medium">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                  {% endcomment %}
+                  {% comment %}
+                    <h4 class="h6">Frequently Asked Question Label?</h4>
+                      <div class="content full-format medium">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                      </div>
+                    </li>
+                  {% endcomment %}
+                  {% comment %}
+                    <li>
+                      <h4 class="h6">Frequently Asked Question Label?</h4>
+                      <div class="content full-format medium">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                      </div>
+                    </li>
+                  {% endcomment %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- /.tab-content -->
+        </div>
+        <!-- /.main-tab-content -->
+      </div>
+      <!-- /.tab-section-wrapper -->
+    </div>
+    <!-- /.container-1300 -->
+  </div>
+{% endif %}
+<!-- /.pdp-tab-section -->
+
+{% schema %}
+{
+  "name": "PDP Tab Section",
+  "tag": "section",
+  "class": "section-pdp-tab",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📝 Section Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Optional Section Pre-Title / Subtitle",
+      "info": "Add a small prefix text that appears above the main section title (e.g., 'Product Details', 'Explore More', 'Learn About'). This helps categorize the section and provides additional context."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Section Title / Heading",
+      "info": "Enter the primary heading for this tab section. This appears above the tabs and should clearly describe the organized content (e.g., 'Product Information', 'Technical Specifications', 'Support & FAQs')."
+    },
+    {
+      "type": "header",
+      "content": "📏 Section Spacing & Layout Controls"
+    },
+    {
+      "type": "paragraph",
+      "content": "Control the vertical spacing around this tab section to ensure proper visual separation from other content. Adjust these values to create appropriate breathing room and maintain consistent page rhythm."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop - Top Padding",
+      "info": "Distance from the top edge on desktop/laptop screens (0-140px). Increase to add more space above the section or decrease for a tighter layout.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile - Top Padding",
+      "info": "Distance from the top edge on mobile devices (0-100px). Mobile values are typically lower than desktop to maximize screen space while maintaining readability.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop - Bottom Padding",
+      "info": "Distance to the bottom edge on desktop/laptop screens (0-100px). Prevents the section from sitting too close to content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile - Bottom Padding",
+      "info": "Distance to the bottom edge on mobile devices (0-100px). Optimize for touch-friendly scrolling and visual flow on smaller screens.",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "⚙️ Advanced Settings"
+    },
+    {
+      "type": "text",
+      "id": "sectionID",
+      "label": "Custom Section ID / CSS Identifier",
+      "info": "Enter a unique ID for this section to enable custom CSS styling or JavaScript targeting. Use only lowercase letters, numbers, and hyphens (e.g., 'product-tabs', 'pdp-information'). Leave blank to use the default auto-generated ID."
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Tab Section"
+    }
+  ]
+}
+{% endschema %}

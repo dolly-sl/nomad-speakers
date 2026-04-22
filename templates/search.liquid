@@ -1,0 +1,75 @@
+{% paginate search.results by 12 %}
+<div class="search-section">
+  <ul class="breadcrumbs" role="list">
+    <li>
+      <a href="{{ routes.root_url }}">Home</a>    
+    </li>
+    <li>
+      <span>Search Results</span>
+      </li>
+    </ul>
+  <div class="title-section">
+    <div class="container-820">
+
+        {% if search.performed == false %}
+                    <h1 class="small">
+                      {{ 'general.search.title' | t }}
+                    </h1>
+                    {% else %}
+                    <h1 class="small">
+                      <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+                     
+                    Search Results for "{{search.terms }}"
+                      </h1>
+                    {% endif %}
+     
+      <div class="form-section text-center">
+        
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-form search-page-form">
+          <input type=hidden name=type value="product">
+          
+          
+              <input type="search" name="q" value="{{ search.terms | escape }}"
+                placeholder="{{ 'general.search.placeholder' | t }}" role="combobox" aria-autocomplete="list"
+                aria-owns="predictive-search-results" aria-expanded="false"
+                aria-label="{{ 'general.search.search' | t }}" aria-haspopup="listbox" class="search-form__input"
+                data-search-page-predictive-search-input data-base-url="{{ routes.search_url }}" />
+              <input type="hidden" name="options[prefix]" value="last" aria-hidden="true" />
+              <div class="predictive-search-wrapper" data-predictive-search-mount="default"></div>
+          
+            <button type="submit" class="btn--primary" aria-label="{{ 'general.search.submit' | t }}"
+              data-search-page-predictive-search-submit>
+             Search
+            </button>
+        
+        </form>
+      </div>
+    </div>
+   
+  </div>
+  <div class="collection">
+    <div   class="collection-section">
+ <div class="container-1530">
+    
+  
+    {% if search.performed %}
+    <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
+     <ul class="collection__product-list flex">
+      {% for item in search.results %}
+          <li class="product-card">
+              {% include 'product_Card'  with  productRelated: item , show_price: true, show_tags: true, show_auto_tags: true, show_title: true, show_fav: false, show_secondary_button: false %}
+            </li>
+      {% endfor %}
+    </ul>
+    {%- if paginate.pages > 1 -%}
+    {% include 'pagination', paginate: paginate %}
+    {%- endif -%}
+    {% endif %}
+     {% for item in search.results %}
+    {% render 'product-modal', productData: item %}
+  {% endfor %}
+    {% endpaginate %}
+  </div>
+  </div>
+  </div>
+</div>

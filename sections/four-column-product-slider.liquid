@@ -1,0 +1,239 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+  <div class="four-column-product-slider  section-{{ section.id }}-padding ">
+    <div class="container-1686">
+      {% if section.settings.pretitle != blank or section.settings.title != blank %}
+        <div
+          class="top-section"
+        >
+          {% if section.settings.title != blank %}
+            <h2 class="{{section.settings.text_size}}">
+              {{ section.settings.title }}
+            </h2>
+          {% endif %}
+          {% if section.settings.buttonText != blank %}
+            <a
+              class="link--primary"
+              href="{{ section.settings.buttonLink }}"
+              title="Read More About {{ section.settings.title }}"
+              aria-label="Read More About {{ section.settings.title }}"
+            >
+              {{- section.settings.buttonText -}}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="slider-outer">
+        <div class="swiper js_four-column-product-slider">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              {% assign productRelated = all_products[block.settings.product] %}
+
+              {% if productRelated != blank %}
+                <div class=" swiper-slide product-card">
+                  {% include 'product_Card'  with  productRelated: productRelated , show_price: true, show_tags: true, show_auto_tags: true, show_title: true, show_fav: false, show_secondary_button: false %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="swiper-button-prev swiper-button-prev-product"></div>
+        <div class="swiper-button-next swiper-button-next-product "></div>
+        <div class="swiper-pagination swiper-pagination-product "></div>
+      </div>
+    </div>
+  </div>
+
+    {%- for block in section.blocks -%}
+              {% assign productRelated = all_products[block.settings.product] %}
+   
+      {% render 'product-modal', productData: productRelated %}
+
+    {% endfor %}
+{%- endif -%}
+
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.js_four-column-product-slider', {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 21,
+      pagination: {
+        el: '.swiper-pagination-product',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-product',
+        prevEl: '.swiper-button-prev-product',
+      },
+      breakpoints: {
+        601: {
+          slidesPerView: 2,
+           slidesPerGroup: 2,
+          spaceBetween: 25,
+        },
+        981: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 25,
+        },
+        1101: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+          spaceBetween: 25,
+        },
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "4 Col Product Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📦 Product Slider Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure the header section that appears above the product slider. This slider displays up to 20 products in a responsive carousel layout (4 columns on desktop, 3 on tablet, 2 on large mobile, 1 on small mobile)."
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre Title",
+      "info": "Add an optional small label that appears above the main title (e.g., 'Featured', 'Best Sellers', 'New Arrivals'). This helps create visual hierarchy and context for the product slider."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter the main heading for your product slider (e.g., 'Featured Products', 'You May Also Like', 'Complete Your Collection'). This title appears above the product carousel and provides context for the products displayed."
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title Size",
+      "default": "h3",
+      "info": "Choose the size of the section title. Larger sizes work well for main headings, while smaller sizes are better for subheadings or when space is limited.",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Small (H3)"
+        },
+        {
+          "value": "small",
+          "label": "Medium (H2)"
+        },
+        {
+          "value": "h2",
+          "label": "Large (H1)"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button Text",
+      "info": "Enter the text for the optional call-to-action button (e.g., 'View All Products', 'Shop Collection', 'Browse More'). This button appears next to the section title and links to a collection or category page."
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button Link URL",
+      "info": "Enter the URL where the call-to-action button should navigate. This could be your main collection page, a specific product category, or a filtered product page (e.g., '/collections/all' or '/collections/featured')."
+    },
+
+    {
+      "type": "header",
+      "content": "📏 Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Control the vertical spacing around the product slider to ensure proper visual separation from other page elements on both desktop and mobile devices."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above the product slider on desktop devices. Use this to create proper visual separation from content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below the product slider on desktop devices. Use this to create proper visual separation from content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Product",
+      "limit": 20,
+      "settings": [
+       
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product",
+          "info": "Choose a product to display in the slider. You can add up to 20 products to create a scrolling product showcase. The product's title, price, images, tags, and add-to-cart functionality will be automatically displayed in the product card."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Four Column Product Slider",
+      "category": "Product Showcase"
+    }
+  ]
+}
+{% endschema %}

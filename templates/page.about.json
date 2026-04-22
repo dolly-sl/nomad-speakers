@@ -1,0 +1,310 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "inner_hero_section_3CGhN9": {
+      "type": "inner-hero-section",
+      "name": "Inner Hero Section",
+      "settings": {
+        "image": "shopify://shop_images/hero-img_1.jpg",
+        "videobanner": false,
+        "video": "",
+        "videoMobile": "",
+        "pretitle": "About P2 Golf",
+        "title": "Leading Golf Driving Range Equipment Manufacturer",
+        "description": "",
+        "smallHeight": false
+      }
+    },
+    "full_wdith_content_8Jm66w": {
+      "type": "full-wdith-content",
+      "name": "Full Width Content",
+      "settings": {
+        "pretitle": "Our Mission",
+        "title": "To build and source golf range equipment that performs better, lasts longer, and earns your trust every day.",
+        "color_scheme": "white",
+        "paddingtop": 128,
+        "paddingtopmobile": 56,
+        "paddingbottom": 100,
+        "paddingbottomMobile": 56
+      }
+    },
+    "half_image_half_content_CEpWL9": {
+      "type": "half-image-half-content",
+      "blocks": {
+        "section_bwkiQQ": {
+          "type": "Section",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/Oakdale_Leader_1987_12_02_21.jpg",
+            "pretitle": "Since 1983",
+            "title": "the leader in Golf Driving Range Equipment Manufacturing",
+            "text_size": "h4",
+            "description": "<p>Our story began when <strong>Bill Pohl</strong> designed his first golf ball washer, a product that quickly set a new standard for driving range equipment. Known for his innovation and attention to detail, Bill built a reputation for creating durable, efficient, and reliable products that made range operations easier.</p><p><strong>P² Golf Products</strong> was born from that vision — combining over 30 years of hands-on manufacturing experience with a direct-to-customer approach that delivers quality, value, and trust.</p><p>Today, we continue to engineer every picker, washer, and accessory with the same mindset that started it all: <strong>build it better, make it last, and stand behind it.</strong></p>",
+            "buttonText": "",
+            "buttonLink": "",
+            "button_style": "btn--primary"
+          }
+        },
+        "section_q3dRNg": {
+          "type": "Section",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/shutterstock_2467427979_1.png",
+            "pretitle": "outperform anything",
+            "title": "Dedicated Manufacturing Facility",
+            "text_size": "h4",
+            "description": "<p>Our complete line of range equipment is made by us in our very own manufacturing facility using only high grade, heavy gauge galvanized steel. All our products come standard with the most generous warranties in the business. We are confident that our range equipment will outperform anything on the market today. You can expect an efficient and high-quality product, delivered promptly every time.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "buttonText": "",
+            "buttonLink": "",
+            "button_style": "btn--primary"
+          }
+        },
+        "section_jUCtef": {
+          "type": "Section",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/jessicaander951-1-1-final.jpg",
+            "pretitle": "Our Team",
+            "title": "Meet the 3rd generation of p2 golf: Chris esteves",
+            "text_size": "h4",
+            "description": "<p>Before taking the reins at <strong>P² Golf</strong>, <strong>Chris </strong>built his foundation as a leader in the <strong>U.S. Air Force</strong>. The discipline and pride he gained there shape everything he does today—leading with purpose, building with care, and carrying forward three generations of his family's craftsmanship.<br/><br/></p>",
+            "buttonText": "",
+            "buttonLink": "",
+            "button_style": "btn--primary"
+          }
+        },
+        "section_b4MJhE": {
+          "type": "Section",
+          "settings": {
+            "media_type": "image",
+            "pretitle": "",
+            "title": "",
+            "text_size": "h4",
+            "description": "",
+            "buttonText": "",
+            "buttonLink": "",
+            "button_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "section_bwkiQQ",
+        "section_q3dRNg",
+        "section_jUCtef",
+        "section_b4MJhE"
+      ],
+      "name": "Half Image Half Content",
+      "settings": {
+        "pretitleSection": "Premium Range Equipment",
+        "title": "Our Products ARE Built to last",
+        "media_position": "right",
+        "paddingtop": 122,
+        "paddingtopmobile": 60,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
+    },
+    "three_column_image_section_3CXdXk": {
+      "type": "three-column-image-section",
+      "blocks": {
+        "image_Nh8Gr3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-06-30_at_11.54.14_AM_1.png"
+          }
+        },
+        "image_8Ljnpq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-06-30_at_11.53.01_AM_1.png"
+          }
+        },
+        "image_hVWJBc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-06-30_at_11.53.20_AM_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_Nh8Gr3",
+        "image_8Ljnpq",
+        "image_hVWJBc"
+      ],
+      "name": "Three Column Image Section",
+      "settings": {
+        "paddingtop": 116,
+        "paddingtopmobile": 72,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
+    },
+    "four_column_logo_section_Jd8AE4": {
+      "type": "four-column-logo-section",
+      "blocks": {
+        "logo_TrXGXh": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/golfweek.png",
+            "imageLink": ""
+          }
+        },
+        "logo_yHie88": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/menshealth.png",
+            "imageLink": ""
+          }
+        },
+        "logo_kyCaqz": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/golfdigest.png",
+            "imageLink": ""
+          }
+        },
+        "logo_c7CKNq": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/golf_0832383f-6d30-4989-b94a-d34dd601cfc1.png",
+            "imageLink": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_TrXGXh",
+        "logo_yHie88",
+        "logo_kyCaqz",
+        "logo_c7CKNq"
+      ],
+      "name": "Four Column Logo Section",
+      "settings": {
+        "preTitle": "Featured On",
+        "color_scheme": "white",
+        "paddingtop": 132,
+        "paddingtopmobile": 72,
+        "paddingbottom": 180,
+        "paddingbottomMobile": 130
+      }
+    },
+    "full_width_video_image_EPHbGw": {
+      "type": "full-width-video-image",
+      "name": "Full Width Video/Image",
+      "settings": {
+        "use_video_background": false,
+        "desktop_image": "shopify://shop_images/Screenshot_2025-06-30_at_11.49.59_AM_1.png",
+        "mobile_image": "shopify://shop_images/Screenshot_2025-06-12_at_4.48.26_PM_1.jpg",
+        "desktop_video": "",
+        "mobile_video": "",
+        "bigHeight": true
+      }
+    },
+    "testimonial_multiple_slider_HaPkhK": {
+      "type": "testimonial-multiple-slider",
+      "blocks": {
+        "testimonial_BA7gJz": {
+          "type": "testimonial",
+          "settings": {
+            "video": "shopify://files/videos/1107492141-preview.mp4",
+            "pretitle": "Pebble Beach Golf Course",
+            "description": "<p>\"When I first reached out to P2, I braced myself for the usual. But Chris at P2 was different. From the get go, it was laughter and genuine care. No salesy talk, just real human conversation. This was a service experience I never expected to find.\"</p>",
+            "userInfo": "Jessica E. - San Diego, California",
+            "buttonText": "Learn More",
+            "buttonLink": "shopify://pages/about-us"
+          }
+        },
+        "testimonial_aixtr6": {
+          "type": "testimonial",
+          "settings": {
+            "video": "shopify://files/videos/1104419089-preview.mp4",
+            "pretitle": "Pebble Beach Golf Course",
+            "description": "<p>\"When I first reached out to P2, I braced myself for the usual. But Chris at P2 was different. From the get go, it was laughter and genuine care. No salesy talk, just real human conversation. This was a service experience I never expected to find.\"</p>",
+            "userInfo": "Jessica E. - San Diego, California",
+            "buttonText": "Learn More",
+            "buttonLink": "shopify://pages/about-us"
+          }
+        },
+        "testimonial_qmJr4x": {
+          "type": "testimonial",
+          "settings": {
+            "video": "shopify://files/videos/3514135261-preview.mp4",
+            "pretitle": "Pebble Beach Golf Course",
+            "description": "<p>\"When I first reached out to P2, I braced myself for the usual. But Chris at P2 was different. From the get go, it was laughter and genuine care. No salesy talk, just real human conversation. This was a service experience I never expected to find.\"</p>",
+            "userInfo": "Jessica E. - San Diego, California",
+            "buttonText": "Learn More",
+            "buttonLink": "shopify://blogs/news"
+          }
+        },
+        "testimonial_4mceHN": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_2519701065_4.png",
+            "pretitle": "Pebble Beach Golf Course",
+            "description": "<p>\"When I first reached out to P2, I braced myself for the usual. But Chris at P2 was different. From the get go, it was laughter and genuine care. No salesy talk, just real human conversation. This was a service experience I never expected to find.\"</p>",
+            "userInfo": "Jessica E. - San Diego, California",
+            "buttonText": "Learn More",
+            "buttonLink": "shopify://pages/about-us"
+          }
+        },
+        "testimonial_w8rBtQ": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_1242497302_1.png",
+            "pretitle": "Pebble Beach Golf Course",
+            "description": "<p>\"When I first reached out to P2, I braced myself for the usual. But Chris at P2 was different. From the get go, it was laughter and genuine care. No salesy talk, just real human conversation. This was a service experience I never expected to find.\"</p>",
+            "userInfo": "Jessica E. - San Diego, California",
+            "buttonText": "Learn More",
+            "buttonLink": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_BA7gJz",
+        "testimonial_aixtr6",
+        "testimonial_qmJr4x",
+        "testimonial_4mceHN",
+        "testimonial_w8rBtQ"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "pretitle": "What Our Customers Are Saying",
+        "title": "P2 Golf IN THE WILD",
+        "text_size": "h2",
+        "paddingtop": 108,
+        "paddingtopmobile": 72,
+        "paddingbottom": 120,
+        "paddingbottomMobile": 98
+      }
+    },
+    "full_width_video_image_YdbDTq": {
+      "type": "full-width-video-image",
+      "name": "Full Width Video/Image",
+      "settings": {
+        "use_video_background": false,
+        "desktop_image": "shopify://shop_images/shutterstock_2519701065_4.png",
+        "mobile_image": "shopify://shop_images/shutterstock_2519701065_4_1.png",
+        "desktop_video": "",
+        "mobile_video": "",
+        "bigHeight": true
+      }
+    }
+  },
+  "order": [
+    "inner_hero_section_3CGhN9",
+    "full_wdith_content_8Jm66w",
+    "half_image_half_content_CEpWL9",
+    "three_column_image_section_3CXdXk",
+    "four_column_logo_section_Jd8AE4",
+    "full_width_video_image_EPHbGw",
+    "testimonial_multiple_slider_HaPkhK",
+    "full_width_video_image_YdbDTq"
+  ]
+}

@@ -1,0 +1,326 @@
+.pdp-tab-section{
+  position: relative;
+  background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-cream;
+    &::before{
+      background: url("rough-edge.svg") repeat left center / 1111px;
+      
+      height: 62px;
+        width: 100%;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -30px;
+        z-index: 3;
+         @include MQ(MQ-768) {
+          height: 30px;
+          top: -15px;
+         background: url("rough-edge.svg") repeat left center / 374px;
+       }
+    }
+    .filter-select{
+        
+        padding: 0px 24px 5px 0;
+        appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  max-width: fit-content;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid $color-white;
+  option{
+    color: $color-black;
+  }
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  color: $color-white;
+  letter-spacing: normal;
+  border-radius: 0px;
+  background: transparent;
+  opacity: 1;
+   background: url("icon-dropdonw-white.svg") no-repeat right top 9px / 14px;
+    }
+    .tab-section-wrapper{
+        margin-top: 9.5px;
+
+    }
+    .heading{
+        .pre-title{
+            margin-bottom: 3px;
+        }
+    }
+   .pdp-tab-head{
+        margin-bottom: 72px;
+        justify-content: center;
+          @include MQ(MQ-600) {
+              margin-bottom: 40px;
+             
+          }
+        li{
+            margin-right: 35px;
+            &:last-child{
+                margin-right: 0;
+            }
+            @include MQ(MQ-600) {
+                margin-right: 30px;
+            }
+        }
+        a{
+            font-size: 16px;
+             font-family: var(--font-family-secondary);
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: capitalize;
+padding: 8px 0px;
+  @include MQ(MQ-600) {
+    padding: 8px 0px;
+       font-size: 15px;
+  }
+&.active, &:hover{
+    background: $color-light-orange;
+    border-radius: 30px;
+    padding: 8px 23px;
+    @include MQ(MQ-600) {
+         padding: 8px 15px;
+    }
+}
+
+        }
+    }
+
+.tab-content{
+   background: $color-white;
+    padding: 50px 41px 50px 47px;
+
+    @include MQ(MQ-768) {
+      padding: 30px 20px;
+    }
+   
+}
+
+.half-list-half-image{
+  flex-wrap: wrap;
+ul{
+    width: 44%;
+    padding-top: 20px;
+     @include MQ(MQ-980) {
+width: 100%;
+ padding-top: 0px;
+     }
+  
+    li{
+        display: flex;
+          margin-bottom: 42px;
+    padding-bottom: 42px;
+    border-bottom: 1px solid $color-gray;
+         @include MQ(MQ-480) {
+             margin-bottom: 20px;
+    padding-bottom: 20px;
+
+         }
+    &:last-child{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+        .image{
+            width: 117px;
+            height: 112px;
+            position: relative;
+            
+            flex: none;
+            margin-right: 24px;
+             @include MQ(MQ-480) {
+               width: 80px;
+            height: 80px;
+            margin-right: 10px;
+             }
+            img{
+                @include img-object-contain
+            }
+        }
+        .content{
+            width: 100%;
+            max-width: 373px;
+             @include MQ(MQ-980) {
+              max-width: 100%;
+             }
+           .h5{
+                margin-bottom: 10px;
+                text-transform: capitalize;
+                display: inline-block;
+                &:hover{
+                  color: $color-green;
+                }
+            }
+        }
+    }
+}
+.image-section{
+    width: calc(56% - 85px);
+    position: relative;
+    margin-left: 85px;
+    height: auto;
+      @include MQ(MQ-980) {
+        width: 100%;
+        height: 60vw;
+        margin: 40px 0 0
+      }
+    img{
+            @include img-object-cover;
+            border-radius: 10px;
+        }
+}
+}
+.pdp-faqs-section{
+    max-width: 1146px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 0;
+  @include MQ(MQ-768) {
+    padding: 0;
+  }
+    .pre-title{
+        margin-bottom: 4px;
+          @include MQ(MQ-768) {
+            text-align: center;
+            width: 100%;
+          }
+    }
+    .heading-button{
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+         @include MQ(MQ-768) {
+          flex-direction: column;
+          justify-content: center;
+          .link--primary{
+            margin-top: 10px;
+          }
+
+         }
+         
+    }
+    
+
+     .accordian {
+    
+    >li {
+     &:first-child{
+       border-top: 1px solid $color-gray;
+     }
+            border-bottom: 1px solid $color-gray;
+            padding: 20px 60px 20px 26px;
+            @include MQ(MQ-768) {
+              padding: 20px 0px;
+            }
+     
+      position: relative;
+      h4{
+        cursor: pointer;
+        position: relative;
+        padding-right: 30px;
+        line-height: normal;
+        min-height: 34px;
+        display: flex;
+        align-items: center;
+        padding-left: 27px;
+        text-transform: capitalize;
+         @include MQ(MQ-768) {
+          padding-left: 22px;
+         }
+         @include MQ(MQ-480) {
+          font-size: 16px;
+         }
+      
+         
+        &::before{
+          width: 15px;
+          height: 15px;
+          content: '';
+          left: 0;
+          top: 10px;
+          transition: all 0.5s ease;
+           background: url("icon-acord-plus.svg") no-repeat  center / 15px;
+position: absolute;
+        }
+      }
+     
+    
+      &.active {
+       h4{
+        &::before{
+          transform: rotate(45deg);
+        }
+       }
+        .content {
+          display: block;
+           @include MQ(MQ-768) {
+            padding-left: 22px;
+           }
+          
+        }
+      }
+   
+      .content {
+        display: none;
+        padding-top: 10px;
+        padding-left: 27px;
+        padding-bottom: 10px;
+        
+       
+      }
+    }
+  }
+
+}
+
+.half-content-image{
+  @include MQ(MQ-980) {
+  flex-wrap: wrap;
+  }
+    .content{
+        width: 44%;
+        display: flex;
+    align-items: center;
+          @include MQ(MQ-980) {
+            width: 100%;
+          }
+        .inner{
+            max-width: 475px;
+            margin: 0 auto;
+             @include MQ(MQ-980) {
+            max-width: 100%;
+          }
+        }
+        .pre-title{
+            margin-bottom: 10px;
+        }
+        h3{
+            margin-bottom: 19px;
+        }
+
+    }
+   .image-section{
+    width: calc(57% - 100px);
+   height: auto;
+    position: relative;
+    margin-left: 100px;
+    min-height: 620px;
+      @include MQ(MQ-980) {
+height: 60vw;
+min-height: auto;
+margin: 0 0 30px;
+width: 100%;
+order: -1;
+     }
+    height: auto;
+    img{
+            @include img-object-cover;
+            border-radius: 10px;
+        }
+}
+}
+}

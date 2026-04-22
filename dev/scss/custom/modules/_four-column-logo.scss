@@ -1,0 +1,49 @@
+.four-column-logo-section {
+  text-align: center;
+  position: relative;
+  .logos {
+    justify-content: center;
+    align-items: center;
+    margin-left: -100px;
+    width: calc(100% + 100px);
+    margin-top: 36px;
+    @include MQ(MQ-980) {
+      margin-left: -50px;
+      width: calc(100% + 50px);
+    }
+    @include MQ(MQ-600) {
+      margin-left: 0;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+    li {
+      margin-left: 100px;
+      width: calc((100% / 4) - 100px);
+      @include MQ(MQ-980) {
+        margin-left: 50px;
+        width: calc((100% / 4) - 50px);
+      }
+      @include MQ(MQ-600) {
+        margin-left: 0px;
+        width: 100%;
+        margin-bottom: 37px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .image-section {
+        width: auto;
+
+        height: 43px;
+        @include MQ(MQ-600) {
+          height: 28px;
+        }
+        img {
+          @include img-object-contain;
+          position: relative;
+        }
+      }
+    }
+  }
+}

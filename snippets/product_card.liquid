@@ -1,0 +1,126 @@
+<div
+  class="product-wrapper"
+>
+   <a class="full-link js__quick-view-click" href="javascript:;" title="Shop {{productRelated.title}}"  data-id="{{productRelated.id}}"
+          data-slider_main="{%- for img in productRelated.images -%}{{- img | img_url: '355x355' -}}|{%- endfor -%}"
+          data-slider_thumb="{%- for img in productRelated.images -%}{{- img | img_url: '150x150' -}}|{%- endfor -%}"
+          data-var_images="{%- for var in productRelated.variants -%}{{- var.image | img_url: '150x150' -}}|{%- endfor -%}"></a>
+    
+  <div class="image-section">
+  {% assign secondaryImage = productRelated.metafields.custom.product_secondary_image.value.image %}
+  <div>
+
+   
+     {% assign imageAlt = productRelated.featured_image.alt %}
+      {% if imageAlt == blank %}
+       {% assign imageAlt = productRelated.title %}
+      {% endif %}
+      {% if productRelated.images.size > 1 %}
+        {% include 'image_code_small'  with  mobileImage:  productRelated.images[0], tabletImage:  productRelated.images[0], desktopImage:  productRelated.images[0], imageAlt:  imageAlt %}
+      {% if secondaryImage != blank %}
+        {% include 'image_code_small'  with  mobileImage:  secondaryImage, tabletImage:  secondaryImage, desktopImage:  secondaryImage, imageAlt:  imageAlt %}
+       {% else %}
+
+        {% include 'image_code_small'  with  mobileImage:  productRelated.images[1], tabletImage:  productRelated.images[1], desktopImage:  productRelated.images[1], imageAlt:  imageAlt %}
+        {% endif %}
+      {% else %}
+        {% include 'image_code_small'  with  mobileImage:  productRelated.images[0], tabletImage:  productRelated.images[0], desktopImage:  productRelated.images[0], imageAlt:  imageAlt %}
+       {% if secondaryImage != blank %}
+        {% include 'image_code_small'  with  mobileImage:  secondaryImage, tabletImage:  secondaryImage, desktopImage:  secondaryImage, imageAlt:  imageAlt %}
+       {% endif %}
+      {% endif %}
+ 
+
+   </div>
+
+  {%- assign current_variant = productRelated.selected_or_first_available_variant -%}
+ 
+     
+        {% assign all_out_of_stock = true %}
+        {% for variant in productRelated.variants %}
+          {% if variant.available %}
+            {% assign all_out_of_stock = false %}
+          {% endif %}
+        {% endfor %}
+        {% if all_out_of_stock %}
+          <a
+            class="btn--primary"
+            title="{{ productRelated.title }}"
+            href="javascript:;"
+
+            title="Shop {{productRelated.title}}"
+            data-id="{{productRelated.id}}"
+            >Sold Out</a
+          >
+        {% else %}
+          <a
+            class="btn--primary js__card-add-to-cart"
+            href="javascript:;"
+
+            title="Shop {{productRelated.title}}"
+            data-variant-id="{{current_variant.id}}"
+            >Add To Cart</a
+          >
+        {% endif %}
+
+   
+  </div>
+
+  <div class="content">
+   
+<!-- Custom Tags -->
+     {% if show_tags %}
+      <span class="product-card__tags-status">
+        {% include 'product_tags' with productRelated %}
+
+        {% if productRelated.compare_at_price > productRelated.price %}
+          <span class="tag sale">Sale</span>
+        {% endif %}
+      </span>
+    {% endif %}
+    {% if show_title %}
+      <span class=" product-card__product-title">
+      
+          {% if productRelated.metafields.productInfo.product_name != blank %}
+            {{ productRelated.metafields.prodctInfo.product_name }}
+          {% else %}
+            {{ productRelated.title }}
+          {% endif %}
+      
+      </span>
+    {% endif %}
+   
+    <!-- Price -->
+    {% if show_price %}
+      <span class="product-card__price flex">
+        {% if productRelated.variants.size > 1 %}
+          <span class="starting">Starting at </span> <span> {{ productRelated.price_min | money }} </span>
+        {% else %}
+          <span> {{ productRelated.price | money }}</span>
+          {% if productRelated.compare_at_price_min > productRelated.price %}
+            <s>
+              {{ productRelated.compare_at_price_min | money }}
+            </s>
+          {% endif %}
+        {% endif %}
+      </span>
+    {% endif %}
+   
+  </div>
+
+{% if show_secondary_button %}
+  <a
+    class="btn--primary js__quick-view-click"
+    title="{{ productRelated.title }}"
+    href="javascript:;"
+    title="Shop {{productRelated.title}}"
+    data-id="{{productRelated.id}}"
+    data-slider_main="{%- for img in productRelated.images -%}{{- img | img_url: '355x355' -}}|{%- endfor -%}"
+    data-slider_thumb="{%- for img in productRelated.images -%}{{- img | img_url: '150x150' -}}|{%- endfor -%}"
+    data-var_images="{%- for var in productRelated.variants -%}{{- var.image | img_url: '150x150' -}}|{%- endfor -%}"
+    >Quick View</a
+  >
+  {% endif %}
+
+ 
+</div>

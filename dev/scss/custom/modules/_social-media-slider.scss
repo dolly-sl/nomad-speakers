@@ -1,0 +1,89 @@
+.social-media-slider{
+
+ padding: 130px 0 0px;
+ @include MQ(MQ-768) {
+padding:40px 0 0px;
+ }
+  overflow: hidden;
+  .slider-outer-social-media{
+       padding-bottom: 25px;
+        position: relative;
+         @include MQ(MQ-600) {
+            padding-bottom: 46px;
+         }
+    }
+    .swiper-button-prev{
+        left: 78px !important;
+         @include MQ(MQ-600) {
+             left: 20px !important;
+
+         }
+    }
+.swiper-button-next {
+right: 78px !important;
+@include MQ(MQ-600) {
+             right: 20px !important;
+
+         }
+}
+    .swiper-slide{
+        height: 400px;
+        width: 240px;
+        position: relative;
+        border-radius: 10px;
+        margin-right: 20px;
+        overflow: hidden;
+        @include MQ(MQ-600) {
+             height: 235px;
+               margin-right: 10px;
+        width: 145px;
+        }
+        img{
+            @include img-object-cover;
+        }
+
+        .full-link{
+          position: absolute;
+          top:0;
+          left:0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+
+          &:hover{
+            &::before{
+             position: absolute;
+          top:0;
+          left:0;
+          width: 100%;
+          height: 100%;
+          content: '';
+          z-index: 3;
+           background: url("icon-hover-insta.svg") no-repeat center / 33px rgba(0, 0, 0, 0.3);
+            }
+          }
+        }
+    }
+
+ .swiper-pagination{
+  display: none;
+    @include MQ(MQ-600) {
+        display: flex;
+        bottom: 0 !important;
+        justify-content: center;
+        width: 100%;
+    }
+ }
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+}

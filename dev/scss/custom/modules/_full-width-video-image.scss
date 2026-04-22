@@ -1,0 +1,89 @@
+.full-width-video-image{
+   
+    margin-top: -30px;
+    height: 610px;
+    position: relative;
+   
+    @include MQ(MQ-768) {
+height: 545px;
+    }
+
+    &.big-height{
+       height: 820px;
+       @include MQ(MQ-768) {
+        height: 650px;
+       }
+    }
+
+     &.pdp{
+      margin: 0;
+      height: 835px;
+        @include MQ(MQ-768) {
+height: 650px;
+    }
+    }
+    .image-section {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+  
+      img,
+      video  {
+        @include img-object-cover;
+      }
+      
+      // Desktop and mobile image responsive display
+      .desktop-image {
+        display: block;
+        @include MQ(MQ-768) {
+          display: none;
+        }
+      }
+      
+      .mobile-image {
+        display: none;
+        @include MQ(MQ-768) {
+          display: block;
+        }
+      }
+   
+
+      // Play icon overlay for image backgrounds (existing popup behavior)
+     
+    }
+    
+    .video-section {
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding-top: 0%;
+        pointer-events: none;
+        
+        // Desktop and mobile video responsive display
+        .desktop-video {
+          display: block;
+          @include MQ(MQ-768) {
+            display: none;
+          }
+        }
+        
+        .mobile-video {
+          display: none;
+          @include MQ(MQ-768) {
+            display: block;
+          }
+        }
+      }
+      
+      // Play icon overlay for video backgrounds
+      
+      
+   
+    }
+
+}

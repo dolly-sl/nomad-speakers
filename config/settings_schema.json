@@ -1,0 +1,2584 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "PixelVerse",
+    "theme_author": "Dolly",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://help.shopify.com/en/manual/online-store/os/using-themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "Font Setting",
+    "settings": [
+      {
+        "type": "html",
+        "id": "fontScript",
+        "label": "Font Script"
+      },
+      {
+        "type": "text",
+        "id": "bodyFontCode",
+        "label": "Body Font Code"
+      },
+      {
+        "type": "text",
+        "id": "headingFontCode",
+        "label": "Heading Font Code"
+      },
+      {
+        "type": "text",
+        "id": "subheadingFontCode",
+        "label": "PreTitle/Subheading Font Code"
+      },
+      {
+        "type": "text",
+        "id": "buttonFontCode",
+        "label": "Button Font Code"
+      }
+    ]
+  },
+  
+  {
+    "name": "t:settings_schema.buttons.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "buttons_minimum_width",
+        "min": 100,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Button Min width",
+        "default": 170
+      },
+      {
+        "type": "range",
+        "id": "buttons_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "buttons_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "buttons_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "buttons_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Font Setting"
+      },
+      {
+        "type": "range",
+        "id": "buttonfontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "buttonlineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "buttonletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "buttonfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "buttonfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "buttontexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Button Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "buttonmobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "buttonmobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "buttonmobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.typography.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header__1.content"
+      },
+      {
+        "type": "header",
+        "content": "Desktop Font"
+      },
+      {
+        "type": "header",
+        "content": "PreTitle"
+      },
+      {
+        "type": "range",
+        "id": "pretitlefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 14
+      },
+      {
+        "type": "text",
+        "id": "pretitlelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "pretitleletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "pretitlefontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "pretitlefontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "pretitletexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H1 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading1fontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading1lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading1letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading1fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading1fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading1texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H1 Small Font"
+      },
+      {
+        "type": "range",
+        "id": "heading1smallfontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading1smalllineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading1smallletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading1smallfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading1smallfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading1smalltexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H2 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2fontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading2lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading2fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H2 Medium Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2mediumfontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading2mediumlineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2mediumletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2mediumfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading2mediumfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2mediumtexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H2 Small Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2smallfontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading2smalllineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2smallletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2smallfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading2smallfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading2smalltexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H3 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading3fontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 20
+      },
+      {
+        "type": "text",
+        "id": "heading3lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading3letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading3fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading3fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading3texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H4 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading4fontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 18
+      },
+      {
+        "type": "text",
+        "id": "heading4lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading4letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading4fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading4fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading4texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H5 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading5fontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "heading5lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading5letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading5fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading5fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading5texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "H6 Font"
+      },
+      {
+        "type": "range",
+        "id": "heading6fontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 14
+      },
+      {
+        "type": "text",
+        "id": "heading6lineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading6letterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading6fontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "heading6fontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "heading6texttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Para Font"
+      },
+      {
+        "type": "range",
+        "id": "parafontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "paralineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "paraletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "parafontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "parafontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "paratexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Para Medium Font"
+      },
+      {
+        "type": "range",
+        "id": "paramediumfontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "paramediumlineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "paramediumletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "paramediumfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "paramediumfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "paramediumtexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Para Small Font"
+      },
+      {
+        "type": "range",
+        "id": "parasmallfontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "parasmalllineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "parasmallletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "parasmallfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "parasmallfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "parasmalltexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Para X-Small Font"
+      },
+      {
+        "type": "range",
+        "id": "paraxsmallfontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "paraxsmalllineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "paraxsmallletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "paraxsmallfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "paraxsmallfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "paraxsmalltexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      },
+      {
+        "type": "header",
+        "content": "Pretitle Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "pretitlemobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 14
+      },
+      {
+        "type": "text",
+        "id": "pretitlemobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "pretitlemobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H1 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading1mobilefontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading1mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading1mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H1 Small Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading1smallmobilefontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "heading1smallmobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading1smallmobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H2 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2mobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 24
+      },
+      {
+        "type": "text",
+        "id": "heading2mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H2 Medium Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2mediummobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 24
+      },
+      {
+        "type": "text",
+        "id": "heading2mediummobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2mediummobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H2 Small Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading2smallmobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 24
+      },
+      {
+        "type": "text",
+        "id": "heading2smallmobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading2smallmobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H3 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading3mobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "heading3mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading3mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H4 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading4mobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 18
+      },
+      {
+        "type": "text",
+        "id": "heading4mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading4mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H5 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading5mobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "heading5mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading5mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "H6 Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "heading6mobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 14
+      },
+      {
+        "type": "text",
+        "id": "heading6mobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "heading6mobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "Para Mobile Font"
+      },
+      {
+        "type": "range",
+        "id": "paramobilefontsize",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "paramobilelineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "paramobileletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.inputs.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "inputs_border_thickness",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "color",
+        "id": "inputs_border_color",
+        "label": "Border Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "inputs_background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "inputs_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_horizontal_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_vertical_offset",
+        "min": -12,
+        "max": 12,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "inputs_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      },
+      {
+        "type": "color",
+        "id": "inputs_text_color",
+        "label": "Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_input_label",
+        "label": "Show Input Label",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Font Setting"
+      },
+      {
+        "type": "select",
+        "id": "inputsfontfamily",
+        "options": [
+          {
+            "value": "font-family-primary",
+            "label": "Primary"
+          },
+          {
+            "value": "font-family-secondary",
+            "label": "secondary"
+          },
+          {
+            "value": "font-family-pretitle",
+            "label": "PreTitle"
+          },
+          {
+            "value": "font-family-button",
+            "label": "Button"
+          }
+        ],
+        "label": "Font Family",
+        "default": "font-family-primary"
+      },
+      {
+        "type": "range",
+        "id": "inputsfontsize",
+        "min": 10,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "Font Size ",
+        "default": 14
+      },
+      {
+        "type": "text",
+        "id": "inputslineheight",
+        "label": "Line Height",
+        "default": "normal"
+      },
+      {
+        "type": "text",
+        "id": "inputsletterspacing",
+        "label": "Letter Spacing",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "inputsfontweight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ],
+        "label": "Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "select",
+        "id": "inputsfontstyle",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal"
+          },
+          {
+            "value": "italic",
+            "label": "italic"
+          }
+        ],
+        "label": "Font Style",
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "inputstexttransform",
+        "options": [
+          {
+            "value": "none",
+            "label": "none"
+          },
+          {
+            "value": "capitalize",
+            "label": "capitalize"
+          },
+          {
+            "value": "uppercase",
+            "label": "uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          }
+        ],
+        "label": "Text Transform",
+        "default": "capitalize"
+      }
+    ]
+  },
+
+ 
+
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "tag1",
+        "label": "Tag 1"
+      },
+      {
+        "type": "text",
+        "id": "tagLabel1",
+        "label": "Tag Label 1"
+      },
+      {
+        "type": "color",
+        "id": "tagColor1",
+        "label": "Tag Color",
+        "default": "#191919"
+      },
+      {
+        "type": "text",
+        "id": "tag2",
+        "label": "Tag 2"
+      },
+      {
+        "type": "text",
+        "id": "tagLabel2",
+        "label": "Tag Label 2"
+      },
+      {
+        "type": "color",
+        "id": "tagColor2",
+        "label": "Tag Color",
+        "default": "#191919"
+      },
+      {
+        "type": "text",
+        "id": "tag3",
+        "label": "Tag 3"
+      },
+      {
+        "type": "text",
+        "id": "tagLabel3",
+        "label": "Tag Label 3"
+      },
+      {
+        "type": "color",
+        "id": "tagColor3",
+        "label": "Tag Color",
+        "default": "#191919"
+      },
+      {
+        "type": "text",
+        "id": "product_recommendation_limit",
+        "label": "Product Recommendation products limit (if no slider)",
+        "default": "4"
+      }
+    ]
+  },
+ 
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Free Shipping"
+      },
+      {
+        "type": "text",
+        "id": "freeShippingThresholdValue",
+        "label": "Threshold Value"
+      },
+      {
+        "type": "text",
+        "id": "freeShippingMsg",
+        "label": "Free Shipping Message (When the value is reached)"
+      }
+    ]
+  },
+  {
+    "name": "Contact Information",
+    "settings": [
+      {
+        "type": "text",
+        "id": "phoneNumber",
+        "label": "Phone Number",
+        "info": "Enter your business phone number. This will be displayed as a clickable link in the contact section. Format: (555) 123-4567 or 555-123-4567"
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Social media"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Social accounts"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": {
+          "en": "Facebook"
+        },
+        "info": {
+          "en": "https://facebook.com/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": {
+          "en": "Twitter"
+        },
+        "info": {
+          "en": "http://twitter.com/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": {
+          "en": "Instagram"
+        },
+        "info": {
+          "en": "http://instagram.com/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": {
+          "en": "Tiktok"
+        },
+        "info": {
+          "en": "http://tiktok.com"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": {
+          "en": "YouTube"
+        },
+        "info": {
+          "en": "http://youtube.com"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin_link",
+        "label": {
+          "en": "Linkedin"
+        },
+        "info": {
+          "en": "http://linkedin.com"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_discord_link",
+        "label": {
+          "en": "Discord"
+        },
+        "info": {
+          "en": "http://discord.com"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_threads_link",
+        "label": {
+          "en": "Threads"
+        },
+        "info": {
+          "en": "http://threads.com"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Sharing options"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": {
+          "en": "Share on Facebook"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": {
+          "en": "Tweet on Twitter"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": {
+          "en": "Share on Pinterest"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_mail",
+        "label": {
+          "en": "Share on Mail"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "copy_link",
+        "label": {
+          "en": "Print"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Favicon"
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": {
+          "en": "Favicon image"
+        },
+        "info": {
+          "en": "Will be scaled down to 32 x 32px"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,126 @@
+// body.announcement-hidden .announcement-bar {
+//   transform: translateY(-100%);
+//   opacity: 0;
+//   pointer-events: none;
+// }
+.announcement-bar {
+  background-color: $color-green;
+  //   transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+  z-index: 99;
+  // height: 33px;
+  transition: all 0.3s ease;
+  display: block;
+  &.active {
+    display: none;
+  }
+  .container-1410 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0 50px 0 30px;
+    // position: relative;
+    text-align: center;
+    @include MQ(MQ-768) {
+      padding: 0 40px 0 30px;
+    }
+  }
+  .swiper-wrapper {
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto !important;
+      width: 100% !important;
+      padding: 9.5px 0px 9.5px;
+      * {
+        // color: $color-white;
+        text-align: center;
+      }
+    }
+  }
+  .swiper-initialized {
+    overflow: hidden;
+    .swiper-slide {
+      display: flex !important;
+    }
+  }
+  .close {
+    position: absolute;
+    color: $color-black;
+    right: 20px;
+    top: 8px;
+    @include MQ(MQ-768) {
+      right: 9px;
+    }
+    // width: 23px;
+    // height: 23px;
+    &::before,
+    &::after {
+      display: none;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 2px;
+    }
+  }
+  p {
+    text-align: center;
+    color: $color-white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline;
+
+    @include MQ(MQ-480) {
+      font-size: 12px;
+    }
+    a {
+      font-size: 12px;
+      font-weight: 500 !important;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $color-light-orange;
+      // padding: 12px 0px 12px;
+      display: inline;
+      // text-transform: uppercase;
+      position: relative;
+      text-decoration: underline !important;
+      @include MQ(MQ-480) {
+        font-size: 12px;
+      }
+
+      &:hover {
+        color: $color-white;
+        text-decoration: none !important;
+      }
+      // &::before,
+      // &::after {
+      //   display: none;
+      // }
+    }
+  }
+  a {
+    color: $color-light-orange;
+    font-size: 12px;
+    font-weight: 500 !important;
+    line-height: normal;
+    letter-spacing: normal;
+    // padding: 12px 0px 12px;
+    display: inline;
+    text-decoration: underline;
+
+    position: relative;
+    @include MQ(MQ-480) {
+      font-size: 12px;
+    }
+
+    &:hover {
+      color: $color-white !important;
+      text-decoration: none !important;
+    }
+  }
+}

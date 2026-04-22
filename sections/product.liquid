@@ -1,0 +1,533 @@
+{% if product.tags contains 'hide' or product.tags contains 'Hide' %}
+  <script>
+    window.location.href = '/collections/all';
+  </script>
+{% endif %}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<div id="product" class="product">
+  <div class="container-1672 flex-wrap">
+    <!-- Left Product Image Slider Section -->
+
+    <div class="left-section">
+      {% include 'product_images' %}
+    </div>
+
+    <!-- Right Product Information Section -->
+    <div
+      class="product__information"
+      id="ProductSection"
+      data-section-id="{{ section.id }}"
+      data-section-type="product-template"
+      data-image-zoom-type="{{ section.settings.product_image_zoom_type }}"
+      data-extra-tab-content="{{ section.settings.extra_tab_content }}"
+      data-enable-history-state="true"
+    >
+      <div class="inner">
+        <span class="product-card__tags-status">
+          {% include 'product_tags' with productRelated: product %}
+
+          {% if product.compare_at_price > product.price %}
+            <div class="tag sale">sale!</div>
+          {% endif %}
+        </span>
+        <h1 class="h4 js__pdp-title  ">
+          {% if product.metafields.product.display_name != blank %}
+            {{ product.metafields.product.display_name }}
+          {% else %}
+            {{ product.title }}
+          {% endif %}
+        </h1>
+        <div class="flex-column price__wrapper ">
+          <div
+            class="product-single__prices js__product-single__prices product-single__prices-{{product.id }} "
+            content="{{ current_variant.price | divided_by: 100.00 }}"
+          >
+            {% if product.price < product.compare_at_price %}
+              <span>{{ product.price | money }}</span> <s>{{ product.compare_at_price | money }}</s>
+            {% else %}
+              <span> {{ product.price | money }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Product Short Description -->
+
+        {% if product.metafields.custom.product_description.value != blank or product.description != blank %}
+          {% assign Productdescription = product.metafields.custom.product_description.value %}
+          <div class="description">
+            <div class="description-text full-format medium">
+              {% if Productdescription.short_description != blank %}
+                {{ Productdescription.short_description | metafield_tag }}
+              {% else %}
+                {{ product.description }}
+              {% endif %}
+            </div>
+            <a class="more-link" href="#pdp-tab-section">Learn More</a>
+          </div>
+        {% endif %}
+
+        {% comment %} Form {% endcomment %}
+        <div class="product__form">
+          <form
+            action="/cart/add"
+            id="add-to-cart"
+            method="post"
+            enctype="multipart/form-data"
+            data-productid="{{ product.id }}"
+          >
+            {% include 'product_linked-options' %}
+            <div class="hide">
+              <select id="product-select" name="id" style="display: none;" aria-label="variant">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option
+                      {% if variant == current_variant %}
+                        selected="selected"
+                      {% endif %}
+                      value="{{ variant.id }}"
+                    >
+                      {{ variant.title }}
+                    </option>
+                  {% else %}
+                    <option value="{{ variant.id }}">{{ variant.title }} - sold out!</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="product__actions">
+              <div class="product-single__quantity js-product-single__quantity js-quantity-hide">
+                <div class="quantity-outer " data-children-count="1">
+                  <a class="minus-qty js-plus-minus-qty" data-type="minus"></a>
+                  <input
+                    type="text"
+                    class="quantity-selector js-quantity-selector"
+                    value="1"
+                    id="Quantity"
+                    name="quantity"
+                    aria-label="Quantity"
+                  >
+                  <a class="plus-qty js-plus-minus-qty" data-type="plus"></a>
+                </div>
+              </div>
+              <div class="add-to-cart">
+                <button
+                  type="submit"
+                  name="add"
+                  id="add"
+                  class="btn--primary"
+                  onclick="addItem('add-to-cart'); return false;"
+                >
+                  Add to Cart
+                  {% comment %} <span class="pdp-add-to-cart-price"></span> {% endcomment %}
+                </button>
+                <div class="trigger_disclaimer"></div>
+              </div>
+            </div>
+            {% assign addon_field = product.metafields.custom.addon_products %}
+            {% if addon_field %}
+              <div class="addon-product">
+                <span class="title uppercase">Complete Your Purchase</span>
+                <div class="ipad-none">
+                  <ul class="flex-wrap">
+                    {% if addon_field.type == 'list.product_reference' %}
+                      {% for ap in addon_field.value %}
+                        <li class="flex 11">
+                          <div class="image-section">
+                            <img src="{{ ap.featured_image | img_url: '200x200' }}" alt="{{ ap.title | escape }}">
+                          </div>
+                          <div class="content">
+                            {%- assign current_variant = ap.selected_or_first_available_variant -%}
+
+                            {% assign all_out_of_stock = true %}
+                            {% for variant in ap.variants %}
+                              {% if variant.available %}
+                                {% assign all_out_of_stock = false %}
+                              {% endif %}
+                            {% endfor %}
+                            <span class="name">{{ ap.title }}</span>
+                            <span class="price">{{ ap.price | money }}</span>
+
+                            {% if all_out_of_stock %}
+                              <a
+                                class="btn--primary"
+                                title="{{ ap.title }}"
+                                href="javascript:;"
+
+                                title="Shop {{ap.title}}"
+                                data-id="{{current_variant.id}}"
+                                >Sold Out</a
+                              >
+                            {% else %}
+                              <a
+                                class="btn--primary js__card-add-to-cart js__card-add-to-cart-{{current_variant.id}}"
+                                href="javascript:;"
+
+                                title="Shop {{ap.title}}"
+                                data-variant-id="{{current_variant.id}}"
+                                >Add</a
+                              >
+                            {% endif %}
+                          </div>
+                        </li>
+                      {% endfor %}
+                    {% endif %}
+                  </ul>
+                </div>
+
+                <div class="ipad-block">
+                  <div class="slider-addon-products-outer">
+                    <div class="swiper js_addon-products-slider-pdp">
+                      <ul class="swiper-wrapper">
+                        {% if addon_field.type == 'list.product_reference' %}
+                          {% for ap in addon_field.value %}
+                            <li class="flex swiper-slide">
+                              <div class="image-section">
+                                <img src="{{ ap.featured_image | img_url: '200x200' }}" alt="{{ ap.title | escape }}">
+                              </div>
+                              <div class="content">
+                                {%- assign current_variant = ap.selected_or_first_available_variant -%}
+
+                                {% assign all_out_of_stock = true %}
+                                {% for variant in ap.variants %}
+                                  {% if variant.available %}
+                                    {% assign all_out_of_stock = false %}
+                                  {% endif %}
+                                {% endfor %}
+                                <span class="name">{{ ap.title }}</span>
+                                <span class="price">{{ ap.price | money }}</span>
+
+                                {% if all_out_of_stock %}
+                                  <a
+                                    class="btn--primary"
+                                    title="{{ ap.title }}"
+                                    href="javascript:;"
+
+                                    title="Shop {{ap.title}}"
+                                    data-id="{{current_variant.id}}"
+                                    >Sold Out</a
+                                  >
+                                {% else %}
+                                  <a
+                                    class="btn--primary js__card-add-to-cart js__card-add-to-cart-{{current_variant.id}}"
+                                    href="javascript:;"
+
+                                    title="Shop {{ap.title}}"
+                                    data-variant-id="{{current_variant.id}}"
+                                    >Add</a
+                                  >
+                                {% endif %}
+                              </div>
+                            </li>
+                          {% endfor %}
+                        {% endif %}
+                      </ul>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-addon-product-pdp "></div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </form>
+        </div>
+
+        {% if product.metafields.custom.pdp_info_accordion_section.value != blank %}
+          <ul class="accordian js__accordian">
+            {% for col in product.metafields.custom.pdp_info_accordion_section.value %}
+              <li>
+                <h4>{{ col.accordion_title }}</h4>
+                <div class="content full-format medium">
+                  {{ col.accordion_content | metafield_tag }}
+                </div>
+              </li>
+            {% endfor %}
+            {% comment %}
+              <li>
+                <h4>Specifications</h4>
+                <div class="content full-format medium">
+                  <strong> Extended Reach </strong>
+                  <p>
+                    With a total of 15 feet, our picker covers more ground faster, enhancing your range's
+                    efficiency.Heavy-Duty Construction: Made in the USA from electroplated steel, designed for maximum
+                    corrosion resistance and durability against all weather conditions.
+                  </p>
+                  <strong> Innovative Design </strong>
+                  <p>
+                    No front wheel to ensure sharper turns and less impact on range grass, coupled with a modular, no-weld
+                    4-piece bolted mainframe for easy maintenance and lower repair costs.
+                  </p>
+                  <strong> Tangle-Free Efficiency </strong>
+                  <p>Engineered to prevent gangs from tangling, which means less hassle and more productivity.</p>
+                  <strong> Advanced Material Technology </strong>
+                  <p>
+                    Utilizes tough polycarbonate discs with UV-reflective green pigment for longer lifespan even under
+                    severe conditions.
+                  </p>
+                  <strong> Adaptable to All Terrains </strong>
+                  <p>
+                    Features a split drum turning system that divides each 34-disc drum into two sections of 17 discs
+                    each, enhancing maneuverability on any terrain, including snow.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <h4>Product Features</h4>
+                <div class="content full-format medium">
+                  <p>
+                    <strong> Shipping & Returns </strong>
+
+                    With a total of 15 feet, our picker covers more ground faster, enhancing your range's
+                    efficiency.Heavy-Duty Construction: Made in the USA from electroplated steel, designed for maximum
+                    corrosion resistance and durability against all weather conditions.
+                  </p>
+                  <p>
+                    <strong> Innovative Design </strong>
+
+                    No front wheel to ensure sharper turns and less impact on range grass, coupled with a modular, no-weld
+                    4-piece bolted mainframe for easy maintenance and lower repair costs.
+                  </p>
+                  <p>
+                    <strong> Tangle-Free Efficiency </strong>
+
+                    Engineered to prevent gangs from tangling, which means less hassle and more productivity.
+                  </p>
+                  <p>
+                    <strong> Advanced Material Technology </strong>
+
+                    Utilizes tough polycarbonate discs with UV-reflective green pigment for longer lifespan even under
+                    severe conditions.
+                  </p>
+                  <p>
+                    <strong> Adaptable to All Terrains </strong>
+
+                    Features a split drum turning system that divides each 34-disc drum into two sections of 17 discs
+                    each, enhancing maneuverability on any terrain, including snow.
+                  </p>
+                </div>
+              </li>
+            {% endcomment %}
+          </ul>
+        {% endif %}
+        {% comment %} Form ends {% endcomment %}
+        {% comment %}
+          show success/error message if required.
+          This needs to be enabled in js
+        {% endcomment %}
+        <div id="cart-message"></div>
+      </div>
+    </div>
+    {% comment %} Right section Ends {% endcomment %}
+  </div>
+</div>
+
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+{% schema %}
+{
+  "name": {
+    "en": "Product Page"
+  },
+  "tag": "section",
+  "class": "section-product-page",
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+        "en": "Product Form Settings"
+      }
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "en": "Configure how customers interact with the product form on your product pages. These settings control the quantity selector and checkout options to optimize the shopping experience and conversion rates."
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "product_quantity_enable",
+      "label": {
+        "en": "Show Quantity Selector"
+      },
+      "info": {
+        "en": "Enable this option to display a quantity selector (plus/minus buttons) on the product page, allowing customers to quickly choose how many items they want to add to their cart without manually editing quantities. This is especially useful for products that customers commonly purchase in multiple quantities. Disable this if you want a simpler interface or for single-item purchases."
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Checkout Options"
+      }
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "en": "Speed up the checkout process and potentially increase conversions by offering faster payment options. Dynamic checkout buttons enable quick purchases without adding items to the cart first."
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_payment_button",
+      "label": {
+        "en": "Show Dynamic Checkout Button"
+      },
+      "info": {
+        "en": "Enable this option to show dynamic checkout buttons (like PayPal, Apple Pay, Google Pay, Shop Pay) that allow customers to bypass the cart and checkout directly with their preferred payment method. This provides a faster, more streamlined checkout experience. Each customer will automatically see buttons for their preferred payment methods that are available in your store. This can significantly reduce cart abandonment and increase conversions. [Learn more about dynamic checkout](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+      },
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "product_block",
+      "name": "Product Version",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product Version Settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "Create a version selector that allows customers to switch between different product versions or related products on the same page. This is perfect for offering multiple product tiers, sizes, or complementary items without navigating away."
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Related Product",
+          "info": "Select a specific product that will appear as an option in the version selector dropdown. This allows customers to easily switch between different product versions, variants, or related items (e.g., Standard vs. Pro model, different sizes, or complementary products). The selected product must exist in your product catalog."
+        },
+        {
+          "type": "text",
+          "id": "productText",
+          "label": "Version Display Name",
+          "info": "Enter the label that will be displayed in the version selector for this product (e.g., 'Pro Version', 'Basic Model', 'Premium Edition', 'Plus Size'). This should be a short, clear name that helps customers distinguish between versions at a glance. Make it concise but descriptive - typically 2-4 words work best."
+        }
+      ]
+    },
+    {
+      "type": "sticky-menu",
+      "name": "Sticky Navigation Menu",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Navigation Menu Item"
+        },
+        {
+          "type": "text",
+          "id": "menuTitle",
+          "label": "Menu Item Title",
+          "info": "Enter the text that will appear in the sticky navigation menu. This should be a short, descriptive label for the section you want to link to."
+        },
+        {
+          "type": "url",
+          "id": "menuUrl",
+          "label": "Menu Item Link",
+          "info": "Enter the URL or anchor link that this menu item should navigate to. You can link to sections on the same page using anchor links (e.g., '#specifications') or to other pages using full URLs."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Page"
+    }
+  ]
+}
+{% endschema %}
+
+{% if template contains 'product' %}
+  {% assign selected_variant = product.selected_or_first_available_variant | default: product.variants.first %}
+  {% assign product_image = selected_variant.featured_image | default: product.featured_image %}
+  {%- capture product_name -%}
+        {{ product.title }}
+        {%- if selected_variant.title != 'Default Title' and selected_variant.option1 == 'Default Title' -%}
+          - {{ selected_variant.title }}
+        {%- endif -%}
+      {%- endcapture -%}
+  {%- assign now = 'now' | date: '%Y-%m-%d' | split: '-' -%}
+  {% capture year_from_now %}{{ now[0] | plus: 1 }}-{{ now[1] }}-{{ now[2] | at_most: 28 }}{% endcapture %}
+  <script type="application/ld+json">
+      {
+            "@context": "http://schema.org/",
+            "@type": "Product",
+            "url": "{{shop.secure_url | escape}}{{ product.url | escape }}",
+            "name": {{ product_name | strip_newlines | json }},
+            "image": {{ product_image | img_url: '1024x1024' | prepend: 'https:' | json }},
+            "gtin12": {{ selected_variant.barcode | json }},
+            {% if product.description != blank %}
+                "description": {{ product.description | json }},
+              {% endif %}
+              {% if product.vendor %}
+              "brand": {
+                "@type": "Thing",
+                "name": {{ product.vendor | json }}
+              },
+            {% endif %}
+            {% if selected_variant.sku != blank %}
+        "sku": {{ selected_variant.sku | json }},
+      {% endif %}
+      {% if selected_variant.barcode != blank %}
+      "mpn": {{ selected_variant.barcode | json }},
+    {% endif %}
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "price": {{ selected_variant.price | divided_by: 100.0 | json }},
+      "availability": "http://schema.org/{% if selected_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+      "url": "{{ shop.url }}{{ selected_variant.url }}",
+      "seller": {
+        "@type": "Organization",
+        "name": {{ shop.name | json }}
+      },
+      "priceValidUntil": {{ year_from_now | json }}
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "0"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "0",
+      "bestRating": "0",
+      "ratingCount": "0"
+    }
+            {% if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" %}
+            ,"aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": {{ product.metafields.stamped.reviews_average | round: 2 }},
+                "reviewCount": {{ product.metafields.stamped.reviews_count }},
+                "bestRating": 5,
+                "worstRating": 1
+            }
+            {% endif %}
+      }
+  </script>
+{% endif %}
+<span class="js__productid" data-id="{{product.id }}"></span>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.pdp-read-more-toggle');
+    const desc = document.querySelector('.description-text');
+
+    if (toggle && desc) {
+      toggle.addEventListener('click', function () {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        desc.classList.toggle('collapsed');
+
+        toggle.textContent = expanded ? 'Learn More' : 'Learn Less';
+      });
+    }
+  });
+</script>

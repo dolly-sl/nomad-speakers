@@ -1,0 +1,123 @@
+.full-width-video-image-content{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    .container-1400{
+      position: relative;
+      text-align: center;
+      z-index: 5;
+      span,h2{
+        color: $color-white;
+      }
+      span{
+        display: block;
+        margin-bottom: 12px;
+         @include MQ(MQ-768) {
+          margin-bottom: 8px;
+         }
+      }
+      .btn{
+        margin: 16px auto 0;
+         @include MQ(MQ-768) {
+          margin: 20px auto 0;
+         }
+      }
+    }
+    &::before{
+      background: url("rough-edge.svg") repeat left center / 1111px;
+      
+      height: 62px;
+        width: 100%;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -30px;
+        z-index: 3;
+         @include MQ(MQ-768) {
+          height: 30px;
+          top: -15px;
+         background: url("rough-edge.svg") repeat left center / 374px;
+       }
+    }
+    max-height: 820px;
+    height:calc(100vw - 35px);
+    @include MQ(MQ-768) {
+height: 643px;
+    }
+    .image-section {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+  
+      img,
+      video  {
+        @include img-object-cover;
+      }
+      
+      // Desktop and mobile image responsive display
+      .desktop-image {
+        display: block;
+        @include MQ(MQ-768) {
+          display: none;
+        }
+      }
+      
+      .mobile-image {
+        display: none;
+        @include MQ(MQ-768) {
+          display: block;
+        }
+      }
+      
+      &::before{
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), linear-gradient(0deg, rgba(255, 197, 110, 0.30) 0%, rgba(255, 197, 110, 0.30) 100%);
+background-blend-mode: normal, multiply;
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      // Play icon overlay for image backgrounds (existing popup behavior)
+     
+    }
+    
+    .video-section {
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding-top: 0%;
+        pointer-events: none;
+        
+        // Desktop and mobile video responsive display
+        .desktop-video {
+          display: block;
+          @include MQ(MQ-768) {
+            display: none;
+          }
+        }
+        
+        .mobile-video {
+          display: none;
+          @include MQ(MQ-768) {
+            display: block;
+          }
+        }
+      }
+      
+      // Play icon overlay for video backgrounds
+      
+      
+   
+    }
+
+}

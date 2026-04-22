@@ -1,0 +1,37 @@
+.full-width-content {
+  position: relative;
+  z-index: 3;
+  text-align: left;
+  background: $color-cream;
+  .pre-title {
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-bottom: 16px;
+    @include MQ(MQ-600) {
+      font-size: 20px !important;
+      line-height: 30px !important;
+    }
+  }
+
+  //   .btn--primary {
+  //     margin: 0 auto;
+  //     margin-top: 20px;
+  //     @include MQ(MQ-600) {
+  //       margin-top: 30px;
+  //     }
+  //   }
+  //   .read-mode-toggle {
+  //     margin-top: 30px;
+  //   }
+
+  //   .description {
+  //     @include MQ(MQ-600) {
+  //       max-height: 25px;
+  //       overflow: hidden;
+  //       &.active {
+  //         max-height: none;
+  //       }
+  //     }
+  //   }
+}

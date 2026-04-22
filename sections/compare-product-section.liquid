@@ -1,0 +1,302 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.settings.title != blank %}
+  {% if section.blocks.size > 0 %}
+    <div class="compare-product-section  section-{{ section.id }}-padding ">
+      <div class="container-1478">
+        {% if section.settings.pretitle != blank or section.settings.title != blank %}
+          <div
+            class="top-section flex"
+          >
+            {% if section.settings.title != blank %}
+              <h2 class="{{section.settings.text_size}} capitalize">
+                {{ section.settings.title }}
+              </h2>
+            {% endif %}
+            {% if section.settings.buttonText != blank %}
+              <a
+                class="link--primary"
+                href="{{ section.settings.buttonLink }}"
+                title="Read More About {{ section.settings.title }}"
+                aria-label="Read More About {{ section.settings.title }}"
+              >
+                {{- section.settings.buttonText -}}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="box">
+          <ul class="flex-wrap">
+            {%- for block in section.blocks -%}
+              {% assign productRelated = all_products[block.settings.product] %}
+
+              {% if productRelated != blank %}
+                <li class="product-card">
+                  <div
+                    class="product-wrapper"
+                  >
+                    <a href="{{ productRelated.url }}" class="overlay-link" aria-label="View {{ productRelated.title }} product page"></a>
+                    <div class="image-section">
+                     
+                    {% assign secondaryImage = productRelated.metafields.custom.product_secondary_image.value.image %}
+                      {% assign imageAlt = productRelated.featured_image.alt %}
+                      {% if imageAlt == blank %}
+                        {% assign imageAlt = productRelated.title %}
+                      {% endif %}
+                      {% if productRelated.images.size > 1 %}
+                        {% include 'image_code_small'  with  mobileImage:  productRelated.images[0], tabletImage:  productRelated.images[0], desktopImage:  productRelated.images[0], imageAlt:  imageAlt %}
+                        {% if secondaryImage != blank %}
+                          {% include 'image_code_small'  with  mobileImage:  secondaryImage, tabletImage:  secondaryImage, desktopImage:  secondaryImage, imageAlt:  imageAlt %}
+                        {% else %}
+                          {% include 'image_code_small'  with  mobileImage:  productRelated.images[1], tabletImage:  productRelated.images[1], desktopImage:  productRelated.images[1], imageAlt:  imageAlt %}
+                        {% endif %}
+                      {% else %}
+                        {% include 'image_code_small'  with  mobileImage:  productRelated.images[0], tabletImage:  productRelated.images[0], desktopImage:  productRelated.images[0], imageAlt:  imageAlt %}
+                        {% if secondaryImage != blank %}
+                          {% include 'image_code_small'  with  mobileImage:  secondaryImage, tabletImage:  secondaryImage, desktopImage:  secondaryImage, imageAlt:  imageAlt %}
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                    {%- assign current_variant = productRelated.selected_or_first_available_variant -%}
+
+                    {% assign all_out_of_stock = true %}
+                    {% for variant in productRelated.variants %}
+                      {% if variant.available %}
+                        {% assign all_out_of_stock = false %}
+                      {% endif %}
+                    {% endfor %}
+
+                    <div class="content">
+                      <!-- Custom Tags -->
+
+                      <span class="product-card__tags-status">
+                        {% if forloop.index == 1 %}
+                          <span class="tag">Good</span>
+                        {% elsif forloop.index == 2 %}
+                          <span class="tag">Better</span>
+                        {% elsif forloop.index == 3 %}
+                          <span class="tag best">Best</span>
+                        {% endif %}
+                      </span>
+
+                      <span class=" product-card__product-title">
+                        {% if productRelated.metafields.productInfo.product_name != blank %}
+                          {{ productRelated.metafields.prodctInfo.product_name }}
+                        {% else %}
+                          {{ productRelated.title }}
+                        {% endif %}
+                      </span>
+
+                      <!-- Price -->
+
+                      <span class="product-card__price flex">
+                        {% if productRelated.variants.size > 1 %}
+                          <span class="starting">Starting at </span>
+                          <span> {{ productRelated.price_min | money }} </span>
+                        {% else %}
+                          <span> {{ productRelated.price | money }}</span>
+                          {% if productRelated.compare_at_price_min > productRelated.price %}
+                            <s>
+                              {{ productRelated.compare_at_price_min | money }}
+                            </s>
+                          {% endif %}
+                        {% endif %}
+                      </span>
+                      {% if productRelated.metafields.custom.product_specifications_table.value != blank %}
+                        {% assign table = productRelated.metafields.custom.product_specifications_table.value %}
+                        <table>
+                          <tr>
+                            <th>Frame</th>
+                            <td>{{ table.frame }}</td>
+                          </tr>
+                          <tr>
+                            <th>Baskets</th>
+                            <td>{{ table.baskets }}</td>
+                          </tr>
+                          <tr>
+                            <th>Discs</th>
+                            <td>{{ table.discs }}</td>
+                          </tr>
+                          <tr>
+                            <th>Handles</th>
+                            <td>{{ table.handles }}</td>
+                          </tr>
+                          <tr>
+                            <th>Weight</th>
+                            <td>{{ table.weight }}</td>
+                          </tr>
+                        </table>
+                      {% endif %}
+                      {% if all_out_of_stock %}
+                        <a
+                          class="btn--primary"
+                          title="{{ productRelated.title }}"
+                          href="javascript:;"
+
+                          title="Shop {{productRelated.title}}"
+                          data-id="{{productRelated.id}}"
+                          >Sold Out</a
+                        >
+                      {% else %}
+                        <a
+                          class="btn--primary js__card-add-to-cart"
+                          href="javascript:;"
+
+                          title="Shop {{productRelated.title}}"
+                          data-variant-id="{{current_variant.id}}"
+                          >Add To Cart</a
+                        >
+                      {% endif %}
+                    </div>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "PDP Compare Product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📋 Content & Messaging Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Customize the title, button text, and link for this product comparison section. Use these settings to guide customers through your product selection process."
+    },
+
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "info": "Enter a title for your product comparison section. This will be displayed above the products to introduce your comparison feature."
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title Size",
+      "default": "h5",
+      "info": "Choose the size of the section title. Larger sizes work well for main headings, while smaller sizes are better for subheadings or when space is limited.",
+      "options": [
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button Text",
+      "info": "Enter the text that will appear on the call-to-action button. This should be a short, action-oriented phrase like 'View All Products', 'Compare More', or 'Browse Collections'."
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button Link",
+      "info": "Enter the URL where the button should link to. This could be your main collection page, a specific product category, or any other relevant page you want to direct visitors to."
+    },
+
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "Use these settings to control the spacing around your product comparison section. Adjust the padding to create proper visual separation from other sections on the page."
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the product comparison section and content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the blog slider and content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Product",
+      "limit": 3,
+      "settings": [
+        
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Select the product you want to display in this comparison section. Up to 3 products can be added to create a side-by-side comparison view. The product's details, pricing, specifications, and images will be automatically displayed in the card."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Compare Product",
+      "category": "Product Features"
+    }
+  ]
+}
+{% endschema %}

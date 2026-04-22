@@ -1,0 +1,289 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <div class="tabs-with-products section-{{ section.id }}-padding" >
+     <div class="container-1590">
+   
+     
+      <div class="tabs">
+       
+     
+          <ul class="flex tab-head ">
+            {%- for block in section.blocks -%}
+              {% if block.settings.tabtitle != blank %}
+                {%- assign tabTitle = block.settings.tabtitle | remove: ',' | remove: '-' | remove: ' ' | remove: '&' | remove: "'" | remove: '
+                    (' | remove: ')' -%}
+                <li>
+                  <a href="javascript:;"  class="tab-link"   data-attr="{{tabTitle}}">{{ block.settings.tabtitle }}</a>
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          </ul>
+      <div class="main-tab-content">
+           {%- for block in section.blocks -%}
+              {% if block.settings.tabtitle != blank %}
+                  {%- assign tabTitle = block.settings.tabtitle | remove: ',' | remove: '-' | remove: ' ' | remove: '&' | remove: "'" | remove: '
+                    (' | remove: ')' -%}
+        <div
+              class="tab-content text-center js-tab-content"
+              id="{{ tabTitle  }}"
+              data-attr="tab-link-{{ tabTitle }}"
+            >
+
+               {% if block.settings.title != blank %}
+              <h2 class="small text-cebter">{{ block.settings.title }}</h2>
+                  {% endif %}
+  {% if block.settings.subtitle != blank %}
+              <p class="subtitle text-cebter">{{ block.settings.subtitle }}</p>
+                  {% endif %}
+  {% if block.settings.image != blank %}
+                  <div class="image-section">
+
+         {% assign imageAlt = block.settings.image.alt %}
+      {% if imageAlt == blank %}
+        {% assign imageAlt = block.settings.title %}
+      {% endif %}
+        {% include 'image_code'  with  mobileImage: block.settings.mobileImage, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+       
+        
+      </div>
+    {% endif %}
+
+      {% if block.settings.point1 != blank or block.settings.point2 != blank or block.settings.point2 != blank or block.settings.point4 != blank %}
+        <ul class="points ipad-block">
+          {% if block.settings.point1 != blank %}
+          <li class="pre-title">{{ block.settings.point1 }}</li>
+          {% endif %}
+          {% if block.settings.point2 != blank %}
+          <li class="pre-title">{{ block.settings.point2 }}</li>
+          {% endif %}      
+          {% if block.settings.point3 != blank %}
+          <li class="pre-title">{{ block.settings.point3 }}</li>
+          {% endif %}
+          {% if block.settings.point4 != blank %}
+          <li class="pre-title">{{ block.settings.point4 }}</li>
+          {% endif %}
+        </ul> 
+         {% endif %}
+
+            
+
+              {% if block.settings.product != blank %}
+            
+                {% assign productRelated = all_products[block.settings.product] %}
+             {% assign selected_variant = productRelated.selected_or_first_available_variant | default: productRelated.variants.first %}
+ 
+
+                {% if productRelated %}
+                   <div class="product-btns">
+                  {% if productRelated.available %}
+                   <a href="javascript:;" class="btn btn--primary js__card-add-to-cart" title="Add {{ productRelated.title}} to Cart"
+                 data-product-id="{{ productRelated.id }}" 
+                 data-variant-id="{{ selected_variant.id }}">
+                {{ block.settings.buttonText | default: "Add to Cart" }}
+              </a>
+                {% endif %}
+              <a  class="link--primary learn-more-btn js__quick-view-click" href="javascript:;" title="Shop {{productRelated.title}}"  data-id="{{productRelated.id}}"
+          data-slider_main="{%- for img in productRelated.images -%}{{- img | img_url: '355x355' -}}|{%- endfor -%}"
+          data-slider_thumb="{%- for img in productRelated.images -%}{{- img | img_url: '150x150' -}}|{%- endfor -%}"
+          data-var_images="{%- for var in productRelated.variants -%}{{- var.image | img_url: '150x150' -}}|{%- endfor -%}">
+                {{ block.settings.linkText | default: "Learn More" }}
+              </a>
+
+              
+              </div>
+              {% endif %}
+              
+           {% endif %}
+
+         
+                  
+           
+
+
+  </div>
+
+              {% endif %}
+            {%- endfor -%}
+              </div>
+      </div>
+    </div>
+  
+      
+
+    
+  
+
+   
+  </div>
+
+  
+    {%- for block in section.blocks -%}
+      
+          
+              {% assign productRelated = all_products[block.settings.product] %}
+      {% if productRelated %}
+      {% render 'product-modal', productData: productRelated %}
+      {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Tabs With Product",
+  "settings": [
+            {
+          "type": "header",
+          "content": "Section Spacing & Layout"
+        },
+        {
+          "type": "paragraph",
+          "content": "Control the vertical spacing around your tabs with products section. Adjust the padding values to create proper visual separation from other content sections and ensure optimal layout on both desktop and mobile devices."
+        },
+      {
+        "type": "range",
+        "id": "paddingtop",
+        "min": 0,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Desktop)",
+        "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the three-column section and content above it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingtopmobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Mobile)",
+        "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Desktop)",
+        "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the three-column section and content below it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottomMobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Mobile)",
+        "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+              {
+        "type": "text",
+        "id": "tabtitle",
+        "label": "Tab Title",
+        "info": "Enter the text that will appear as the tab label in the navigation (e.g., 'Features', 'Benefits', 'Specifications'). This title is displayed in the tab menu and helps users navigate between different product information sections. Keep it short and descriptive."
+      },
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Featured Product",
+        "info": "Select the product that will be featured in this tab. When customers click the tab, they'll see this product with an option to add it to cart or learn more. You can feature different products in each tab to showcase multiple items."
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop & Tablet Image",
+        "info": "Upload a high-quality image that will display on desktop and tablet devices. This image should showcase the product or highlight the key feature of this tab. Recommended size: 1200x800px or similar aspect ratio for best quality."
+      },
+      {
+        "type": "image_picker",
+        "id": "mobileImage",
+        "label": "Mobile Image",
+        "info": "Upload an optimized image specifically for mobile devices. This optional image should be formatted for smaller screens (e.g., portrait orientation, optimized file size). If not provided, the desktop image will be used and automatically resized."
+      },
+       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Tab Content Title",
+        "info": "Enter the main heading that appears in the tab content area (e.g., 'Product Overview', 'Key Features', 'Technical Specs'). This title provides context for what users will see when they click this tab."
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Tab Content Subtitle",
+        "info": "Enter a supporting subtitle or brief description that appears below the main title. This optional text provides additional context or summarizes the content in this tab (e.g., 'Discover what makes our product special')."
+      },
+      {
+        "type": "text",
+        "id": "point1",
+        "label": "Feature Point 1",
+        "info": "Enter the first key feature or bullet point to highlight in this tab (e.g., 'Fast shipping', 'Free returns', 'Lifetime warranty'). This appears in a bulleted list format to quickly communicate product benefits."
+      },
+       {
+        "type": "text",
+        "id": "point2",
+        "label": "Feature Point 2",
+        "info": "Enter the second key feature or bullet point (optional). These points help customers quickly scan important product benefits when viewing this tab."
+      },
+      {
+        "type": "text",
+        "id": "point3",
+        "label": "Feature Point 3",
+        "info": "Enter the third key feature or bullet point (optional). You can add up to 4 feature points to highlight different product benefits or selling points."
+      },
+       {
+        "type": "text",
+        "id": "point4",
+        "label": "Feature Point 4",
+        "info": "Enter the fourth key feature or bullet point (optional). Complete your feature list with this final point to provide a comprehensive overview of product benefits."
+      },
+       {
+      "type": "text", 
+      "id": "buttonText",
+      "label": "Add to Cart Button Text",
+      "info": "Customize the text that appears on the 'Add to Cart' button for this tab's featured product. The default is 'Add to Cart', but you can change it to something more specific (e.g., 'Buy Now', 'Add to Bag', 'Order Today').",
+      "default": "Add to Cart"
+     },
+     {
+      "type": "text",
+      "id": "linkText",
+      "label": "Learn More Link Text",
+      "info": "Customize the text for the secondary link button that takes customers to the full product page. The default is 'Learn More', but you can change it to match your brand voice (e.g., 'View Details', 'See Full Specs', 'Explore Product').",
+      "default": "Learn More"
+     }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabs With Product"
+    }
+  ]
+}
+{% endschema %}

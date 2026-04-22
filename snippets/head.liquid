@@ -1,0 +1,62 @@
+{%- if canonical_url != blank -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+{%- endif -%}
+
+{%- if settings.favicon != blank -%}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+{%- endif -%}
+
+<!-- Pending : update in base theme this complete file -->
+{%- capture seo_title -%}
+{%- if request.page_type == 'search' and search.performed == true -%}
+  {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+{%- else -%}
+  {{ page_title }}
+{%- endif -%}
+
+{%- if current_tags -%}
+  {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+{%- endif -%}
+{%- if current_page != 1 -%}
+  &ndash; {{ 'general.meta.page' | t: page: current_page }}
+{%- endif -%}
+{%- assign escaped_page_title = page_title | escape -%}
+{%- unless escaped_page_title contains shop.name -%}
+  &ndash; {{ shop.name }}
+{%- endunless -%}
+{%- endcapture -%}
+<title>{{ seo_title | strip }}</title>
+
+{%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+<!-- No-Index Pages -->
+{% if handle contains '2-0' %}
+  <meta name="robots" content="noindex">
+{% endif %}
+
+{%- if template == 'blog' -%}
+ <!-- This is a blog listing page -->
+  <meta name="description" content="{{ page_description | escape }} {% if request.path contains '/tagged/' %}- Tags: {{ request.path | split: '/tagged/' | last }}{% endif %}">
+  {%- elsif template == 'list-collections' -%}
+  <!-- This is the main collection page (collections page) -->
+  <meta name="description" content="{{ page_description | escape }} - Explore our product collections">
+  {%- elsif page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+  {%- else -%}
+  <meta name="description" content="Blue Driver">
+{%- endif -%}
+
+{% comment %}
+canonical URL
+{% endcomment %}
+
+{% if template contains 'collection' and current_tags %}
+  <link rel="canonical" href="{{ collection.url }}">
+{% endif %}
+{% if template contains 'blog' and current_tags %}
+  <link rel="canonical" href="{{ blog.url }}">
+{% endif %}
+
+

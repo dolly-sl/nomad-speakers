@@ -1,0 +1,292 @@
+.not-logged-tempate {
+    .login-header {
+        margin-bottom: 40px;
+        .h3 {
+            width: calc(100% + 100px);
+            margin-left: -50px;
+            @include MQ(MQ-600) {
+                width: calc(100% + 40px);
+                margin-left: -20px;
+            }
+        }
+    }
+    padding: 80px 0 100px;
+    @include MQ(MQ-480) {
+        padding: 40px 0 60px;
+    }
+    h1 {
+        margin-bottom: 40px;
+        text-align: center;
+        width: calc(100% + 100px);
+        margin-left: -50px;
+        @include MQ(MQ-600) {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+        }
+        @include MQ(MQ-480) {
+            margin-bottom: 20px;
+        }
+    }
+    .link--wrapper {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include MQ(MQ-480) {
+            flex-direction: column;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1;
+        }
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 10px;
+            line-height: 1;
+            display: inline-block;
+            color: $color-black;
+            @include MQ(MQ-600) {
+                margin-top: 6px;
+                margin-bottom: 2px;
+                rotate: 90deg;
+                position: relative;
+                z-index: 4;
+            }
+        }
+    }
+    .btn-wrapper {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .btn--primary {
+            text-align: center;
+        }
+        >div {
+            font-size: 14px;
+            line-height: 1.5;
+            color: $color-black;
+        }
+        .link--primary {
+            display: inline-block;
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+        .link--primary,
+        #customer_register_link,
+        .wsaio_form {
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.01px;
+            text-align: center;
+            color: $color-green;
+            text-decoration: none !important;
+            position: relative;
+            text-transform: capitalize;
+            padding-bottom: 5px;
+            &:after,
+            &:before {
+                position: absolute;
+                content: "";
+                left: auto;
+                right: 0;
+                bottom: 0px;
+                height: 1px;
+                width: 100%;
+                background: $color-green;
+                transition: 0.4s ease-in-out;
+            }
+            &:before {
+                width: 0;
+                left: 0;
+                right: auto;
+                transition: 0.6s ease-in-out;
+            }
+            &:hover {
+                &:after {
+                    width: 0;
+                    transition: 0.4s ease-in-out;
+                }
+                &:before {
+                    width: 100%;
+                    transition: 0.6s ease-in-out;
+                }
+            }
+        }
+        .wsaio_form {
+            margin-left: 15px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .already-login-section {
+            margin-bottom: 0px;
+        }
+    }
+    #RecoverPasswordForm {
+        .btn-wrapper {
+            .link--primary {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &.reset-password {
+        .btn-wrapper {
+            margin-top: 20px;
+        }
+    }
+    @include MQ(MQ-480) {
+        .login-header {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.login-guest-section {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 20px;
+    border-top: 1px solid $color-black;
+    .h2 {
+        margin-bottom: 30px;
+    }
+}
+
+#rc_login {
+    a {
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.01px;
+        text-align: center;
+        color: $color-green;
+        text-decoration: none !important;
+        position: relative;
+        text-transform: capitalize;
+        padding-bottom: 5px;
+        &:after,
+        &:before {
+            position: absolute;
+            content: "";
+            left: auto;
+            right: 0;
+            bottom: 0px;
+            height: 1px;
+            width: 100%;
+            background: $color-green;
+            transition: 0.4s ease-in-out;
+        }
+        &:before {
+            width: 0;
+            left: 0;
+            right: auto;
+            transition: 0.6s ease-in-out;
+        }
+        &:hover {
+            &:after {
+                width: 0;
+                transition: 0.4s ease-in-out;
+            }
+            &:before {
+                width: 100%;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+}
+
+.recharge.page__customers__request-invite {
+    padding: 60px 30px;
+    form {
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: 2px solid $color-border;
+            width: 100%;
+            border-radius: 25px;
+            height: 45px;
+            font-family: var(--font-family-primary);
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.71;
+            color: $color-black;
+            padding: 10px 23px 10px;
+            // @include MQ(MQ-480) {
+            //   padding: 7px 20px 6px;
+            //   // height: 34px;
+            // }
+            margin-bottom: 30px;
+            opacity: 1;
+            -webkit-text-fill-color: $color-black !important;
+            -webkit-box-shadow: 1000px 0px 0px 0px $color-white; inset;
+            &::placeholder {
+                color: #787978;
+                opacity: 1;
+                font-size: 16px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.5;
+            }
+            option {
+                color: $color-black;
+            }
+        }
+    }
+    p a {
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.01px;
+        text-align: center;
+        color: $color-green;
+        text-decoration: none !important;
+        position: relative;
+        text-transform: capitalize;
+        padding-bottom: 5px;
+        &:after,
+        &:before {
+            position: absolute;
+            content: "";
+            left: auto;
+            right: 0;
+            bottom: 0px;
+            height: 1px;
+            width: 100%;
+            background: $color-green;
+            transition: 0.4s ease-in-out;
+        }
+        &:before {
+            width: 0;
+            left: 0;
+            right: auto;
+            transition: 0.6s ease-in-out;
+        }
+        &:hover {
+            &:after {
+                width: 0;
+                transition: 0.4s ease-in-out;
+            }
+            &:before {
+                width: 100%;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+}

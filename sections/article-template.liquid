@@ -1,0 +1,216 @@
+{% include 'article_img-script'  with articleRelated: article %}
+
+<div class="inner-hero-section article small-height color-{{ section.settings.color_scheme }}">
+  <div class="image-section">
+    {%- assign img_url = article.image | img_url: 'master' -%}
+    <img
+      id="{{ img_id }}"
+      src="{{ img_url }}"
+      class="lazyload"
+      data-src="{{ img_url }}"
+      data-widths="[180, 360, 540, 720, 905, 1090, 1296, 1512, 1728, 2048]"
+      data-aspectratio="{{ article.image.aspect_ratio }}"
+      data-sizes="auto"
+      alt="{{ article.title }}"
+    >
+  </div>
+
+  <div
+    class="      container-890"
+  >
+    <div class="content">
+      <h1>{{ article.title }}</h1>
+      <p>
+        {{ article.published_at | date: '%m/%d/%Y' }}
+        {% for tag in article.tags %}
+          | {{ tag }}
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="article-template">
+  <div class="container-994 content">
+    <div class="post-meta flex">
+      {% comment %}
+        <span class="author">
+          Written By:
+          {% if article.author %}
+            {{ article.author }}
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </span>
+      {% endcomment %}
+
+      <span class="date">
+        {{ article.published_at | date: '%b, %Y' }}
+      </span>
+      {% if article.tags != blank %}
+        <span class="divider">//</span>
+        <ul class="tags">
+          {% for tag in article.tags %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <h1 class="h3">{{ article.title }}</h1>
+
+    <div class="article-content  full-format article-content-{{ article.id }} js__article-content">
+      {% include 'shortcode', load: article.content %}
+    </div>
+    <div class="bottom-content flex-align-center">
+      <span class="author">
+        Written By
+        {% if article.author %}
+          {{ article.author }}
+        {% else %}
+          {{ shop.name }}
+        {% endif %}
+      </span>
+      <div class="social-links">
+        {% include 'social-sharing' with article: article %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Related Posts {% endcomment %}
+
+<!-- Date - with - social Sharing -->
+
+<div class="related-posts three-column-blog">
+ 
+    <div class="container-1590">
+      <div
+        class="top-section"
+      >
+        <h2 class="medium">BEHIND THE SCENES</h2>
+
+        <a
+          class="link--primary"
+          href="{{ section.settings.buttonLink }}"
+          title="Read More About {{ section.settings.title }}"
+          aria-label="Read More About {{ section.settings.title }}"
+        >
+          View More Articles
+        </a>
+      </div>
+
+      <ul class="flex-wrap js__realated-articles">
+        {% comment %}
+          <li class="articlecard--outer ">
+            {%
+              include 'article_Card' with articleRelated: articleRelated
+              , show_tags: true
+              , show_title: true
+              , show_shortdescription: true
+              , show_readMore: true
+            %}
+          </li>
+        {% endcomment %}
+
+        {% for tag in article.tags limit: 2 %}
+          {% assign counter = 0 %}
+          {% assign skip_articles = article.handle | split: '.....' %}
+          {% for related_article in blog.articles limit: 3 %}
+            {% if related_article.tags contains tag and counter < 1 %}
+              {% unless skip_articles contains related_article.handle %}
+                {% assign counter = counter | plus: 1 %}
+                {% assign temp = related_article.handle | split: '.....' %}
+                {% assign skip_articles = skip_articles | concat: temp %}
+                <li class="articlecard--outer" data-article-id="{{related_article.id}}">
+                  {%
+                    include 'article_Card' with articleRelated:article
+                    , show_tags: true
+                    , show_title: true
+                    , show_shortdescription: true
+                    , show_readMore: true
+                  %}
+                </li>
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  
+</div>
+{% comment %}
+  <div class="related-posts blog-section">
+    <div class="container-1300">
+      <div class="heading flex">
+        <h2 class="medium">Recommended Reading</h2>
+        <div class="btn-wrapper flex">
+          <a href="" class="btn--primary">View Blog</a>
+          <a href="" class="btn--primary">View Videos</a>
+        </div>
+      </div>
+
+      <ul class="blog-list-view flex-wrap js__realated-articles">
+        {% for tag in article.tags limit: 2 %}
+          {% assign counter = 0 %}
+          {% assign skip_articles = article.handle | split: '.....' %}
+          {% for related_article in blog.articles %}
+            {% if related_article.tags contains tag and counter < 1 %}
+              {% unless skip_articles contains related_article.handle %}
+                {% assign counter = counter | plus: 1 %}
+                {% assign temp = related_article.handle | split: '.....' %}
+                {% assign skip_articles = skip_articles | concat: temp %}
+                <li class="articlecard--outer" data-article-id="{{related_article.id}}">
+                  {%
+                    include 'article_Card' with articleRelated: article, isFeatured: false,
+                    show_tags:false, show_time: false, show_description: true, show_readMore: true
+                  %}
+                </li>
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endcomment %}
+
+<script>
+  /** Hide blogs if they are gettings repeated **/
+  var relatedList = $('.js__realated-articles').children('li'),
+    relatedListArray = [];
+  /* If no posts - then hide the section */
+  if (relatedList.length === 0) {
+    $('.related-posts').hide();
+  }
+  /* get the current postID */
+  var currentArticleID = $('article').attr('data-article-id');
+  /* go through the loop of the postArray List */
+  $(relatedList).each(function () {
+    var articleID = $(this).attr('data-article-id');
+    /* if the current article ID matches anyone in the loop - then remove it */
+    if (currentArticleID == articleID) {
+      $(this).remove();
+    } else {
+      relatedListArray.indexOf(articleID) == -1 ? relatedListArray.push(articleID) : $(this).remove();
+    }
+  });
+  /* if you had just one in array and too matched - then hide the section */
+  if (relatedListArray.length === 0) {
+    $('.related-posts').hide();
+  }
+</script>
+{% schema %}
+{
+  "name": {
+    "en": "Posts"
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "recommendedHeading",
+      "label": "Recommended Blogs Heading",
+      "info": "Heading text displayed above the related articles section to guide readers to additional content"
+    }
+  ]
+}
+{% endschema %}
