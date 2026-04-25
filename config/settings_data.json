@@ -14,6 +14,17 @@
     "headingFontCode": "\"DM Sans\", sans-serif;",
     "subheadingFontCode": "\"DM Sans\", sans-serif;",
     "buttonFontCode": "\"DM Sans\", sans-serif;",
+    "buttons_radius": 40,
+    "buttonfontsize": 12,
+    "buttonletterspacing": "1px",
+    "buttonfontweight": "900",
+    "buttontexttransform": "uppercase",
+    "buttonmobilefontsize": 12,
+    "buttonmobileletterspacing": "1px",
+    "pretitlefontsize": 11,
+    "pretitleletterspacing": "1.1px",
+    "pretitlefontweight": "500",
+    "pretitletexttransform": "uppercase",
     "sections": {
       "announcement": {
         "type": "announcement",
