@@ -1542,32 +1542,6 @@
       },
       {
         "type": "header",
-        "content": "H1 Small Mobile Font"
-      },
-      {
-        "type": "range",
-        "id": "heading1smallmobilefontsize",
-        "min": 10,
-        "max": 150,
-        "step": 2,
-        "unit": "px",
-        "label": "Font Size ",
-        "default": 30
-      },
-      {
-        "type": "text",
-        "id": "heading1smallmobilelineheight",
-        "label": "Line Height",
-        "default": "normal"
-      },
-      {
-        "type": "text",
-        "id": "heading1smallmobileletterspacing",
-        "label": "Letter Spacing",
-        "default": "normal"
-      },
-      {
-        "type": "header",
         "content": "H2 Mobile Font"
       },
       {
@@ -1589,58 +1563,6 @@
       {
         "type": "text",
         "id": "heading2mobileletterspacing",
-        "label": "Letter Spacing",
-        "default": "normal"
-      },
-      {
-        "type": "header",
-        "content": "H2 Medium Mobile Font"
-      },
-      {
-        "type": "range",
-        "id": "heading2mediummobilefontsize",
-        "min": 10,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Font Size ",
-        "default": 24
-      },
-      {
-        "type": "text",
-        "id": "heading2mediummobilelineheight",
-        "label": "Line Height",
-        "default": "normal"
-      },
-      {
-        "type": "text",
-        "id": "heading2mediummobileletterspacing",
-        "label": "Letter Spacing",
-        "default": "normal"
-      },
-      {
-        "type": "header",
-        "content": "H2 Small Mobile Font"
-      },
-      {
-        "type": "range",
-        "id": "heading2smallmobilefontsize",
-        "min": 10,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Font Size ",
-        "default": 24
-      },
-      {
-        "type": "text",
-        "id": "heading2smallmobilelineheight",
-        "label": "Line Height",
-        "default": "normal"
-      },
-      {
-        "type": "text",
-        "id": "heading2smallmobileletterspacing",
         "label": "Letter Spacing",
         "default": "normal"
       },
