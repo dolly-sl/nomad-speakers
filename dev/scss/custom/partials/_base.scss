@@ -271,19 +271,7 @@ h1,
     line-height: var(--h1-mobile-lineheight);
     letter-spacing: var(--h1-mobile-letterspacing);
   }
-  &.small {
-    font-size: var(--h1-small-desktop-fontsize);
-    line-height: var(--h1-small-desktop-lineheight);
-    letter-spacing: var(--h1-small-desktop-letterspacing);
-    text-transform: var(--h1-small-desktop-texttransform);
-    font-weight: var(--h1-small-desktop-fontweight);
-    font-style: var(--h1-small-desktop-fontstyle);
-    @include MQ(MQ-600) {
-      font-size: var(--h1-small-mobile-fontsize);
-      line-height: var(--h1-small-mobile-lineheight);
-      letter-spacing: var(--h1-small-mobile-letterspacing);
-    }
-  }
+ 
 }
 
 h2,
@@ -309,56 +297,6 @@ h2,
       font-size: var(--h2-mobile-fontsize);
       line-height: var(--h2-mobile-lineheight);
       letter-spacing: var(--h2-mobile-letterspacing);
-    }
-  }
-  &.medium {
-    font-size: var(--h2-medium-desktop-fontsize);
-    line-height: var(--h2-medium-desktop-lineheight);
-    letter-spacing: var(--h2-medium-desktop-letterspacing);
-    text-transform: var(--h2-medium-desktop-texttransform);
-    font-weight: var(--h2-medium-desktop-fontweight);
-    font-style: var(--h2-medium-desktop-fontstyle);
-    a {
-      font-size: var(--h2-medium-desktop-fontsize);
-      line-height: var(--h2-medium-desktop-lineheight);
-      letter-spacing: var(--h2-medium-desktop-letterspacing);
-    }
-
-    @include MQ(MQ-600) {
-      font-size: var(--h2-medium-mobile-fontsize);
-      line-height: var(--h2-medium-mobile-lineheight);
-      letter-spacing: var(--h2-medium-mobile-letterspacing);
-
-      a {
-        font-size: var(--h2-medium-mobile-fontsize);
-        line-height: var(--h2-medium-mobile-lineheight);
-        letter-spacing: var(--h2-medium-mobile-letterspacing);
-      }
-    }
-  }
-  &.small {
-    font-size: var(--h2-small-desktop-fontsize);
-    line-height: var(--h2-small-desktop-lineheight);
-    letter-spacing: var(--h2-small-desktop-letterspacing);
-    text-transform: var(--h2-small-desktop-texttransform);
-    font-weight: var(--h2-small-desktop-fontweight);
-    font-style: var(--h2-small-desktop-fontstyle);
-    a {
-      font-size: var(--h2-small-desktop-fontsize);
-      line-height: var(--h2-small-desktop-lineheight);
-      letter-spacing: var(--h2-small-desktop-letterspacing);
-    }
-
-    @include MQ(MQ-600) {
-      font-size: var(--h2-small-mobile-fontsize);
-      line-height: var(--h2-small-mobile-lineheight);
-      letter-spacing: var(--h2-small-mobile-letterspacing);
-
-      a {
-        font-size: var(--h2-small-mobile-fontsize);
-        line-height: var(--h2-small-mobile-lineheight);
-        letter-spacing: var(--h2-small-mobile-letterspacing);
-      }
     }
   }
 }
