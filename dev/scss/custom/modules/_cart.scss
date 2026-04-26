@@ -3,7 +3,7 @@
 .cart-section {
     padding: 50px 0 100px;
        overflow: hidden;
-      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-cream;
+      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-yellow;
  @include MQ(MQ-980) {
     padding: 40px 0 60px;
  }
@@ -32,10 +32,10 @@
     .header {
             display: flex;
             justify-content: space-between;
-            border-bottom: solid 2px $color-green;
+            border-bottom: solid 2px $color-yellow;
             padding: 11.2px 30px 11.2px 20px;
             border-radius: 5px 5px 0 0;
-            background: $color-green;
+            background: $color-yellow;
             .table-head {
                 max-width: 150px;
                  @include MQ(MQ-1200) {
@@ -605,8 +605,8 @@ filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rot
     color: $color-white;
     &.message-success {
         margin: 35px 0;
-        border: 1px solid $color-green;
-        color: $color-green;
+        border: 1px solid $color-yellow;
+        color: $color-yellow;
         font-size: 14px;
     }
     &.message-error {
@@ -652,7 +652,7 @@ filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rot
         &::before,
         .dark-bar {
             width: 100%;
-            background-color: $color-green;
+            background-color: $color-yellow;
             content: "";
             border-radius: 4px;
             height: 8px;
@@ -662,7 +662,7 @@ filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rot
         }
         .dark-bar {
             z-index: 2;
-            background-color: $color-green;
+            background-color: $color-yellow;
             width: 0;
         }
         li:not(:first-child) {
@@ -678,7 +678,7 @@ filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rot
             .icon {
                 width: 28.5px;
                 height: 28.5px;
-                background: $color-green;
+                background: $color-yellow;
                 border-radius: 50%;
                 margin-bottom: 5px;
                 display: flex;
@@ -695,7 +695,7 @@ filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rot
                     }
                 }
                 &.active {
-                    background-color: $color-green;
+                    background-color: $color-yellow;
                     img {
                         filter: brightness(0) invert(1);
                     }

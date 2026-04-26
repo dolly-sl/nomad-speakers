@@ -31,7 +31,7 @@ padding: 8px 0px;
        font-size: 15px;
   }
 &.active, &:hover{
-    background: $color-light-orange;
+    background: $color-yellow;
     border-radius: 30px;
     padding: 8px 23px;
     @include MQ(MQ-600) {

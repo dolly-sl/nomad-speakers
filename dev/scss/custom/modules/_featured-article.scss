@@ -1,5 +1,5 @@
 .featured-blog-section {
-  background: $color-cream;
+  background: $color-yellow;
   .top-section {
     margin-bottom: 50px;
     @include MQ(MQ-768) {
@@ -133,9 +133,9 @@
       }
 
       display: inline-block;
-      background: $color-green !important;
+      background: $color-yellow !important;
       &:nth-child(even) {
-        background: $color-teal !important;
+        background: $color-yellow !important;
       }
       color: $color-white !important;
       text-transform: capitalize;

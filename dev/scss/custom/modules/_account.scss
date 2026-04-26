@@ -31,7 +31,7 @@
         line-height: normal;
         letter-spacing: 0.01px;
         text-align: center;
-        color: $color-green;
+        color: $color-yellow;
         position: relative;
         text-transform: capitalize;
         padding-bottom: 5px;
@@ -45,7 +45,7 @@
             bottom: 0px;
             height: 1px;
             width: 100%;
-            background: $color-green;
+            background: $color-yellow;
             transition: 0.4s ease-in-out;
         }
         &:before {
@@ -85,7 +85,7 @@
         strong {
             font-weight: 600;
             font-family: var(--font-family-secondary);
-            color: $color-green;
+            color: $color-yellow;
         }
         text-transform: capitalize;
         .shipping-info {
@@ -95,7 +95,7 @@
             margin-bottom: 10px;
         }
         strong {
-            color: $color-green;
+            color: $color-yellow;
         }
         p {
             a {
@@ -117,7 +117,7 @@
         flex: auto;
         strong {
             font-weight: 600;
-            color: $color-green;
+            color: $color-yellow;
         }
         table {
             width: 100%;

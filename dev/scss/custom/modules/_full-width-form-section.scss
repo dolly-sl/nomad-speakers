@@ -1,7 +1,7 @@
 .full-width-form-section{
     
        overflow: hidden;
-      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-cream;
+      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-yellow;
  
    
    .content{
@@ -91,10 +91,10 @@ line-height: 116%; /* 18.56px */
   width: fit-content!important;
   border-width: var(--buttons-border-width)!important;
   border-style: solid!important;
-  border-color: $color-light-orange!important;
+  border-color: $color-yellow!important;
   //  border-image: linear-gradient(96deg, #55DBAA 0%, #11D5FF 100%);
   border-radius: var(--buttons-radius-outset)!important;
-  background: $color-light-orange!important;
+  background: $color-yellow!important;
   min-width: var(--buttons-minimum-width)!important;
   -webkit-appearance: none!important;
   -moz-appearance: none!important;

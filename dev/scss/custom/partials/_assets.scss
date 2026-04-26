@@ -465,7 +465,7 @@ textarea.input--error {
         margin-right: 0px;
       }
       &.sale {
-        background: $color-dark-red !important;
+        background: $color-yellow !important;
       }
     }
   }
@@ -513,7 +513,7 @@ textarea.input--error {
   &:hover {
     .product-card__product-title {
       text-decoration: underline;
-      color: $color-green;
+      color: $color-yellow;
     }
   }
 }
@@ -568,7 +568,7 @@ textarea.input--error {
       &.current,
       &:hover {
         border-radius: 50%;
-        background: $color-light-orange;
+        background: $color-yellow;
       }
     }
 
@@ -820,7 +820,7 @@ textarea.input--error {
       font-weight: 800 !important;
       line-height: normal;
       text-transform: uppercase;
-      color: $color-green !important;
+      color: $color-yellow !important;
       visibility: visible !important;
       font-family: var(--font-family-secondary) !important;
       @include MQ(MQ-768) {
@@ -891,7 +891,7 @@ textarea.input--error {
     position: relative;
     height: 4px;
     width: 100%;
-    background-color: $color-green;
+    background-color: $color-yellow;
     border-radius: 4px;
     span {
       transition: width 2s;
@@ -899,7 +899,7 @@ textarea.input--error {
       height: 4px;
       display: block;
       border-radius: 4px;
-      background-color: $color-green;
+      background-color: $color-yellow;
     }
   }
 }

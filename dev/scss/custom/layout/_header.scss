@@ -33,12 +33,12 @@
     filter: none;
   }
   .btn--menu {
-    background: $color-light-orange;
+    background: $color-yellow;
     color: $color-black;
-    border-color: $color-light-orange;
+    border-color: $color-yellow;
     &:hover {
       background: transparent;
-      // color: $color-light-orange;
+      // color: $color-yellow;
     }
   }
   .main-menu {
@@ -69,7 +69,7 @@
           svg {
             opacity: 0.7;
             // path {
-            //   fill: $color-teal !important;
+            //   fill: $color-yellow !important;
             // }
           }
         }
@@ -98,17 +98,17 @@
 }
 .white-header header.white.fixed {
   transition: 0.4s ease all;
-  background: $color-green;
+  background: $color-yellow;
   height: auto;
 
   .btn--menu {
-    background: $color-light-orange;
+    background: $color-yellow;
     color: $color-black;
-    border-color: $color-light-orange;
+    border-color: $color-yellow;
     &:hover,
     &:focus {
       background: transparent;
-      // color: $color-light-orange;
+      // color: $color-yellow;
     }
   }
   .main-menu {
@@ -150,7 +150,7 @@
           svg {
             opacity: 0.7;
             // path {
-            //   fill: $color-teal;
+            //   fill: $color-yellow;
             // }
           }
         }
@@ -162,9 +162,9 @@
                 opacity: 0.7;
                 // &:nth-child(1) {
                 //   fill: transparent;
-                //   stroke: $color-teal;
+                //   stroke: $color-yellow;
                 // }
-                // fill: $color-teal;
+                // fill: $color-yellow;
               }
             }
           }
@@ -184,7 +184,7 @@
         &:focus {
           svg {
             path {
-              fill: $color-teal !important;
+              fill: $color-yellow !important;
             }
           }
         }
@@ -217,12 +217,12 @@
   // @include MQ(MQ-980) {
   //   background: $color-white;
   //   .btn--menu {
-  //     background: $color-light-orange;
+  //     background: $color-yellow;
   //     color: $color-black;
-  //     border-color: $color-light-orange;
+  //     border-color: $color-yellow;
   //     &:hover {
   //       background: transparent;
-  //       color: $color-light-orange;
+  //       color: $color-yellow;
   //     }
   //   }
   //   .header-logo {
@@ -242,7 +242,7 @@
   //         &:focus {
   //           svg {
   //             path {
-  //               fill: $color-teal !important;
+  //               fill: $color-yellow !important;
   //             }
   //           }
   //         }
@@ -287,22 +287,22 @@ header {
       color: $color-black;
       border-color: $color-white;
       &:hover {
-        background: $color-light-orange;
-        border-color: $color-light-orange;
+        background: $color-yellow;
+        border-color: $color-yellow;
       }
     }
   }
   &.fixed {
     transition: 0.4s ease all;
-    background: $color-green;
+    background: $color-yellow;
     .btn--menu {
-      background: $color-light-orange;
+      background: $color-yellow;
       color: $color-black;
-      border-color: $color-light-orange;
+      border-color: $color-yellow;
       &:hover,
       &:focus {
         background: transparent;
-        // color: $color-light-orange;
+        // color: $color-yellow;
       }
     }
     .header-search-section {
@@ -344,12 +344,12 @@ header {
       filter: none;
     }
     .btn--menu {
-      background: $color-light-orange;
+      background: $color-yellow;
       color: $color-black;
-      border-color: $color-light-orange;
+      border-color: $color-yellow;
       &:hover {
         background: transparent;
-        // color: $color-light-orange;
+        // color: $color-yellow;
       }
     }
   }
@@ -392,7 +392,7 @@ header.fixed {
           svg {
             opacity: 0.7;
             // path {
-            //   fill: $color-teal;
+            //   fill: $color-yellow;
             // }
           }
         }
@@ -404,7 +404,7 @@ header.fixed {
               // path {
               //   &:nth-child(1) {
               //     fill: transparent !important;
-              //     stroke: $color-teal;
+              //     stroke: $color-yellow;
               //   }
               // }
             }
@@ -413,10 +413,10 @@ header.fixed {
               // path {
               //   &:nth-child(1) {
               //     fill: transparent;
-              //     stroke: $color-teal;
+              //     stroke: $color-yellow;
               //   }
-              //   fill: $color-teal;
-              //   stroke: $color-teal !important;
+              //   fill: $color-yellow;
+              //   stroke: $color-yellow !important;
               // }
             }
           }
@@ -450,7 +450,7 @@ header.white.open-sub-menu {
           svg {
             opacity: 0.7;
             // path {
-            //   fill: $color-teal !important;
+            //   fill: $color-yellow !important;
             // }
           }
         }
@@ -671,11 +671,11 @@ header {
           &:hover,
           &:focus {
             span {
-              color: $color-teal !important;
+              color: $color-yellow !important;
             }
             svg {
               path {
-                fill: $color-teal !important;
+                fill: $color-yellow !important;
               }
             }
           }
@@ -906,7 +906,7 @@ header {
       path {
         &:hover,
         &:focus {
-          fill: $color-teal !important;
+          fill: $color-yellow !important;
         }
       }
     }

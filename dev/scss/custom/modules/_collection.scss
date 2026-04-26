@@ -124,7 +124,7 @@
   align-items: center;
   position: relative;
   .image-section {
-    background: $color-green;
+    background: $color-yellow;
     position: absolute;
     top: 0;
     left: 0;
@@ -230,8 +230,8 @@
         border: 1px solid $color-black;
         text-align: center;
         &:hover {
-          background-color: $color-light-orange;
-          border: 1px solid $color-light-orange;
+          background-color: $color-yellow;
+          border: 1px solid $color-yellow;
         }
       }
     }
@@ -240,7 +240,7 @@
 
 .collection-full-width-content {
   padding: 66px 0;
-  background: $color-cream;
+  background: $color-yellow;
   h2 {
     margin-bottom: 10px;
   }

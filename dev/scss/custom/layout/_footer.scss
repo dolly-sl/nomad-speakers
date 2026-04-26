@@ -1,6 +1,6 @@
 footer {
   overflow: hidden;
-  background: $color-green;
+  background: $color-yellow;
 
   * {
     color: $color-white;
@@ -34,7 +34,7 @@ footer {
         margin-top: 40px;
         bottom: 0;
         .swiper-pagination-bullet-active {
-          background: $color-light-orange !important;
+          background: $color-yellow !important;
         }
       }
 
@@ -134,7 +134,7 @@ footer {
 
           &:hover,
           &:focus {
-            color: $color-light-orange !important;
+            color: $color-yellow !important;
             text-decoration: none !important;
             background: url(icon-arrow-yellow.png) no-repeat top 5px right/13px;
           }
@@ -391,7 +391,7 @@ footer {
         font-family: var(--font-family-secondary);
         &:hover,
         &:focus {
-          color: $color-light-orange;
+          color: $color-yellow;
         }
       }
     }
@@ -429,7 +429,7 @@ footer {
           svg {
             ellipse,
             circle {
-              fill: $color-light-orange;
+              fill: $color-yellow;
             }
           }
         }

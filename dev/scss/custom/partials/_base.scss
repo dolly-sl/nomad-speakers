@@ -104,7 +104,7 @@ li {
 /****** ELEMENTS ******/
 
 ::selection {
-  background: $color-green;
+  background: $color-yellow;
   color: $color-white;
 }
 
@@ -527,18 +527,18 @@ button {
 
   &:hover {
     background: url("icon-arrow-link-green.svg") no-repeat top 5px right / 13px;
-    color: $color-green;
+    color: $color-yellow;
   }
 
   &.green {
     background: url("icon-arrow-link-green.svg") no-repeat center right / 13px;
-    color: $color-blueish;
+    color: $color-yellow;
   }
 
   &.small-green {
     background: url("icon-arrow-link-green.svg") no-repeat center right / 13px;
     font-size: 12px;
-    color: $color-green;
+    color: $color-yellow;
   }
 }
 
@@ -560,7 +560,7 @@ button {
   font-style: var(--pretitle-desktop-fontstyle);
   font-family: var(--font-family-pretitle);
   display: block;
-  color: $color-green;
+  color: $color-yellow;
   @include MQ(MQ-600) {
     font-size: var(--pretitle-mobile-fontsize);
     line-height: var(--pretitle-mobile-lineheight);
@@ -568,7 +568,7 @@ button {
   }
 
   &.blue {
-    color: $color-green !important;
+    color: $color-yellow !important;
   }
 }
 
@@ -626,7 +626,7 @@ button {
   }
 
   a {
-    color: $color-green;
+    color: $color-yellow;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -824,7 +824,7 @@ button {
 
   a {
     text-decoration: underline;
-    color: $color-green;
+    color: $color-yellow;
   }
 
   a.btn--primary {
@@ -855,7 +855,7 @@ button {
       font-family: var(--font-family-secondary);
       left: 0;
       top: 0;
-      color: $color-green;
+      color: $color-yellow;
       font-size: 50px;
       font-style: normal;
       font-weight: 600;
@@ -1812,7 +1812,7 @@ body.boost-sd__search-opening {
     flex: 1;
     text-align: left;
     font-weight: 600;
-    color: $color-green;
+    color: $color-yellow;
     text-transform: capitalize;
   }
 
@@ -1900,7 +1900,7 @@ body.boost-sd__search-opening {
 }
 
 .read-mode-toggle {
-  color: $color-green;
+  color: $color-yellow;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -1991,7 +1991,7 @@ body.boost-sd__search-opening {
   border-radius: 50% !important;
   background: #e0e0e0 !important;
   &.swiper-pagination-bullet-active {
-    background: $color-green !important;
+    background: $color-yellow !important;
   }
 }
 

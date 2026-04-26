@@ -66,7 +66,7 @@ position: relative;
 display: inline-block;
 text-decoration: underline;
 margin-top: 7px;
-color: $color-green !important;
+color: $color-yellow !important;
   }
 
 
@@ -357,7 +357,7 @@ line-height: normal;
         border-radius: 85px;
         cursor: pointer;
         min-width: 100px;
-        border: 1px solid $color-border-light;
+        border: 1px solid $color-yellow;
         font-size: 14px;
         height: 50px;
         font-family: var(--font-family-secondary);
@@ -387,7 +387,7 @@ justify-content: center;
 
    
     .quantity-outer {
-      border: 1px solid $color-border-light;
+      border: 1px solid $color-yellow;
        max-width:130px;
         height: 50px;
         a{
@@ -455,7 +455,7 @@ margin-bottom:10px;
         width: 100% !important;
         margin: 0 0 10px !important;
         border-radius: 5px;
-        border: 1px solid $color-border-light;
+        border: 1px solid $color-yellow;
         &:last-child{
           margin: 0 !important;
         }
@@ -516,7 +516,7 @@ position: absolute;
       .content  {
           margin-top: 19px;
           display: none;
-          background: $color-cream;
+          background: $color-yellow;
           padding: 30px 50px 38px 41px;
           strong{
             font-family: var(--font-family-secondary);
@@ -654,7 +654,7 @@ position: absolute;
       transition: 0.3s ease all;
       .image-section,
       .video-section {
-        border: 1px solid $color-green;
+        border: 1px solid $color-yellow;
         width: 100%;
         height: 100%;
         transition: 0.3s ease all;

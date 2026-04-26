@@ -118,13 +118,13 @@ padding: 30px 20px;
 }
 
 .tag{
-  background: $color-green !important;
+  background: $color-yellow !important;
   font-size: 16px;
 border-radius: 23px;
 padding: 12px 15px !important;
 min-width: 133px;
 &.best{
-   background: $color-teal !important;
+   background: $color-yellow !important;
 }
 
   @include MQ(MQ-600) {

@@ -1,5 +1,5 @@
 .full-width-help-center {
-  background: $color-cream;
+  background: $color-yellow;
   padding: 58px 0 110px;
   @include MQ(MQ-768) {
     padding: 30px 0 50px;
@@ -45,14 +45,14 @@
             li {
               margin-bottom: 26px;
               a {
-                color: $color-blueish;
+                color: $color-yellow;
                 text-transform: capitalize;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
                 &:hover {
-                  color: $color-teal;
+                  color: $color-yellow;
                 }
               }
             }

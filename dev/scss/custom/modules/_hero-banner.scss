@@ -244,12 +244,12 @@
         fill: $color-white;
       }
       path {
-        fill: $color-green;
-        // stroke: $color-green;
+        fill: $color-yellow;
+        // stroke: $color-yellow;
       }
       .line {
-        fill: $color-green;
-        stroke: $color-green;
+        fill: $color-yellow;
+        stroke: $color-yellow;
       }
     }
   }
@@ -260,7 +260,7 @@
   }
   svg:hover {
     circle {
-      fill: $color-green;
+      fill: $color-yellow;
     }
     path {
       fill: $color-white;

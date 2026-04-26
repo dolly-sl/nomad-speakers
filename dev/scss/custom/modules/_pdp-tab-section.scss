@@ -1,6 +1,6 @@
 .pdp-tab-section{
   position: relative;
-  background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-cream;
+  background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-yellow;
     &::before{
       background: url("rough-edge.svg") repeat left center / 1111px;
       
@@ -79,7 +79,7 @@ padding: 8px 0px;
        font-size: 15px;
   }
 &.active, &:hover{
-    background: $color-light-orange;
+    background: $color-yellow;
     border-radius: 30px;
     padding: 8px 23px;
     @include MQ(MQ-600) {
@@ -152,7 +152,7 @@ width: 100%;
                 text-transform: capitalize;
                 display: inline-block;
                 &:hover{
-                  color: $color-green;
+                  color: $color-yellow;
                 }
             }
         }

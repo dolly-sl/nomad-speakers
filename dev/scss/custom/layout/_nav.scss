@@ -125,7 +125,7 @@ header {
       justify-content: center;
       top: -7px;
       right: 0px;
-      background: $color-light-orange;
+      background: $color-yellow;
     }
   }
   /****** Main Menu ******/
@@ -211,7 +211,7 @@ header {
               }
             }
             @include MQ(MQ-980) {
-              color: $color-teal !important;
+              color: $color-yellow !important;
             }
           }
           &.hover-submenu {
@@ -264,7 +264,7 @@ header {
             &:focus {
               color: $color-white;
               @include MQ(MQ-980) {
-                color: $color-teal;
+                color: $color-yellow;
               }
             }
             &.hover-submenu {
@@ -371,7 +371,7 @@ header {
                         display: none !important;
                       }
                       &:hover {
-                        color: $color-teal;
+                        color: $color-yellow;
                       }
                     }
                   }
@@ -463,7 +463,7 @@ header {
                         }
                       }
                       .title {
-                        color: $color-teal;
+                        color: $color-yellow;
                       }
                     }
                     &:after {
@@ -560,7 +560,7 @@ header {
                 }
 
                 &:hover {
-                  color: $color-teal;
+                  color: $color-yellow;
                 }
               }
               .accordion-content-inner {
@@ -604,7 +604,7 @@ header {
                     }
 
                     &:hover {
-                      color: $color-teal;
+                      color: $color-yellow;
                     }
                   }
                 }

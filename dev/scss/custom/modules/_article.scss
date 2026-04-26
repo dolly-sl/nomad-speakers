@@ -76,9 +76,9 @@
           }
 
           display: inline-block;
-          background: $color-green !important;
+          background: $color-yellow !important;
           &:nth-child(even) {
-            background: $color-teal !important;
+            background: $color-yellow !important;
           }
           color: $color-white !important;
           text-transform: capitalize;
@@ -174,7 +174,7 @@
         line-height: normal;
         text-transform: uppercase;
         &:hover {
-          color: $color-green;
+          color: $color-yellow;
           text-decoration: underline !important;
         }
       }
@@ -291,7 +291,7 @@
           justify-content: center;
 
           &:hover {
-            background: $color-light-orange;
+            background: $color-yellow;
           }
         }
       }
@@ -301,7 +301,7 @@
 
 .related-posts {
   padding: 77px 0 90px !important;
-  background: $color-cream;
+  background: $color-yellow;
   @include MQ(MQ-768) {
     padding: 64px 0 77px !important;
   }
@@ -403,7 +403,7 @@
     &:hover {
       svg {
         path {
-          fill: $color-light-orange;
+          fill: $color-yellow;
         }
       }
     }
@@ -442,7 +442,7 @@
     }
   }
   .top-block {
-    background-color: $color-blue;
+    background-color: $color-yellow;
     display: flex;
     justify-content: space-between;
     align-items: center;
