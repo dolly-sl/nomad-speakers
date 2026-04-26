@@ -14,6 +14,7 @@
     "headingFontCode": "\"DM Sans\", sans-serif;",
     "subheadingFontCode": "\"DM Sans\", sans-serif;",
     "buttonFontCode": "\"DM Sans\", sans-serif;",
+    "buttons_minimum_width": 175,
     "buttons_radius": 40,
     "buttonfontsize": 12,
     "buttonletterspacing": "1px",
