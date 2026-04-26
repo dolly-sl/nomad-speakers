@@ -53,7 +53,17 @@
     "paraxsmallfontsize": 10,
     "pretitlemobilefontsize": 11,
     "pretitlemobileletterspacing": "1.1px",
-    "heading1mobilefontsize": 36,
+    "heading1mobilefontsize": 35,
+    "heading1mobilelineheight": "43px",
+    "heading2mobilefontsize": 35,
+    "heading2mobilelineheight": "43px",
+    "heading3mobilefontsize": 40,
+    "heading4mobilefontsize": 30,
+    "heading4mobilelineheight": "44px",
+    "heading5mobilefontsize": 25,
+    "heading6mobilefontsize": 20,
+    "heading6mobilelineheight": "22px",
+    "heading6mobileletterspacing": "0.4px",
     "sections": {
       "announcement": {
         "type": "announcement",
