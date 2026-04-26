@@ -418,90 +418,44 @@ button {
 .btn--primary {
   @include px-button;
   transition: 0.3s ease all;
-
   position: relative;
+   color: $color-white !important;
+    border-color: $color-black;
+  background: url("icon-arrow-white.svg") no-repeat right 24.5px center / 13px $color-black;
   &:hover {
     transition: 0.3s ease all;
-    color: $color-white !important;
-    background: $color-black;
-    border-color: $color-black;
+    background: url("icon-arrow-black.svg") no-repeat right 24.5px center / 13px $color-white;
+    color: $color-black !important;
   }
- /* &.bg-btn {
-    &:hover {
-      background: rgba(51, 58, 63, 0.2);
-    }
-  }*/
 }
 
 .btn--secondary {
-  @include px-button;
-  border: none;
-  background: rgba(150, 164, 196, 0.2);
+ @include px-button;
   transition: 0.3s ease all;
-
+  position: relative;
+ 
   &:hover {
     transition: 0.3s ease all;
-    // background: $color-white;
-    background: linear-gradient(96deg, #0070ff 0%, #0086fe 100%);
-  }
-
-  &:before,
-  &:after {
-    display: none;
+    color: $color-black !important;
+    background-color: $color-white;
+    border-color: $color-black;
   }
 }
 
 .btn--tertiary {
-  @include px-button;
-  transition: 0.6s ease all;
-  background-color: transparent;
-  color: $color-black;
-  padding: 0 20px !important;
-  height: 42px;
-  min-width: auto;
-  border: 1px solid $color-black;
-  background: transparent !important;
-  &:before {
-    display: none;
-  }
-
-  &.large {
-    height: 52px;
-  }
-
+ @include px-button;
+  transition: 0.3s ease all;
+  position: relative;
+   color: $color-black !important;
+    border-color: $color-black;
+ background-color: $color-white;
   &:hover {
-    border: none;
-    background: linear-gradient(96deg, #55dbaa 0%, #11d5ff 100%) !important;
-    &::before,
-    &:after {
-      display: none;
-    }
+    transition: 0.3s ease all;
+     background: url("icon-arrow-white.svg") no-repeat right 24.5px center / 13px $color-black;
+    color: $color-white !important;
   }
 }
-.btn-fourth {
-  @include px-button;
-  transition: 0.6s ease all;
-  background-color: transparent;
-  color: $color-white;
-  padding: 0 20px !important;
-  height: 42px;
-  min-width: auto;
-  border: 1px solid $color-white;
-  background: transparent !important;
-  &:before {
-    display: none;
-  }
 
-  &:hover {
-    border: none;
-    color: $color-black !important;
-    background: linear-gradient(96deg, #55dbaa 0%, #11d5ff 100%) !important;
-    &::before,
-    &:after {
-      display: none;
-    }
-  }
-}
 
 /****** LINKS ******/
 
