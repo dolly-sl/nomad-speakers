@@ -60,7 +60,6 @@
               <li>
                 {% if customer %}
                   <a href="/account" title="My Account" class="user site-nav__link">
-                    <img src="{{'icon-account.svg' | asset_url }}" alt="Account Icon">
                     <span>Account Log Out</span>
                   </a>
                 {% else %}
@@ -69,6 +68,11 @@
                     <span>Account Login</span>
                   </a>
                 {% endif %}
+              </li>
+              <li>
+                <a href="/" title="contact-us">
+                  <span>Contact Us</span>
+                </a>
               </li>
             </ul>
           </div>
