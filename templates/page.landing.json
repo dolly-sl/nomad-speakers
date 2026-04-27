@@ -9,34 +9,324 @@
  */
 {
   "sections": {
-    "half_content_half_form_THtfNb": {
-      "type": "half-content-half-form",
-      "name": "Half Content Half Form",
+    "home_hero_banner_txBeE7": {
+      "type": "home-hero-banner",
+      "blocks": {
+        "slide_NX7URk": {
+          "type": "slide",
+          "settings": {
+            "videobanner": false,
+            "video": "",
+            "mobileMediaType": "image",
+            "videoMobile": "",
+            "pretitle": "",
+            "title": "",
+            "text_size": "h1",
+            "buttonText": "",
+            "buttonLink": "",
+            "button_style": "btn--primary",
+            "content_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NX7URk"
+      ],
+      "name": "Hero Banner",
+      "settings": {}
+    },
+    "five_column_icon_card_with_heading_image_HYgAiB": {
+      "type": "five-column-icon-card-with-heading-image",
+      "blocks": {
+        "card_ehGUB6": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_xq6Ajh": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_CfxNgY": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_nA7d73": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_ge9VKk": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        }
+      },
+      "block_order": [
+        "card_ehGUB6",
+        "card_xq6Ajh",
+        "card_CfxNgY",
+        "card_nA7d73",
+        "card_ge9VKk"
+      ],
+      "name": "Five Icon Cards + Image",
       "settings": {
-        "content_title": "Contact Us",
-        "content_description": "Our customer service staff can help answer your questions. Your patronage is important to us, so please contact us!",
-        "phone_label": "Phone Orders",
-        "phone_number": "1-844-682-2354",
-        "hours_label": "Hours",
-        "hours_text": "8:30am - 3:30pm PST",
-        "quote_label": "REQUEST A QUOTE",
-        "quote_description": "Looking to purchase for your course?",
-        "quote_button_text": "Get a Quote",
-        "quote_url": "#",
-        "help_label": "HELP CENTER",
-        "help_description": "For information on returns, warranties and product problems please see our",
-        "help_button_text": "Visit Our Help Center",
-        "help_url": "#",
-        "form_title": "Contact Us",
-        "form_description": "Please fill out the form below and someone will reach out to you shortly.",
-        "paddingtop": 70,
-        "paddingtopmobile": 30,
-        "paddingbottom": 94,
+        "color_scheme": "light",
+        "pretitle": "THE ALL NEW NOMAD",
+        "title": "Big sound. Real screen. Built different.",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>",
+        "buttonText": "Shop now",
+        "buttonLink": "#",
+        "buttonText2": "",
+        "buttonLink2": "",
+        "image": "shopify://shop_images/img.png",
+        "paddingtop": 120,
+        "paddingtopmobile": 60,
+        "paddingbottom": 102,
+        "paddingbottomMobile": 76
+      }
+    },
+    "three_column_card_slider_LMgeVa": {
+      "type": "three-column-card-slider",
+      "blocks": {
+        "card_fG7Fmy": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_ECY98d": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_FqVJrw": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_nkiMPU": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_gxqyxF": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_fG7Fmy",
+        "card_ECY98d",
+        "card_FqVJrw",
+        "card_nkiMPU",
+        "card_gxqyxF"
+      ],
+      "name": "Three Column Card Slider",
+      "settings": {
+        "pre_title": "Where Nomad Fits",
+        "title": "Built for your favorite spot",
+        "buttonText": "Build Your NomaD",
+        "buttonLink": "#",
+        "paddingtop": 94,
+        "paddingtopmobile": 76,
+        "paddingbottom": 44,
+        "paddingbottomMobile": 66
+      }
+    },
+    "hero_image_with_content_slider_BGxjbH": {
+      "type": "hero-image-with-content-slider",
+      "blocks": {
+        "slide_4qEEyC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/bg-img.jpg",
+            "content_alignment": "right",
+            "text_size": "h2",
+            "pretitle": "One device. Three ways to enjoy it",
+            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "buttonText": "Shop now",
+            "buttonLink": "#"
+          }
+        },
+        "slide_KF6tJj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/bg-img.jpg",
+            "content_alignment": "left",
+            "text_size": "h2",
+            "pretitle": "One device. Three ways to enjoy it",
+            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "buttonText": "Shop now",
+            "buttonLink": "#"
+          }
+        },
+        "slide_tbJUAn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/bg-img.jpg",
+            "content_alignment": "center",
+            "text_size": "h2",
+            "pretitle": "One device. Three ways to enjoy it",
+            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "buttonText": "Shop now",
+            "buttonLink": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slide_4qEEyC",
+        "slide_KF6tJj",
+        "slide_tbJUAn"
+      ],
+      "name": "Hero Image Content Slider",
+      "settings": {
+        "slider_loop": "true"
+      }
+    },
+    "three_column_product_slider_DtBHWN": {
+      "type": "three-column-product-slider",
+      "blocks": {
+        "block_Qxp7gw": {
+          "type": "block",
+          "settings": {
+            "product": "strap-mount"
+          }
+        },
+        "block_bjPgMj": {
+          "type": "block",
+          "settings": {
+            "product": "clamp-mount"
+          }
+        },
+        "block_Pmfhx7": {
+          "type": "block",
+          "settings": {
+            "product": "caddybar™-oversized-cup-holder"
+          }
+        },
+        "block_t4LWKk": {
+          "type": "block",
+          "settings": {
+            "product": "caddybar™-mobile-device-holder"
+          }
+        },
+        "block_YTXCfP": {
+          "type": "block",
+          "settings": {
+            "product": "go-anywhere-kit"
+          }
+        }
+      },
+      "block_order": [
+        "block_Qxp7gw",
+        "block_bjPgMj",
+        "block_Pmfhx7",
+        "block_t4LWKk",
+        "block_YTXCfP"
+      ],
+      "name": "Three Column Product Slider",
+      "settings": {
+        "title": "Mount Anywhere",
+        "text_size": "h3",
+        "buttonText": "Shop ALL",
+        "buttonLink": "#",
+        "paddingtop": 66,
+        "paddingtopmobile": 66,
+        "paddingbottom": 46,
         "paddingbottomMobile": 60
+      }
+    },
+    "testimonial_product_slider_Kptmhr": {
+      "type": "testimonial-product-slider",
+      "blocks": {
+        "slide_iQCFg6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_br6wCm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_xyYwNN": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        }
+      },
+      "block_order": [
+        "slide_iQCFg6",
+        "slide_br6wCm",
+        "slide_xyYwNN"
+      ],
+      "name": "Testimonial Product Slider",
+      "settings": {
+        "slider_loop": "true",
+        "autoplay_enabled": true,
+        "autoplay_delay": 5000
       }
     }
   },
   "order": [
-    "half_content_half_form_THtfNb"
+    "home_hero_banner_txBeE7",
+    "five_column_icon_card_with_heading_image_HYgAiB",
+    "three_column_card_slider_LMgeVa",
+    "hero_image_with_content_slider_BGxjbH",
+    "three_column_product_slider_DtBHWN",
+    "testimonial_product_slider_Kptmhr"
   ]
 }
