@@ -47,7 +47,7 @@
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class="description">
+        <div class="description full-format medium">
           {{ section.settings.description }}
         </div>
       {% endif %}
@@ -56,7 +56,7 @@
         <div class="buttons">
           {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
             <a
-              class="btn--primary"
+              class="btn--secondary"
               href="{{ section.settings.buttonLink }}"
               title="{{ section.settings.buttonText }}"
               aria-label="{{ section.settings.buttonText }}"
