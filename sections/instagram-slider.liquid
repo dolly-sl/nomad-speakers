@@ -30,11 +30,12 @@
         {% endif %}
       </div>
     </div>
-    <div class="slider-outer">
-        <div class="swiper js_instagram-slider">
-          <div class="swiper-wrapper">
+    <div class="splide js__instagram-slider">
+          <div class="splide__track">
+            <ul class="splide__list">
+       
             {% for block in section.blocks %}
-              <div class="swiper-slide card" {{ block.shopify_attributes }}>
+              <li class="swiper-slide card" {{ block.shopify_attributes }}>
                 <div class="image-section">
                   {% if block.settings.buttonText != blank %}
                     <a
@@ -56,9 +57,9 @@
                   {% endif %}
                 </div>
                
-              </div>
+              </li>
             {% endfor %}
-          </div>
+          </ul>
         </div>
       </div>
       
@@ -66,22 +67,22 @@
   </div>
 {%- endif -%}
 <script>
-  jQuery(function () {
-    var swiper = new Swiper('.js_instagram-slider', {
-      slidesPerView: 'auto',
-      slidesPerGroup: 1,
-      spaceBetween: 20,
-      pagination: {
-        el: '.swiper-pagination-three-column-card',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next-three-column-card',
-        prevEl: '.swiper-button-prev-three-column-card',
-      }
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('.js__instagram-slider', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        autoWidth: true,
+        arrows: false,
+        pagination: false,
+        autoScroll: {
+          speed:1,
+        },
+      }).mount(window.splide.Extensions);
     });
-  });
-</script>
+  
+  </script>
+ 
 
 {% schema %}
 {
