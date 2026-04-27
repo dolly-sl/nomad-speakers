@@ -2,7 +2,7 @@ footer {
   padding: 83px 0px 36px;
 
   @include MQ(MQ-768) {
-    padding: 40px 0px 40px;
+    padding: 59px 0px 40px;
   }
   overflow: hidden;
   background: $color-black !important;
@@ -30,7 +30,7 @@ footer {
       font-weight: 500;
       line-height: 54px;
       position: relative;
-      padding-top: 20px;
+      padding-top: 30px;
       @include MQ(MQ-768) {
         font-size: 40px;
         line-height: 36px;
@@ -41,7 +41,7 @@ footer {
         left: 0;
         right: 0;
         margin: 0 auto;
-        top: -20px;
+        top: 0px;
         width: 29.5px;
         height: 18.5px;
         background: url(icon-mail.svg) no-repeat center / contain;
@@ -183,6 +183,9 @@ footer {
       margin-top: 82px;
       padding-top: 30px;
       border-top: 1px solid $color-gray;
+      @include MQ(MQ-980) {
+        margin-top: 50px;
+      }
       .copyright-section {
         p {
           font-size: 12px;
@@ -222,11 +225,9 @@ footer {
         }
 
         &:hover {
-          svg {
-            ellipse,
-            circle {
-              fill: $color-yellow;
-            }
+          img {
+            filter: brightness(0) saturate(100%) invert(88%) sepia(82%)
+              saturate(3455%) hue-rotate(14deg) brightness(117%) contrast(107%);
           }
         }
 
