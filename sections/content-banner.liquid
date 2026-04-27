@@ -30,7 +30,7 @@
 
 {% schema %}
 {
-  "name": "Two Column Card",
+  "name": "content banner",
   "tag": "section",
   "settings": [
      
@@ -38,19 +38,18 @@
       "type": "header",
       "content": "Heading"
     },
-     {
-      "type": "text",
-      "id": "pretitle",
-      "label": "Pretitle",
-      "default": "CHOOSE YOUR POWER SETUP"
-    },
+     
   {
       "type": "text",
       "id": "title",
       "label": "Title",
       "default": "Two ways to power your setup"
     },
-    
+    {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
     {
       "type": "text",
       "id": "button_text",
@@ -61,94 +60,12 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
-    },
-    {
-        "type": "header",
-        "content": "Section Spacing & Layout"
-      },
-      {
-        "type": "paragraph",
-        "content": "Use these settings to control the spacing around your blog slider section. Adjust the padding to create proper visual separation from other sections on the page."
-      },
-      {
-        "type": "range",
-        "id": "paddingtop",
-        "min": 0,
-        "max": 140,
-        "step": 2,
-        "unit": "px",
-        "label": "Top Spacing (Desktop)",
-        "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the blog slider and content above it.",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "paddingtopmobile",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Top Spacing (Mobile)",
-        "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "paddingbottom",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Bottom Spacing (Desktop)",
-        "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the blog slider and content below it.",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "paddingbottomMobile",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Bottom Spacing (Mobile)",
-        "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
-        "default": 0
-      }
-    
-  ],
-  "blocks": [
-    {
-      "type": "card",
-      "name": "Card",
-      "limit": 2,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "richtext",
-          "id": "bullet_list",
-          "label": "Bullet list",
-          "info": "Use the bullet list controls in the editor."
-        }
-      ]
     }
   ],
+  
   "presets": [
     {
-      "name": "Two Column Card",
+      "name": "content banner",
       
     }
   ]
