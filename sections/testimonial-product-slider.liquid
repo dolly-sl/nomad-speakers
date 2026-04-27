@@ -41,7 +41,7 @@
                       class="full-link"
                       aria-label="View {{ productRelated.title }}"
                     ></a>
-                    <div class="image-section">
+                    <div class="product-image">
                       {% assign imageAlt = productRelated.featured_image.alt %}
                       {% if imageAlt == blank %}
                         {% assign imageAlt = productRelated.title %}
@@ -50,7 +50,7 @@
                         {% include 'image_code_small' with mobileImage: productRelated.featured_image, tabletImage: productRelated.featured_image, desktopImage: productRelated.featured_image, imageAlt: imageAlt %}
                       {% endif %}
                     </div>
-                    <div class="content">
+                    <div class="product-content">
                       <div class="text">
                         <div class="product-title">
                           {{ productRelated.title }}
