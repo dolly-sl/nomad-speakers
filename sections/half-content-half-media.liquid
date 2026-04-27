@@ -1,6 +1,6 @@
 <div class="half-content-half-media section-{{ section.id }}-padding">
-  <div class="{{ section.settings.container_width }}">
-    <div class="hchm__grid {% if section.settings.media_position == 'left' %}is-reversed{% endif %}">
+  <div class="container-1400">
+    <div class="hchm__grid">
       <div class="hchm__content">
         {% if section.settings.pretitle != blank %}
           <span class="pre-title">{{ section.settings.pretitle }}</span>
@@ -141,27 +141,6 @@
     {
       "type": "header",
       "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "media_position",
-      "label": "Media position",
-      "default": "right",
-      "options": [
-        { "value": "right", "label": "Media right / Content left" },
-        { "value": "left", "label": "Media left / Content right" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "container_width",
-      "label": "Container width",
-      "default": "container-1400",
-      "options": [
-        { "value": "container-1400", "label": "1400" },
-        { "value": "container-1328", "label": "1328" },
-        { "value": "container-1478", "label": "1478" }
-      ]
     },
     {
       "type": "header",
