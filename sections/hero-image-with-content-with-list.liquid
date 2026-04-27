@@ -48,19 +48,17 @@
     </div>
 
     {% if features_visible > 0 %}
-      <div class="hero-image-with-content-with-list__features">
-        <div class="hero-image-with-content-with-list__features-bar">
-          <ul class="hero-image-with-content-with-list__features-list" role="list">
+      
+          <ul class="features-list" >
             {% for block in section.blocks %}
               {% if block.type == 'feature' and block.settings.label != blank %}
-                <li class="hero-image-with-content-with-list__feature-item" {{ block.shopify_attributes }}>
-                  <span class="hero-image-with-content-with-list__feature-text">{{ block.settings.label | escape }}</span>
+                <li>
+                  {{ block.settings.label | escape }}
                 </li>
               {% endif %}
             {% endfor %}
           </ul>
-        </div>
-      </div>
+        
     {% endif %}
   </section>
 {% endif %}
