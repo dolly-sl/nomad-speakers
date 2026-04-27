@@ -39,9 +39,9 @@
     "heading5fontsize": 25,
     "heading5fontweight": "500",
     "heading6fontsize": 20,
-    "heading6lineheight": "22px",
-    "heading6letterspacing": "0.4px",
-    "heading6fontweight": "700",
+    "heading6lineheight": "normal",
+    "heading6letterspacing": "normal",
+    "heading6fontweight": "500",
     "paralineheight": "25px",
     "paraletterspacing": "0.32px",
     "parafontweight": "500",
@@ -63,8 +63,8 @@
     "heading4mobilelineheight": "44px",
     "heading5mobilefontsize": 25,
     "heading6mobilefontsize": 20,
-    "heading6mobilelineheight": "22px",
-    "heading6mobileletterspacing": "0.4px",
+    "heading6mobilelineheight": "normal",
+    "heading6mobileletterspacing": "normal",
     "sections": {
       "announcement": {
         "type": "announcement",
