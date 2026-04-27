@@ -22,8 +22,7 @@
           <a
             class="btn--primary"
             href="{{ section.settings.buttonLink }}"
-            target="_blank"
-            rel="noopener noreferrer"
+            {% if section.settings.button_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
             title="Read More About {{ section.settings.title }}"
             aria-label="Read More About {{ section.settings.title }}"
           >
@@ -105,6 +104,12 @@
       "type": "url",
       "id": "buttonLink",
       "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target_blank",
+      "label": "Open button link in new tab",
+      "default": false
     },
     {
         "type": "header",
