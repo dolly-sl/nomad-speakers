@@ -44,9 +44,8 @@
       </div>
 
       {% if section.blocks.size > 1 %}
-        <div class="swiper-button-prev swiper-button-prev-testimonial-product-slider"></div>
-        <div class="swiper-button-next swiper-button-next-testimonial-product-slider"></div>
-       <div class="swiper-pagination swiper-pagination-testimonial-product-slider"></div>
+       
+       <div class="swiper-pagination dark-bg swiper-pagination-testimonial-product-slider"></div>
       {% endif %}
     </div>
   </section>
@@ -57,17 +56,13 @@
 
 <script>
   jQuery(function () {
-    if (jQuery('.js_hero-image-with-content-slider').length) {
-      new Swiper('.js_hero-image-with-content-slider', {
+    if (jQuery('.js_testimonial-product-slider').length) {
+      new Swiper('.js_testimonial-product-slider', {
         slidesPerView: 1,
         loop: {{ section.settings.slider_loop }},
         pagination: {
-          el: '.swiper-pagination-hero-image-with-content',
+          el: '.swiper-pagination-testimonial-product-slider',
           clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next-hero-image-with-content',
-          prevEl: '.swiper-button-prev-hero-image-with-content',
         }
       });
     }
