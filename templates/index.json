@@ -22,6 +22,7 @@
         "button_style": "btn--primary",
         "media_type": "video",
         "media_image": "shopify://shop_images/image-2.png",
+        "media_video": "shopify://files/videos/boombox transformer.mp4",
         "paddingtop": 0,
         "paddingtopmobile": 0,
         "paddingbottom": 0,
@@ -36,6 +37,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -45,6 +47,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -54,6 +57,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -63,6 +67,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -72,6 +77,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }

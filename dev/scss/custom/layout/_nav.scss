@@ -48,7 +48,12 @@ header {
 
   .right-nav {
     align-items: center;
-
+    @include MQ(MQ-980) {
+      .cart-wrapper {
+        width: 40px;
+        height: 40px;
+      }
+    }
     li {
       margin-right: 19px;
       z-index: 3;
@@ -774,11 +779,11 @@ header {
     .navbar-collapse {
       padding: 10px 28px 0px;
       transition: 0.3s;
-      transform: translateX(100vw);
+      transform: translateX(-100vw);
       position: fixed;
-      right: 0;
+      left: 0;
       top: 93px;
-      height: 100vh;
+      // height: 100vh;
       overflow-y: auto;
       width: 0;
       display: block;

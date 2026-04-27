@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Swiper is not loaded!");
   }
   //Close Announcement Bar on Click
-  /* document
+  document
     .getElementById("announcement-close")
     .addEventListener("click", function () {
       document.querySelector(".announcement-bar").style.display = "none";
       document.body.classList.remove("announcement-visible");
-    });*/
+    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

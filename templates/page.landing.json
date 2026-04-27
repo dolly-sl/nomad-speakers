@@ -111,6 +111,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -120,6 +121,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -129,6 +131,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -138,6 +141,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -147,6 +151,7 @@
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -177,47 +182,19 @@
         "slide_4qEEyC": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bg-img.jpg",
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_2_1.jpg",
             "content_alignment": "right",
             "text_size": "h2",
-            "pretitle": "One device. Three ways to enjoy it",
-            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "buttonText": "Shop now",
-            "buttonLink": "#"
-          }
-        },
-        "slide_KF6tJj": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/bg-img.jpg",
-            "content_alignment": "left",
-            "text_size": "h2",
-            "pretitle": "One device. Three ways to enjoy it",
-            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "buttonText": "Shop now",
-            "buttonLink": "#"
-          }
-        },
-        "slide_tbJUAn": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/bg-img.jpg",
-            "content_alignment": "center",
-            "text_size": "h2",
-            "pretitle": "One device. Three ways to enjoy it",
-            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "buttonText": "Shop now",
+            "pretitle": "wherever the day takes you",
+            "title": "Take it Anywhere",
+            "description": "<p>Unlike built-in soundbars and fixed screen setups, Nomad can come off the cart and go with you.</p><ul><li>premium portable screen and speaker setup</li><li>Better Value & lifetime use</li><li>Weather sealed setup & outdoor ready</li></ul>",
+            "buttonText": "Build my nomad",
             "buttonLink": "#"
           }
         }
       },
       "block_order": [
-        "slide_4qEEyC",
-        "slide_KF6tJj",
-        "slide_tbJUAn"
+        "slide_4qEEyC"
       ],
       "name": "Hero Image Content Slider",
       "settings": {
