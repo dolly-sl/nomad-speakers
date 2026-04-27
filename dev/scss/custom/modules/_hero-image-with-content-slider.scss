@@ -35,6 +35,33 @@ z-index: 3;
       }
       .description{
         max-width: 404px;
+        ul {
+          margin-top: 21px;
+          li{
+          padding-left: 42px;
+          margin-bottom: 23px;
+          display: flex;
+          align-items: center;
+          min-height: 27px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+          &::before{
+             background: url("icon-check-yellow.svg") no-repeat left top / 27px;
+             width:27px;
+             height: 27px;
+            border-radius: 0;
+            top: 0;
+            left: 0;
+          }
+          font-size: 12px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+letter-spacing: 1px;
+text-transform: uppercase;
+        }
+      }
       }
       min-height: 810px;    
 @include MQ(MQ-768) {

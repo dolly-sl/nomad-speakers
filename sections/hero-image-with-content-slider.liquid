@@ -24,17 +24,17 @@
                 {% endif %}
 
                 {% if block.settings.description != blank %}
-                  <div class="description">
+                  <div class="description full-format">
                     {{ block.settings.description }}
                   </div>
                 {% endif %}
 
                 {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
-                  
+
                     <a class="btn btn--secondary" href="{{ block.settings.buttonLink }}">
                       {{- block.settings.buttonText -}}
                     </a>
-                 
+
                 {% endif %}
                 </div>
               </div>

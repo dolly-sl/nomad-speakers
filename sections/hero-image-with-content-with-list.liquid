@@ -1,0 +1,201 @@
+{% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
+  {%- liquid
+    assign features_visible = 0
+    for block in section.blocks
+      if block.type == 'feature' and block.settings.label != blank
+        assign features_visible = features_visible | plus: 1
+      endif
+    endfor
+  -%}
+  <section class="hero-image-with-content-with-list align-{{ section.settings.content_alignment }}">
+    <div class="outer">
+      <div class="image-section ">
+        {% if section.settings.video != blank %}
+          {{
+            section.settings.video
+            | video_tag:
+              image_size: '1920x',
+              loop: true,
+              autoplay: true,
+              controls: false,
+              muted: true,
+              alt: section.settings.title
+          }}
+        {% elsif section.settings.image != blank %}
+          {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
+          {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
+        {% endif %}
+      </div>
+      <div class="container-1124 flex">
+        <div class="content">
+          {% if section.settings.pretitle != blank %}
+            <span class="pre-title-bold">{{ section.settings.pretitle }}</span>
+          {% endif %}
+
+          {% if section.settings.title != blank %}
+            <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="description full-format">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+            <a
+              class="btn btn--secondary"
+              href="{{ section.settings.buttonLink }}"
+              title="{{ section.settings.buttonText | escape }}"
+              aria-label="{{ section.settings.buttonText | escape }}"
+              {% if section.settings.button_opens_lity_modal %}data-lity{% endif %}
+            >
+              {{- section.settings.buttonText -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if features_visible > 0 %}
+       <div class="features-list">
+      <ul>
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' and block.settings.label != blank %}
+            <li {{ block.shopify_attributes }}>
+              {{ block.settings.label | escape }}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Hero image content list",
+  "tag": "section",
+  "class": "section hero-image-with-content-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background image or video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video",
+      "info": "If set, video is shown instead of images. Autoplays muted in a loop."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobileImage",
+      "label": "Mobile image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title size",
+      "default": "h1",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pretitle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_lity_modal",
+      "label": "Open button link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "FEATURE LABEL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero image content list",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": { "label": "SIMPLE MOUNTING PROCESS" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "NO COMPLICATED FABRICATION" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "STEP-BY-STEP INSTRUCTIONS" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "VIDEO INSTALL TUTORIAL" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

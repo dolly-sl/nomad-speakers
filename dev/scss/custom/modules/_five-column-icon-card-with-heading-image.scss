@@ -4,6 +4,28 @@
         color: $color-white;
     }
 
+    &.color-light{
+        background: transparent;
+          *{
+        color: $color-black;
+    }
+
+    .pre-title{
+      
+font-size: 20px !important;
+font-style: normal !important;
+font-weight: 700 !important;
+line-height: 22px !important; /* 110% */
+letter-spacing: 0.4px !important;
+ color: $color-black !important;
+ margin-bottom: 20px !important;
+ text-transform: none !important;
+    }
+ .icon{
+    filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7%) hue-rotate(337deg) brightness(97%) contrast(89%);
+ }
+    }
+
 .image-section{
     position: relative;
     width: 712px;
@@ -24,6 +46,8 @@
 }
 
 .heading{
+    max-width: 971px;
+    margin: 0 auto;
     .pre-title{
         color: $color-yellow;
         margin-bottom: 10px;
@@ -36,12 +60,22 @@
         display: flex;
         margin-top: 30px;
         justify-content: center;
+         @include MQ(MQ-600) {
+            flex-direction: column;
+            align-items: center;
+         }
         a{
              
             margin-right: 29px;
             &:last-child{
                 margin-right: 0;
             }
+             @include MQ(MQ-600) {
+                margin: 0 0 23px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+             }
         }
     }
   

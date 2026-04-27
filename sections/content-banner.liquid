@@ -1,0 +1,71 @@
+
+  {% if section.settings.title != blank %}
+  <div class="content-banner">
+    <div class="container-1260 flex">
+      <div class="heading">
+       
+        <h2 class="h3">{{ section.settings.title }}</h2>
+        {% if section.settings.description != blank %}
+          <div class="description">{{ section.settings.description }}</div>
+        {% endif %}
+      </div>
+
+       {% if section.settings.button_text != blank %}
+          <a
+            class="btn btn--primary"
+            href="{{ section.settings.button_link }}"
+            title="Read More About {{ section.settings.title }}"
+            aria-label="Read More About {{ section.settings.title }}"
+          >
+            {{- section.settings.button_text -}}
+          </a>
+        {% endif %}
+   
+   
+         </div>
+   
+  </div>
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "Content Banner",
+  "tag": "section",
+  "settings": [
+     
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+     
+  {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Content Banner",
+      
+    }
+  ]
+}
+{% endschema %}
