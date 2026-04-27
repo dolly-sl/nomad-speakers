@@ -54,7 +54,7 @@
     "paratexttransform": "none",
     "paramediumfontsize": 14,
     "paramediumlineheight": "22px",
-    "paramediumletterspacing": "0.4px",
+    "paramediumletterspacing": "0.28px",
     "paramediumfontweight": "500",
     "paramediumtexttransform": "none",
     "parasmallfontsize": 12,
@@ -107,9 +107,7 @@
         "type": "header",
         "settings": {
           "nav_menu": "main-menu-1",
-          "btnText": "",
-          "btnLink": "",
-          "callNumber": ""
+          "mobile_menu": "mobile-menu"
         }
       },
       "footer": {
