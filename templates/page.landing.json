@@ -69,22 +69,13 @@
             "title": "IP66 Waterproof",
             "text": "Shower, rain, splash proof"
           }
-        },
-        "card_ge9VKk": {
-          "type": "card",
-          "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
-          }
         }
       },
       "block_order": [
         "card_ehGUB6",
         "card_xq6Ajh",
         "card_CfxNgY",
-        "card_nA7d73",
-        "card_ge9VKk"
+        "card_nA7d73"
       ],
       "name": "Five Icon Cards + Image",
       "settings": {
@@ -92,10 +83,16 @@
         "pretitle": "THE ALL NEW NOMAD",
         "title": "Big sound. Real screen. Built different.",
         "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>",
-        "buttonText": "Shop now",
+        "buttonText": "BUILD my NOMAD",
         "buttonLink": "#",
-        "buttonText2": "",
-        "buttonLink2": "",
+        "button_style": "btn--primary",
+        "button_target_blank": false,
+        "button_opens_lity_modal": false,
+        "buttonText2": "WATCH INSTALL",
+        "buttonLink2": "https://www.youtube.com/watch?v=9xwazD5SyVg",
+        "button_style_2": "btn--tertiary",
+        "button2_target_blank": false,
+        "button2_opens_lity_modal": true,
         "image": "shopify://shop_images/img.png",
         "paddingtop": 120,
         "paddingtopmobile": 60,
