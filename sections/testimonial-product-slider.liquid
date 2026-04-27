@@ -15,24 +15,18 @@
               </div>
              <div class="container-1320 flex">
               <div class="content">
-                
+                 {% if block.settings.rating != blank %}
+                  {% assign imageAlt = block.settings.rating.alt | default: block.settings.title %}
+                  {{ block.settings.rating | image_url: width: 172 | image_tag: loading: 'lazy', widths: '172x36', alt:imageAlt }}
+              
+                {% endif %}
                 {% if block.settings.title != blank %}
-                  <h3 class="h4">{{ block.settings.title }}</h3>
+                  <h2 class="h4">{{ block.settings.title }}</h2>
                 {% endif %}
 
-                {% if block.settings.description != blank %}
-                  <div class="description">
-                    {{ block.settings.description }}
-                  </div>
-                {% endif %}
+               
 
-                {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
-                  
-                    <a class="btn btn--secondary" href="{{ block.settings.buttonLink }}">
-                      {{- block.settings.buttonText -}}
-                    </a>
-                 
-                {% endif %}
+              
                 </div>
               </div>
             </div>
