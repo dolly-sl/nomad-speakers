@@ -37,14 +37,13 @@
             {% for block in section.blocks %}
               <li class="swiper-slide card" {{ block.shopify_attributes }}>
                 <div class="image-section">
-                  {% if block.settings.buttonText != blank %}
+                  {% if block.settings.buttonLink != blank %}
                     <a
-                      class="full-link"
+                      class="full-link" target="_blank"
                       href="{{ block.settings.buttonLink }}"
                       title="Read More About {{ section.settings.title }}"
                       aria-label="Read More About {{ section.settings.title }}"
                     >
-                      {{- block.settings.buttonText -}}
                     </a>
                   {% endif %}
                   {% assign imageAlt = block.settings.image.alt %}
@@ -86,21 +85,14 @@
 
 {% schema %}
 {
-  "name": "Three Column Card Slider",
+  "name": "Instagram Slider",
   "tag": "section",
-  "class": "section three-column-card-slider-section",
   "settings": [
-    {
-      "type": "text",
-      "id": "pre_title",
-      "label": "Pre title",
-      "default": "Explore"
-    },
+    
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Featured cards"
+      "label": "Title"
     },
     {
       "type": "text",
@@ -174,16 +166,6 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "text",
-          "id": "buttonText",
-          "label": "Button text"
         },
         {
           "type": "url",
