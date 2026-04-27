@@ -34,7 +34,11 @@
         {% if section.settings.title != blank %}
           <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
         {% endif %}
-
+           {% if block.settings.description != blank %}
+                  <div class="description full-format">
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
         {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
           <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
             {{- section.settings.buttonText -}}
