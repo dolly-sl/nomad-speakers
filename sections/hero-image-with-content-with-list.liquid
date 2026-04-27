@@ -1,12 +1,12 @@
-{%- liquid
-  assign kit_count = 0
-  for block in section.blocks
-    if block.type == 'kit_card'
-      assign kit_count = kit_count | plus: 1
-    endif
-  endfor
--%}
-{% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank or kit_count > 0 %}
+{% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
+  {%- liquid
+    assign features_visible = 0
+    for block in section.blocks
+      if block.type == 'feature' and block.settings.label != blank
+        assign features_visible = features_visible | plus: 1
+      endif
+    endfor
+  -%}
   <section class="hero-image-with-content-with-list align-{{ section.settings.content_alignment }}">
     <div class="outer">
       <div class="image-section ">
@@ -44,77 +44,29 @@
 
           {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
             <a
-              class="btn btn--secondary{% if section.settings.button_show_arrow %} hero-image-with-content-with-list__btn--with-arrow{% endif %}"
+              class="btn btn--secondary"
               href="{{ section.settings.buttonLink }}"
               title="{{ section.settings.buttonText | escape }}"
               aria-label="{{ section.settings.buttonText | escape }}"
               {% if section.settings.button_opens_lity_modal %}data-lity{% endif %}
             >
-              <span class="hero-image-with-content-with-list__btn-text">{{ section.settings.buttonText }}</span>
-              {% if section.settings.button_show_arrow %}
-                <span class="hero-image-with-content-with-list__btn-icon" aria-hidden="true">
-                  <img
-                    src="{{ 'icon-arrow-black.svg' | asset_url }}"
-                    width="14"
-                    height="12"
-                    alt=""
-                    loading="lazy"
-                  >
-                </span>
-              {% endif %}
+              {{- section.settings.buttonText -}}
             </a>
           {% endif %}
         </div>
       </div>
     </div>
 
-    {% if kit_count > 0 %}
-      <div class="container-1124 hero-image-with-content-with-list__kits">
-        <div class="hero-image-with-content-with-list__kits-grid">
-          {% for block in section.blocks %}
-            {% if block.type == 'kit_card' %}
-              <article class="hero-image-with-content-with-list__kit" {{ block.shopify_attributes }}>
-                {% if block.settings.image != blank %}
-                  <div class="hero-image-with-content-with-list__kit-media">
-                    {%- assign kit_img_alt = block.settings.image.alt | default: block.settings.title -%}
-                    {{
-                      block.settings.image
-                      | image_url: width: 900
-                      | image_tag:
-                        loading: 'lazy',
-                        widths: '300,450,600,750,900',
-                        sizes: '(min-width: 900px) 42vw, 90vw',
-                        alt: kit_img_alt
-                    }}
-                  </div>
-                {% endif %}
-
-                {% if block.settings.title != blank %}
-                  <h3 class="hero-image-with-content-with-list__kit-heading">{{ block.settings.title | escape }}</h3>
-                {% endif %}
-
-                {% if block.settings.description != blank %}
-                  <div class="hero-image-with-content-with-list__kit-description rte">
-                    {{ block.settings.description }}
-                  </div>
-                {% endif %}
-
-                {% if block.settings.description != blank and block.settings.bullet_list != blank %}
-                  <hr class="hero-image-with-content-with-list__kit-rule">
-                {% elsif block.settings.description == blank and block.settings.bullet_list != blank %}
-                  <hr class="hero-image-with-content-with-list__kit-rule">
-                {% endif %}
-
-                {% if block.settings.bullet_list != blank %}
-                  <div class="hero-image-with-content-with-list__kit-list rte">
-                    {{ block.settings.bullet_list }}
-                  </div>
-                {% endif %}
-              </article>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
+    {% if features_visible > 0 %}
+      <ul class="features-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' and block.settings.label != blank %}
+            <li {{ block.shopify_attributes }}>
+              {{ block.settings.label | escape }}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
     {% endif %}
   </section>
 {% endif %}
@@ -147,13 +99,13 @@
     },
     {
       "type": "header",
-      "content": "Heading"
+      "content": "Content"
     },
     {
       "type": "select",
       "id": "content_alignment",
       "label": "Content alignment",
-      "default": "center",
+      "default": "left",
       "options": [
         { "value": "left", "label": "Left" },
         { "value": "center", "label": "Center" },
@@ -174,14 +126,12 @@
     {
       "type": "text",
       "id": "pretitle",
-      "label": "Pretitle",
-      "default": "CHOOSE YOUR POWER SETUP"
+      "label": "Pretitle"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Two ways to power your setup"
+      "label": "Title"
     },
     {
       "type": "richtext",
@@ -192,18 +142,12 @@
       "type": "text",
       "id": "buttonText",
       "label": "Button text",
-      "default": "BUILD MY NOMAD"
+      "default": "Shop now"
     },
     {
       "type": "url",
       "id": "buttonLink",
       "label": "Button link"
-    },
-    {
-      "type": "checkbox",
-      "id": "button_show_arrow",
-      "label": "Show arrow icon on button",
-      "default": true
     },
     {
       "type": "checkbox",
@@ -215,31 +159,15 @@
   ],
   "blocks": [
     {
-      "type": "kit_card",
-      "name": "Comparison card",
-      "limit": 2,
+      "type": "feature",
+      "name": "Feature",
+      "limit": 4,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
           "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Kit title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "richtext",
-          "id": "bullet_list",
-          "label": "Bullet list",
-          "info": "Use the bullet list controls in the editor."
+          "id": "label",
+          "label": "Label",
+          "default": "FEATURE LABEL"
         }
       ]
     }
@@ -249,20 +177,20 @@
       "name": "Hero image content list",
       "blocks": [
         {
-          "type": "kit_card",
-          "settings": {
-            "title": "Hardwired Kit",
-            "description": "<p>Best for riders who want a permanent, always-ready setup with continuous power every time they ride.</p>",
-            "bullet_list": "<ul><li>Wires direct to battery on gas or electric carts</li><li>Works with batteries from 12-60V</li><li>Clean integrated install</li></ul>"
-          }
+          "type": "feature",
+          "settings": { "label": "SIMPLE MOUNTING PROCESS" }
         },
         {
-          "type": "kit_card",
-          "settings": {
-            "title": "Rechargeable Kit",
-            "description": "<p>Best for riders who want the simplest install possible. Charge Nomad just like a phone or tablet via USB-C</p>",
-            "bullet_list": "<ul><li>No wiring needed</li><li>Fastest install</li><li>Great for flexibility</li></ul>"
-          }
+          "type": "feature",
+          "settings": { "label": "NO COMPLICATED FABRICATION" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "STEP-BY-STEP INSTRUCTIONS" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "VIDEO INSTALL TUTORIAL" }
         }
       ]
     }
