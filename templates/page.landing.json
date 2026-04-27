@@ -18,7 +18,6 @@
         "text_size": "h1",
         "pretitle": "CADDYBAR™ x Nomad",
         "title": "The Single Best Upgrade You Can Make to Your Cart",
-        "description": "",
         "buttonText": "Build my NomaD",
         "buttonLink": "#"
       }
@@ -239,6 +238,52 @@
         "paddingbottomMobile": 60
       }
     },
+    "hero_image_with_content_with_list_7W74W3": {
+      "type": "hero-image-with-content-with-list",
+      "blocks": {
+        "feature_7rThrc": {
+          "type": "feature",
+          "settings": {
+            "label": "SIMPLE MOUNTING PROCESS"
+          }
+        },
+        "feature_6aazwe": {
+          "type": "feature",
+          "settings": {
+            "label": "NO COMPLICATED FABRICATION"
+          }
+        },
+        "feature_k9qMkY": {
+          "type": "feature",
+          "settings": {
+            "label": "STEP-BY-STEP INSTRUCTIONS"
+          }
+        },
+        "feature_Ce6bdU": {
+          "type": "feature",
+          "settings": {
+            "label": "VIDEO INSTALL TUTORIAL"
+          }
+        }
+      },
+      "block_order": [
+        "feature_7rThrc",
+        "feature_6aazwe",
+        "feature_k9qMkY",
+        "feature_Ce6bdU"
+      ],
+      "name": "Hero image content list",
+      "settings": {
+        "video": "shopify://files/videos/05f5fb5ae71a46a9bb758fb8d5b64d67.mp4",
+        "content_alignment": "right",
+        "text_size": "h2",
+        "pretitle": "Drill 4 holes. Tighten 4 screws. That’s it.",
+        "title": "Installs in 30 minutes or less",
+        "description": "<p>The CADDYBAR™ x Nomad setup was designed to be simple and straightforward, so you can spend less time installing and more time enjoying your cart.</p>",
+        "buttonText": "Watch Now",
+        "buttonLink": "https://www.youtube.com/watch?v=9xwazD5SyVg"
+      }
+    },
     "testimonial_product_slider_Kptmhr": {
       "type": "testimonial-product-slider",
       "blocks": {
@@ -289,6 +334,7 @@
     "three_column_card_slider_LMgeVa",
     "hero_image_with_content_slider_BGxjbH",
     "three_column_product_slider_DtBHWN",
+    "hero_image_with_content_with_list_7W74W3",
     "testimonial_product_slider_Kptmhr"
   ]
 }
