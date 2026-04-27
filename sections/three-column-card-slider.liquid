@@ -46,7 +46,7 @@
               </a>
             {% endif %}
                         {% if block.settings.image != blank %}
-                            <img src="{{ block.settings.image | img_url: '804' }}" alt="{{ block.settings.title }}" class="three-column-card-slider__image">
+                             {% include 'image_code_small'  with  mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
                         {% endif %}
                         </div>
                         <h3 class="h6">{{ block.settings.title }}</h3>
