@@ -1,0 +1,182 @@
+{% if section.blocks.size > 0 %}
+  <section class="feature-comparison-table section-{{ section.id }} section-{{ section.id }}-padding">
+    <div class="container-1478">
+      {% if section.settings.title != blank or section.settings.description != blank %}
+        <div class="top">
+          {% if section.settings.title != blank %}
+            <h2>{{ section.settings.title }}</h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <div class="description">{{ section.settings.description }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="table-wrap">
+        <div class="compare-grid" role="table" aria-label="{{ section.settings.aria_label | escape }}">
+          <div class="cell header col-feature" role="columnheader">
+            {{ section.settings.feature_column_title }}
+          </div>
+          <div class="cell header col-nomad" role="columnheader">
+            {{ section.settings.nomad_column_title }}
+          </div>
+          <div class="cell header col-standard" role="columnheader">
+            {{ section.settings.standard_column_title }}
+          </div>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'row' %}
+              <div class="cell col-feature" role="rowheader" {{ block.shopify_attributes }}>
+                {{ block.settings.feature }}
+              </div>
+              <div class="cell col-nomad" role="cell">
+                {% if block.settings.nomad_has %}
+                  <span class="icon" aria-label="Yes">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="icon" aria-label="No">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </div>
+              <div class="cell col-standard" role="cell">
+                {% if block.settings.standard_has %}
+                  <span class="icon" aria-label="Yes">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                {% else %}
+                  <span class="icon" aria-label="No">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Feature comparison table",
+  "tag": "section",
+  "settings": [
+    
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Nomad Goes Everywhere a Tablet Shouldn't."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+    },
+    {
+      "type": "text",
+      "id": "feature_column_title",
+      "label": "Feature column title",
+      "default": "Features"
+    },
+    {
+      "type": "text",
+      "id": "nomad_column_title",
+      "label": "Middle column title",
+      "default": "The Nomad"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature",
+          "default": "A Real Speaker System"
+        },
+        {
+          "type": "checkbox",
+          "id": "nomad_has",
+          "label": "Middle column (Yes)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "standard_has",
+          "label": "Right column (Yes)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature comparison table",
+      "blocks": [
+        { "type": "row" },
+        
+      ]
+    }
+  ]
+}
+{% endschema %}
+
