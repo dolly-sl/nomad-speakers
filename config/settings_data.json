@@ -107,9 +107,7 @@
         "type": "header",
         "settings": {
           "nav_menu": "main-menu-1",
-          "btnText": "",
-          "btnLink": "",
-          "callNumber": ""
+          "mobile_menu": "mobile-menu"
         }
       },
       "footer": {
