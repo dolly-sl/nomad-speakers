@@ -56,10 +56,11 @@
         <div class="buttons">
           {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
             <a
-              class="btn--secondary"
+              class="btn {{ section.settings.button_style }}"
               href="{{ section.settings.buttonLink }}"
-              title="{{ section.settings.buttonText }}"
-              aria-label="{{ section.settings.buttonText }}"
+              title="{{ section.settings.buttonText | escape }}"
+              aria-label="{{ section.settings.buttonText | escape }}"
+              {% if section.settings.button_opens_lity_modal %}data-lity{% endif %}
             >
               {{- section.settings.buttonText -}}
             </a>
@@ -67,10 +68,11 @@
 
           {% if section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
             <a
-              class="btn--secondary"
+              class="btn {{ section.settings.button_style }}"
               href="{{ section.settings.buttonLink2 }}"
-              title="{{ section.settings.buttonText2 }}"
-              aria-label="{{ section.settings.buttonText2 }}"
+              title="{{ section.settings.buttonText2 | escape }}"
+              aria-label="{{ section.settings.buttonText2 | escape }}"
+              {% if section.settings.button2_opens_lity_modal %}data-lity{% endif %}
             >
               {{- section.settings.buttonText2 -}}
             </a>
@@ -160,6 +162,13 @@
       "label": "Button link"
     },
     {
+      "type": "checkbox",
+      "id": "button_opens_lity_modal",
+      "label": "Open button 1 link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
+    },
+    {
       "type": "text",
       "id": "buttonText2",
       "label": "Button 2 text"
@@ -168,6 +177,24 @@
       "type": "url",
       "id": "buttonLink2",
       "label": "Button 2 link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_opens_lity_modal",
+      "label": "Open button 2 link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "btn--secondary",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--tertiary", "label": "Tertiary" }
+      ]
     },
     {
       "type": "image_picker",
