@@ -35,12 +35,7 @@
             {% for block in section.blocks %}
                 <div class="swiper-slide card">
                    <div class="image-section">
-                        {% if block.settings.image != blank %}
-                            <img src="{{ block.settings.image | img_url: '804' }}" alt="{{ block.settings.title }}" class="three-column-card-slider__image">
-                        {% endif %}
-                        </div>
-                        <h3 class="h6">{{ block.settings.title }}</h3>
-                       {% if block.settings.buttonText != blank %}
+                    {% if block.settings.buttonText != blank %}
               <a
                 class="btn--secondary"
                 href="{{ block.settings.buttonLink }}"
@@ -50,6 +45,12 @@
                 {{- block.settings.buttonText -}}
               </a>
             {% endif %}
+                        {% if block.settings.image != blank %}
+                            <img src="{{ block.settings.image | img_url: '804' }}" alt="{{ block.settings.title }}" class="three-column-card-slider__image">
+                        {% endif %}
+                        </div>
+                        <h3 class="h6">{{ block.settings.title }}</h3>
+                       
                    
                 </div>
             {% endfor %}
