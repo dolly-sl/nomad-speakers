@@ -1,4 +1,65 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
 
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <div class="two-column-card section-{{ section.id }}-padding ">
+    <div class="container-1280">
+      <div class="heading">
+        <span class="pre-title">{{ section.settings.pre_title }}</span>
+        <h2>{{ section.settings.title }}</h2>
+        {% if section.settings.buttonText != blank %}
+          <a
+            class="btn--primary"
+            href="{{ section.settings.buttonLink }}"
+            title="Read More About {{ section.settings.title }}"
+            aria-label="Read More About {{ section.settings.title }}"
+          >
+            {{- section.settings.buttonText -}}
+          </a>
+        {% endif %}
+      </div>
+   
+   
+          <ul>
+            {% for block in section.blocks %}
+              <li>
+                <div class="image-section">
+                  
+                  
+                  {% assign imageAlt = block.settings.image.alt %}
+                  {% if imageAlt == blank %}
+                    {% assign imageAlt = block.settings.title %}
+                  {% endif %}
+
+                  {% if block.settings.image != blank %}
+                    {% include 'image_code_small' with mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+                  {% endif %}
+                </div>
+                <h3 class="h5">{{ block.settings.title }}</h3>
+                  {% if block.settings.description != blank %}
+          <div class="description">{{ block.settings.description }}</div>
+        {% endif %}
+
+         {% if block.settings.bullet_list != blank %}
+          <div class="bullet_list">{{ block.settings.bullet_list }}</div>
+        {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+         </div>
+   
+  </div>
+{%- endif -%}
 
 
 {% schema %}
