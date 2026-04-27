@@ -38,12 +38,7 @@
             <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
           {% endif %}
 
-          {% if section.settings.description != blank %}
-            <div class="description full-format">
-              {{ section.settings.description }}
-            </div>
-          {% endif %}
-
+          
           {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
             <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
               {{- section.settings.buttonText -}}
@@ -127,11 +122,6 @@
       "id": "buttonText",
       "label": "Button text",
       "default": "Shop now"
-    },
-    {
-      "type": "url",
-      "id": "buttonLink",
-      "label": "Button link"
     }
   ],
   "presets": [
