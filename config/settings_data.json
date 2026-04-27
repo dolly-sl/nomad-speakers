@@ -103,7 +103,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "nav_menu": "",
+          "nav_menu": "main-menu-1",
           "btnText": "",
           "btnLink": "",
           "callNumber": ""
