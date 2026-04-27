@@ -51,19 +51,19 @@
                       {% endif %}
                     </div>
                     <div class="product-content">
-                      <div class="text">
-                        <div class="product-title">
+                     
+                        <span class="product-title">
                           {{ productRelated.title }}
-                        </div>
-                        <div class="pre-title">
+                        </span>
+                        <span class="pre-title">
                           FOR EVERYDAY USE
-                        </div>
+                        </span>
                         <div class="product-price flex">
                           <span>{{ productRelated.price | money }}</span>
                           {% if productRelated.compare_at_price_min > productRelated.price %}
                             <s>{{ productRelated.compare_at_price_min | money }}</s>
                           {% endif %}
-                        </div>
+                       
                       </div>
                       
                     </div>
