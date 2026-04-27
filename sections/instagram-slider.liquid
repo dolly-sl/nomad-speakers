@@ -1,0 +1,209 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <div class="three-column-card-slider section-{{ section.id }}-padding ">
+    <div class="container-1328">
+      <div class="heading">
+        <span class="pre-title">{{ section.settings.pre_title }}</span>
+        <h2>{{ section.settings.title }}</h2>
+        {% if section.settings.buttonText != blank %}
+          <a
+            class="btn--primary"
+            href="{{ section.settings.buttonLink }}"
+            title="Read More About {{ section.settings.title }}"
+            aria-label="Read More About {{ section.settings.title }}"
+          >
+            {{- section.settings.buttonText -}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="slider-outer">
+      <div class="container-1328">
+        <div class="swiper js_three-column-card-slider">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <div class="swiper-slide card" {{ block.shopify_attributes }}>
+                <div class="image-section">
+                  {% if block.settings.buttonText != blank %}
+                    <a
+                      class="btn--secondary"
+                      href="{{ block.settings.buttonLink }}"
+                      title="Read More About {{ block.settings.title }}"
+                      aria-label="Read More About {{ block.settings.title }}"
+                    >
+                      {{- block.settings.buttonText -}}
+                    </a>
+                  {% endif %}
+                  {% assign imageAlt = block.settings.image.alt %}
+                  {% if imageAlt == blank %}
+                    {% assign imageAlt = block.settings.title %}
+                  {% endif %}
+
+                  {% if block.settings.image != blank %}
+                    {% include 'image_code_small' with mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+                  {% endif %}
+                </div>
+                <h3 class="h6">{{ block.settings.title }}</h3>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-prev swiper-button-prev-three-column-card"></div>
+      <div class="swiper-button-next swiper-button-next-three-column-card "></div>
+      <div class="swiper-pagination swiper-pagination-three-column-card "></div>
+    </div>
+  </div>
+{%- endif -%}
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.js_three-column-card-slider', {
+      slidesPerView: 'auto',
+      slidesPerGroup: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination-three-column-card',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-three-column-card',
+        prevEl: '.swiper-button-prev-three-column-card',
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Three Column Card Slider",
+  "tag": "section",
+  "class": "section three-column-card-slider-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pre_title",
+      "label": "Pre title",
+      "default": "Explore"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured cards"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+        "type": "header",
+        "content": "Section Spacing & Layout"
+      },
+      {
+        "type": "paragraph",
+        "content": "Use these settings to control the spacing around your blog slider section. Adjust the padding to create proper visual separation from other sections on the page."
+      },
+      {
+        "type": "range",
+        "id": "paddingtop",
+        "min": 0,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Desktop)",
+        "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the blog slider and content above it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingtopmobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Mobile)",
+        "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Desktop)",
+        "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the blog slider and content below it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottomMobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Mobile)",
+        "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Column Card Slider",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
