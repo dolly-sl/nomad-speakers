@@ -50,9 +50,34 @@
         "slide_Nb3jCh"
       ],
       "settings": {}
+    },
+    "three_column_card_slider_VXjQr9": {
+      "type": "three-column-card-slider",
+      "blocks": {
+        "card_9WGrit": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_9WGrit"
+      ],
+      "name": "Three Column Card Slider",
+      "settings": {
+        "pre_title": "Where Nomad Fits",
+        "title": "Built for your favorite spot",
+        "buttonText": "Build Your NomaD",
+        "buttonLink": "#"
+      }
     }
   },
   "order": [
-    "HeroBanner"
+    "HeroBanner",
+    "three_column_card_slider_VXjQr9"
   ]
 }
