@@ -33,7 +33,7 @@
           {% if imageAlt == blank %}
             {% assign imageAlt = section.settings.title %}
           {% endif %}
-          {% include 'image_code' with mobileImage: section.settings.image, tabletImage: section.settings.image, desktopImage: section.settings.image, imageAlt: imageAlt %}
+          {% include 'image_code_medium' with mobileImage: section.settings.image, tabletImage: section.settings.image, desktopImage: section.settings.image, imageAlt: imageAlt %}
         {% endif %}
       </div>
     {% endif %}
@@ -88,8 +88,15 @@
             <li>
               {% if block.settings.icon != blank %}
                 <div class="icon">
+
+                  {% assign iconAlt = block.settings.image.alt %}
+          {% if iconAlt == blank %}
+            {% assign iconAlt = section.settings.title %}
+          {% endif %}
                   {% assign iconAlt = block.settings.icon.alt | default: block.settings.title %}
-                  {% include 'image_code_small' with mobileImage: block.settings.icon, tabletImage: block.settings.icon, desktopImage: block.settings.icon, imageAlt: iconAlt %}
+                       {{ block.settings.icon | image_url: width: 65 | image_tag: loading: 'lazy', widths: '65x65', alt:iconAlt }}
+          
+                 
                 </div>
               {% endif %}
 
