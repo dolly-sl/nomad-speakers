@@ -70,7 +70,7 @@
     color: $color-black;
     font-size: 12px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     display: inline;
 
@@ -79,13 +79,11 @@
     }
     a {
       font-size: 12px;
-      font-weight: 500 !important;
+      font-weight: 700 !important;
       line-height: normal;
       letter-spacing: normal;
-      color: $color-black;
-      // padding: 12px 0px 12px;
+      color: $color-black !important;
       display: inline;
-      // text-transform: uppercase;
       position: relative;
       text-decoration: underline !important;
       @include MQ(MQ-480) {
@@ -93,7 +91,6 @@
       }
 
       &:hover {
-        color: $color-white;
         text-decoration: none !important;
       }
       // &::before,
@@ -103,14 +100,14 @@
     }
   }
   a {
-    color: $color-yellow;
     font-size: 12px;
-    font-weight: 500 !important;
+    font-weight: 700 !important;
     line-height: normal;
     letter-spacing: normal;
-    // padding: 12px 0px 12px;
+    color: $color-black !important;
     display: inline;
-    text-decoration: underline;
+    position: relative;
+    text-decoration: underline !important;
 
     position: relative;
     @include MQ(MQ-480) {
@@ -118,7 +115,6 @@
     }
 
     &:hover {
-      color: $color-white !important;
       text-decoration: none !important;
     }
   }
