@@ -118,10 +118,43 @@
         "paddingbottom": 44,
         "paddingbottomMobile": 66
       }
+    },
+    "five_column_icon_card_with_heading_image_WqRfq8": {
+      "type": "five-column-icon-card-with-heading-image",
+      "blocks": {
+        "card_UmMDUH": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        }
+      },
+      "block_order": [
+        "card_UmMDUH"
+      ],
+      "name": "Five Icon Cards + Image",
+      "settings": {
+        "color_scheme": "dark",
+        "pretitle": "THE ALL NEW NOMAD",
+        "title": "Big sound. Real screen. Built different.",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>",
+        "buttonText": "Shop now",
+        "buttonLink": "#",
+        "buttonText2": "",
+        "buttonLink2": "",
+        "image": "shopify://shop_images/img.png",
+        "paddingtop": 120,
+        "paddingtopmobile": 60,
+        "paddingbottom": 102,
+        "paddingbottomMobile": 76
+      }
     }
   },
   "order": [
     "HeroBanner",
-    "three_column_card_slider_VXjQr9"
+    "three_column_card_slider_VXjQr9",
+    "five_column_icon_card_with_heading_image_WqRfq8"
   ]
 }
