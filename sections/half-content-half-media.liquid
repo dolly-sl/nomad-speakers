@@ -10,8 +10,8 @@
           <h2>{{ section.settings.title }}</h2>
         {% endif %}
 
-        {% if section.settings.text != blank %}
-          <div class="rte">{{ section.settings.text }}</div>
+        {% if section.settings.description != blank %}
+          <div class="full-format medium">{{ section.settings.description }}</div>
         {% endif %}
 
         {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
@@ -78,8 +78,8 @@
     },
     {
       "type": "richtext",
-      "id": "text",
-      "label": "Text"
+      "id": "description",
+      "label": "Description"
     },
     {
       "type": "header",
