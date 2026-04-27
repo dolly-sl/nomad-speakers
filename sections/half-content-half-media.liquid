@@ -1,0 +1,270 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__grid.is-reversed{
+    direction: rtl;
+  }
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__grid.is-reversed > *{
+    direction: ltr;
+  }
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__media{
+    width: 100%;
+  }
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__media .image-section{
+    width: 100%;
+  }
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__media iframe,
+  .half-content-half-media.section-{{ section.id }}-padding .hchm__media video{
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 990px) {
+    .half-content-half-media.section-{{ section.id }}-padding .hchm__grid{
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .half-content-half-media.section-{{ section.id }}-padding .hchm__grid.is-reversed{
+      direction: ltr;
+    }
+  }
+{%- endstyle -%}
+
+<div class="half-content-half-media section-{{ section.id }}-padding">
+  <div class="{{ section.settings.container_width }}">
+    <div class="hchm__grid {% if section.settings.media_position == 'left' %}is-reversed{% endif %}">
+      <div class="hchm__content">
+        {% if section.settings.pretitle != blank %}
+          <span class="pre-title">{{ section.settings.pretitle }}</span>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+          <a
+            class="btn {{ section.settings.button_style }}"
+            href="{{ section.settings.buttonLink }}"
+            {% if section.settings.button_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+            title="{{ section.settings.buttonText | escape }}"
+            aria-label="{{ section.settings.buttonText | escape }}"
+          >
+            {{ section.settings.buttonText }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="hchm__media">
+        {% if section.settings.media_type == 'image' %}
+          {% assign imageAlt = section.settings.media_image.alt %}
+          {% if imageAlt == blank %}
+            {% assign imageAlt = section.settings.title %}
+          {% endif %}
+
+          {% if section.settings.media_image != blank %}
+            <div class="image-section">
+              {% include 'image_code_small' with mobileImage: section.settings.media_image, tabletImage: section.settings.media_image, desktopImage: section.settings.media_image, imageAlt: imageAlt %}
+            </div>
+          {% endif %}
+        {% else %}
+          {% if section.settings.video_html != blank %}
+            <div class="hchm__video">
+              {{ section.settings.video_html }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Half Content / Half Media",
+  "tag": "section",
+  "class": "section half-content-half-media-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📝 Content"
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title size",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "Large (H1)" },
+        { "value": "h2", "label": "Medium (H2)" },
+        { "value": "h3", "label": "Small (H3)" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "🔘 Button"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target_blank",
+      "label": "Open button link in new tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "btn--primary",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--tertiary", "label": "Tertiary" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "🖼️ / 🎥 Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "default": "image",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video_html", "label": "Video embed HTML" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "media_image",
+      "label": "Image"
+    },
+    {
+      "type": "liquid",
+      "id": "video_html",
+      "label": "Video HTML / embed code",
+      "info": "Paste iframe/video embed HTML here (YouTube/Vimeo/custom). Used when Media type is set to Video embed HTML."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position",
+      "default": "right",
+      "options": [
+        { "value": "right", "label": "Media right / Content left" },
+        { "value": "left", "label": "Media left / Content right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "default": "container-1400",
+      "options": [
+        { "value": "container-1400", "label": "1400" },
+        { "value": "container-1328", "label": "1328" },
+        { "value": "container-1478", "label": "1478" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Half Content / Half Media",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
