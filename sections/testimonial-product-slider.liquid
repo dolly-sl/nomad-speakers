@@ -16,9 +16,10 @@
              <div class="container-1320 flex">
               <div class="content">
                  {% if block.settings.rating != blank %}
+                  <div class="rating-image">
                   {% assign imageAlt = block.settings.rating.alt | default: block.settings.title %}
                   {{ block.settings.rating | image_url: width: 172 | image_tag: loading: 'lazy', widths: '172x36', alt:imageAlt }}
-              
+              </div>
                 {% endif %}
                 {% if block.settings.title != blank %}
                   <h2 class="h4">{{ block.settings.title }}</h2>
