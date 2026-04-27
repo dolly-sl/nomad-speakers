@@ -1,4 +1,9 @@
 footer {
+  padding: 83px 0px 36px;
+
+  @include MQ(MQ-768) {
+    padding: 40px 0px 40px;
+  }
   overflow: hidden;
   background: $color-black !important;
 
@@ -12,18 +17,40 @@ footer {
       display: none;
     }
   }
-
+  .container-1408 {
+    max-width: 1408px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
   .main-footer {
-    padding: 83px 0px 36px;
-
-    @include MQ(MQ-768) {
-      padding: 40px 0px 40px;
+    .newsletter-title {
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 54px;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        width: 29.5px;
+        height: 18.5px;
+        background: url(assets/icon-mail.svg) no-repeat center/contain;
+      }
     }
-    .container-1610 {
-      padding: 0 40px;
-      max-width: 1610px;
+    .newsletter-block {
+      max-width: 617px;
       width: 100%;
       margin: 0 auto;
+      text-align: center;
+      .newsletter-form {
+        max-width: 525px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 25px;
+      }
     }
     .top-footer-content {
       padding-bottom: 51px;
@@ -141,192 +168,6 @@ footer {
         }
       }
     }
-    &__middle {
-      position: relative;
-      // padding-bottom: 40px;
-      // border-bottom: 1px solid white;
-
-      @include MQ(MQ-980) {
-        flex-wrap: wrap;
-      }
-      @include MQ(MQ-768) {
-        padding-bottom: 10px;
-        &:after {
-          position: absolute;
-          content: "";
-          background: white;
-          width: calc(100% + 80px);
-          left: -40px;
-          bottom: 0;
-          height: 1px;
-        }
-        // border-bottom: 1px solid white;
-      }
-      .left-section {
-        max-width: 628px;
-        margin-top: 59px;
-        width: 100%;
-        padding-right: 161px;
-        @include MQ(MQ-1200) {
-          max-width: 567px;
-        }
-        @include MQ(MQ-1100) {
-          padding-right: 50px;
-          max-width: 450px;
-        }
-        @include MQ(MQ-980) {
-          max-width: 467px;
-          padding-right: 0;
-          margin: 40px auto 0;
-          text-align: center;
-        }
-
-        .main-footer__newsletter {
-          width: 100%;
-
-          .newsletter-title {
-            font-family: var(--font-family-secondary);
-            display: block;
-            width: 100%;
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 5px;
-          }
-          .news-content p {
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 18px;
-          }
-          .newsletter-form {
-            margin-top: 20px;
-          }
-        }
-      }
-      .main-footer__nav {
-        width: calc(100% - 628px);
-        // max-width: 560px;
-        margin-top: 40px;
-        @include MQ(MQ-1200) {
-          width: calc(100% - 567px);
-        }
-        @include MQ(MQ-1100) {
-          width: calc(100% - 450px);
-        }
-        @include MQ(MQ-980) {
-          margin-top: 63px;
-          width: 100%;
-        }
-        @include MQ(MQ-768) {
-          flex-direction: column;
-        }
-        .footer-links {
-          width: 33.333%;
-          padding-right: 40px;
-          @include MQ(MQ-1100) {
-            padding-right: 20px;
-          }
-          @include MQ(MQ-768) {
-            padding-right: 0px;
-            width: 100%;
-          }
-          &:last-child {
-            padding-right: 0;
-          }
-
-          p {
-            font-family: var(--font-family-secondary);
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            text-transform: uppercase;
-            color: $color-white;
-            position: relative;
-            cursor: pointer;
-            .footer-icon-plus {
-              display: none;
-              width: 12px;
-              height: 12px;
-              top: 3px;
-              position: absolute;
-              left: 0;
-              transition: 0.3s ease all;
-              cursor: pointer;
-              @include MQ(MQ-768) {
-                display: block;
-              }
-            }
-            &.active {
-              .footer-icon-plus {
-                transform: rotate(45deg);
-                transition: 0.3s ease all;
-              }
-            }
-
-            @include MQ(MQ-768) {
-              font-size: 16px;
-              margin-bottom: 30px;
-              padding-left: 20px;
-              justify-content: flex-start;
-            }
-
-            a {
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              &:hover,
-              &:focus {
-                color: #ffc56e;
-              }
-            }
-          }
-
-          ul {
-            li {
-              margin-bottom: 15px;
-
-              &:last-child {
-                margin-bottom: 0;
-              }
-            }
-          }
-
-          .accordion-content {
-            display: block;
-            @include MQ(MQ-768) {
-              display: none;
-              margin-top: -10px;
-              margin-bottom: 30px;
-              padding-left: 20px;
-            }
-
-            a {
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              color: $color-white;
-              &:hover,
-              &:focus {
-                color: #ffc56e;
-              }
-
-              &:hover,
-              &:focus {
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
-    }
 
     &__bottom {
       .social-app-links {
@@ -365,33 +206,6 @@ footer {
           @include MQ(MQ-768) {
             text-align: center;
           }
-        }
-      }
-    }
-    .contact-info {
-      margin-top: 59px;
-      @include MQ(MQ-768) {
-        margin-top: 0;
-        text-align: center;
-      }
-      span {
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        color: white;
-        display: block;
-      }
-      a {
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 900;
-        line-height: normal;
-        display: block;
-        font-family: var(--font-family-secondary);
-        &:hover,
-        &:focus {
-          color: $color-yellow;
         }
       }
     }
@@ -442,53 +256,6 @@ footer {
           font-weight: 500;
           line-height: 26px;
         }
-      }
-    }
-  }
-  .logo-slider {
-    overflow: hidden;
-    padding-top: 44px;
-    border-bottom: 1px solid $color-white;
-    padding-bottom: 40px;
-    @include MQ(MQ-1100) {
-      padding-top: 40px;
-      padding-bottom: 32px;
-    }
-    .logo {
-      padding-right: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-      }
-      @include MQ(MQ-1380) {
-        padding-right: 60px;
-      }
-      @include MQ(MQ-980) {
-        padding-right: 30px;
-      }
-      @include MQ(MQ-480) {
-        padding-right: 20px;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        // width: auto;
-        // height: auto;
-        // max-height: 42px;
-        object-fit: contain;
-        object-position: center;
-        // @include MQ(MQ-1200) {
-        //   max-height: 30px;
-        // }
-        // @include MQ(MQ-768) {
-        //   max-height: 21px;
-        // }
       }
     }
   }
