@@ -584,7 +584,7 @@ header {
     transform 0.5s ease-in;
   position: absolute; /* or fixed, depending on your layout */
   z-index: 1000;
-  top: 70px;
+  top: 65px;
   @include MQ(MQ-980) {
     opacity: 1;
     visibility: visible;
