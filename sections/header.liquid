@@ -35,7 +35,17 @@
         <div class="navbar-collapse" id="navbarNavDropdown">
           {% assign mainMenu = linklists[section.settings.nav_menu] %}
           {% assign mobileMenu = linklists[section.settings.mobile_menu] %}
-          <nav class="main-menu">
+          <nav class="main-menu ipad-none">
+            {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
+              <div class="btn block-980">
+                <a href="{{ section.settings.btnLink }}" title="{{- section.settings.btnText -}}" class="btn--menu">
+                  {{- section.settings.btnText -}}
+                </a>
+              </div>
+            {% endif %}
+            {% include 'site-nav_main' with mainMenu %}
+          </nav>
+          <nav class="main-menu ipad-block">
             {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
               <div class="btn block-980">
                 <a href="{{ section.settings.btnLink }}" title="{{- section.settings.btnText -}}" class="btn--menu">
