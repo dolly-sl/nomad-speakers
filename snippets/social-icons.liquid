@@ -13,6 +13,13 @@
       </a>
     </li>
   {%- endif -%}
+  {%- if social_tiktok_url != blank -%}
+    <li>
+      <a href="{{ social_tiktok_url }}" target="_blank" rel="noopener" title="TikTok">
+        <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="TikTok">
+      </a>
+    </li>
+  {%- endif -%}
 
   {%- if social_instagram_url != blank -%}
     <li>
@@ -30,11 +37,5 @@
     </li>
   {%- endif -%}
 
-  {%- if social_tiktok_url != blank -%}
-    <li>
-      <a href="{{ social_tiktok_url }}" target="_blank" rel="noopener" title="TikTok">
-        <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="TikTok">
-      </a>
-    </li>
-  {%- endif -%}
+  
 </ul>
