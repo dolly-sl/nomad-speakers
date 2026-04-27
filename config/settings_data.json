@@ -97,7 +97,7 @@
         ],
         "settings": {
           "show_announcement": true,
-          "announcementColor": "#000000"
+          "announcementColor": "#f0ff00"
         }
       },
       "header": {
