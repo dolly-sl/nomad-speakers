@@ -46,3 +46,73 @@
         </div>
         </div>
         </div>
+
+{% schema %}
+{
+  "name": "Three Column Card Slider",
+  "tag": "section",
+  "class": "section three-column-card-slider-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pre_title",
+      "label": "Pre title",
+      "default": "Explore"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured cards"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Column Card Slider",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
