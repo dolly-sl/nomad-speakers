@@ -112,7 +112,11 @@
         "pre_title": "Where Nomad Fits",
         "title": "Built for your favorite spot",
         "buttonText": "Build Your NomaD",
-        "buttonLink": "#"
+        "buttonLink": "#",
+        "paddingtop": 94,
+        "paddingtopmobile": 26,
+        "paddingbottom": 44,
+        "paddingbottomMobile": 66
       }
     }
   },
