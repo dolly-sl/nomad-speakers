@@ -30,11 +30,15 @@
                 {% endif %}
 
                 {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
-                  
-                    <a class="btn btn--secondary" href="{{ block.settings.buttonLink }}">
-                      {{- block.settings.buttonText -}}
-                    </a>
-                 
+                  <a
+                    class="btn btn--secondary"
+                    href="{{ block.settings.buttonLink }}"
+                    title="{{ block.settings.buttonText | escape }}"
+                    aria-label="{{ block.settings.buttonText | escape }}"
+                    {% if block.settings.button_opens_lity_modal %}data-lity{% endif %}
+                  >
+                    {{- block.settings.buttonText -}}
+                  </a>
                 {% endif %}
                 </div>
               </div>
@@ -163,6 +167,13 @@
           "type": "url",
           "id": "buttonLink",
           "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_opens_lity_modal",
+          "label": "Open link in video lightbox (Lity)",
+          "default": false,
+          "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
         }
       ]
     }
