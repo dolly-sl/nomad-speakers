@@ -1,19 +1,5 @@
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
-    padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
-      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
-    }
-  }
-{%- endstyle -%}
-
 {% if section.blocks.size > 0 %}
-  <section class="hero-media-with-content section-{{ section.id }}-padding">
+  <section class="hero-media-with-content">
     <div class="swiper js_hero-media-with-content-slider">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
@@ -93,50 +79,6 @@
         { "value": "true", "label": "On" },
         { "value": "false", "label": "Off" }
       ]
-    },
-    {
-      "type": "header",
-      "content": "Section spacing"
-    },
-    {
-      "type": "range",
-      "id": "paddingtop",
-      "min": 0,
-      "max": 140,
-      "step": 2,
-      "unit": "px",
-      "label": "Top spacing (desktop)",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "paddingtopmobile",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Top spacing (mobile)",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "paddingbottom",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Bottom spacing (desktop)",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "paddingbottomMobile",
-      "min": 0,
-      "max": 150,
-      "step": 2,
-      "unit": "px",
-      "label": "Bottom spacing (mobile)",
-      "default": 0
     }
   ],
   "blocks": [
