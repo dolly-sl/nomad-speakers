@@ -2,6 +2,12 @@
 <header class="header site-header" id="mainHeader">
   <div class="main-header js__main-header">
     <div class="container-1332 flex-align-center">
+      <div class="mobile-hamburger block-980">
+        <button id="hamburger" type="button" aria-label="hamburger">
+          <span class="hamburger"> <img src="{{'icon-hamburger.svg' | asset_url }}" alt="Hamburger"></span>
+          <span class="close"> <img src="{{'icon-cross.svg' | asset_url }}" alt="Hamburger Close"></span>
+        </button>
+      </div>
       <div class="header-logo relative">
         <a href="{{ routes.root_url }}" itemprop="url" alt="{{shop.name}}">
           {% if section.settings.logo != blank %}
@@ -66,7 +72,6 @@
         <li class=" search-li ">
           <button type="button" id="js__header-search-btn" class="js__search search-icon" title="Search">
             <img src="{{'icon-search.svg' | asset_url }}" alt="Search Icon">
-            
           </button>
           <div class="header-search-section " id="js-header-search-section">
             <div class="container-750">
@@ -100,12 +105,6 @@
               {{ cart.item_count }}
             </p>
           </a>
-        </li>
-        <li class="mobile-hamburger block-980">
-          <button id="hamburger" type="button" aria-label="hamburger">
-            <span class="hamburger"> <img src="{{'icon-hamburger.svg' | asset_url }}" alt="Hamburger"></span>
-            <span class="close"> <img src="{{'icon-cross.svg' | asset_url }}" alt="Hamburger Close"></span>
-          </button>
         </li>
       </ul>
     </div>
