@@ -1,6 +1,6 @@
 {% if section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
-  <section class="hero-image-with-content-slider">
-    <div class="swiper-slide align-{{ section.settings.content_alignment }}">
+  <section class="hero-image-with-content-slider align-{{ section.settings.content_alignment }}">
+   
       <div class="image-section ">
         {% if section.settings.image != blank %}
           {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
@@ -29,7 +29,7 @@
             </a>
           {% endif %}
         </div>
-      </div>
+      
     </div>
   </section>
 {% endif %}
