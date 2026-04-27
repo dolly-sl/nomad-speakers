@@ -1,5 +1,23 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+  .swiper-pagination-featuredBlog{
+    bottom:30px !important;
+  }
+{%- endstyle -%}
+
+
 {% if section.blocks.size > 0 %}
-  <section class="feature-comparison-table section-{{ section.id }} section-{{ section.id }}-padding">
+  <section class="feature-comparison-table section-{{ section.id }}-padding">
     <div class="container-1004">
       {% if section.settings.title != blank or section.settings.description != blank %}
         <div class="top">
