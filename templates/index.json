@@ -203,35 +203,37 @@
             "buttonLink": "#"
           }
         },
-        "slide_jFaGfj": {
+        "slide_xNdbU9": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/bg-img.jpg",
             "content_alignment": "left",
-            "text_size": "h1",
-            "pretitle": "",
-            "title": "",
-            "description": "",
+            "text_size": "h2",
+            "pretitle": "One device. Three ways to enjoy it",
+            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "buttonText": "Shop now",
-            "buttonLink": ""
+            "buttonLink": "#"
           }
         },
-        "slide_UH3nD3": {
+        "slide_4Xy4X4": {
           "type": "slide",
           "settings": {
-            "content_alignment": "left",
-            "text_size": "h1",
-            "pretitle": "",
-            "title": "",
-            "description": "",
+            "image": "shopify://shop_images/bg-img.jpg",
+            "content_alignment": "center",
+            "text_size": "h2",
+            "pretitle": "One device. Three ways to enjoy it",
+            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "buttonText": "Shop now",
-            "buttonLink": ""
+            "buttonLink": "#"
           }
         }
       },
       "block_order": [
         "slide_hkWFkY",
-        "slide_jFaGfj",
-        "slide_UH3nD3"
+        "slide_xNdbU9",
+        "slide_4Xy4X4"
       ],
       "name": "Hero Image Content Slider",
       "settings": {
