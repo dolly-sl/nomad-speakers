@@ -13,7 +13,7 @@
       {% endif %}
 
       <div class="table-wrap">
-        <div class="compare-grid" role="table" aria-label="{{ section.settings.aria_label | escape }}">
+        <div class="compare-grid" role="table" >
           <div class="cell header col-feature" role="columnheader">
             {{ section.settings.feature_column_title }}
           </div>
@@ -85,17 +85,18 @@
       "label": "Description",
       "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
     },
-    {
-      "type": "text",
-      "id": "feature_column_title",
-      "label": "Feature column title",
-      "default": "Features"
-    },
+    
     {
       "type": "text",
       "id": "nomad_column_title",
       "label": "Middle column title",
       "default": "The Nomad"
+    },
+    {
+      "type": "text",
+      "id": "standard_column_title",
+      "label": "Right column title",
+      "default": "Standard Tablets"
     },
     {
       "type": "header",
