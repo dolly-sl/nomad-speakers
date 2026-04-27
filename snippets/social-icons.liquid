@@ -3,12 +3,9 @@
   assign social_instagram_url = settings.social_instagram_link
   assign social_twitter_url = settings.social_twitter_link
   assign social_tiktok_url = settings.social_tiktok_link
- 
 -%}
 
 <ul>
-  
-
   {%- if social_facebook_url != blank -%}
     <li>
       <a href="{{ social_facebook_url }}" target="_blank" rel="noopener" title="Facebook">
@@ -28,7 +25,7 @@
   {%- if social_twitter_url != blank -%}
     <li>
       <a href="{{ social_twitter_url }}" target="_blank" rel="noopener" title="X (Twitter)">
-        <img src="{{ 'icon-social-twitter.svg' | asset_url }}" alt="X (Twitter)">
+        <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="X (Twitter)">
       </a>
     </li>
   {%- endif -%}
@@ -36,7 +33,7 @@
   {%- if social_tiktok_url != blank -%}
     <li>
       <a href="{{ social_tiktok_url }}" target="_blank" rel="noopener" title="TikTok">
-        <img src="{{ 'icon-social-tiktok.svg' | asset_url }}" alt="TikTok">
+        <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="TikTok">
       </a>
     </li>
   {%- endif -%}
