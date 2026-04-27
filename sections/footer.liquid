@@ -1,38 +1,38 @@
 <footer>
-  <div class="main-footer container-1408">
-    <div class="newsletter-block">
-      {% if section.settings.newsTitle != blank %}
-        <span class="newsletter-title">{{ section.settings.newsTitle }}</span>
-      {% endif %}
-      {% if section.settings.newscontent != blank %}
-        <div class="news-content">
-          {{ section.settings.newscontent }}
-        </div>
-      {% endif %}
-      {% if section.settings.newscontent != blank %}
-        <div class="news-content">
-          {{ section.settings.newscontent }}
-        </div>
-      {% endif %}
-      <div class="newsletter-form">
-        <form action="">
-          <input type="email" name="Email" id="email" placeholder="Your email address">
-          <button type="submit" class="btn-submit" value="Subscribe">Submit</button>
-        </form>
-      </div>
-    </div>
-    <div class="main-footer__bottom">
-      <!-- Copyright -->
-      <div class="copyright flex">
-        <div class="copyright-section flex-wrap">
-          <p>
-            © Copyright {{ 'now' | date: '%Y' }}
-            {{ shop | escape }}
-          </p>
+  <div class="main-footer">
+    <div class="container-1408">
+      <div class="newsletter-block">
+        {% if section.settings.newsTitle != blank %}
+          <h2 class="newsletter-title">{{ section.settings.newsTitle }}</h2>
+        {% endif %}
+
+        {% if section.settings.newscontent != blank %}
+          <div class="news-content">
+            {{ section.settings.newscontent }}
+          </div>
+        {% endif %}
+        <div class="newsletter-form">
+          <form action="">
+            <input type="email" name="Email" id="email" placeholder="Your email address">
+            <button type="submit" class="btn-submit" value="Subscribe">Submit</button>
+          </form>
         </div>
         <div class="social-app-links flex">
           <div class="social-icons">
             {% include 'social-icons' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-footer__bottom">
+      <div class="container-1408">
+        <!-- Copyright -->
+        <div class="copyright flex">
+          <div class="copyright-section flex-wrap">
+            <p>
+              © {{ 'now' | date: '%Y' }},
+              {{ shop.name | escape }}
+            </p>
           </div>
         </div>
       </div>
