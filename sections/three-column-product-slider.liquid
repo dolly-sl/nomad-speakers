@@ -60,7 +60,7 @@
         <div class="swiper-pagination dark-bg swiper-pagination-product "></div>
       </div>
     </div>
-  </div>
+ 
   {% endif %}
    
 
@@ -68,7 +68,15 @@
   jQuery(function () {
     var swiper = new Swiper('.js_three-column-product-slider', {
       slidesPerView: 'auto',
-      spaceBetween: 20,
+     spaceBetween: 10,
+      breakpoints: {
+        0: {
+          spaceBetween: 10,
+        },
+        769: {
+          spaceBetween: 20,
+        },
+      },
       pagination: {
         el: '.swiper-pagination-product',
         clickable: true,

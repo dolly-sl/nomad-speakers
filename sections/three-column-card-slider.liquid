@@ -73,10 +73,13 @@
     var swiper = new Swiper('.js_three-column-card-slider', {
       slidesPerView: 'auto',
       slidesPerGroup: 1,
-      spaceBetween: 20,
+      spaceBetween: 15,
       breakpoints: {
-        768: {
+        0: {
           spaceBetween: 15,
+        },
+        769: {
+          spaceBetween: 20,
         },
       },
       pagination: {

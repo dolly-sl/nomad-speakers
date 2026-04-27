@@ -7,9 +7,18 @@ h2{
 
 .product-card{
   width: 430px;
+  height: auto !important;
+  @include MQ(MQ-768) {
+    width: calc(100vw - 60px);
+    max-width: 345px;
+  }
   .image-section {
    
     height: 430px !important;
+    @include MQ(MQ-768) {
+      max-height: 345px;
+    height: calc(100vw - 60px) !important;
+  }
 }
 }
  .swiper{
@@ -18,7 +27,9 @@ h2{
 .slider-outer{
   padding-bottom: 48px;
   position: relative;
-
+  @include MQ(MQ-768) {
+padding-bottom: 78px;
+  }
 }
 
 
@@ -26,6 +37,14 @@ h2{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+   @include MQ(MQ-768) {
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+    a{
+      margin-top: 20px;
+    }
+   }
 }
 
 }

@@ -9,10 +9,18 @@
     width: 712px;
     height: 480px;
     margin: 0 auto;
+    
     img,video{
 @include img-object-contain;
     }
+
     margin-bottom: 25px;
+
+     @include MQ(MQ-768) {
+        width: 100%;
+        height: 60vw;
+         margin-bottom: 50px;
+     }
 }
 
 .heading{
@@ -46,21 +54,39 @@ ul{
     margin-top: 104px;
     margin-left: -44px;
     width: calc(100% + 44px);
+
+     margin-bottom: -45px;
+     @include MQ(MQ-768) {
+         margin-top: 60px;
+          
+     }
     li{
        max-width: 200px;
        margin-left: 44px;
-      
+     margin-bottom: 45px;
+       @include MQ(MQ-600) {
+       width: calc(50% - 44px);
+       .pre-title-bold{
+        margin-bottom: 2px;
+       }
+       }
         text-align: center;
 
         .icon{
             width: 34px;
             position: relative;
             height: 33px;
-            margin-bottom: 13.5px;
+           
+            
             img{
                 @include img-object-contain;
             }
-            margin: 0 auto 12px;
+            margin: 0 auto 13px;
+
+             @include MQ(MQ-600) {
+                margin-bottom: 16px
+             }
+             
         }
         
     }
