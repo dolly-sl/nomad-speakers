@@ -487,16 +487,24 @@ textarea.input--error {
 
     span,
     s {
+        font-family: "DM Mono", monospace;
       font-size: 14px;
       font-style: normal;
       font-weight: normal;
       line-height: normal; /* 28.8px */
+       margin-right: 5px;
+        color: $color-black;
+       &:last-child {
+         margin-right: 0px;
+       }
     }
-    s {
-      margin-right: 10px;
+    span.red {
+     
       color: #8a1919;
-      order: -1;
+      
+      
     }
+
   }
 
   .content {

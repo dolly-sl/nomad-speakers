@@ -57,6 +57,9 @@
                   {% endif %}
                 </div>
                 <h3 class="h6">{{ block.settings.title }}</h3>
+                  {% if section.settings.description != blank %}
+          <div class="full-format">{{ section.settings.description }}</div>
+        {% endif %}
               </div>
             {% endfor %}
           </div>
@@ -190,6 +193,11 @@
           "id": "title",
           "label": "Title"
         },
+         {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
         {
           "type": "text",
           "id": "buttonText",
