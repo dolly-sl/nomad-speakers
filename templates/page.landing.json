@@ -285,6 +285,44 @@
         "button_opens_lity_modal": true
       }
     },
+    "two_column_card_KeNnDm": {
+      "type": "two-column-card",
+      "blocks": {
+        "card_Dmzccr": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image-33.png",
+            "title": "Hardwired Kit",
+            "description": "<p>Best for riders who want a permanent, always-ready setup with continuous power every time they ride.</p>",
+            "bullet_list": "<ul><li>Wires directly to battery on gas or electric carts</li><li>Works with batteries from 12–60V</li><li>Clean integrated install</li></ul>"
+          }
+        },
+        "card_QAiq4W": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image-33.png",
+            "title": "Rechargeable Kit",
+            "description": "<p>Best for riders who want the simplest install possible. Charge Nomad just like a phone or tablet via USB-C</p>",
+            "bullet_list": "<ul><li>No wiring needed</li><li>Fastest install</li><li>Great for flexibility</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "card_Dmzccr",
+        "card_QAiq4W"
+      ],
+      "name": "Two Column Card",
+      "settings": {
+        "pretitle": "CHOOSE YOUR POWER SETUP",
+        "title": "Two ways to power your setup",
+        "button_text": "BUILD MY NOMAD",
+        "button_link": "#",
+        "paddingtop": 100,
+        "paddingtopmobile": 56,
+        "paddingbottom": 100,
+        "paddingbottomMobile": 50
+      }
+    },
     "testimonial_product_slider_Kptmhr": {
       "type": "testimonial-product-slider",
       "blocks": {
@@ -336,6 +374,7 @@
     "hero_image_with_content_slider_BGxjbH",
     "three_column_product_slider_DtBHWN",
     "hero_image_with_content_with_list_7W74W3",
+    "two_column_card_KeNnDm",
     "testimonial_product_slider_Kptmhr"
   ]
 }
