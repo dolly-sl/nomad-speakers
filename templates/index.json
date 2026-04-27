@@ -62,10 +62,50 @@
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
+        },
+        "card_38rqkf": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_EBQHKY": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_xyYgJ4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_4Q3xUd": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
         }
       },
       "block_order": [
-        "card_9WGrit"
+        "card_9WGrit",
+        "card_38rqkf",
+        "card_EBQHKY",
+        "card_xyYgJ4",
+        "card_4Q3xUd"
       ],
       "name": "Three Column Card Slider",
       "settings": {
