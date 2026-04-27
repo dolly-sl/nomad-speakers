@@ -52,16 +52,29 @@
         </div>
       {% endif %}
 
-      {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+      {% if section.settings.buttonText != blank and section.settings.buttonLink != blank or section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
         <div class="buttons">
-          <a
-            class="btn--secondary"
-            href="{{ section.settings.buttonLink }}"
-            title="{{ section.settings.buttonText }}"
-            aria-label="{{ section.settings.buttonText }}"
-          >
-            {{- section.settings.buttonText -}}
-          </a>
+          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+            <a
+              class="btn--secondary"
+              href="{{ section.settings.buttonLink }}"
+              title="{{ section.settings.buttonText }}"
+              aria-label="{{ section.settings.buttonText }}"
+            >
+              {{- section.settings.buttonText -}}
+            </a>
+          {% endif %}
+
+          {% if section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
+            <a
+              class="btn--secondary"
+              href="{{ section.settings.buttonLink2 }}"
+              title="{{ section.settings.buttonText2 }}"
+              aria-label="{{ section.settings.buttonText2 }}"
+            >
+              {{- section.settings.buttonText2 -}}
+            </a>
+          {% endif %}
         </div>
       {% endif %}
     </div>
@@ -145,6 +158,16 @@
       "type": "url",
       "id": "buttonLink",
       "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "buttonText2",
+      "label": "Button 2 text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink2",
+      "label": "Button 2 link"
     },
     {
       "type": "image_picker",
