@@ -435,6 +435,32 @@
         "paddingbottom": 0,
         "paddingbottomMobile": 0
       }
+    },
+    "instagram_slider_xJDiF4": {
+      "type": "instagram-slider",
+      "blocks": {
+        "card_G9cpVW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_G9cpVW"
+      ],
+      "name": "Instagram Slider",
+      "settings": {
+        "title": "Where We Roam",
+        "buttonText": "Learn More",
+        "buttonLink": "#",
+        "button_target_blank": true,
+        "paddingtop": 0,
+        "paddingtopmobile": 0,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
     }
   },
   "order": [
@@ -445,6 +471,7 @@
     "three_column_product_slider_XW7j4M",
     "marquee_HqfbWU",
     "testimonial_product_slider_8whV8c",
-    "feature_comparison_table_bktgqn"
+    "feature_comparison_table_bktgqn",
+    "instagram_slider_xJDiF4"
   ]
 }
