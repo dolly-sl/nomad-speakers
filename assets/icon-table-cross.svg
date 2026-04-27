@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="14.7852" cy="14.7852" r="14.2852" stroke="white"/>
 <line x1="18.9429" y1="10.6339" x2="10.6344" y2="18.9424" stroke="white" stroke-width="2"/>
 <line x1="18.936" y1="18.9425" x2="10.6275" y2="10.634" stroke="white" stroke-width="2"/>
 </svg>
-=======
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="14.7852" cy="14.7852" r="14.2852" stroke="white"/>
-<line x1="18.9429" y1="10.6339" x2="10.6344" y2="18.9424" stroke="white" stroke-width="2"/>
-<line x1="18.936" y1="18.9425" x2="10.6275" y2="10.634" stroke="white" stroke-width="2"/>
-</svg>
->>>>>>> f49cb5fb8299b37e2300ecb98463ce9a144daebd
