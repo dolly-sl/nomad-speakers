@@ -9,31 +9,19 @@
  */
 {
   "sections": {
-    "home_hero_banner_txBeE7": {
-      "type": "home-hero-banner",
-      "blocks": {
-        "slide_NX7URk": {
-          "type": "slide",
-          "settings": {
-            "videobanner": false,
-            "video": "",
-            "mobileMediaType": "image",
-            "videoMobile": "",
-            "pretitle": "",
-            "title": "",
-            "text_size": "h1",
-            "buttonText": "",
-            "buttonLink": "",
-            "button_style": "btn--primary",
-            "content_alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_NX7URk"
-      ],
-      "name": "Hero Banner",
-      "settings": {}
+    "hero_image_with_content_phEAgK": {
+      "type": "hero-image-with-content",
+      "name": "Hero image with content",
+      "settings": {
+        "video": "shopify://files/videos/60148eb18385454e8e9160253b8413e5.mp4",
+        "content_alignment": "left",
+        "text_size": "h1",
+        "pretitle": "CADDYBAR™ x Nomad",
+        "title": "The Single Best Upgrade You Can Make to Your Cart",
+        "description": "",
+        "buttonText": "Build my NomaD",
+        "buttonLink": "#"
+      }
     },
     "five_column_icon_card_with_heading_image_HYgAiB": {
       "type": "five-column-icon-card-with-heading-image",
@@ -296,7 +284,7 @@
     }
   },
   "order": [
-    "home_hero_banner_txBeE7",
+    "hero_image_with_content_phEAgK",
     "five_column_icon_card_with_heading_image_HYgAiB",
     "three_column_card_slider_LMgeVa",
     "hero_image_with_content_slider_BGxjbH",
