@@ -1,4 +1,19 @@
-<div class="three-column-card-slider">
+
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+<div class="three-column-card-slider section-{{ section.id }}-padding ">
     <div class="container-1328">
         <div class="heading">
             <span class="pre-title">{{ section.settings.pre_title }}</span>
@@ -46,6 +61,8 @@
         </div>
         </div>
         </div>
+
+       {%- endif -%}
 
 {% schema %}
 {
