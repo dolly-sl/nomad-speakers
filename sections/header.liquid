@@ -34,6 +34,7 @@
       <ul class="right-nav flex-align-center">
         <div class="navbar-collapse" id="navbarNavDropdown">
           {% assign mainMenu = linklists[section.settings.nav_menu] %}
+          {% assign mobileMenu = linklists[section.settings.mobile_menu] %}
           <nav class="main-menu">
             {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
               <div class="btn block-980">
