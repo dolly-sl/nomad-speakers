@@ -42,19 +42,19 @@
 
 {% if section.blocks.size > 0 %}
   <section class="hero-image-with-content-slider">
-    <div class="swiper js_hero-media-with-content-slider">
+    <div class="swiper js_hero-image-with-content-slider">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           {% if block.type == 'slide' %}
             <div class="swiper-slide align-{{ block.settings.content_alignment }}" {{ block.shopify_attributes }}>
-              <div class="hero-media-with-content__media">
+              <div class="image-section ">
                 {% if block.settings.image != blank %}
                   {% assign imageAlt = block.settings.image.alt | default: block.settings.title %}
                   {% include 'image_code' with mobileImage: block.settings.mobileImage, tabletImage: block.settings.mobileImage, desktopImage: block.settings.image, imageAlt: imageAlt, critical: true %}
                 {% endif %}
               </div>
 
-              <div class="hero-media-with-content__content">
+              <div class="content">
                 {% if block.settings.pretitle != blank %}
                   <span class="pre-title">{{ block.settings.pretitle }}</span>
                 {% endif %}
@@ -70,11 +70,11 @@
                 {% endif %}
 
                 {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
-                  <div class="buttons">
-                    <a class="btn btn--primary" href="{{ block.settings.buttonLink }}">
+                  
+                    <a class="btn btn--secondary" href="{{ block.settings.buttonLink }}">
                       {{- block.settings.buttonText -}}
                     </a>
-                  </div>
+                 
                 {% endif %}
               </div>
             </div>
@@ -96,8 +96,8 @@
 
 <script>
   jQuery(function () {
-    if (jQuery('.js_hero-media-with-content-slider').length) {
-      new Swiper('.js_hero-media-with-content-slider', {
+    if (jQuery('.js_hero-image-with-content-slider').length) {
+      new Swiper('.js_hero-image-with-content-slider', {
         slidesPerView: 1,
         loop: {{ section.settings.slider_loop }},
         pagination: {
