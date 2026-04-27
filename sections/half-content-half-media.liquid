@@ -7,7 +7,7 @@
         {% endif %}
 
         {% if section.settings.title != blank %}
-          <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+          <h2>{{ section.settings.title }}</h2>
         {% endif %}
 
         {% if section.settings.text != blank %}
@@ -75,17 +75,6 @@
       "type": "text",
       "id": "title",
       "label": "Title"
-    },
-    {
-      "type": "select",
-      "id": "text_size",
-      "label": "Title size",
-      "default": "h2",
-      "options": [
-        { "value": "h1", "label": "Large (H1)" },
-        { "value": "h2", "label": "Medium (H2)" },
-        { "value": "h3", "label": "Small (H3)" }
-      ]
     },
     {
       "type": "richtext",
