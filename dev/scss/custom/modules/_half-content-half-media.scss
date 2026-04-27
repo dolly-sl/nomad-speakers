@@ -44,6 +44,9 @@ order: 2 !important;
 
         h1{
             max-width: 408px;
+             @include MQ(MQ-480) {
+  max-width: 300px;
+             }
         }
     }
 
@@ -54,8 +57,11 @@ order: 2 !important;
         max-height: 700px;
         height: calc(50vw - 20px);
          @include MQ(MQ-768) {
+            margin-bottom: 15px;
 width: 100%;
-            height: 100vw;
+margin-left: 0;
+            height: calc(100vw - 90px);
+
            
           
          }

@@ -67,6 +67,9 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 width: 39.79%;
+  @include MQ(MQ-600) {
+    font-size: 14px;
+  }
 
 &:nth-child(2){
     background-color: $color-yellow !important;

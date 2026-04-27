@@ -16,8 +16,8 @@ h2{
    
     height: 430px !important;
     @include MQ(MQ-768) {
-      max-height: 345px;
-    height: calc(100vw - 60px) !important;
+      max-height: 315px;
+    height: calc(100vw - 90px) !important;
   }
 }
 }

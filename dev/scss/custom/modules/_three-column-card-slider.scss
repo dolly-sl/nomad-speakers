@@ -41,6 +41,12 @@
                 max-width: 340px;
                  width: calc(100vw - 60px);
              }
+             .description{
+            margin-top: 5px;
+             @include MQ(MQ-768) {
+                margin-top: 8px;
+             }
+             }
        
         .image-section{
             width: 100%;
