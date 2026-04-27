@@ -31,7 +31,7 @@
         </div>
       {% endif %}
 
-      <div class="table-wrap">
+      <div class="table-wrap ipad-none">
         <table>
           <thead>
             <tr>
@@ -72,6 +72,67 @@
             {% endfor %}
           </tbody>
         </table>
+      </div>
+
+      <div class="table-wrap mobile ipad-block">
+        <div class="table-outer nomad">
+        <table class="nomad-table">
+          <thead>
+            <tr>
+              <th colspan="2">
+                {{ section.settings.nomad_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr>
+                  <td>
+                    {{ block.settings.feature }}
+                  </td>
+                  <td {% if block.settings.nomad_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %} >
+                    
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+<div class="table-outer">
+         <table class="standard-table">
+          <thead>
+            <tr>
+             <th colspan="2">
+                {{ section.settings.standard_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr>
+                  <td>
+                    {{ block.settings.feature }}
+                  </td>
+                  <td {% if block.settings.standard_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %}>
+                    
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
       </div>
     </div>
   </section>

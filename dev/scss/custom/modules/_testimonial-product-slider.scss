@@ -3,13 +3,28 @@
     .swiper-pagination{
         bottom: 35px !important;
         z-index: 5 !important;
+        @include MQ(MQ-768) {
+          display: none !important;
+        }
     }
 
     .swiper-slide{
     padding: 100px 0;
 height: 960px;
+
 display: flex;
 align-items: center;
+ @include MQ(MQ-768) {
+  .container-1320{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  height: auto;
+  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+ }
       h2{
         color: $color-white;
       }
@@ -17,6 +32,11 @@ align-items: center;
       .content{
         max-width: 438px;
 position: relative;
+ @include MQ(MQ-768) {
+  max-width: 100%;
+  background: $color-black;
+  padding: 60px 30px 80px;
+ }
 z-index: 3;
       }
      
@@ -44,7 +64,12 @@ padding: 23px 50px 23px 15px;
 position: relative;
  max-width: 438px;
  display: flex;
- ;
+ order: -1;
+  @include MQ(MQ-768) {
+    max-width: 100%;
+    border-radius: none;
+    margin-top: 0;
+  }
 z-index: 3;
 .full-link{
     position: absolute;
@@ -109,6 +134,13 @@ z-index: 3;
         @include img-object-cover;
       
       }
+       @include MQ(MQ-768) {
+        position: relative;
+        height: 84.38vw;
+        &::before{
+          display: none !important;
+        }
+       }
       &::before {
         position: absolute;
         height: 100%;

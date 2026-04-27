@@ -12,6 +12,11 @@ border-radius: 10px;
 padding: 52.5px 24px 52.5px 40px;
 background: $color-black;
 margin-top:61px;
+  @include MQ(MQ-768) {
+   padding: 0;
+   margin-top:40px;
+background: transparent;
+  }
 table{
 width: 100%;
 border-collapse: collapse;
@@ -79,6 +84,57 @@ width: 39.79%;
  &.cross{
      background: url("icon-table-cross.svg") no-repeat center / 30px;
  }
+}
+  @include MQ(MQ-768) {
+    .table-outer{
+        padding: 0px 20px 20px;
+        border: 1px solid $color-black;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        &:last-child{
+             margin-bottom: 0;
+        }
+        &.nomad{
+            background: $color-yellow;
+            border: 1px solid $color-yellow;
+        }
+    }
+table{
+     th,td{
+    
+    color: $color-black !important;
+ }
+th{
+    padding: 26px 0 !important;
+    text-align: left !important;
+}
+ td{
+    padding: 15px 0 13px !important;
+    width: calc(100% - 50px) !important;
+   &:nth-child(2){
+     width: 50px !important;
+   }
+
+    &.checked{
+       
+ background: url("icon-table-check.svg") no-repeat right 14px center / 20px !important;
+ }
+ &.cross{
+     background: url("icon-cross-dark.svg") no-repeat right 14px center / 20px !important;
+ }
+    
+    
+ }
+
+
+&.nomad-table{
+ th,td{
+    background-color: $color-yellow !important;
+   
+ }
+ 
+}
+}
 }
 }
 }

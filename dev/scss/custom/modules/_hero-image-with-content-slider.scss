@@ -46,14 +46,21 @@ z-index: 3;
     .pre-title-bold{
         color: $color-yellow;
         margin-bottom: 13.5px;
+        @include MQ(MQ-600) {
+          margin-bottom: 10.5px;
+        }
     }
 
     h2{
         margin-bottom: 18.5px;
+         @include MQ(MQ-600) {
+          margin-bottom: 11px;
+        }
     }
 
     .btn{
         margin-top: 30px;
+        
     }
 
 
