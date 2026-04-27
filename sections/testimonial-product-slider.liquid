@@ -1,0 +1,135 @@
+
+
+{% if section.blocks.size > 0 %}
+  <section class="testimonial-product-slider">
+    <div class="swiper js_testimonial-product-slider">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'slide' %}
+            <div class="swiper-slide">
+              <div class="image-section ">
+                {% if block.settings.image != blank %}
+                  {% assign imageAlt = block.settings.image.alt | default: block.settings.title %}
+                  {% include 'image_code' with mobileImage: block.settings.mobileImage, tabletImage: block.settings.mobileImage, desktopImage: block.settings.image, imageAlt: imageAlt, critical: true %}
+                {% endif %}
+              </div>
+             <div class="container-1320 flex">
+              <div class="content">
+                 {% if block.settings.rating != blank %}
+                  {% assign imageAlt = block.settings.rating.alt | default: block.settings.title %}
+                  {{ block.settings.rating | image_url: width: 172 | image_tag: loading: 'lazy', widths: '172x36', alt:imageAlt }}
+              
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <h2 class="h4">{{ block.settings.title }}</h2>
+                {% endif %}
+
+               
+
+              
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.blocks.size > 1 %}
+       
+       <div class="swiper-pagination dark-bg swiper-pagination-testimonial-product-slider"></div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+
+
+
+<script>
+  jQuery(function () {
+    if (jQuery('.js_testimonial-product-slider').length) {
+      new Swiper('.js_testimonial-product-slider', {
+        slidesPerView: 1,
+        loop: {{ section.settings.slider_loop }},
+        pagination: {
+          el: '.swiper-pagination-testimonial-product-slider',
+          clickable: true,
+        }
+      });
+    }
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "slider_loop",
+      "label": "Loop slides",
+      "default": "true",
+      "options": [
+        { "value": "true", "label": "On" },
+        { "value": "false", "label": "Off" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Desktop image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobileImage",
+          "label": "Mobile image"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+         {
+          "type": "image_picker",
+          "id": "rating",
+          "label": "Rating (e.g. 5 stars)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+       
+         {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+         
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Product Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

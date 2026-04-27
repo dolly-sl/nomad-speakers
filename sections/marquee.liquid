@@ -1,0 +1,73 @@
+
+ 
+{% if section.blocks.size > 0 %}
+   
+      <div class="marquee-section">
+     
+        <div class="splide js__marquee-section">
+          <div class="splide__track">
+            <ul class="splide__list">
+       
+            {%- for block in section.blocks -%}
+              {% if block.settings.content != blank %}
+                <li class="splide__slide" data-splide-interval="0">
+                 <p class="h3">{{ block.settings.content }}</p>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+       
+      </div>
+   
+  {% endif %}
+  
+  {% schema %}
+  {
+    "name": "Marquee",
+    "settings": [
+         
+    ],
+    "blocks": [
+      {
+        "type": "Content",
+        "name": "Marquee item",
+        "settings": [
+          {  
+            "type": "text",
+            "id": "content",
+            "label": "Text",
+            "info": "Short line of text that scrolls in the marquee (e.g. promo, announcement, tagline). Add multiple blocks to repeat or vary the message. Blank blocks are hidden."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Marquee"
+      }
+    ]
+  }
+  {% endschema %}
+
+
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('.js__marquee-section', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        autoWidth: true,
+        arrows: false,
+        pagination: false,
+        autoScroll: {
+          speed:1,
+        },
+      }).mount(window.splide.Extensions);
+    });
+  
+  </script>
+ 

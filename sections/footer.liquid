@@ -1,9 +1,10 @@
 <footer>
   <div class="main-footer container-1408">
-    <div class="main-footer__newsletter">
+    <div class="newsletter-block">
       {% if section.settings.newsTitle != blank %}
         <span class="newsletter-title">{{ section.settings.newsTitle }}</span>
       {% endif %}
+
       {% if section.settings.newscontent != blank %}
         <div class="news-content">
           {{ section.settings.newscontent }}
