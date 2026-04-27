@@ -341,10 +341,30 @@
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": "golf-cart-bundle-hardwired"
           }
+        },
+        "slide_WMaPgX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_RDmiC8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
         }
       },
       "block_order": [
-        "slide_tQXiDz"
+        "slide_tQXiDz",
+        "slide_WMaPgX",
+        "slide_RDmiC8"
       ],
       "name": "Testimonial Product Slider",
       "settings": {
