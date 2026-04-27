@@ -323,6 +323,16 @@
         "paddingbottomMobile": 50
       }
     },
+    "content_banner_rXWJNQ": {
+      "type": "content-banner",
+      "name": "Content Banner",
+      "settings": {
+        "title": "Need Assistance?",
+        "description": "<p>We are here to help. For questions about CADDYBAR™ sizing and fitment please contact us.</p>",
+        "button_text": "Contact",
+        "button_link": "#"
+      }
+    },
     "testimonial_product_slider_Kptmhr": {
       "type": "testimonial-product-slider",
       "blocks": {
@@ -375,6 +385,7 @@
     "three_column_product_slider_DtBHWN",
     "hero_image_with_content_with_list_7W74W3",
     "two_column_card_KeNnDm",
+    "content_banner_rXWJNQ",
     "testimonial_product_slider_Kptmhr"
   ]
 }
