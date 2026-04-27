@@ -1,0 +1,215 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+<div class="half-content-half-media section-{{ section.id }}-padding">
+  <div class="container-1440 flex-wrap">
+   
+      <div class="content">
+
+        <div class="inner">
+        {% if section.settings.pretitle != blank %}
+          <span class="pre-title">{{ section.settings.pretitle }}</span>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="full-format medium">{{ section.settings.description }}</div>
+        {% endif %}
+
+        {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+          <a
+            class="btn {{ section.settings.button_style }}"
+            href="{{ section.settings.buttonLink }}"
+            {% if section.settings.button_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+            title="{{ section.settings.buttonText | escape }}"
+            aria-label="{{ section.settings.buttonText | escape }}"
+          >
+            {{ section.settings.buttonText }}
+          </a>
+        {% endif %}
+
+        </div>
+      </div>
+
+   
+        {% if section.settings.media_type == 'video' and section.settings.media_video != blank %}
+          <div class="image-section">
+            <video muted loop autoplay playsinline>
+              {% if section.settings.media_video.sources %}
+                {% assign mp4_source = section.settings.media_video.sources | where: 'format', 'mp4' | first %}
+                {% if mp4_source %}
+                  <source src="{{ mp4_source.url }}" type="video/mp4">
+                {% endif %}
+              {% endif %}
+            </video>
+          </div>
+        {% else %}
+          {% assign imageAlt = section.settings.media_image.alt %}
+          {% if imageAlt == blank %}
+            {% assign imageAlt = section.settings.title %}
+          {% endif %}
+
+          {% if section.settings.media_image != blank %}
+            <div class="image-section">
+              {% include 'image_code_medium' with mobileImage: section.settings.media_image, tabletImage: section.settings.media_image, desktopImage: section.settings.media_image, imageAlt: imageAlt %}
+            </div>
+          {% endif %}
+        {% endif %}
+      
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Half Content / Half Media",
+  "tag": "section",
+  "class": "section half-content-half-media-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "📝 Content"
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pre title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "🔘 Button"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target_blank",
+      "label": "Open button link in new tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "default": "btn--primary",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--tertiary", "label": "Tertiary" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "🖼️ / 🎥 Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "default": "video",
+      "info": "If a video is selected below, it will be used (video takes priority). If no video is selected, the image will be used.",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Uploaded video" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "media_image",
+      "label": "Image"
+    },
+    {
+      "type": "video",
+      "id": "media_video",
+      "label": "Video file",
+      "info": "Upload/select a video from your Shopify files. When Media type is set to Uploaded video, it will autoplay, loop, and be muted."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Half Content / Half Media",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

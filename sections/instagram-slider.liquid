@@ -15,7 +15,7 @@
 {% if section.blocks.size > 0 %}
   <div class="instagram-slider section-{{ section.id }}-padding ">
     <div class="container-1400">
-      <div class="heading">
+      <div class="heading flex">
         
         <h2>{{ section.settings.title }}</h2>
         {% if section.settings.buttonText != blank %}
@@ -36,7 +36,7 @@
             <ul class="splide__list">
        
             {% for block in section.blocks %}
-              <li class="swiper-slide card" {{ block.shopify_attributes }}>
+              <li class="splide__slide card" {{ block.shopify_attributes }}>
                 <div class="image-section">
                   {% if block.settings.buttonLink != blank %}
                     <a
