@@ -48,7 +48,12 @@ header {
 
   .right-nav {
     align-items: center;
-
+    @include MQ(MQ-980) {
+      .cart-wrapper {
+        width: 40px;
+        height: 40px;
+      }
+    }
     li {
       margin-right: 19px;
       z-index: 3;

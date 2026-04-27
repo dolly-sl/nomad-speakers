@@ -353,6 +353,7 @@ header {
     align-items: center;
     @include MQ(MQ-980) {
       align-items: center;
+      padding: 0 15px;
     }
   }
   /****** Header Logo ******/
@@ -436,7 +437,8 @@ header {
         /* display: block; */
         align-items: center;
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
         svg {
           position: relative;
           top: 0px;
