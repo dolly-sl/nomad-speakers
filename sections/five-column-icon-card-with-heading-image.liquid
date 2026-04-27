@@ -52,29 +52,16 @@
         </div>
       {% endif %}
 
-      {% if section.settings.buttonText != blank and section.settings.buttonLink != blank or section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
+      {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
         <div class="buttons">
-          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
-            <a
-              class="btn--secondary"
-              href="{{ section.settings.buttonLink }}"
-              title="{{ section.settings.buttonText }}"
-              aria-label="{{ section.settings.buttonText }}"
-            >
-              {{- section.settings.buttonText -}}
-            </a>
-          {% endif %}
-
-          {% if section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
-            <a
-              class="btn--secondary"
-              href="{{ section.settings.buttonLink2 }}"
-              title="{{ section.settings.buttonText2 }}"
-              aria-label="{{ section.settings.buttonText2 }}"
-            >
-              {{- section.settings.buttonText2 -}}
-            </a>
-          {% endif %}
+          <a
+            class="btn--secondary"
+            href="{{ section.settings.buttonLink }}"
+            title="{{ section.settings.buttonText }}"
+            aria-label="{{ section.settings.buttonText }}"
+          >
+            {{- section.settings.buttonText -}}
+          </a>
         </div>
       {% endif %}
     </div>
@@ -151,23 +138,13 @@
     {
       "type": "text",
       "id": "buttonText",
-      "label": "Button 1 text",
+      "label": "Button text",
       "default": "Shop now"
     },
     {
       "type": "url",
       "id": "buttonLink",
-      "label": "Button 1 link"
-    },
-    {
-      "type": "text",
-      "id": "buttonText2",
-      "label": "Button 2 text"
-    },
-    {
-      "type": "url",
-      "id": "buttonLink2",
-      "label": "Button 2 link"
+      "label": "Button link"
     },
     {
       "type": "image_picker",
