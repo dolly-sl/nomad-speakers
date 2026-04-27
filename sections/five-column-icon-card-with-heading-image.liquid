@@ -1,0 +1,267 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+    padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+
+<div class="five-column-icon-card-with-heading-image section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="container-1328">
+
+    {% if section.settings.video != blank or section.settings.image != blank %}
+      <div class="image-section">
+        {% if section.settings.video != blank %}
+          {{
+            section.settings.video
+            | video_tag:
+              image_size: '1600x',
+              loop: true,
+              autoplay: true,
+              controls: false,
+              muted: true,
+              alt: section.settings.title
+          }}
+        {% else %}
+          {% assign imageAlt = section.settings.image.alt %}
+          {% if imageAlt == blank %}
+            {% assign imageAlt = section.settings.title %}
+          {% endif %}
+          {% include 'image_code_medium' with mobileImage: section.settings.image, tabletImage: section.settings.image, desktopImage: section.settings.image, imageAlt: imageAlt %}
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="heading text-center">
+      {% if section.settings.pretitle != blank %}
+        <span class="pre-title">{{ section.settings.pretitle }}</span>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="description full-format medium">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.buttonText != blank and section.settings.buttonLink != blank or section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
+        <div class="buttons">
+          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+            <a
+              class="btn--secondary"
+              href="{{ section.settings.buttonLink }}"
+              title="{{ section.settings.buttonText }}"
+              aria-label="{{ section.settings.buttonText }}"
+            >
+              {{- section.settings.buttonText -}}
+            </a>
+          {% endif %}
+
+          {% if section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
+            <a
+              class="btn--secondary"
+              href="{{ section.settings.buttonLink2 }}"
+              title="{{ section.settings.buttonText2 }}"
+              aria-label="{{ section.settings.buttonText2 }}"
+            >
+              {{- section.settings.buttonText2 -}}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    
+
+    {% if section.blocks.size > 0 %}
+      <ul>
+        {% for block in section.blocks %}
+          {% if block.type == 'card' %}
+            <li>
+              {% if block.settings.icon != blank %}
+                <div class="icon">
+
+                  {% assign iconAlt = block.settings.image.alt %}
+          {% if iconAlt == blank %}
+            {% assign iconAlt = section.settings.title %}
+          {% endif %}
+                  {% assign iconAlt = block.settings.icon.alt | default: block.settings.title %}
+                       {{ block.settings.icon | image_url: width: 65 | image_tag: loading: 'lazy', widths: '65x65', alt:iconAlt }}
+          
+                 
+                </div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h3 class="pre-title-bold">{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <p class="small">{{ block.settings.text }}</p>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Five Icon Cards + Image",
+  "tag": "section",
+  "class": "section five-column-icon-card-with-heading-image-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "dark",
+      "options": [
+        { "value": "dark", "label": "Dark" },
+        { "value": "light", "label": "Light" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pretitle",
+      "default": "THE ALL NEW NOMAD"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Big sound. Real screen. Built different."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "buttonText2",
+      "label": "Button 2 text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink2",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Main video (autoplay)",
+      "info": "If set, this video will be shown instead of the image. It autoplays, loops, and is muted."
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Icon card",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Short supporting text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Five Icon Cards + Image",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

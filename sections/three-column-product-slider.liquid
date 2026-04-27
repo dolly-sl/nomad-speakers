@@ -13,7 +13,7 @@
 {%- endstyle -%}
 
 {% if section.blocks.size > 0 %}
-  <div class="four-column-product-slider  section-{{ section.id }}-padding ">
+  <div class="three-column-product-slider  section-{{ section.id }}-padding ">
     <div class="container-1686">
       {% if section.settings.pretitle != blank or section.settings.title != blank %}
         <div
@@ -37,7 +37,7 @@
         </div>
       {% endif %}
       <div class="slider-outer">
-        <div class="swiper js_four-column-product-slider">
+        <div class="swiper js_three-column-product-slider">
           <div class="swiper-wrapper">
             {%- for block in section.blocks -%}
               {% assign productRelated = all_products[block.settings.product] %}
@@ -58,20 +58,13 @@
     </div>
   </div>
 
-    {%- for block in section.blocks -%}
-              {% assign productRelated = all_products[block.settings.product] %}
    
-      {% render 'product-modal', productData: productRelated %}
-
-    {% endfor %}
-{%- endif -%}
 
 <script>
   jQuery(function () {
-    var swiper = new Swiper('.js_four-column-product-slider', {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-      spaceBetween: 21,
+    var swiper = new Swiper('.js_three-column-product-slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
       pagination: {
         el: '.swiper-pagination-product',
         clickable: true,
@@ -79,31 +72,15 @@
       navigation: {
         nextEl: '.swiper-button-next-product',
         prevEl: '.swiper-button-prev-product',
-      },
-      breakpoints: {
-        601: {
-          slidesPerView: 2,
-           slidesPerGroup: 2,
-          spaceBetween: 25,
-        },
-        981: {
-          slidesPerView: 3,
-          slidesPerGroup: 3,
-          spaceBetween: 25,
-        },
-        1101: {
-          slidesPerView: 4,
-          slidesPerGroup: 4,
-          spaceBetween: 25,
-        },
-      },
+      }
+    
     });
   });
 </script>
 
 {% schema %}
 {
-  "name": "4 Col Product Slider",
+  "name": "3 Col Product Slider",
   "tag": "section",
   "settings": [
     {
@@ -231,7 +208,7 @@
   ],
   "presets": [
     {
-      "name": "Four Column Product Slider",
+      "name": "Three Column Product Slider",
       "category": "Product Showcase"
     }
   ]

@@ -1,0 +1,55 @@
+.three-column-card-slider{
+    overflow: hidden;
+    .heading{
+        text-align: center;
+        a{
+            margin: 20px auto 0;
+        }
+        margin-bottom: 70px;
+    }
+   .swiper{
+    overflow: visible;
+   }
+    .slider-outer{
+        margin-bottom: 41px;
+        position: relative;
+        
+    }
+
+    .swiper-pagination{
+        bottom: -41px !important;
+    }
+
+    .card{
+        width: 400px;
+       
+       
+        .image-section{
+            width: 100%;
+            height: 400px;
+ position: relative;
+ border-radius: 10px;
+ overflow: hidden;
+ a{
+            position: absolute;
+            bottom: 25px;
+            right: 18px;
+            z-index: 3;
+            opacity: 0;
+
+ }
+ &:hover{
+    a{  opacity: 1;
+    }
+}
+           img{
+            @include img-object-cover;
+           }
+           margin-bottom: 12px;
+        }
+
+
+
+
+    }
+}

@@ -1,0 +1,69 @@
+.five-column-icon-card-with-heading-image{
+    background: $color-black;
+    *{
+        color: $color-white;
+    }
+
+.image-section{
+    position: relative;
+    width: 712px;
+    height: 480px;
+    margin: 0 auto;
+    img,video{
+@include img-object-contain;
+    }
+    margin-bottom: 25px;
+}
+
+.heading{
+    .pre-title{
+        color: $color-yellow;
+        margin-bottom: 10px;
+    }
+    .description{
+        max-width: 502px;
+        margin: 10px auto 0;
+    }
+    .buttons{
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        a{
+             
+            margin-right: 29px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+  
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 104px;
+    margin-left: -44px;
+    width: calc(100% + 44px);
+    li{
+       max-width: 200px;
+       margin-left: 44px;
+      
+        text-align: center;
+
+        .icon{
+            width: 34px;
+            position: relative;
+            height: 33px;
+            margin-bottom: 13.5px;
+            img{
+                @include img-object-contain;
+            }
+            margin: 0 auto 12px;
+        }
+        
+    }
+}
+
+}
