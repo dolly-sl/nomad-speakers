@@ -28,7 +28,18 @@
       </div>
 
       <div class="hchm__media">
-        {% if section.settings.media_type == 'image' %}
+        {% if section.settings.media_video != blank %}
+          <div class="hchm__video">
+            <video muted loop autoplay playsinline>
+              {% if section.settings.media_video.sources %}
+                {% assign mp4_source = section.settings.media_video.sources | where: 'format', 'mp4' | first %}
+                {% if mp4_source %}
+                  <source src="{{ mp4_source.url }}" type="video/mp4">
+                {% endif %}
+              {% endif %}
+            </video>
+          </div>
+        {% else %}
           {% assign imageAlt = section.settings.media_image.alt %}
           {% if imageAlt == blank %}
             {% assign imageAlt = section.settings.title %}
@@ -37,19 +48,6 @@
           {% if section.settings.media_image != blank %}
             <div class="image-section">
               {% include 'image_code_small' with mobileImage: section.settings.media_image, tabletImage: section.settings.media_image, desktopImage: section.settings.media_image, imageAlt: imageAlt %}
-            </div>
-          {% endif %}
-        {% else %}
-          {% if section.settings.media_video != blank %}
-            <div class="hchm__video">
-              <video muted loop autoplay playsinline>
-                {% if section.settings.media_video.sources %}
-                  {% assign mp4_source = section.settings.media_video.sources | where: 'format', 'mp4' | first %}
-                  {% if mp4_source %}
-                    <source src="{{ mp4_source.url }}" type="video/mp4">
-                  {% endif %}
-                {% endif %}
-              </video>
             </div>
           {% endif %}
         {% endif %}
@@ -133,7 +131,8 @@
       "type": "select",
       "id": "media_type",
       "label": "Media type",
-      "default": "image",
+      "default": "video",
+      "info": "If a video is selected below, it will be used (video takes priority). If no video is selected, the image will be used.",
       "options": [
         { "value": "image", "label": "Image" },
         { "value": "video", "label": "Uploaded video" }
