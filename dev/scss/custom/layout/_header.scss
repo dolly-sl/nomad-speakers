@@ -210,88 +210,26 @@
       }
     }
   }
-  .header-logo {
-    filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(0%)
-      hue-rotate(74deg) brightness(104%) contrast(109%);
-  }
-  // @include MQ(MQ-980) {
-  //   background: $color-white;
-  //   .btn--menu {
-  //     background: $color-yellow;
-  //     color: $color-black;
-  //     border-color: $color-yellow;
-  //     &:hover {
-  //       background: transparent;
-  //       color: $color-yellow;
-  //     }
-  //   }
-  //   .header-logo {
-  //     filter: none;
-  //   }
-  //   .right-nav {
-  //     li {
-  //       a,
-  //       button {
-  //         cursor: pointer;
-  //         svg {
-  //           path {
-  //             fill: $color-black;
-  //           }
-  //         }
-  //         &:hover,
-  //         &:focus {
-  //           svg {
-  //             path {
-  //               fill: $color-yellow !important;
-  //             }
-  //           }
-  //         }
-  //       }
-  //       &.search-li {
-  //         .search-icon {
-  //           svg {
-  //             &:nth-child(2) {
-  //               path {
-  //                 fill: #333a3f;
-  //                 stroke-width: 0;
-  //               }
-  //             }
-  //             path {
-  //               &:nth-child(2) {
-  //                 fill: #333a3f;
-  //               }
-  //               fill: transparent;
-  //               stroke: $color-black;
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 // Background Color Of Header According to the Page Conditions
 header {
   // background: white;
   transition: 0.4s ease all;
-  .header-logo {
-    filter: brightness(0) saturate(100%) invert(94%) sepia(6%) saturate(0%)
-      hue-rotate(74deg) brightness(104%) contrast(109%);
-  }
-  &.transparent {
-    background: transparent;
-    transition: 0.4s ease all;
 
-    .btn--menu {
-      background: $color-white;
-      color: $color-black;
-      border-color: $color-white;
-      &:hover {
-        background: $color-yellow;
-        border-color: $color-yellow;
-      }
-    }
-  }
+  // &.transparent {
+  //   background: transparent;
+  //   transition: 0.4s ease all;
+
+  //   .btn--menu {
+  //     background: $color-white;
+  //     color: $color-black;
+  //     border-color: $color-white;
+  //     &:hover {
+  //       background: $color-yellow;
+  //       border-color: $color-yellow;
+  //     }
+  //   }
+  // }
   &.fixed {
     transition: 0.4s ease all;
     background: $color-yellow;
@@ -340,9 +278,7 @@ header {
     @include MQ(MQ-980) {
       height: 60px;
     }
-    .header-logo {
-      filter: none;
-    }
+
     .btn--menu {
       background: $color-yellow;
       color: $color-black;
@@ -492,24 +428,15 @@ header {
   }
   /****** Header Logo ******/
   .header-logo {
-    position: absolute;
+    position: relative;
     margin: 0 auto;
-    width: 100%;
-    left: 0;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    top: 21px;
-    @include MQ(MQ-980) {
-      position: relative;
-      top: auto;
-      width: auto;
-      margin-left: 0;
-    }
+    width: fit-content;
+
     a {
       width: 202px;
       display: block;
       height: 47px;
+      color: var($color-black);
       @include MQ(MQ-1100) {
         width: 150px;
       }
@@ -741,7 +668,9 @@ header {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+  transition:
+    opacity 0.5s ease-in,
+    transform 0.5s ease-in;
   position: absolute; /* or fixed, depending on your layout */
   z-index: 1000;
   top: 70px;

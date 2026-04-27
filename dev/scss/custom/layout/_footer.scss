@@ -30,6 +30,7 @@ footer {
       font-weight: 500;
       line-height: 54px;
       position: relative;
+      padding-top: 20px;
       @include MQ(MQ-768) {
         font-size: 40px;
         line-height: 36px;
@@ -39,9 +40,11 @@ footer {
         content: "";
         left: 0;
         right: 0;
+        margin: 0 auto;
+        top: -20px;
         width: 29.5px;
         height: 18.5px;
-        background: url(assets/icon-mail.svg) no-repeat center/contain;
+        background: url(icon-mail.svg) no-repeat center / contain;
       }
     }
     .news-content {
@@ -198,11 +201,6 @@ footer {
     align-items: center;
     width: 100%;
 
-    // @include MQ(MQ-980) {
-    //   justify-content: center;
-    //   margin-top: 30px;
-    // }
-    // margin-top: 40px;
     ul {
       display: flex;
       align-items: center;
