@@ -63,6 +63,23 @@
         </div>
 
        {%- endif -%}
+<script>
+  jQuery(function () {
+    var swiper = new Swiper('.js_three-column-card-slider', {
+      slidesPerView: 'auto',
+      slidesPerGroup: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination-three-column-card',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-three-column-card',
+        prevEl: '.swiper-button-prev-three-column-card',
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
