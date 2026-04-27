@@ -31,7 +31,7 @@
         </div>
       {% endif %}
 
-      <div class="table-wrap">
+      <div class="table-wrap ipad-none">
         <table>
           <thead>
             <tr>
@@ -59,6 +59,64 @@
                       class="cross"
                     {% endif %} >
                     
+                  </td>
+                  <td {% if block.settings.standard_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %}>
+                    
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap ipad-block">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                {{ section.settings.nomad_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr>
+                  <td>
+                    {{ block.settings.feature }}
+                  </td>
+                  <td {% if block.settings.nomad_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %} >
+                    
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+
+         <table>
+          <thead>
+            <tr>
+              <th>
+                {{ section.settings.standard_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr>
+                  <td>
+                    {{ block.settings.feature }}
                   </td>
                   <td {% if block.settings.standard_has %}
                       class="checked"
