@@ -435,6 +435,96 @@
         "paddingbottom": 0,
         "paddingbottomMobile": 0
       }
+    },
+    "instagram_slider_xJDiF4": {
+      "type": "instagram-slider",
+      "blocks": {
+        "card_G9cpVW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_qK3im9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_6NBmNM": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_wTrQj8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_9tGRpD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_XkUCQP": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_zQVPmC": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_naAbHP": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        },
+        "card_HfFwiM": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/insta.jpg",
+            "buttonLink": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_G9cpVW",
+        "card_qK3im9",
+        "card_6NBmNM",
+        "card_wTrQj8",
+        "card_9tGRpD",
+        "card_XkUCQP",
+        "card_zQVPmC",
+        "card_naAbHP",
+        "card_HfFwiM"
+      ],
+      "name": "Instagram Slider",
+      "settings": {
+        "title": "Where We Roam",
+        "buttonText": "Learn More",
+        "buttonLink": "#",
+        "button_target_blank": true,
+        "paddingtop": 88,
+        "paddingtopmobile": 68,
+        "paddingbottom": 78,
+        "paddingbottomMobile": 50
+      }
     }
   },
   "order": [
@@ -445,6 +535,7 @@
     "three_column_product_slider_XW7j4M",
     "marquee_HqfbWU",
     "testimonial_product_slider_8whV8c",
-    "feature_comparison_table_bktgqn"
+    "feature_comparison_table_bktgqn",
+    "instagram_slider_xJDiF4"
   ]
 }

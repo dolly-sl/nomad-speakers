@@ -82,6 +82,19 @@
     "sections": {
       "announcement": {
         "type": "announcement",
+        "blocks": {
+          "announcement_7yWRrr": {
+            "type": "announcement",
+            "settings": {
+              "header_text": "<p>Free Shipping on Orders of $100 or More</p>",
+              "announcement_link": "shopify://collections",
+              "announcement_link_text": "Shop"
+            }
+          }
+        },
+        "block_order": [
+          "announcement_7yWRrr"
+        ],
         "settings": {
           "show_announcement": true,
           "announcementColor": "#000000"
