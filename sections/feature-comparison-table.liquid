@@ -16,13 +16,13 @@
         <table class="compare-grid">
           <thead>
             <tr>
-              <th class="cell header col-feature" scope="col">
+              <th>
                 {{ section.settings.feature_column_title }}
               </th>
-              <th class="cell header col-nomad" scope="col">
+              <th>
                 {{ section.settings.nomad_column_title }}
               </th>
-              <th class="cell header col-standard" scope="col">
+              <th>
                 {{ section.settings.standard_column_title }}
               </th>
             </tr>
@@ -34,35 +34,19 @@
                   <th class="cell col-feature" scope="row">
                     {{ block.settings.feature }}
                   </th>
-                  <td>
-                    {% if block.settings.nomad_has %}
-                      <span class="icon" aria-label="Yes">
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                          <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
-                        </svg>
-                      </span>
+                  <td {% if block.settings.nomad_has %}
+                      class="checked"
                     {% else %}
-                      <span class="icon" aria-label="No">
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                          <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
-                        </svg>
-                      </span>
-                    {% endif %}
+                      class="cross"
+                    {% endif %} >
+                    
                   </td>
-                  <td class="cell col-standard">
-                    {% if block.settings.standard_has %}
-                      <span class="icon" aria-label="Yes">
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                          <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
-                        </svg>
-                      </span>
+                  <td {% if block.settings.standard_has %}
+                      class="checked"
                     {% else %}
-                      <span class="icon" aria-label="No">
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                          <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
-                        </svg>
-                      </span>
-                    {% endif %}
+                      class="cross"
+                    {% endif %}>
+                    
                   </td>
                 </tr>
               {% endif %}
