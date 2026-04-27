@@ -28,6 +28,47 @@
 
               
                 </div>
+
+
+                 {% assign productRelated = all_products[block.settings.product] %}
+
+              {% if productRelated != blank %}
+                <div class="product-section">
+                  <div class="product-wrapper">
+                    <a
+                      href="{{ productRelated.url }}"
+                      class="full-link"
+                      aria-label="View {{ productRelated.title }}"
+                    ></a>
+                    <div class="image-section">
+                      {% assign imageAlt = productRelated.featured_image.alt %}
+                      {% if imageAlt == blank %}
+                        {% assign imageAlt = productRelated.title %}
+                      {% endif %}
+                      {% if productRelated.featured_image != blank %}
+                        {% include 'image_code_small' with mobileImage: productRelated.featured_image, tabletImage: productRelated.featured_image, desktopImage: productRelated.featured_image, imageAlt: imageAlt %}
+                      {% endif %}
+                    </div>
+                    <div class="content">
+                      <div class="text">
+                        <div class="product-title h6">
+                          {{ productRelated.title }}
+                        </div>
+                        <div class="pre-title">
+                          FOR EVERYDAY USE
+                        </div>
+                        <div class="product-price flex">
+                          <span>{{ productRelated.price | money }}</span>
+                          {% if productRelated.compare_at_price_min > productRelated.price %}
+                            <s>{{ productRelated.compare_at_price_min | money }}</s>
+                          {% endif %}
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
               </div>
             </div>
           {% endif %}
@@ -94,7 +135,7 @@
       "id": "autoplay_delay",
       "label": "Autoplay delay (ms)",
       "min": 2000,
-      "max": 10000,
+      "max": 9500,
       "step": 500,
       "default": 5000
     }
