@@ -9,47 +9,24 @@
  */
 {
   "sections": {
-    "HeroBanner": {
-      "type": "home-hero-banner",
-      "blocks": {
-        "d96d2ebe-b86c-4725-886e-21c6b9472a39": {
-          "type": "slide",
-          "settings": {
-            "videobanner": true,
-            "video": "https://cdn.shopify.com/videos/c/o/v/0720591235aa4bbaa01111d3d30ec86e.mp4",
-            "mobileMediaType": "video",
-            "videoMobile": "https://cdn.shopify.com/videos/c/o/v/60ceb7eba5fe46b6bd649cd4d1cd92ca.mp4",
-            "pretitle": "Built to Last. Made in the USA",
-            "title": "The Ultimate GOLF BALL PICKER",
-            "text_size": "h1",
-            "buttonText": "Shop Now",
-            "buttonLink": "#",
-            "button_style": "btn--primary",
-            "content_alignment": "center"
-          }
-        },
-        "slide_Nb3jCh": {
-          "type": "slide",
-          "settings": {
-            "videobanner": false,
-            "video": "",
-            "mobileMediaType": "image",
-            "videoMobile": "",
-            "pretitle": "Subtitle",
-            "title": "Headline",
-            "text_size": "h1",
-            "buttonText": "Text",
-            "buttonLink": "#",
-            "button_style": "btn--primary",
-            "content_alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "d96d2ebe-b86c-4725-886e-21c6b9472a39",
-        "slide_Nb3jCh"
-      ],
-      "settings": {}
+    "half_content_half_media_ggNqne": {
+      "type": "half-content-half-media",
+      "name": "Half Content / Half Media",
+      "settings": {
+        "pretitle": "Starting at $399",
+        "title": "Meet the Boombox of 2026",
+        "description": "<p>Waterproof and portable, the Nomad combines a vibrant HD screen, massive sound, and true portability into one all-in-one device you can use on its own, with CarPlay, or like a Bluetooth speaker.</p>",
+        "buttonText": "Build Your NomaD",
+        "buttonLink": "#",
+        "button_target_blank": false,
+        "button_style": "btn--primary",
+        "media_type": "video",
+        "media_image": "shopify://shop_images/image-2.png",
+        "paddingtop": 0,
+        "paddingtopmobile": 0,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
     },
     "three_column_card_slider_VXjQr9": {
       "type": "three-column-card-slider",
@@ -528,7 +505,7 @@
     }
   },
   "order": [
-    "HeroBanner",
+    "half_content_half_media_ggNqne",
     "three_column_card_slider_VXjQr9",
     "five_column_icon_card_with_heading_image_WqRfq8",
     "hero_image_with_content_slider_aKgCLg",

@@ -1,7 +1,7 @@
 <!-- Header -->
-<header class="header site-header transparent" id="mainHeader">
+<header class="header site-header" id="mainHeader">
   <div class="main-header js__main-header">
-    <div class="container-1570 flex-align-center">
+    <div class="container-1332 flex-align-center">
       <div class="header-logo relative">
         <a href="{{ routes.root_url }}" itemprop="url" alt="{{shop.name}}">
           {% if section.settings.logo != blank %}
@@ -22,8 +22,10 @@
           {% endif %}
         </a>
       </div>
-      <div class="middle-menu flex-align-center">
-        <!-- Main Nav -->
+
+      <!-- Logo -->
+      <!-- Account, Cart -->
+      <ul class="right-nav flex-align-center">
         <div class="navbar-collapse" id="navbarNavDropdown">
           {% assign mainMenu = linklists[section.settings.nav_menu] %}
           <nav class="main-menu">
@@ -54,10 +56,6 @@
             </ul>
           </div>
         </div>
-      </div>
-      <!-- Logo -->
-      <!-- Account, Cart -->
-      <ul class="right-nav flex-align-center">
         {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
           <li class="btn none-980">
             <a href="{{ section.settings.btnLink }}" title="{{ section.settings.btnText }}" class="btn--menu">
@@ -68,7 +66,7 @@
         <li class=" search-li ">
           <button type="button" id="js__header-search-btn" class="js__search search-icon" title="Search">
             <img src="{{'icon-search.svg' | asset_url }}" alt="Search Icon">
-            <span>Search</span>
+            
           </button>
           <div class="header-search-section " id="js-header-search-section">
             <div class="container-750">
