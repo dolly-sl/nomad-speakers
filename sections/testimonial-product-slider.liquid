@@ -1,8 +1,8 @@
 
 
 {% if section.blocks.size > 0 %}
-  <section class="hero-image-with-content-slider">
-    <div class="swiper js_hero-image-with-content-slider">
+  <section class="testimonial-product-slider">
+    <div class="swiper js_testimonial-product-slider">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           {% if block.type == 'slide' %}
@@ -44,9 +44,9 @@
       </div>
 
       {% if section.blocks.size > 1 %}
-        <div class="swiper-button-prev swiper-button-prev-hero-image-with-content"></div>
-        <div class="swiper-button-next swiper-button-next-hero-image-with-content"></div>
-       <div class="swiper-pagination dark-bg swiper-pagination-hero-image-with-content"></div>
+        <div class="swiper-button-prev swiper-button-prev-testimonial-product-slider"></div>
+        <div class="swiper-button-next swiper-button-next-testimonial-product-slider"></div>
+       <div class="swiper-pagination swiper-pagination-testimonial-product-slider"></div>
       {% endif %}
     </div>
   </section>
@@ -73,7 +73,7 @@
     }
   });
 </script>
-testimonial-product-slider
+
 
 {% schema %}
 {
