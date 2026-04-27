@@ -1,5 +1,12 @@
 {% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
- 
+  {%- liquid
+    assign features_visible = 0
+    for block in section.blocks
+      if block.type == 'feature' and block.settings.label != blank
+        assign features_visible = features_visible | plus: 1
+      endif
+    endfor
+  -%}
   <section class="hero-image-with-content-with-list align-{{ section.settings.content_alignment }}">
     <div class="image-section ">
       {% if section.settings.video != blank %}
@@ -18,25 +25,39 @@
         {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
       {% endif %}
     </div>
-      <div class="container-1336 flex">
-        <div class="content">
-          {% if section.settings.pretitle != blank %}
-            <span class="pre-title">{{ section.settings.pretitle }}</span>
-          {% endif %}
+    <div class="container-1336 flex">
+      <div class="content">
+        {% if section.settings.pretitle != blank %}
+          <span class="pre-title">{{ section.settings.pretitle }}</span>
+        {% endif %}
 
-          {% if section.settings.title != blank %}
-            <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
-          {% endif %}
+        {% if section.settings.title != blank %}
+          <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
 
-          
-          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
-            <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
-              {{- section.settings.buttonText -}}
-            </a>
-          {% endif %}
-        </div>
-      
+        {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+          <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
+            {{- section.settings.buttonText -}}
+          </a>
+        {% endif %}
+      </div>
     </div>
+
+    {% if features_visible > 0 %}
+      <div class="hero-image-with-content-with-list__features">
+        <div class="hero-image-with-content-with-list__features-bar">
+          <ul class="hero-image-with-content-with-list__features-list" role="list">
+            {% for block in section.blocks %}
+              {% if block.type == 'feature' and block.settings.label != blank %}
+                <li class="hero-image-with-content-with-list__feature-item" {{ block.shopify_attributes }}>
+                  <span class="hero-image-with-content-with-list__feature-text">{{ block.settings.label | escape }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
   </section>
 {% endif %}
 
@@ -108,15 +129,48 @@
       "label": "Button text",
       "default": "Shop now"
     },
-     {
-          "type": "url",
-          "id": "buttonLink",
-          "label": "Button link"
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "FEATURE LABEL"
         }
+      ]
+    }
   ],
   "presets": [
     {
-      "name": "Hero image content list"
+      "name": "Hero image content list",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": { "label": "SIMPLE MOUNTING PROCESS" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "NO COMPLICATED FABRICATION" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "STEP-BY-STEP INSTRUCTIONS" }
+        },
+        {
+          "type": "feature",
+          "settings": { "label": "VIDEO INSTALL TUTORIAL" }
+        }
+      ]
     }
   ]
 }
