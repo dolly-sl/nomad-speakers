@@ -17,7 +17,7 @@
     <div class="container-1400">
       {% if section.settings.title != blank %}
         <div
-          class="top-section flex"
+          class="top-section flex "
         >
           {% if section.settings.title != blank %}
             <h2 class="{{section.settings.text_size}}">
@@ -35,8 +35,11 @@
             </a>
           {% endif %}
         </div>
+
       {% endif %}
+       </div>
       <div class="slider-outer">
+        <div class="container-1400">
         <div class="swiper js_three-column-product-slider">
           <div class="swiper-wrapper">
             {%- for block in section.blocks -%}
@@ -50,6 +53,7 @@
             {% endfor %}
           </div>
         </div>
+      </div>
 
         <div class="swiper-button-prev swiper-button-prev-product"></div>
         <div class="swiper-button-next swiper-button-next-product "></div>
