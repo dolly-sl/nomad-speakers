@@ -4,8 +4,14 @@
         text-align: center;
         a{
             margin: 20px auto 0;
+              @include MQ(MQ-768) {
+                margin-top: 9px;
+              }
         }
         margin-bottom: 70px;
+         @include MQ(MQ-768) {
+              margin-bottom: 40px;
+         }
     }
    .swiper{
     overflow: visible;
@@ -13,20 +19,34 @@
     .slider-outer{
         margin-bottom: 41px;
         position: relative;
+         @include MQ(MQ-768) {
+            margin-bottom: 37px;
+         }
         
     }
 
+
+
     .swiper-pagination{
         bottom: -41px !important;
+         @include MQ(MQ-768) {
+              bottom: -37px !important;
+         }
+
     }
 
     .card{
         width: 400px;
-       
+       @include MQ(MQ-768) {
+                width: 340px;
+             }
        
         .image-section{
             width: 100%;
             height: 400px;
+             @include MQ(MQ-768) {
+                height: 340px;
+             }
  position: relative;
  border-radius: 10px;
  overflow: hidden;
