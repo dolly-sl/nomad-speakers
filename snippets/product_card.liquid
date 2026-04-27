@@ -96,7 +96,7 @@
         {% if productRelated.variants.size > 1 %}
           <span class="starting">Starting at </span> <span> {{ productRelated.price_min | money }} </span>
         {% else %}
-          <span> {{ productRelated.price | money }}</span>
+          <span {% if productRelated.compare_at_price_min > productRelated.price %} class="red"  {% endif %}> {{ productRelated.price | money }}</span>
           {% if productRelated.compare_at_price_min > productRelated.price %}
             <s>
               {{ productRelated.compare_at_price_min | money }}
