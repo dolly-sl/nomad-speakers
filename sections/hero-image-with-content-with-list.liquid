@@ -34,13 +34,21 @@
         {% if section.settings.title != blank %}
           <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
         {% endif %}
-           {% if block.settings.description != blank %}
-                  <div class="description full-format">
-                    {{ block.settings.description }}
-                  </div>
-                {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="description full-format">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
         {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
-          <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
+          <a
+            class="btn btn--secondary"
+            href="{{ section.settings.buttonLink }}"
+            title="{{ section.settings.buttonText | escape }}"
+            aria-label="{{ section.settings.buttonText | escape }}"
+            {% if section.settings.button_opens_lity_modal %}data-lity{% endif %}
+          >
             {{- section.settings.buttonText -}}
           </a>
         {% endif %}
@@ -140,6 +148,13 @@
       "type": "url",
       "id": "buttonLink",
       "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_lity_modal",
+      "label": "Open button link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
     }
   ],
   "blocks": [
