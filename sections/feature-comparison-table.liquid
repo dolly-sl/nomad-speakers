@@ -50,9 +50,9 @@
             {% for block in section.blocks %}
               {% if block.type == 'row' %}
                 <tr>
-                  <th class="cell col-feature" scope="row">
+                  <td>
                     {{ block.settings.feature }}
-                  </th>
+                  </td>
                   <td {% if block.settings.nomad_has %}
                       class="checked"
                     {% else %}
