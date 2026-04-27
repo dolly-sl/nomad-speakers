@@ -113,70 +113,24 @@
   "name": "Two Column Card",
   "tag": "section",
   "settings": [
-    {
-      "type": "header",
-      "content": "Background image or video"
-    },
-    {
-      "type": "video",
-      "id": "video",
-      "label": "Background video",
-      "info": "If set, video is shown instead of images. Autoplays muted in a loop."
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Desktop image"
-    },
-    {
-      "type": "image_picker",
-      "id": "mobileImage",
-      "label": "Mobile image"
-    },
+     
     {
       "type": "header",
       "content": "Heading"
     },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "Heading alignment",
-      "default": "center",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "text_size",
-      "label": "Title size",
-      "default": "h2",
-      "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" }
-      ]
-    },
-    {
+     {
       "type": "text",
       "id": "pretitle",
       "label": "Pretitle",
       "default": "CHOOSE YOUR POWER SETUP"
     },
-    {
+  {
       "type": "text",
       "id": "title",
       "label": "Title",
       "default": "Two ways to power your setup"
     },
-    {
-      "type": "richtext",
-      "id": "intro",
-      "label": "Intro text",
-      "info": "Optional paragraph below the title."
-    },
+    
     {
       "type": "text",
       "id": "button_text",
@@ -187,25 +141,13 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
-    },
-    {
-      "type": "checkbox",
-      "id": "button_show_arrow",
-      "label": "Show arrow icon on button",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "button_opens_lity",
-      "label": "Open button link in video lightbox (Lity)",
-      "default": false,
-      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL."
     }
+    
   ],
   "blocks": [
     {
-      "type": "kit_card",
-      "name": "Comparison card",
+      "type": "card",
+      "name": "Card",
       "limit": 2,
       "settings": [
         {
@@ -216,8 +158,7 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Kit title"
+          "label": "Title"
         },
         {
           "type": "richtext",
@@ -235,25 +176,8 @@
   ],
   "presets": [
     {
-      "name": "Two kit comparison",
-      "blocks": [
-        {
-          "type": "kit_card",
-          "settings": {
-            "title": "Hardwired Kit",
-            "description": "<p>Best for riders who want a permanent, always-ready setup with continuous power every time they ride.</p>",
-            "bullet_list": "<ul><li>Wires direct to battery on gas or electric carts</li><li>Works with batteries from 12-60V</li><li>Clean integrated install</li></ul>"
-          }
-        },
-        {
-          "type": "kit_card",
-          "settings": {
-            "title": "Rechargeable Kit",
-            "description": "<p>Best for riders who want the simplest install possible. Charge Nomad just like a phone or tablet via USB-C</p>",
-            "bullet_list": "<ul><li>No wiring needed</li><li>Fastest install</li><li>Great for flexibility</li></ul>"
-          }
-        }
-      ]
+      "name": "Two Column Card",
+      
     }
   ]
 }
