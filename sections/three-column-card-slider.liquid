@@ -45,6 +45,11 @@
                 {{- block.settings.buttonText -}}
               </a>
             {% endif %}
+            {% assign imageAlt = block.settings.image.alt %}
+                            {% if imageAlt == blank %}
+                              {% assign imageAlt = block.settings.title %}
+                            {% endif %}
+                           
                         {% if block.settings.image != blank %}
                              {% include 'image_code_small'  with  mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
                         {% endif %}
