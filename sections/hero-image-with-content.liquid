@@ -1,181 +1,116 @@
-
-
-{% if section.blocks.size > 0 %}
+{% if section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
   <section class="hero-image-with-content-slider">
-    <div class="swiper js_hero-image-with-content-slider">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          {% if block.type == 'slide' %}
-            <div class="swiper-slide align-{{ block.settings.content_alignment }}" {{ block.shopify_attributes }}>
-              <div class="image-section ">
-                {% if block.settings.image != blank %}
-                  {% assign imageAlt = block.settings.image.alt | default: block.settings.title %}
-                  {% include 'image_code' with mobileImage: block.settings.mobileImage, tabletImage: block.settings.mobileImage, desktopImage: block.settings.image, imageAlt: imageAlt, critical: true %}
-                {% endif %}
-              </div>
-             <div class="container-1410 flex">
-              <div class="content">
-                {% if block.settings.pretitle != blank %}
-                  <span class="pre-title-bold">{{ block.settings.pretitle }}</span>
-                {% endif %}
+    <div class="swiper-slide align-{{ section.settings.content_alignment }}">
+      <div class="image-section ">
+        {% if section.settings.image != blank %}
+          {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
+          {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
+        {% endif %}
+      </div>
+      <div class="container-1410 flex">
+        <div class="content">
+          {% if section.settings.pretitle != blank %}
+            <span class="pre-title-bold">{{ section.settings.pretitle }}</span>
+          {% endif %}
 
-                {% if block.settings.title != blank %}
-                  <h2 class="{{ block.settings.text_size }}">{{ block.settings.title }}</h2>
-                {% endif %}
+          {% if section.settings.title != blank %}
+            <h2 class="{{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+          {% endif %}
 
-                {% if block.settings.description != blank %}
-                  <div class="description full-format">
-                    {{ block.settings.description }}
-                  </div>
-                {% endif %}
-
-                {% if block.settings.buttonText != blank and block.settings.buttonLink != blank %}
-                  
-                    <a class="btn btn--secondary" href="{{ block.settings.buttonLink }}">
-                      {{- block.settings.buttonText -}}
-                    </a>
-                 
-                {% endif %}
-                </div>
-              </div>
+          {% if section.settings.description != blank %}
+            <div class="description full-format">
+              {{ section.settings.description }}
             </div>
           {% endif %}
-        {% endfor %}
-      </div>
 
-      {% if section.blocks.size > 1 %}
-        <div class="swiper-button-prev swiper-button-prev-hero-image-with-content"></div>
-        <div class="swiper-button-next swiper-button-next-hero-image-with-content"></div>
-       <div class="swiper-pagination dark-bg swiper-pagination-hero-image-with-content"></div>
-      {% endif %}
+          {% if section.settings.buttonText != blank and section.settings.buttonLink != blank %}
+            <a class="btn btn--secondary" href="{{ section.settings.buttonLink }}">
+              {{- section.settings.buttonText -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </section>
 {% endif %}
 
-
-
-
-<script>
-  jQuery(function () {
-    if (jQuery('.js_hero-image-with-content-slider').length) {
-      new Swiper('.js_hero-image-with-content-slider', {
-        slidesPerView: 1,
-        loop: {{ section.settings.slider_loop }},
-        pagination: {
-          el: '.swiper-pagination-hero-image-with-content',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next-hero-image-with-content',
-          prevEl: '.swiper-button-prev-hero-image-with-content',
-        }
-      });
-    }
-  });
-</script>
-
-
 {% schema %}
 {
-  "name": "Hero Image Content Slider",
+  "name": "Hero image with content",
   "tag": "section",
   "class": "section hero-image-with-content-section",
   "settings": [
     {
-      "type": "select",
-      "id": "slider_loop",
-      "label": "Loop slides",
-      "default": "true",
-      "options": [
-        { "value": "true", "label": "On" },
-        { "value": "false", "label": "Off" }
-      ]
-    }
-  ],
-  "blocks": [
+      "type": "header",
+      "content": "Background image"
+    },
     {
-      "type": "slide",
-      "name": "Slide",
-      "limit": 10,
-      "settings": [
-        {
-          "type": "header",
-          "content": "Background image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Desktop image"
-        },
-        {
-          "type": "image_picker",
-          "id": "mobileImage",
-          "label": "Mobile image"
-        },
-        {
-          "type": "header",
-          "content": "Content"
-        },
-        {
-          "type": "select",
-          "id": "content_alignment",
-          "label": "Content alignment",
-          "default": "left",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "text_size",
-          "label": "Title size",
-          "default": "h1",
-          "options": [
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "pretitle",
-          "label": "Pretitle"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "text",
-          "id": "buttonText",
-          "label": "Button text",
-          "default": "Shop now"
-        },
-        {
-          "type": "url",
-          "id": "buttonLink",
-          "label": "Button link"
-        }
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobileImage",
+      "label": "Mobile image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
       ]
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Title size",
+      "default": "h1",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "Pretitle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
     }
   ],
   "presets": [
     {
-      "name": "Hero Image Content Slider",
-      "blocks": [
-        { "type": "slide" },
-        { "type": "slide" }
-      ]
+      "name": "Hero image with content"
     }
   ]
 }
 {% endschema %}
-
