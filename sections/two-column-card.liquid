@@ -1,13 +1,6 @@
-{%- liquid
-  assign kit_count = 0
-  for block in section.blocks
-    if block.type == 'kit_card'
-      assign kit_count = kit_count | plus: 1
-    endif
-  endfor
--%}
+
 {% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank or kit_count > 0 %}
-  <section class="two-kit-comparison align-{{ section.settings.content_alignment }}">
+  <section class="two-column-card.liquid">
     <div class="two-kit-comparison__outer">
       <div class="two-kit-comparison__media">
         {% if section.settings.video != blank %}
@@ -117,9 +110,8 @@
 
 {% schema %}
 {
-  "name": "Two kit comparison",
+  "name": "Two Column Card",
   "tag": "section",
-  "class": "section two-kit-comparison-section",
   "settings": [
     {
       "type": "header",
