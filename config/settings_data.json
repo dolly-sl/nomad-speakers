@@ -86,9 +86,7 @@
         "type": "footer",
         "settings": {
           "newsTitle": "Keep in Touch",
-          "newscontent": "",
-          "footerMenu": "",
-          "contactHeading": "",
+          "newscontent": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
           "copyright": ""
         }
       }

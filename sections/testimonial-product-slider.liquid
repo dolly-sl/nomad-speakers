@@ -51,6 +51,13 @@
       new Swiper('.js_testimonial-product-slider', {
         slidesPerView: 1,
         loop: {{ section.settings.slider_loop }},
+        {% if section.settings.autoplay_enabled %}
+        autoplay: {
+          delay: {{ section.settings.autoplay_delay | default: 5000 }},
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        {% endif %}
         pagination: {
           el: '.swiper-pagination-testimonial-product-slider',
           clickable: true,
@@ -75,6 +82,21 @@
         { "value": "true", "label": "On" },
         { "value": "false", "label": "Off" }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_enabled",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (ms)",
+      "min": 2000,
+      "max": 10000,
+      "step": 500,
+      "default": 5000
     }
   ],
   "blocks": [

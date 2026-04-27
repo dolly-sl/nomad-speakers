@@ -329,6 +329,47 @@
       ],
       "name": "Marquee",
       "settings": {}
+    },
+    "testimonial_product_slider_8whV8c": {
+      "type": "testimonial-product-slider",
+      "blocks": {
+        "slide_tQXiDz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_WMaPgX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_RDmiC8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        }
+      },
+      "block_order": [
+        "slide_tQXiDz",
+        "slide_WMaPgX",
+        "slide_RDmiC8"
+      ],
+      "name": "Testimonial Product Slider",
+      "settings": {
+        "slider_loop": "true"
+      }
     }
   },
   "order": [
@@ -337,6 +378,7 @@
     "five_column_icon_card_with_heading_image_WqRfq8",
     "hero_image_with_content_slider_aKgCLg",
     "three_column_product_slider_XW7j4M",
-    "marquee_HqfbWU"
+    "marquee_HqfbWU",
+    "testimonial_product_slider_8whV8c"
   ]
 }

@@ -1,73 +1,30 @@
-.four-column-product-slider {
+.three-column-product-slider {
   overflow: hidden;
-  h2{
-    @include MQ(MQ-600) {
-      font-size: 30px !important;
-    }
-  }
-  .container-1686{
-    @include MQ(MQ-600) {
-      padding: 0 20px;
-      .swiper {
-        overflow: visible;
-      }
-    }
-  }
-  .slider-outer{
-        padding: 0 57px;
-        margin-top: 15px;
-        position: relative;
-        @include MQ(MQ-600) {
-           margin-top: 36px;
-          padding: 0 37.5px;
-          padding-bottom: 55px;
-        }
-
-    }
-
-
- .swiper-pagination{
-  display: none;
-  @include MQ(MQ-600) {
-display: flex;
-justify-content: center;
-width: 100%;
-  }
- }
-
- 
-
-
-.product-card {
-    .product-wrapper {
-        .image-section {
-           @include MQ(MQ-1100) {
-           height: 27vw;
-           }
-            @include MQ(MQ-980) {
-           height: 40vw;
-           }
-            @include MQ(MQ-600) {
-           height: calc(100vw - 115px);
-           }
-        }
-    }
-
-     @include MQ(MQ-480) {
-      .product-card__price span, .product-card__price s{
-
-        font-size: 12px;
-      }
-       }
+ background: $color-black;
+h2{
+  color: $color-white;
 }
+
+.product-card{
+  width: 430px;
+  .image-section {
+   
+    height: 430px !important;
+}
+}
+
+.slider-outer{
+  padding-bottom: 48px;
+  position: relative;
+
+}
+
+
 .top-section{
-  text-align: center;
- .link--primary{
-  margin: 5px auto 0;
-   @include MQ(MQ-600) {
-    margin-top: 10px;
-   }
- }
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
 }
 
@@ -76,4 +33,4 @@ width: 100%;
 
 
 
-}
+

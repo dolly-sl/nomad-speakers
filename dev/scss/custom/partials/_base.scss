@@ -52,6 +52,7 @@ body {
     line-height: var(--para-mobile-lineheight);
     letter-spacing: var(--para-mobile-letterspacing);
   }
+  background: $color-border;
   position: relative;
 }
 .page-container {
@@ -1083,7 +1084,7 @@ text-transform: uppercase;
 .container-1320 {
   max-width: 1320px;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 30px;
   margin: 0 auto;
 }
 
