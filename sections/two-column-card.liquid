@@ -15,16 +15,16 @@
   <div class="two-column-card section-{{ section.id }}-padding ">
     <div class="container-1280">
       <div class="heading">
-        <span class="pre-title">{{ section.settings.pre_title }}</span>
+        <span class="pre-title">{{ section.settings.pretitle }}</span>
         <h2>{{ section.settings.title }}</h2>
-        {% if section.settings.buttonText != blank %}
+        {% if section.settings.button_text != blank %}
           <a
             class="btn--primary"
-            href="{{ section.settings.buttonLink }}"
+            href="{{ section.settings.button_link }}"
             title="Read More About {{ section.settings.title }}"
             aria-label="Read More About {{ section.settings.title }}"
           >
-            {{- section.settings.buttonText -}}
+            {{- section.settings.button_text -}}
           </a>
         {% endif %}
       </div>
