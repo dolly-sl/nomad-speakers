@@ -87,9 +87,16 @@
             </div>
           {% endif %}
         {% else %}
-          {% if section.settings.video_html != blank %}
+          {% if section.settings.media_video != blank %}
             <div class="hchm__video">
-              {{ section.settings.video_html }}
+              <video muted loop autoplay playsinline>
+                {% if section.settings.media_video.sources %}
+                  {% assign mp4_source = section.settings.media_video.sources | where: 'format', 'mp4' | first %}
+                  {% if mp4_source %}
+                    <source src="{{ mp4_source.url }}" type="video/mp4">
+                  {% endif %}
+                {% endif %}
+              </video>
             </div>
           {% endif %}
         {% endif %}
@@ -176,7 +183,7 @@
       "default": "image",
       "options": [
         { "value": "image", "label": "Image" },
-        { "value": "video_html", "label": "Video embed HTML" }
+        { "value": "video", "label": "Uploaded video" }
       ]
     },
     {
@@ -185,10 +192,10 @@
       "label": "Image"
     },
     {
-      "type": "liquid",
-      "id": "video_html",
-      "label": "Video HTML / embed code",
-      "info": "Paste iframe/video embed HTML here (YouTube/Vimeo/custom). Used when Media type is set to Video embed HTML."
+      "type": "video",
+      "id": "media_video",
+      "label": "Video file",
+      "info": "Upload/select a video from your Shopify files. When Media type is set to Uploaded video, it will autoplay, loop, and be muted."
     },
     {
       "type": "header",
