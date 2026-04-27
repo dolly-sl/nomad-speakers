@@ -1,0 +1,196 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+{% if section.blocks.size > 0 %}
+  <div class="instagram-slider section-{{ section.id }}-padding ">
+    <div class="container-1400">
+      <div class="heading">
+        
+        <h2>{{ section.settings.title }}</h2>
+        {% if section.settings.buttonText != blank %}
+          <a
+            class="btn--primary"
+            href="{{ section.settings.buttonLink }}"
+            {% if section.settings.button_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+            title="Read More About {{ section.settings.title }}"
+            aria-label="Read More About {{ section.settings.title }}"
+          >
+            {{- section.settings.buttonText -}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="splide js__instagram-slider">
+          <div class="splide__track">
+            <ul class="splide__list">
+       
+            {% for block in section.blocks %}
+              <li class="swiper-slide card" {{ block.shopify_attributes }}>
+                <div class="image-section">
+                  {% if block.settings.buttonLink != blank %}
+                    <a
+                      class="full-link" target="_blank"
+                      href="{{ block.settings.buttonLink }}"
+                      title="Read More About {{ section.settings.title }}"
+                      aria-label="Read More About {{ section.settings.title }}"
+                    >
+                    </a>
+                  {% endif %}
+                  {% assign imageAlt = block.settings.image.alt %}
+                  {% if imageAlt == blank %}
+                    {% assign imageAlt = section.settings.title %}
+                  {% endif %}
+
+                  {% if block.settings.image != blank %}
+                    {% include 'image_code_small' with mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
+                  {% endif %}
+                </div>
+               
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      
+   
+  </div>
+{%- endif -%}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('.js__instagram-slider', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        autoWidth: true,
+        arrows: false,
+        pagination: false,
+        autoScroll: {
+          speed:1,
+        },
+      }).mount(window.splide.Extensions);
+    });
+  
+  </script>
+ 
+
+{% schema %}
+{
+  "name": "Instagram Slider",
+  "tag": "section",
+  "settings": [
+    
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "buttonText",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target_blank",
+      "label": "Open button link in new tab",
+      "default": false
+    },
+    {
+        "type": "header",
+        "content": "Section Spacing & Layout"
+      },
+      {
+        "type": "paragraph",
+        "content": "Use these settings to control the spacing around your blog slider section. Adjust the padding to create proper visual separation from other sections on the page."
+      },
+      {
+        "type": "range",
+        "id": "paddingtop",
+        "min": 0,
+        "max": 140,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Desktop)",
+        "info": "Adjust the space above this section on desktop devices. Use this to create proper spacing between the blog slider and content above it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingtopmobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top Spacing (Mobile)",
+        "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Desktop)",
+        "info": "Adjust the space below this section on desktop devices. Use this to create proper spacing between the blog slider and content below it.",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "paddingbottomMobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom Spacing (Mobile)",
+        "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+        "default": 0
+      }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Slider",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
