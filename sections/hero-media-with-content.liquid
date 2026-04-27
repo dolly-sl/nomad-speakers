@@ -13,7 +13,7 @@
 {%- endstyle -%}
 
 {% if section.blocks.size > 0 %}
-  <section class="hero-media-with-content section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <section class="hero-media-with-content section-{{ section.id }}-padding">
     <div class="swiper js_hero-media-with-content-slider">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
@@ -84,16 +84,6 @@
   "tag": "section",
   "class": "section hero-media-with-content-section",
   "settings": [
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "dark",
-      "options": [
-        { "value": "dark", "label": "Dark" },
-        { "value": "light", "label": "Light" }
-      ]
-    },
     {
       "type": "select",
       "id": "slider_loop",
