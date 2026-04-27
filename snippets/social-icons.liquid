@@ -3,17 +3,11 @@
   assign social_instagram_url = settings.social_instagram_link
   assign social_twitter_url = settings.social_twitter_link
   assign social_tiktok_url = settings.social_tiktok_link
-  assign social_youtube_url = settings.social_youtube_link
+ 
 -%}
 
 <ul>
-  {%- if social_youtube_url != blank -%}
-    <li>
-      <a href="{{ social_youtube_url }}" target="_blank" rel="noopener" title="YouTube">
-        <img src="{{ 'icon-social-youtube.svg' | asset_url }}" alt="YouTube">
-      </a>
-    </li>
-  {%- endif -%}
+  
 
   {%- if social_facebook_url != blank -%}
     <li>

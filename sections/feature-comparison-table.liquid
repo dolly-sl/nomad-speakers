@@ -30,11 +30,11 @@
           <tbody>
             {% for block in section.blocks %}
               {% if block.type == 'row' %}
-                <tr {{ block.shopify_attributes }}>
+                <tr>
                   <th class="cell col-feature" scope="row">
                     {{ block.settings.feature }}
                   </th>
-                  <td class="cell col-nomad">
+                  <td>
                     {% if block.settings.nomad_has %}
                       <span class="icon" aria-label="Yes">
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
