@@ -22,8 +22,10 @@
           {% endif %}
         </a>
       </div>
-      <div class="middle-menu flex-align-center">
-        <!-- Main Nav -->
+
+      <!-- Logo -->
+      <!-- Account, Cart -->
+      <ul class="right-nav flex-align-center">
         <div class="navbar-collapse" id="navbarNavDropdown">
           {% assign mainMenu = linklists[section.settings.nav_menu] %}
           <nav class="main-menu">
@@ -54,10 +56,6 @@
             </ul>
           </div>
         </div>
-      </div>
-      <!-- Logo -->
-      <!-- Account, Cart -->
-      <ul class="right-nav flex-align-center">
         {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
           <li class="btn none-980">
             <a href="{{ section.settings.btnLink }}" title="{{ section.settings.btnText }}" class="btn--menu">
