@@ -16,18 +16,7 @@
   class="hero-media-with-content section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} align-{{ section.settings.content_alignment }}"
 >
   <div class="hero-media-with-content__media">
-    {% if section.settings.video != blank %}
-      {{
-        section.settings.video
-        | video_tag:
-          image_size: '2400x',
-          loop: true,
-          autoplay: true,
-          controls: false,
-          muted: true,
-          alt: section.settings.title
-      }}
-    {% elsif section.settings.image != blank %}
+    {% if section.settings.image != blank %}
       {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
       {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
     {% endif %}
@@ -109,12 +98,6 @@
       "type": "image_picker",
       "id": "mobileImage",
       "label": "Mobile image"
-    },
-    {
-      "type": "video",
-      "id": "video",
-      "label": "Background video (autoplay)",
-      "info": "If set, the video shows instead of images. It autoplays, loops, and is muted."
     },
     {
       "type": "header",
