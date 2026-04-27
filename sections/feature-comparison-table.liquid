@@ -13,55 +13,62 @@
       {% endif %}
 
       <div class="table-wrap">
-        <div class="compare-grid" role="table" >
-          <div class="cell header col-feature" role="columnheader">
-            {{ section.settings.feature_column_title }}
-          </div>
-          <div class="cell header col-nomad" role="columnheader">
-            {{ section.settings.nomad_column_title }}
-          </div>
-          <div class="cell header col-standard" role="columnheader">
-            {{ section.settings.standard_column_title }}
-          </div>
-
-          {% for block in section.blocks %}
-            {% if block.type == 'row' %}
-              <div class="cell col-feature" role="rowheader" {{ block.shopify_attributes }}>
-                {{ block.settings.feature }}
-              </div>
-              <div class="cell col-nomad" role="cell">
-                {% if block.settings.nomad_has %}
-                  <span class="icon" aria-label="Yes">
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                {% else %}
-                  <span class="icon" aria-label="No">
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                {% endif %}
-              </div>
-              <div class="cell col-standard" role="cell">
-                {% if block.settings.standard_has %}
-                  <span class="icon" aria-label="Yes">
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                {% else %}
-                  <span class="icon" aria-label="No">
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
+        <table class="compare-grid">
+          <thead>
+            <tr>
+              <th class="cell header col-feature" scope="col">
+                {{ section.settings.feature_column_title }}
+              </th>
+              <th class="cell header col-nomad" scope="col">
+                {{ section.settings.nomad_column_title }}
+              </th>
+              <th class="cell header col-standard" scope="col">
+                {{ section.settings.standard_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr {{ block.shopify_attributes }}>
+                  <th class="cell col-feature" scope="row">
+                    {{ block.settings.feature }}
+                  </th>
+                  <td class="cell col-nomad">
+                    {% if block.settings.nomad_has %}
+                      <span class="icon" aria-label="Yes">
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                          <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
+                        </svg>
+                      </span>
+                    {% else %}
+                      <span class="icon" aria-label="No">
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                          <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
+                        </svg>
+                      </span>
+                    {% endif %}
+                  </td>
+                  <td class="cell col-standard">
+                    {% if block.settings.standard_has %}
+                      <span class="icon" aria-label="Yes">
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                          <path d="M6.35 12.05 2.6 8.3l1.1-1.1 2.65 2.65 6-6 1.1 1.1-7.1 7.1Z" fill="currentColor"/>
+                        </svg>
+                      </span>
+                    {% else %}
+                      <span class="icon" aria-label="No">
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                          <path d="M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2 4.2 3.1Z" fill="currentColor"/>
+                        </svg>
+                      </span>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
