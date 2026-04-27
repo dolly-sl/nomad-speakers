@@ -8,6 +8,7 @@
     endfor
   -%}
   <section class="hero-image-with-content-with-list align-{{ section.settings.content_alignment }}">
+    <div class="outer">
     <div class="image-section ">
       {% if section.settings.video != blank %}
         {{
@@ -54,7 +55,7 @@
         {% endif %}
       </div>
     </div>
-
+</div>
     {% if features_visible > 0 %}
       
           <ul class="features-list" >
