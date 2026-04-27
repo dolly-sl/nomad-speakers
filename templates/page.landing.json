@@ -83,7 +83,7 @@
         "image": "shopify://shop_images/img.png",
         "paddingtop": 120,
         "paddingtopmobile": 60,
-        "paddingbottom": 102,
+        "paddingbottom": 108,
         "paddingbottomMobile": 76
       }
     },
@@ -154,8 +154,8 @@
         "title": "Built for your favorite spot",
         "buttonText": "Build Your NomaD",
         "buttonLink": "#",
-        "paddingtop": 94,
-        "paddingtopmobile": 76,
+        "paddingtop": 0,
+        "paddingtopmobile": 30,
         "paddingbottom": 44,
         "paddingbottomMobile": 66
       }
