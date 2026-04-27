@@ -9,6 +9,11 @@
           {{ section.settings.newscontent }}
         </div>
       {% endif %}
+      {% if section.settings.newscontent != blank %}
+        <div class="news-content">
+          {{ section.settings.newscontent }}
+        </div>
+      {% endif %}
       <div class="newsletter-form">
         <form action="">
           <input type="email" name="Email" id="email" placeholder="Your email address">
