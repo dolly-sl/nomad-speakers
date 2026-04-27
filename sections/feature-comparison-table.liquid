@@ -1,0 +1,193 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+  .swiper-pagination-featuredBlog{
+    bottom:30px !important;
+  }
+{%- endstyle -%}
+
+
+
+{% if section.blocks.size > 0 %}
+  <section class="feature-comparison-table section-{{ section.id }}-padding">
+    <div class="container-1004">
+      {% if section.settings.title != blank or section.settings.description != blank %}
+        <div class="heading text-center">
+          {% if section.settings.title != blank %}
+            <h2>{{ section.settings.title }}</h2>
+          {% endif %}
+          {% if section.settings.description != blank %}
+            <div class="description">{{ section.settings.description }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                {{ section.settings.feature_column_title }}
+              </th>
+              <th>
+                {{ section.settings.nomad_column_title }}
+              </th>
+              <th>
+                {{ section.settings.standard_column_title }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <tr>
+                  <td>
+                    {{ block.settings.feature }}
+                  </td>
+                  <td {% if block.settings.nomad_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %} >
+                    
+                  </td>
+                  <td {% if block.settings.standard_has %}
+                      class="checked"
+                    {% else %}
+                      class="cross"
+                    {% endif %}>
+                    
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Feature comparison table",
+  "tag": "section",
+  "settings": [
+    
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Nomad Goes Everywhere a Tablet Shouldn't."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+    },
+    
+    {
+      "type": "text",
+      "id": "nomad_column_title",
+      "label": "Middle column title",
+      "default": "The Nomad"
+    },
+    {
+      "type": "text",
+      "id": "standard_column_title",
+      "label": "Right column title",
+      "default": "Standard Tablets"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing & Layout"
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature",
+          "default": "A Real Speaker System"
+        },
+        {
+          "type": "checkbox",
+          "id": "nomad_has",
+          "label": "Middle column (Yes)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "standard_has",
+          "label": "Right column (Yes)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature comparison table",
+      "blocks": [
+        { "type": "row" },
+        
+      ]
+    }
+  ]
+}
+{% endschema %}
+

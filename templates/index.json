@@ -368,7 +368,72 @@
       ],
       "name": "Testimonial Product Slider",
       "settings": {
-        "slider_loop": "true"
+        "slider_loop": "true",
+        "autoplay_enabled": true,
+        "autoplay_delay": 5000
+      }
+    },
+    "feature_comparison_table_bktgqn": {
+      "type": "feature-comparison-table",
+      "blocks": {
+        "row_fqC38h": {
+          "type": "row",
+          "settings": {
+            "feature": "A Real Speaker System",
+            "nomad_has": true,
+            "standard_has": false
+          }
+        },
+        "row_jN8Kij": {
+          "type": "row",
+          "settings": {
+            "feature": "1500 Nit Screen Built for Outdoors",
+            "nomad_has": true,
+            "standard_has": false
+          }
+        },
+        "row_nyWBH9": {
+          "type": "row",
+          "settings": {
+            "feature": "Steam & Waterproof",
+            "nomad_has": true,
+            "standard_has": false
+          }
+        },
+        "row_ALip8R": {
+          "type": "row",
+          "settings": {
+            "feature": "Sunlight Readable",
+            "nomad_has": true,
+            "standard_has": false
+          }
+        },
+        "row_CFMtAx": {
+          "type": "row",
+          "settings": {
+            "feature": "Mounts Anywhere",
+            "nomad_has": true,
+            "standard_has": false
+          }
+        }
+      },
+      "block_order": [
+        "row_fqC38h",
+        "row_jN8Kij",
+        "row_nyWBH9",
+        "row_ALip8R",
+        "row_CFMtAx"
+      ],
+      "name": "Feature comparison table",
+      "settings": {
+        "title": "Nomad Goes Everywhere a Tablet Shouldn't.",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+        "nomad_column_title": "The Nomad",
+        "standard_column_title": "Standard Tablets",
+        "paddingtop": 90,
+        "paddingtopmobile": 60,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
       }
     }
   },
@@ -379,6 +444,7 @@
     "hero_image_with_content_slider_aKgCLg",
     "three_column_product_slider_XW7j4M",
     "marquee_HqfbWU",
-    "testimonial_product_slider_8whV8c"
+    "testimonial_product_slider_8whV8c",
+    "feature_comparison_table_bktgqn"
   ]
 }

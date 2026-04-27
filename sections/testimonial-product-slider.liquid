@@ -13,12 +13,13 @@
                   {% include 'image_code' with mobileImage: block.settings.mobileImage, tabletImage: block.settings.mobileImage, desktopImage: block.settings.image, imageAlt: imageAlt, critical: true %}
                 {% endif %}
               </div>
-             <div class="container-1320 flex">
+             <div class="container-1320">
               <div class="content">
                  {% if block.settings.rating != blank %}
+                  <div class="rating-image">
                   {% assign imageAlt = block.settings.rating.alt | default: block.settings.title %}
                   {{ block.settings.rating | image_url: width: 172 | image_tag: loading: 'lazy', widths: '172x36', alt:imageAlt }}
-              
+              </div>
                 {% endif %}
                 {% if block.settings.title != blank %}
                   <h2 class="h4">{{ block.settings.title }}</h2>
@@ -28,6 +29,47 @@
 
               
                 </div>
+
+
+                 {% assign productRelated = all_products[block.settings.product] %}
+
+              {% if productRelated != blank %}
+                <div class="product-section">
+                 
+                    <a
+                      href="{{ productRelated.url }}"
+                      class="full-link"
+                      aria-label="View {{ productRelated.title }}"
+                    ></a>
+                    <div class="product-image">
+                      {% assign imageAlt = productRelated.featured_image.alt %}
+                      {% if imageAlt == blank %}
+                        {% assign imageAlt = productRelated.title %}
+                      {% endif %}
+                      {% if productRelated.featured_image != blank %}
+                        {% include 'image_code_small' with mobileImage: productRelated.featured_image, tabletImage: productRelated.featured_image, desktopImage: productRelated.featured_image, imageAlt: imageAlt %}
+                      {% endif %}
+                    </div>
+                    <div class="product-content">
+                     
+                        <span class="product-title">
+                          {{ productRelated.title }}
+                        </span>
+                        <span class="pre-title">
+                          FOR EVERYDAY USE
+                        </span>
+                        <div class="product-price flex">
+                          <span>{{ productRelated.price | money }}</span>
+                          {% if productRelated.compare_at_price_min > productRelated.price %}
+                            <s>{{ productRelated.compare_at_price_min | money }}</s>
+                          {% endif %}
+                       
+                     
+                      
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
               </div>
             </div>
           {% endif %}
@@ -94,7 +136,7 @@
       "id": "autoplay_delay",
       "label": "Autoplay delay (ms)",
       "min": 2000,
-      "max": 10000,
+      "max": 9500,
       "step": 500,
       "default": 5000
     }
