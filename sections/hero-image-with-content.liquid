@@ -1,12 +1,34 @@
-{% if section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
+{% if section.settings.video != blank or section.settings.image != blank or section.settings.title != blank or section.settings.pretitle != blank %}
+  {%- if section.settings.video != blank -%}
+    {%- style -%}
+      #shopify-section-{{ section.id }} .image-section video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+      }
+    {%- endstyle -%}
+  {%- endif -%}
   <section class="hero-image-with-content-slider align-{{ section.settings.content_alignment }}">
-   
-      <div class="image-section ">
-        {% if section.settings.image != blank %}
-          {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
-          {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
-        {% endif %}
-      </div>
+    <div class="image-section ">
+      {% if section.settings.video != blank %}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1920x',
+            loop: true,
+            autoplay: true,
+            controls: false,
+            muted: true,
+            playsinline: true,
+            alt: section.settings.title
+        }}
+      {% elsif section.settings.image != blank %}
+        {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
+        {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
+      {% endif %}
+    </div>
       <div class="container-1336 flex">
         <div class="content">
           {% if section.settings.pretitle != blank %}
@@ -42,7 +64,13 @@
   "settings": [
     {
       "type": "header",
-      "content": "Background image"
+      "content": "Background image or video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video",
+      "info": "If set, video is shown instead of images. Autoplays muted in a loop."
     },
     {
       "type": "image_picker",
