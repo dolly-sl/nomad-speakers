@@ -44,7 +44,7 @@
         {% endfor %}
         {% if all_out_of_stock %}
           <a
-            class="btn--primary"
+            class="btn--secondary"
             title="{{ productRelated.title }}"
             href="javascript:;"
 
@@ -54,7 +54,7 @@
           >
         {% else %}
           <a
-            class="btn--primary js__card-add-to-cart"
+            class="btn--secondary js__card-add-to-cart"
             href="javascript:;"
 
             title="Shop {{productRelated.title}}"
@@ -79,7 +79,7 @@
       </span>
     {% endif %}
     {% if show_title %}
-      <span class=" product-card__product-title">
+      <span class=" product-card__product-title h6">
       
           {% if productRelated.metafields.productInfo.product_name != blank %}
             {{ productRelated.metafields.prodctInfo.product_name }}
@@ -89,7 +89,7 @@
       
       </span>
     {% endif %}
-   
+   <span class="pre-title">ALL PURPOSE WRAP MOUNT</span>
     <!-- Price -->
     {% if show_price %}
       <span class="product-card__price flex">
@@ -110,7 +110,7 @@
 
 {% if show_secondary_button %}
   <a
-    class="btn--primary js__quick-view-click"
+    class="btn--secondary js__quick-view-click"
     title="{{ productRelated.title }}"
     href="javascript:;"
     title="Shop {{productRelated.title}}"

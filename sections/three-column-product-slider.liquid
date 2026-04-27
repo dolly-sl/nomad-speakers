@@ -14,10 +14,10 @@
 
 {% if section.blocks.size > 0 %}
   <div class="three-column-product-slider  section-{{ section.id }}-padding ">
-    <div class="container-1686">
-      {% if section.settings.pretitle != blank or section.settings.title != blank %}
+    <div class="container-1400">
+      {% if section.settings.title != blank %}
         <div
-          class="top-section"
+          class="top-section flex "
         >
           {% if section.settings.title != blank %}
             <h2 class="{{section.settings.text_size}}">
@@ -26,7 +26,7 @@
           {% endif %}
           {% if section.settings.buttonText != blank %}
             <a
-              class="link--primary"
+              class="btn--secondary"
               href="{{ section.settings.buttonLink }}"
               title="Read More About {{ section.settings.title }}"
               aria-label="Read More About {{ section.settings.title }}"
@@ -35,8 +35,11 @@
             </a>
           {% endif %}
         </div>
+
       {% endif %}
+       </div>
       <div class="slider-outer">
+        <div class="container-1400">
         <div class="swiper js_three-column-product-slider">
           <div class="swiper-wrapper">
             {%- for block in section.blocks -%}
@@ -50,10 +53,11 @@
             {% endfor %}
           </div>
         </div>
+      </div>
 
         <div class="swiper-button-prev swiper-button-prev-product"></div>
         <div class="swiper-button-next swiper-button-next-product "></div>
-        <div class="swiper-pagination swiper-pagination-product "></div>
+        <div class="swiper-pagination dark-bg swiper-pagination-product "></div>
       </div>
     </div>
   </div>
@@ -89,13 +93,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Configure the header section that appears above the product slider. This slider displays up to 20 products in a responsive carousel layout (4 columns on desktop, 3 on tablet, 2 on large mobile, 1 on small mobile)."
-    },
-    {
-      "type": "text",
-      "id": "pretitle",
-      "label": "Pre Title",
-      "info": "Add an optional small label that appears above the main title (e.g., 'Featured', 'Best Sellers', 'New Arrivals'). This helps create visual hierarchy and context for the product slider."
+      "content": "Configure the header section that appears above the product slider. This slider displays up to 20 products in a responsive carousel layout (3 columns on desktop, 3 on tablet, 2 on large mobile, 1 on small mobile)."
     },
     {
       "type": "text",
