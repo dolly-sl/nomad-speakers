@@ -60,6 +60,7 @@
               href="{{ section.settings.buttonLink }}"
               title="{{ section.settings.buttonText | escape }}"
               aria-label="{{ section.settings.buttonText | escape }}"
+              {% if section.settings.button_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
               {% if section.settings.button_opens_lity_modal %}data-lity{% endif %}
             >
               {{- section.settings.buttonText -}}
@@ -68,10 +69,11 @@
 
           {% if section.settings.buttonText2 != blank and section.settings.buttonLink2 != blank %}
             <a
-              class="btn {{ section.settings.button_style }}"
+              class="btn {{ section.settings.button_style_2 }}"
               href="{{ section.settings.buttonLink2 }}"
               title="{{ section.settings.buttonText2 | escape }}"
               aria-label="{{ section.settings.buttonText2 | escape }}"
+              {% if section.settings.button2_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
               {% if section.settings.button2_opens_lity_modal %}data-lity{% endif %}
             >
               {{- section.settings.buttonText2 -}}
@@ -151,50 +153,81 @@
       "label": "Description"
     },
     {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
       "type": "text",
       "id": "buttonText",
-      "label": "Button text",
+      "label": "Text",
       "default": "Shop now"
     },
     {
       "type": "url",
       "id": "buttonLink",
-      "label": "Button link"
-    },
-    {
-      "type": "checkbox",
-      "id": "button_opens_lity_modal",
-      "label": "Open button 1 link in video lightbox (Lity)",
-      "default": false,
-      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
-    },
-    {
-      "type": "text",
-      "id": "buttonText2",
-      "label": "Button 2 text"
-    },
-    {
-      "type": "url",
-      "id": "buttonLink2",
-      "label": "Button 2 link"
-    },
-    {
-      "type": "checkbox",
-      "id": "button2_opens_lity_modal",
-      "label": "Open button 2 link in video lightbox (Lity)",
-      "default": false,
-      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL as the button link."
+      "label": "Link"
     },
     {
       "type": "select",
       "id": "button_style",
-      "label": "Button style",
+      "label": "Style",
       "default": "btn--secondary",
       "options": [
         { "value": "btn--primary", "label": "Primary" },
         { "value": "btn--secondary", "label": "Secondary" },
         { "value": "btn--tertiary", "label": "Tertiary" }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "button_target_blank",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_lity_modal",
+      "label": "Open link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL."
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "buttonText2",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "buttonLink2",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style_2",
+      "label": "Style",
+      "default": "btn--secondary",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--tertiary", "label": "Tertiary" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_target_blank",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "button2_opens_lity_modal",
+      "label": "Open link in video lightbox (Lity)",
+      "default": false,
+      "info": "Adds data-lity. Use a YouTube, Vimeo, or direct video file URL."
     },
     {
       "type": "image_picker",
