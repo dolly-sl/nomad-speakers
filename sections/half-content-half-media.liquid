@@ -28,7 +28,7 @@
       </div>
 
       <div class="hchm__media">
-        {% if section.settings.media_video != blank %}
+        {% if section.settings.media_type == 'video' and section.settings.media_video != blank %}
           <div class="hchm__video">
             <video muted loop autoplay playsinline>
               {% if section.settings.media_video.sources %}
