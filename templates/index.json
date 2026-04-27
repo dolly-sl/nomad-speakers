@@ -129,10 +129,46 @@
             "title": "IP66 Waterproof",
             "text": "Shower, rain, splash proof"
           }
+        },
+        "card_6D4MNT": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_jgRPPL": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_g4BFgB": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
+        },
+        "card_jiky4x": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
+          }
         }
       },
       "block_order": [
-        "card_UmMDUH"
+        "card_UmMDUH",
+        "card_6D4MNT",
+        "card_jgRPPL",
+        "card_g4BFgB",
+        "card_jiky4x"
       ],
       "name": "Five Icon Cards + Image",
       "settings": {
