@@ -1,168 +1,33 @@
 <footer>
-  <div class="main-footer">
-    {% if section.blocks.size > 0 %}
-      <div class="top-footer-content">
-        <div class="container-1610">
-          <ul class="flex-wrap">
-            {% for block in section.blocks %}
-              {%- case block.type -%}
-                {%- when 'text' -%}
-                  <li class="card">
-                    {% if block.settings.image != blank %}
-                      {% assign imageAlt = block.settings.image.alt %}
-                      {% if imageAlt == blank %}
-                        {% assign imageAlt = block.settings.title %}
-                      {% endif %}
-                      <div class="icon-black">
-                        <img src="{{ block.settings.image | img_url: '100x116' }}" alt="{{ imageAlt }}">
-                      </div>
-                    {% endif %}
-
-                    <div class="content">
-                      <p>{{ block.settings.title }}</p>
-                      {% if block.settings.description != blank %}
-                        <div class="description">
-                          {{ block.settings.description }}
-                        </div>
-                      {% endif %}
-                      {% if block.settings.linkText != blank and block.settings.linkUrl != blank %}
-                        <a
-                          class="link--primary"
-                          href="{{ block.settings.linkUrl }}"
-                          title="{{ block.settings.linkText }}"
-                        >
-                          {{- block.settings.linkText -}}
-                        </a>
-                      {% endif %}
-                    </div>
-                  </li>
-              {%- endcase -%}
-            {% endfor %}
-          </ul>
-          <div class="slider-outer ipad-block">
-            <div class="swiper js__footer-content-slider ">
-              <div class="swiper-wrapper">
-                {% for block in section.blocks -%}
-                  {%- case block.type -%}
-                    {%- when 'text' -%}
-                      <div class=" swiper-slide card">
-                        {% if block.settings.image != blank %}
-                          {% assign imageAlt = block.settings.image.alt %}
-                          {% if imageAlt == blank %}
-                            {% assign imageAlt = block.settings.title %}
-                          {% endif %}
-                          <div class="icon-black">
-                            {% include 'image_code_medium'  with  mobileImage: block.settings.image, tabletImage: block.settings.image, desktopImage: block.settings.image, imageAlt: imageAlt %}
-                          </div>
-                        {% endif %}
-                        <div class="content">
-                          <p>{{ block.settings.title }}</p>
-                          {% if block.settings.description != blank %}
-                            <div class="description">
-                              {{ block.settings.description }}
-                            </div>
-                          {% endif %}
-                          {% if block.settings.linkText != blank and block.settings.linkUrl != blank %}
-                            <a
-                              class="link--primary"
-                              href="{{ block.settings.linkUrl }}"
-                              title="{{ block.settings.linkText }}"
-                            >
-                              {{- block.settings.linkText -}}
-                            </a>
-                          {% endif %}
-                        </div>
-                      </div>
-                  {%- endcase -%}
-                {%- endfor %}
-              </div>
-            </div>
-            <div class="swiper-pagination swiper-pagination-footer-content"></div>
-          </div>
+  <div class="main-footer container-1408">
+    <div class="main-footer__newsletter">
+      {% if section.settings.newsTitle != blank %}
+        <span class="newsletter-title">{{ section.settings.newsTitle }}</span>
+      {% endif %}
+      {% if section.settings.newscontent != blank %}
+        <div class="news-content">
+          {{ section.settings.newscontent }}
         </div>
+      {% endif %}
+      <div class="newsletter-form">
+        <form action="">
+          <input type="email" name="Email" id="email" placeholder="Your email address">
+          <button type="submit" class="btn-submit" value="Subscribe">Submit</button>
+        </form>
       </div>
-    {% endif %}
-    <div class="container-1610">
-      <div class="main-footer__middle flex">
-        <div class="left-section">
-          <div class="main-footer__newsletter">
-            {% if section.settings.newsTitle != blank %}
-              <span class="newsletter-title">{{ section.settings.newsTitle }}</span>
-            {% endif %}
-            {% if section.settings.newscontent != blank %}
-              <div class="news-content">
-                {{ section.settings.newscontent }}
-              </div>
-            {% endif %}
-            <div class="newsletter-form">
-              <form action="">
-                <input type="email" name="Email" id="email" placeholder="Your email address">
-                <button type="submit" class="btn-submit" value="Subscribe">Submit</button>
-              </form>
-            </div>
-            {% if settings.phoneNumber != blank %}
-              <div class="contact-info ipad-none">
-                <span>{{ section.settings.contactHeading }}</span>
-
-                <a class="call" href="tel:{{settings.phoneNumber | replace: '-', '' }}">
-                  {{ settings.phoneNumber }}
-                </a>
-
-                {% comment %} <a href="tel:1.844.682.2354">1.844.682.2354</a> {% endcomment %}
-              </div>
-            {% endif %}
-          </div>
+    </div>
+    <div class="main-footer__bottom">
+      <!-- Copyright -->
+      <div class="copyright flex">
+        <div class="copyright-section flex-wrap">
+          <p>
+            © Copyright {{ 'now' | date: '%Y' }}
+            {{ shop | escape }}
+          </p>
         </div>
-
-        <!-- Footer Menu -->
-        <div class="main-footer__nav flex-wrap">
-          {% assign fotterMenu = linklists[section.settings.footerMenu] %}
-          {% for link in fotterMenu.links %}
-            {% assign linkTitle = link.title | downcase | remove: ' ' %}
-            <div class="footer-links">
-              <p class="accordion-toggle">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="footer-icon-plus"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                >
-                  <line x1="5.99994" y1="4.37113e-08" x2="5.99994" y2="12" stroke="white" stroke-width="2"/>
-                  <line x1="-6.10352e-05" y1="6" x2="11.9999" y2="6" stroke="white" stroke-width="2"/>
-                </svg>
-
-                {{ link.title | escape }}
-              </p>
-              <ul class="accordion-content">
-                {% for childlink in link.links %}
-                  <li>
-                    <a href="{{ childlink.url }}" title="{{ childlink.title }}">{{ childlink.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="main-footer__bottom">
-        <!-- Copyright -->
-        <div class="copyright flex">
-          <div class="contact-info ipad-block">
-            <span>Have a question or concern?</span>
-            <a href="tel:1.844.682.2354">1.844.682.2354</a>
-          </div>
-          <div class="copyright-section flex-wrap">
-            <p>
-              © Copyright {{ 'now' | date: '%Y' }}
-              {{ page_description | escape }}. All Right Reversed
-            </p>
-          </div>
-          <div class="social-app-links flex">
-            <div class="social-icons">
-              {% include 'social-icons' %}
-            </div>
+        <div class="social-app-links flex">
+          <div class="social-icons">
+            {% include 'social-icons' %}
           </div>
         </div>
       </div>
@@ -191,17 +56,7 @@
       "label": "Newsletter Description",
       "info": "Description text displayed below the newsletter title to explain the benefits of subscribing to your mailing list"
     },
-    {
-      "type": "link_list",
-      "id": "footerMenu",
-      "label": "Footer Menu",
-      "info": "Select the navigation menu to display in the footer section to help customers navigate important pages and policies"
-    },
-    {
-      "type": "text",
-      "id": "contactHeading",
-      "label": "Contact Heading"
-    },
+
     {
       "type": "text",
       "id": "copyright",
