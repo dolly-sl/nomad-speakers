@@ -281,7 +281,8 @@
         "title": "Installs in 30 minutes or less",
         "description": "<p>The CADDYBAR™ x Nomad setup was designed to be simple and straightforward, so you can spend less time installing and more time enjoying your cart.</p>",
         "buttonText": "Watch Now",
-        "buttonLink": "https://www.youtube.com/watch?v=9xwazD5SyVg"
+        "buttonLink": "https://www.youtube.com/watch?v=9xwazD5SyVg",
+        "button_opens_lity_modal": true
       }
     },
     "testimonial_product_slider_Kptmhr": {
