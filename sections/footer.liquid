@@ -15,17 +15,6 @@
           <button type="submit" class="btn-submit" value="Subscribe">Submit</button>
         </form>
       </div>
-      {% if settings.phoneNumber != blank %}
-        <div class="contact-info ipad-none">
-          <span>{{ section.settings.contactHeading }}</span>
-
-          <a class="call" href="tel:{{settings.phoneNumber | replace: '-', '' }}">
-            {{ settings.phoneNumber }}
-          </a>
-
-          {% comment %} <a href="tel:1.844.682.2354">1.844.682.2354</a> {% endcomment %}
-        </div>
-      {% endif %}
     </div>
     <div class="main-footer__bottom">
       <!-- Copyright -->
