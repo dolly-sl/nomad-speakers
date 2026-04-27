@@ -283,7 +283,6 @@
       ],
       "name": "Three Column Product Slider",
       "settings": {
-        "pretitle": "",
         "title": "Mount Anywhere",
         "text_size": "h3",
         "buttonText": "Shop ALL",
@@ -293,6 +292,43 @@
         "paddingbottom": 46,
         "paddingbottomMobile": 60
       }
+    },
+    "marquee_HqfbWU": {
+      "type": "marquee",
+      "blocks": {
+        "content_Ez9m4K": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_MkaeGL": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_JBm3VE": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_4rfAFV": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        }
+      },
+      "block_order": [
+        "content_Ez9m4K",
+        "content_MkaeGL",
+        "content_JBm3VE",
+        "content_4rfAFV"
+      ],
+      "name": "Marquee",
+      "settings": {}
     }
   },
   "order": [
@@ -300,6 +336,7 @@
     "three_column_card_slider_VXjQr9",
     "five_column_icon_card_with_heading_image_WqRfq8",
     "hero_image_with_content_slider_aKgCLg",
-    "three_column_product_slider_XW7j4M"
+    "three_column_product_slider_XW7j4M",
+    "marquee_HqfbWU"
   ]
 }
