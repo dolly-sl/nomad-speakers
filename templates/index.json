@@ -520,10 +520,10 @@
         "buttonText": "Learn More",
         "buttonLink": "#",
         "button_target_blank": true,
-        "paddingtop": 0,
-        "paddingtopmobile": 0,
-        "paddingbottom": 0,
-        "paddingbottomMobile": 0
+        "paddingtop": 88,
+        "paddingtopmobile": 68,
+        "paddingbottom": 78,
+        "paddingbottomMobile": 50
       }
     }
   },
