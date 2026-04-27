@@ -15,9 +15,9 @@
 {% if section.blocks.size > 0 %}
   <div class="three-column-product-slider  section-{{ section.id }}-padding ">
     <div class="container-1400">
-      {% if section.settings.pretitle != blank or section.settings.title != blank %}
+      {% if section.settings.title != blank %}
         <div
-          class="top-section"
+          class="top-section flex"
         >
           {% if section.settings.title != blank %}
             <h2 class="{{section.settings.text_size}}">
@@ -90,12 +90,6 @@
     {
       "type": "paragraph",
       "content": "Configure the header section that appears above the product slider. This slider displays up to 20 products in a responsive carousel layout (4 columns on desktop, 3 on tablet, 2 on large mobile, 1 on small mobile)."
-    },
-    {
-      "type": "text",
-      "id": "pretitle",
-      "label": "Pre Title",
-      "info": "Add an optional small label that appears above the main title (e.g., 'Featured', 'Best Sellers', 'New Arrivals'). This helps create visual hierarchy and context for the product slider."
     },
     {
       "type": "text",
