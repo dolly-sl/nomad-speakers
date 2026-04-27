@@ -16,7 +16,7 @@ header {
       border-bottom: 0;
     }
     &.active {
-      background-color: $color-white;
+      background-color: $color-black;
       transition: 0.3s ease all;
       .right-nav {
         li {
@@ -47,11 +47,8 @@ header {
   }
 
   .right-nav {
-    padding-top: 21px;
     align-items: center;
-    @include MQ(MQ-980) {
-      padding-top: 0;
-    }
+
     li {
       margin-right: 19px;
       z-index: 3;
@@ -135,10 +132,10 @@ header {
         padding-bottom: 25.2px;
       }
       li {
-        padding: 21px 0px;
+        padding: 23.5px 0px;
         cursor: pointer;
         z-index: 90;
-        margin-right: 10px;
+        margin-right: 20px;
 
         @include MQ(MQ-980) {
           // padding: 0px 0 28px !important;
@@ -171,8 +168,10 @@ header {
           transition: all 0.2s ease;
           text-transform: capitalize;
           display: block;
-          color: white;
+          color: $color-black;
           cursor: pointer;
+          padding: 10px;
+          border-radius: 80px;
           @include MQ(MQ-980) {
             font-size: 20px;
             font-style: normal;
@@ -184,25 +183,9 @@ header {
             display: none;
           }
 
-          &:before {
-            background: #00b2a9;
-            border-radius: 5px;
-            top: -7px;
-            left: 0;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            height: 30.7px;
-            width: 100%;
-            position: absolute;
-            content: "";
-            opacity: 0;
-            transition: 0.2s ease all;
-            z-index: -1;
-          }
-
           &:hover {
-            color: $color-white;
+            color: $color-white !important;
+            background: $color-black;
             &:before {
               opacity: 1;
               transition: 0.2s ease all;
@@ -262,13 +245,13 @@ header {
             display: flex;
             &:hover,
             &:focus {
-              color: $color-white;
+              color: $color-black;
               @include MQ(MQ-980) {
                 color: $color-yellow;
               }
             }
             &.hover-submenu {
-              color: $color-white;
+              color: $color-black;
               &:after {
                 display: none;
               }
@@ -284,7 +267,7 @@ header {
             width: 100%;
             z-index: -9;
             left: 0;
-            background: $color-white;
+            background: $color-black;
             padding-top: 30px;
             padding-bottom: 92px;
             pointer-events: none;
@@ -303,7 +286,7 @@ header {
               top: 0 !important;
               padding: 21px 0 10px;
               margin-top: 0px;
-              background: $color-white;
+              background: $color-black;
               opacity: 1 !important;
               visibility: visible !important;
               z-index: 3 !important;
@@ -622,7 +605,7 @@ header {
           // }
           .sub-nav {
             // display: none;
-            background: $color-white;
+            background: $color-black;
             z-index: -9;
             position: absolute;
             top: 90px;
@@ -643,7 +626,7 @@ header {
               pointer-events: all;
               display: none;
               position: relative !important;
-              background: $color-white;
+              background: $color-black;
               top: 0 !important;
               visibility: visible !important;
               opacity: 1 !important;
@@ -761,7 +744,7 @@ header {
     //Bottom Link
     .main-menu {
       .bottom-links {
-        background: $color-white;
+        background: $color-black;
         padding: 31px 50px 44px 30px;
         li {
           margin-bottom: 23px;
@@ -819,7 +802,7 @@ header {
       // padding: 24px 30px;
       padding-bottom: 0px;
 
-      background: $color-white;
+      background: $color-black;
       z-index: -1;
       &.active {
         transform: translateX(0);

@@ -22,16 +22,11 @@
 .white-header header.white {
   transition: 0.4s ease all;
   background: white;
-  height: 90px;
-  @include MQ(MQ-980) {
-    height: 60px;
-  }
+
   .navbar-collapse.active {
     top: 93px;
   }
-  .header-logo {
-    filter: none;
-  }
+
   .btn--menu {
     background: $color-yellow;
     color: $color-black;
@@ -48,7 +43,7 @@
           color: $color-black;
           &:hover,
           &:focus {
-            color: $color-white;
+            color: $color-black;
           }
         }
       }
@@ -98,7 +93,7 @@
 }
 .white-header header.white.fixed {
   transition: 0.4s ease all;
-  background: $color-yellow;
+  background: $color-white;
   height: auto;
 
   .btn--menu {
@@ -114,16 +109,11 @@
   .main-menu {
     .main-nav-list {
       li {
-        padding: 24px 0;
+        padding: 23.5px 0;
       }
     }
   }
-  .right-nav {
-    padding-top: 15px;
-    @include MQ(MQ-980) {
-      padding-top: 0;
-    }
-  }
+
   @include MQ(MQ-980) {
     .navbar-collapse {
       top: 58px !important;
@@ -133,7 +123,7 @@
     .main-nav-list {
       > li {
         a {
-          color: $color-white;
+          color: $color-black;
           @include MQ(MQ-980) {
             color: $color-black;
           }
@@ -213,23 +203,9 @@
 }
 // Background Color Of Header According to the Page Conditions
 header {
-  // background: white;
+  background: white;
   transition: 0.4s ease all;
 
-  // &.transparent {
-  //   background: transparent;
-  //   transition: 0.4s ease all;
-
-  //   .btn--menu {
-  //     background: $color-white;
-  //     color: $color-black;
-  //     border-color: $color-white;
-  //     &:hover {
-  //       background: $color-yellow;
-  //       border-color: $color-yellow;
-  //     }
-  //   }
-  // }
   &.fixed {
     transition: 0.4s ease all;
     background: $color-yellow;
@@ -259,12 +235,7 @@ header {
         }
       }
     }
-    .right-nav {
-      padding-top: 15px;
-      @include MQ(MQ-980) {
-        padding-top: 0;
-      }
-    }
+
     @include MQ(MQ-980) {
       .navbar-collapse {
         top: 58px !important;
@@ -314,7 +285,7 @@ header.fixed {
     .main-nav-list {
       > li {
         a {
-          color: $color-white;
+          color: $color-black;
         }
       }
     }
@@ -415,13 +386,13 @@ header.white.open-sub-menu {
 }
 header {
   // Header Container
-  .container-1570 {
-    max-width: 1570px;
+  .container-1332 {
+    max-width: 1332px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 26px;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     @include MQ(MQ-980) {
       align-items: center;
     }
@@ -429,13 +400,15 @@ header {
   /****** Header Logo ******/
   .header-logo {
     position: relative;
-    margin: 0 auto;
     width: fit-content;
 
     a {
-      width: 202px;
+      width: fit-content;
       display: block;
-      height: 47px;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
       color: var($color-black);
       @include MQ(MQ-1100) {
         width: 150px;
@@ -445,7 +418,6 @@ header {
         height: 27px;
       }
       img {
-        position: relative;
         position: relative;
         object-fit: contain;
         object-position: center;
@@ -466,23 +438,15 @@ header {
     }
   }
   .search-li {
-    // position: relative;
-    // @include MQ(MQ-980) {
-    //   position: relative;
-    // }
     .search-icon {
       svg {
         display: block;
         &:nth-child(2) {
           display: none;
-          // width: 28px;
-          // height: 28px;
         }
       }
     }
     .search-icon.active {
-      // display: none;
-
       display: block;
       svg {
         display: none;
@@ -633,11 +597,6 @@ header {
 .header-fixed {
   header {
     .header-logo {
-      top: 10px;
-      @include MQ(MQ-980) {
-        top: auto;
-      }
-
       img {
         &.logo {
           display: none;
