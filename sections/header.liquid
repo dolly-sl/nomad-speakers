@@ -46,7 +46,7 @@
           </div>
           {% assign mainMenu = linklists[section.settings.nav_menu] %}
           {% assign mobileMenu = linklists[section.settings.mobile_menu] %}
-          <nav class="main-menu ipad-none">
+          <nav class="main-menu none-980">
             {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
               <div class="btn block-980">
                 <a href="{{ section.settings.btnLink }}" title="{{- section.settings.btnText -}}" class="btn--menu">
@@ -56,7 +56,7 @@
             {% endif %}
             {% include 'site-nav_main' with mainMenu %}
           </nav>
-          <nav class="main-menu ipad-block">
+          <nav class="main-menu block-980">
             {% if section.settings.btnText != blank and section.settings.btnLink != blank %}
               <div class="btn block-980">
                 <a href="{{ section.settings.btnLink }}" title="{{- section.settings.btnText -}}" class="btn--menu">
