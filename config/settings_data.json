@@ -85,10 +85,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "newsTitle": "Newsletter",
-          "newscontent": "",
-          "footerMenu": "",
-          "contactHeading": "",
+          "newsTitle": "Keep in Touch",
+          "newscontent": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
           "copyright": ""
         }
       }

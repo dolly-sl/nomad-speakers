@@ -239,12 +239,146 @@
       "settings": {
         "slider_loop": "true"
       }
+    },
+    "three_column_product_slider_XW7j4M": {
+      "type": "three-column-product-slider",
+      "blocks": {
+        "block_7V8VcC": {
+          "type": "block",
+          "settings": {
+            "product": "strap-mount"
+          }
+        },
+        "block_AcfLGT": {
+          "type": "block",
+          "settings": {
+            "product": "clamp-mount"
+          }
+        },
+        "block_iFfYzw": {
+          "type": "block",
+          "settings": {
+            "product": "caddybar™-oversized-cup-holder"
+          }
+        },
+        "block_BiMX6Q": {
+          "type": "block",
+          "settings": {
+            "product": "caddybar™-mobile-device-holder"
+          }
+        },
+        "block_zdcY3M": {
+          "type": "block",
+          "settings": {
+            "product": "go-anywhere-kit"
+          }
+        }
+      },
+      "block_order": [
+        "block_7V8VcC",
+        "block_AcfLGT",
+        "block_iFfYzw",
+        "block_BiMX6Q",
+        "block_zdcY3M"
+      ],
+      "name": "Three Column Product Slider",
+      "settings": {
+        "title": "Mount Anywhere",
+        "text_size": "h3",
+        "buttonText": "Shop ALL",
+        "buttonLink": "#",
+        "paddingtop": 66,
+        "paddingtopmobile": 66,
+        "paddingbottom": 46,
+        "paddingbottomMobile": 60
+      }
+    },
+    "marquee_HqfbWU": {
+      "type": "marquee",
+      "blocks": {
+        "content_Ez9m4K": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_MkaeGL": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_JBm3VE": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        },
+        "content_4rfAFV": {
+          "type": "Content",
+          "settings": {
+            "content": "Entertainment Anywhere"
+          }
+        }
+      },
+      "block_order": [
+        "content_Ez9m4K",
+        "content_MkaeGL",
+        "content_JBm3VE",
+        "content_4rfAFV"
+      ],
+      "name": "Marquee",
+      "settings": {}
+    },
+    "testimonial_product_slider_8whV8c": {
+      "type": "testimonial-product-slider",
+      "blocks": {
+        "slide_tQXiDz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_WMaPgX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        },
+        "slide_RDmiC8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "rating": "shopify://shop_images/stars_1.svg",
+            "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
+            "product": "golf-cart-bundle-hardwired"
+          }
+        }
+      },
+      "block_order": [
+        "slide_tQXiDz",
+        "slide_WMaPgX",
+        "slide_RDmiC8"
+      ],
+      "name": "Testimonial Product Slider",
+      "settings": {
+        "slider_loop": "true"
+      }
     }
   },
   "order": [
     "HeroBanner",
     "three_column_card_slider_VXjQr9",
     "five_column_icon_card_with_heading_image_WqRfq8",
-    "hero_image_with_content_slider_aKgCLg"
+    "hero_image_with_content_slider_aKgCLg",
+    "three_column_product_slider_XW7j4M",
+    "marquee_HqfbWU",
+    "testimonial_product_slider_8whV8c"
   ]
 }
