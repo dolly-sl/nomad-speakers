@@ -83,9 +83,9 @@
       </div>
 
       {% if section.blocks.size > 1 %}
-        <div class="swiper-button-prev swiper-button-prev-hero-media"></div>
-        <div class="swiper-button-next swiper-button-next-hero-media"></div>
-       <div class="swiper-pagination swiper-pagination-hero-media"></div>
+        <div class="swiper-button-prev swiper-button-prev-hero-image-with-content"></div>
+        <div class="swiper-button-next swiper-button-next-hero-image-with-content"></div>
+       <div class="swiper-pagination swiper-pagination-hero-image-with-content"></div>
       {% endif %}
     </div>
   </section>
@@ -105,8 +105,8 @@
           clickable: true,
         },
         navigation: {
-          nextEl: '.swiper-button-next-hero-media',
-          prevEl: '.swiper-button-prev-hero-media',
+          nextEl: '.swiper-button-next-hero-image-with-content',
+          prevEl: '.swiper-button-prev-hero-image-with-content',
         }
       });
     }
