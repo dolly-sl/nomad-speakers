@@ -80,14 +80,22 @@
                 </div>
               {% when 'video' %}
                 <div class=" {{variantColor | downcase}} swiper-slide slide">
-                  <div class="image-section video-section">
-                    <button data-href="#product{{ media.id | escape }}"> </button>
+                  <div class="image-section video-section has-play">
+                    <button data-href="#product{{ media.id | escape }}">
+                      {% if media.preview_image %}
+                        <img src="{{ media.preview_image | img_url: '160x160' }}" alt="{{ imageAlt }}">
+                      {% endif %}
+                    </button>
                   </div>
                 </div>
               {% when 'external_video' %}
                 <div class=" {{variantColor | downcase}} swiper-slide slide">
-                  <div class="image-section video-section">
-                    <button data-href="#product{{ media.id | escape }}"> </button>
+                  <div class="image-section video-section has-play">
+                    <button data-href="#product{{ media.id | escape }}">
+                      {% if media.preview_image %}
+                        <img src="{{ media.preview_image | img_url: '160x160' }}" alt="{{ imageAlt }}">
+                      {% endif %}
+                    </button>
                   </div>
                 </div>
             {% endcase %}
