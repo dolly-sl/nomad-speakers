@@ -223,7 +223,7 @@
         {% if product.metafields.custom.product_description.value != blank or product.description != blank %}
           {% assign Productdescription = product.metafields.custom.product_description.value %}
           <div class="description">
-            <div class="description-text full-format medium">
+            <div class="description-text full-format">
               {% if Productdescription.short_description != blank %}
                 {{ Productdescription.short_description | metafield_tag }}
               {% else %}
