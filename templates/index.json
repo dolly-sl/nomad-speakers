@@ -514,17 +514,6 @@
         "paddingbottom": 78,
         "paddingbottomMobile": 50
       }
-    },
-    "custom_liquid_KkRqgM": {
-      "type": "custom-liquid",
-      "name": "Custom Liquid",
-      "settings": {
-        "custom_liquid": "{{ \"now\" | date: \"%Y-%m-%d %H:%M\" }}.",
-        "paddingtop": 140,
-        "paddingtopmobile": 0,
-        "paddingbottom": 100,
-        "paddingbottomMobile": 0
-      }
     }
   },
   "order": [
@@ -536,7 +525,6 @@
     "marquee_HqfbWU",
     "testimonial_product_slider_8whV8c",
     "feature_comparison_table_bktgqn",
-    "instagram_slider_xJDiF4",
-    "custom_liquid_KkRqgM"
+    "instagram_slider_xJDiF4"
   ]
 }
