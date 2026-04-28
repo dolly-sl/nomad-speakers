@@ -93,7 +93,7 @@
         "card_fG7Fmy": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
+            "image": "shopify://shop_images/Group_120.jpg",
             "title": "Steering Wheel Remote",
             "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "SHOP NOW",
@@ -103,7 +103,7 @@
         "card_ECY98d": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
+            "image": "shopify://shop_images/Build_In_Microphone.jpg",
             "title": "Built-In Microphone",
             "description": "<p>Use Siri and other voice commands, or take calls through CarPlay without grabbing your phone.</p>",
             "buttonText": "SHOP NOW",
@@ -113,7 +113,7 @@
         "card_FqVJrw": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
+            "image": "shopify://shop_images/Setup.jpg",
             "title": "Nomad for the Shower",
             "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
