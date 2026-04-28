@@ -440,45 +440,10 @@
             "buttonLink": ""
           }
         },
-        "card_wTrQj8": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/nano-banana-2025-11-13T17-32-44.png",
-            "buttonLink": ""
-          }
-        },
-        "card_9tGRpD": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/hf_20260404_175810_c2dacdc4-9f26-47c8-9dea-3e94a80f9ed7.png",
-            "buttonLink": ""
-          }
-        },
-        "card_XkUCQP": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/insta.jpg",
-            "buttonLink": ""
-          }
-        },
-        "card_zQVPmC": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/insta.jpg",
-            "buttonLink": ""
-          }
-        },
-        "card_naAbHP": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/insta.jpg",
-            "buttonLink": ""
-          }
-        },
         "card_HfFwiM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/insta.jpg",
+            "image": "shopify://shop_images/hf_20260404_184725_5b5f0da5-4155-42a4-9295-0b0716bc3bef.png",
             "buttonLink": ""
           }
         }
@@ -487,11 +452,6 @@
         "card_G9cpVW",
         "card_qK3im9",
         "card_6NBmNM",
-        "card_wTrQj8",
-        "card_9tGRpD",
-        "card_XkUCQP",
-        "card_zQVPmC",
-        "card_naAbHP",
         "card_HfFwiM"
       ],
       "name": "Instagram Slider",
