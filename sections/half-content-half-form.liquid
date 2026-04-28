@@ -12,66 +12,13 @@
   }
 {%- endstyle -%}
 <div class="half-content-half-form section-{{ section.id }}-padding">
-  <div class="container-1400 flex">
-    <div class="content">
-      <div class="ipad-none">
-        <h1 class="small">{{ section.settings.content_title | default: 'Contact Us' }}</h1>
-        <p>
-          {{
-            section.settings.content_description
-            | default: 'Our customer service staff can help answer your questions. Your patronage is important to us, so please contact us!'
-          }}
-        </p>
-      </div>
-      <ul>
-        <li>
-          <span class="label">{{ section.settings.phone_label | default: 'Phone Orders' }}</span>
-          <a href="tel:{{ section.settings.phone_number }}">
-            {{- section.settings.phone_number | default: '1-844-682-2354' -}}
-          </a>
-        </li>
-
-        <li>
-          <span class="label">{{ section.settings.quote_label | default: 'REQUEST A QUOTE' }}</span>
-          <p>{{ section.settings.quote_description | default: 'Looking to purchase for your course?' }}</p>
-          {% if section.settings.quote_url != blank %}
-            <a href="{{ section.settings.quote_url }}" class="link--primary green">
-              {{- section.settings.quote_button_text | default: 'Get a Quote' -}}
-            </a>
-          {% else %}
-            <a class="link--primary green">{{ section.settings.quote_button_text | default: 'Get a Quote' }}</a>
-          {% endif %}
-        </li>
-        <li>
-          <span class="label">{{ section.settings.hours_label | default: 'Hours' }}</span>
-          <p>{{ section.settings.hours_text | default: '8:30am - 3:30pm PST' }}</p>
-        </li>
-
-        <li>
-          <span class="label">{{ section.settings.help_label | default: 'HELP CENTER' }}</span>
-          <p>
-            {{
-              section.settings.help_description
-              | default: 'For information on returns, warranties and product problems please see our'
-            }}
-          </p>
-          {% if section.settings.help_url != blank %}
-            <a href="{{ section.settings.help_url }}" class="link--primary green">
-              {{- section.settings.help_button_text | default: 'Visit Our Help Center' -}}
-            </a>
-          {% else %}
-            <a class="link--primary green">
-              {{- section.settings.help_button_text | default: 'Visit Our Help Center' -}}
-            </a>
-          {% endif %}
-        </li>
-      </ul>
-    </div>
+  <div class="container-1004 flex">
+   
 
     <div class="form-section">
-      <div class="ipad-block">
+     
         <h2 class="h1 small text-center">{{ section.settings.form_title | default: 'Contact Us' }}</h2>
-      </div>
+     
       <p>
         {{
           section.settings.form_description
