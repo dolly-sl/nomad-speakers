@@ -189,7 +189,7 @@
 
         // Whether the variant is in stock or not, we can update the price and compare at price.
         if ( variant.compare_at_price > variant.price ) {
-          $('.js__product-single__prices').html('<span>' + Shopify.formatMoney(variant.price, "") + '</span>' + '<s>' + Shopify.formatMoney(variant.compare_at_price, "") + '</s>');
+          $('.js__product-single__prices').html('<span class="red">' + Shopify.formatMoney(variant.price, "") + '</span>' + '<s>' + Shopify.formatMoney(variant.compare_at_price, "") + '</s>');
         } else {
           $('.js__product-single__prices').html('<span>'+Shopify.formatMoney(variant.price, "")+'</span>');
         }

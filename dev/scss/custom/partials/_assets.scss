@@ -498,11 +498,12 @@ textarea.input--error {
          margin-right: 0px;
        }
     }
+    s {
+      color: $color-dark-gray;
+      text-decoration: line-through;
+    }
     span.red {
-     
-      color: #8a1919;
-      
-      
+      color: #7c1d1d;
     }
 
   }

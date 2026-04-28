@@ -43,12 +43,12 @@ $(document).ready(function($) {
                 draggable: true,
 
                 breakpoints: {
-                    980: {
+                    767: {
                         slidesPerView: "auto",
                         direction: "horizontal",
 
                     },
-                    981: {
+                    768: {
                         slidesPerView: 6,
                         direction: "vertical",
                     },
@@ -97,6 +97,7 @@ $(document).ready(function($) {
 
         pdpSlider = new Swiper(".js__pdp-slider", {
             slidesPerView: 1,
+            autoHeight: true,
             grabCursor: false,
             mousewheel: false,
             clickable: false,

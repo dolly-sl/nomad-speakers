@@ -123,8 +123,9 @@
   display: flex;
   align-items: center;
   position: relative;
+  background: $color-black;
   .image-section {
-    background: $color-yellow;
+    background: $color-black;
     position: absolute;
     top: 0;
     left: 0;
@@ -162,10 +163,31 @@
     * {
       color: $color-white;
     }
-    @include MQ(MQ-600) {
-      .pre-title {
+    .pre-title {
+      display: block;
+      margin-bottom: 14px;
+      @include MQ(MQ-600) {
         margin-bottom: 8px;
       }
+    }
+    .description {
+      max-width: 720px;
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      @include MQ(MQ-600) {
+        font-size: 14px;
+        margin-top: 12px;
+      }
+      p {
+        margin: 0;
+      }
+      p + p {
+        margin-top: 12px;
+      }
+    }
+    @include MQ(MQ-600) {
       text-align: center;
     }
   }

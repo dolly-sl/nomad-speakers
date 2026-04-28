@@ -1,8 +1,8 @@
 .half-content-half-form{
-    
+
        overflow: hidden;
-      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-yellow;
- 
+      background: $color-white;
+
    .container-1500{
     @include MQ(MQ-768) {
     flex-direction: column;
@@ -19,14 +19,19 @@
 font-weight: 400;
 line-height: normal;
     }
+   a{
+        color: $color-black;
+        text-decoration: underline;
+    }
    ul{
-    
+
     .link--primary{
         margin-top: 6px;
+        text-decoration: none;
     }
     .label{
         display: block;
-       
+
 font-family: var(--font-family-secondary);
 font-size: 16px;
 font-weight: 900;
@@ -36,7 +41,8 @@ text-transform: uppercase;
     }
     li{ margin-top:  34px;}
     a{
-        color: $color-yellow;
+        color: $color-black;
+        text-decoration: underline;
     }
    }
     .content{
@@ -81,6 +87,25 @@ line-height: 116%; /* 18.56px */
  @include MQ(MQ-768) {
     text-align: center;
  }
+        }
+        .contact-form{
+            .field{
+                margin-bottom: 18px;
+                label{
+                    display: block;
+                    margin-bottom: 6px;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+            textarea{
+                height: auto !important;
+                min-height: 140px;
+                padding: 12px 10px !important;
+            }
+            .btn--primary{
+                margin-top: 6px;
+            }
         }
          div[data-testid="form-row"]{
    gap: 27px;
