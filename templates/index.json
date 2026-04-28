@@ -117,32 +117,32 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "10-hour battery",
+            "text": "All day streaming"
           }
         },
         "card_jgRPPL": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "Carplay & Android 14",
+            "text": "Wireless connection"
           }
         },
         "card_g4BFgB": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "50w speaker system",
+            "text": "2 tweeters & midrange dual radiators"
           }
         },
         "card_jiky4x": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "Built in microphone",
+            "text": "Hands free calls & voice commands"
           }
         }
       },
