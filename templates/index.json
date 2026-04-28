@@ -97,41 +97,41 @@
         "card_UmMDUH": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Group_2.svg",
+            "title": "10-Hour battery",
+            "text": "All day streaming"
           }
         },
         "card_6D4MNT": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Group_3.svg",
+            "title": "10-Hour battery",
+            "text": "All day streaming"
           }
         },
         "card_jgRPPL": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "CARPLAY & ANDROID 14",
+            "text": "Wireless Connection"
           }
         },
         "card_g4BFgB": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Layer_1.svg",
+            "title": "50W SPEAKER SYSTEM",
+            "text": "2 tweeters & midrangedual radiators"
           }
         },
         "card_jiky4x": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Layer_1_1.svg",
+            "title": "BUILT IN MICROPHONE",
+            "text": "Hands free calls & voice commands"
           }
         }
       },
