@@ -160,7 +160,7 @@
         "title": "Big sound. Real screen. Built different.",
         "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>",
         "buttonText": "Shop now",
-        "buttonLink": "#",
+        "buttonLink": "shopify://products/nomad-unit-only",
         "button_style": "btn--secondary",
         "button_target_blank": false,
         "button_opens_lity_modal": false,
