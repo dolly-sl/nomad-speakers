@@ -1,5 +1,5 @@
-{% if section.settings.image != blank or section.settings.title != blank %}
-  <div class="inner-hero-section {% if section.settings.image == blank and section.settings.videobanner == false %}no-image{% endif %} {%if section.settings.smallHeight == true%} small-height {%endif%}   color-{{ section.settings.color_scheme }}">
+{% if section.settings.image != blank and section.settings.title != blank %}
+  <div class="inner-hero-section  {%if section.settings.smallHeight == true%} small-height {%endif%}   color-{{ section.settings.color_scheme }}">
     {%- if section.settings.videobanner -%}
       <div class="image-section video-section">
         <div class="video-wrapper none-980">
@@ -74,7 +74,7 @@
           </div>
         {% endif %}
       </div>
-    {% elsif section.settings.image != blank %}
+    {% else %}
       <div class="image-section">
         {% assign imageAlt = section.settings.image.alt %}
         {% if imageAlt == blank %}

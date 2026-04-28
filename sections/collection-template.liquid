@@ -1,18 +1,15 @@
 {% assign collectionBanner = collection.metafields.custom.collection_hero_banner.value %}
 {% assign collectionImage = collectionBanner.image %}
 <div class="collection-hero-section">
-  <div class="image-section">
-    {% if collectionImage != blank %}
+  {% if collectionImage != blank %}
+    <div class="image-section">
       {% assign imageAlt = collectionImage.alt %}
       {% if imageAlt == blank %}
         {% assign imageAlt = collectionBanner.title %}
       {% endif %}
       {% include 'image_code'  with  mobileImage: collectionImage, tabletImage: collectionImage, desktopImage: collectionImage, imageAlt: imageAlt %}
-    {% else %}
-      {% include 'image_code'  with  mobileImage: collection.image, tabletImage: collection.image, desktopImage: collection.image, imageAlt: imageAlt %}
-      {% comment %} <img src="https://cdn.shopify.com/s/files/1/1812/7853/files/collection-hero-1.jpg?v=1759178777"> {% endcomment %}
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
   <div class="container-1590">
     <span class="pre-title">{{ collectionBanner.pre_title }}</span>
     {% if collectionBanner.title != blank %}
