@@ -16,8 +16,8 @@
         "pretitle": "Starting at $399",
         "title": "Meet the Boombox of 2026",
         "description": "<p>Waterproof and portable, the Nomad combines a vibrant HD screen, massive sound, and true portability into one all-in-one device you can use on its own, with CarPlay, or like a Bluetooth speaker.</p>",
-        "buttonText": "Build Your NomaD",
-        "buttonLink": "#",
+        "buttonText": "Shop Now",
+        "buttonLink": "shopify://collections/frontpage",
         "button_target_blank": false,
         "button_style": "btn--primary",
         "media_type": "video",
@@ -38,37 +38,37 @@
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
             "description": "",
-            "buttonText": "BUILD NOMAD",
-            "buttonLink": "#"
+            "buttonText": "Shop Now",
+            "buttonLink": "shopify://products/shower-bundle"
           }
         },
         "card_38rqkf": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/Golf.jpg",
+            "title": "Nomad for Golf",
             "description": "",
-            "buttonText": "BUILD NOMAD",
-            "buttonLink": "#"
-          }
-        },
-        "card_EBQHKY": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "",
-            "buttonText": "BUILD NOMAD",
+            "buttonText": "Shop Now",
             "buttonLink": "#"
           }
         },
         "card_xyYgJ4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/home_2.jpg",
+            "title": "Nomad for Home",
             "description": "",
-            "buttonText": "BUILD NOMAD",
+            "buttonText": "Shop Now",
+            "buttonLink": "#"
+          }
+        },
+        "card_EBQHKY": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/On_the_go.jpg",
+            "title": "Nomad on the Go",
+            "description": "",
+            "buttonText": "Shop Now",
             "buttonLink": "#"
           }
         },
@@ -78,7 +78,7 @@
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Nomad for the Shower",
             "description": "",
-            "buttonText": "BUILD NOMAD",
+            "buttonText": "Shop Now",
             "buttonLink": "#"
           }
         }
@@ -86,15 +86,15 @@
       "block_order": [
         "card_9WGrit",
         "card_38rqkf",
-        "card_EBQHKY",
         "card_xyYgJ4",
+        "card_EBQHKY",
         "card_4Q3xUd"
       ],
       "name": "Three Column Card Slider",
       "settings": {
         "pre_title": "Where Nomad Fits",
         "title": "Built for your favorite spot",
-        "buttonText": "Build Your NomaD",
+        "buttonText": "Shop Now",
         "buttonLink": "#",
         "paddingtop": 94,
         "paddingtopmobile": 76,
