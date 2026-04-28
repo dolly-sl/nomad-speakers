@@ -45,8 +45,8 @@
         "card_38rqkf": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/Firefly_Gemini_Flash_make_the_phone_smaller_416076_1.jpg",
+            "title": "Nomad for Golf",
             "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
@@ -55,8 +55,8 @@
         "card_EBQHKY": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_2.jpg",
+            "title": "Nomad on the go",
             "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
@@ -65,18 +65,8 @@
         "card_xyYgJ4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "",
-            "buttonText": "BUILD NOMAD",
-            "buttonLink": "#"
-          }
-        },
-        "card_4Q3xUd": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/hf_20260317_223955_cf035011-aded-42c4-be8f-b69a43d8cf04_1.jpg",
+            "title": "Nomad for Home",
             "description": "",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
@@ -87,8 +77,7 @@
         "card_9WGrit",
         "card_38rqkf",
         "card_EBQHKY",
-        "card_xyYgJ4",
-        "card_4Q3xUd"
+        "card_xyYgJ4"
       ],
       "name": "Three Column Card Slider",
       "settings": {
