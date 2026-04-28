@@ -44,7 +44,7 @@
             content="{{ current_variant.price | divided_by: 100.00 }}"
           >
             {% if product.price < product.compare_at_price %}
-              <span>{{ product.price | money }}</span> <s>{{ product.compare_at_price | money }}</s>
+              <span class="red">{{ product.price | money }}</span> <s>{{ product.compare_at_price | money }}</s>
             {% else %}
               <span> {{ product.price | money }}</span>
             {% endif %}
