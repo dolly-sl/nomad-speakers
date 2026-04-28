@@ -2404,11 +2404,11 @@ $(document).ready(function ($) {
       observeParents: true,
       draggable: true,
       breakpoints: {
-        980: {
+        767: {
           slidesPerView: "auto",
           direction: "horizontal"
         },
-        981: {
+        768: {
           slidesPerView: 6,
           direction: "vertical"
         }
