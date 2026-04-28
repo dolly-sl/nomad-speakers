@@ -1,9 +1,9 @@
 .half-content-half-form{
 
        overflow: hidden;
-      background: $color-white;
+     
 
-   .container-1500{
+   .container-1400{
     @include MQ(MQ-768) {
     flex-direction: column;
     }
@@ -67,16 +67,8 @@ text-transform: uppercase;
     }
     .form-section{
         width: 100%;
-        background: $color-white;
-        
-        padding: 62px 93px 52px;
-           @include MQ(MQ-1200) {
-            padding: 50px 50px 42px;
-           }
-            @include MQ(MQ-768) {
-            padding: 30px 20px 0px;
-           
-           }
+           margin-top: 10px;
+       
         >p{
            margin-bottom: 34px;
            display: block;

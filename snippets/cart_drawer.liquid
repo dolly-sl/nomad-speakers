@@ -85,12 +85,13 @@
                  <div class="flex">
                   <b>Taxes</b><span>Calculated at Checkout</span>
                 </div>
-                
-                <div class="flex js__cart-shipping">
+                  {% if settings.freeShippingThresholdValue != blank %}
+                <div class="flex js__cart-shipping hide">
                   <b>Shipping</b>
                   <span>Free</span>
                
                 </div>
+                 {% endif %}
               </div>
     <div class="addon-product js__cart-minicart-addon-product js__top-cart-form-actions">
         <span class="title uppercase">Complete Your Purchase</span>

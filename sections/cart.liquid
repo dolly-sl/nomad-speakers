@@ -1,3 +1,4 @@
+ <span class="hide js__free-shipping-limit">{{ settings.freeShippingThresholdValue }}</span>
 <div class="js__show-cart-items-section">
   <div id="cart" class="cart-section ">
     <div class="container-1480 container-section">
@@ -54,10 +55,12 @@
                  <div class="flex">
                   <b>Taxes</b><span>calculated at checkout</span>
                 </div>
-                <div class="flex">
+                 {% if settings.freeShippingThresholdValue != blank %}
+                <div class="flex js__cart-shipping hide">
                   <b>Shipping</b>
                   <span>Free!</span>
                 </div>
+                 {% endif %}
               </div>
               <div class="order-total-section">
             

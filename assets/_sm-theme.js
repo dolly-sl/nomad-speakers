@@ -637,10 +637,11 @@ function progressBar() {
       totalAmount = data.total_price / 100;
       var freeShippingAmount = parseFloat($(".js__free-shipping-limit").html());
       $(".js__free-shipping-amount").html(formatter.format(freeShippingAmount));
+      console.log("totalAmount" + totalAmount);
+      console.log("freeShippingAmount" + freeShippingAmount);
 
-      if (function (totalAmount) {
-        return freeShippingAmount;
-      }) {
+      if (totalAmount > freeShippingAmount) {
+        console.log("if");
         $(".js__cart-shipping").removeClass("hide");
       }
     });
