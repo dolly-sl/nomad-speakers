@@ -1,0 +1,86 @@
+{%- style -%}
+  .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtop | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottom | round: 0 }}px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.paddingtopmobile | round: 0 }}px !important;
+      padding-bottom: {{ section.settings.paddingbottomMobile | round: 0 }}px !important;
+    }
+  }
+{%- endstyle -%}
+<div class="custom-liquid">
+    <div class="container-1328">
+        {{ section.settings.custom_liquid }}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "3 Col Product Slider",
+  "tag": "section",
+  "settings": [
+  
+    {
+    "label": "Custom Liquid",
+      "type": "liquid",
+      "id": "custom_liquid",
+    },
+    {
+      "type": "range",
+      "id": "paddingtop",
+      "min": 0,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Desktop)",
+      "info": "Adjust the space above the product slider on desktop devices. Use this to create proper visual separation from content above it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingtopmobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Spacing (Mobile)",
+      "info": "Adjust the space above this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Desktop)",
+      "info": "Adjust the space below the product slider on desktop devices. Use this to create proper visual separation from content below it.",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "paddingbottomMobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Spacing (Mobile)",
+      "info": "Adjust the space below this section on mobile devices. Mobile spacing is typically smaller than desktop to optimize screen space.",
+      "default": 0
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Custom Liquid",
+    }
+  ]
+}
+{% endschema %}
+
+
