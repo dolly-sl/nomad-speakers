@@ -28,33 +28,33 @@
         "card_ehGUB6": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/Group.svg",
-            "title": "Big Sound",
-            "text": "Over 100 dB of premium audio. Cuts through wind at full cart speed."
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
           }
         },
         "card_xq6Ajh": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/Group_1.svg",
-            "title": "Runs any app",
-            "text": "Stream ESPN, Spotify, YouTube, SiriusXM, and more."
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
           }
         },
         "card_CfxNgY": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "CARPLAY & ANDROID 14",
-            "text": "Hands-free calls, turn-by-turn navigation, and your full music library."
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
           }
         },
         "card_nA7d73": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/Vector.svg",
-            "title": "Outdoor ready",
-            "text": "Waterproof and built for environments that would ruin ordinary electronics."
+            "icon": "shopify://shop_images/icon.svg",
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
           }
         }
       },
@@ -93,8 +93,8 @@
         "card_fG7Fmy": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/251108_HB_NOMAD_2065_2.png",
-            "title": "Steering Wheel Remote",
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
             "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
@@ -103,9 +103,9 @@
         "card_ECY98d": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/image_11.png",
-            "title": "Built-In Microphone",
-            "description": "<p>Use Siri and other voice commands, or take calls through CarPlay without grabbing your phone.</p>",
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -113,9 +113,9 @@
         "card_FqVJrw": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/image_7.png",
-            "title": "Flexible Setup",
-            "description": "<p>Use it on a tripod, mount it to the wall, wrap it around a post, or anywhere else you want a premium portable screen and speaker setup.</p>",
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -124,8 +124,18 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
-            "title": "More than bluetooth Audio",
-            "description": "<p>Get CarPlay, app streaming, navigation, and a real display — not just sound.</p>",
+            "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
+            "buttonText": "BUILD NOMAD",
+            "buttonLink": "#"
+          }
+        },
+        "card_gxqyxF": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/card-image.jpg",
+            "title": "Nomad for the Shower",
+            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -135,11 +145,12 @@
         "card_fG7Fmy",
         "card_ECY98d",
         "card_FqVJrw",
-        "card_nkiMPU"
+        "card_nkiMPU",
+        "card_gxqyxF"
       ],
       "name": "Three Column Card Slider",
       "settings": {
-        "pre_title": "Convenience That Actually Matters",
+        "pre_title": "Where Nomad Fits",
         "title": "Built for your favorite spot",
         "buttonText": "Build Your NomaD",
         "buttonLink": "#",
@@ -289,7 +300,7 @@
         "card_QAiq4W": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_109.png",
+            "image": "shopify://shop_images/image-33.png",
             "title": "Rechargeable Kit",
             "description": "<p>Best for riders who want the simplest install possible. Charge Nomad just like a phone or tablet via USB-C</p>",
             "bullet_list": "<ul><li>No wiring needed</li><li>Fastest install</li><li>Great for flexibility</li></ul>"
@@ -329,7 +340,6 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
-            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""
@@ -338,8 +348,7 @@
         "slide_br6wCm": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_6036781f-62d7-4592-8a15-c9fc3b5fe1e9.jpg",
-            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""
@@ -349,7 +358,6 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
-            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""

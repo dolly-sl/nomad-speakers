@@ -78,6 +78,41 @@
           | default: 'Please fill out the form below and someone will reach out to you shortly.'
         }}
       </p>
+      {% form 'contact', id: 'ContactForm', class: 'contact-form' %}
+        {% include 'form-status', form: form, form_id: 'ContactForm' %}
+        <div class="field">
+          <label for="ContactForm-name">Name</label>
+          <input
+            type="text"
+            id="ContactForm-name"
+            name="contact[name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            required
+          >
+        </div>
+        <div class="field">
+          <label for="ContactForm-email">Email</label>
+          <input
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            autocorrect="off"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            required
+          >
+        </div>
+        <div class="field">
+          <label for="ContactForm-body">Message</label>
+          <textarea
+            id="ContactForm-body"
+            name="contact[body]"
+            rows="6"
+            required
+          >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        </div>
+        <button type="submit" class="btn--primary">Send</button>
+      {% endform %}
     </div>
   </div>
 </div>
