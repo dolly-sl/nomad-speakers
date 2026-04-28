@@ -136,6 +136,28 @@
     "product_title": "Example product title",
     "collection_title": "Your collection's name"
   },
+  "collections": {
+    "general": {
+      "no_matches": "No products found",
+      "items_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "view_all": "View all",
+      "link_title": "Browse our {{ title }} collection"
+    },
+    "sorting": {
+      "title": "Sort by",
+      "manual": "Featured",
+      "best_selling": "Best selling",
+      "title_ascending": "Alphabetically, A-Z",
+      "title_descending": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "created_ascending": "Date, old to new",
+      "created_descending": "Date, new to old"
+    }
+  },
   "products": {
     "product": {
       "add_to_cart": "Add to cart",

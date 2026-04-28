@@ -11,11 +11,16 @@
     </div>
   {% endif %}
   <div class="container-1590">
-    <span class="pre-title">{{ collectionBanner.pre_title }}</span>
+    {% if collectionBanner.pre_title != blank %}
+      <span class="pre-title">{{ collectionBanner.pre_title }}</span>
+    {% endif %}
     {% if collectionBanner.title != blank %}
       <h1 class="h2 small">{{ collectionBanner.title }}</h1>
     {% else %}
       <h1 class="h2 small">{{ collection.title }}</h1>
+    {% endif %}
+    {% if collection.description != blank %}
+      <div class="description">{{ collection.description }}</div>
     {% endif %}
   </div>
 </div>
