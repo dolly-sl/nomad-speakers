@@ -15,73 +15,91 @@
   <div class="container-1004 flex">
     <div class="content">
       <div class="ipad-none">
-        <h1 class="small">{{ section.settings.content_title | default: 'Contact Us' }}</h1>
-        <p>
-          {{
-            section.settings.content_description
-            | default: 'Our customer service staff can help answer your questions. Your patronage is important to us, so please contact us!'
-          }}
-        </p>
+        {% if section.settings.content_title != blank %}
+          <h1 class="small">{{ section.settings.content_title }}</h1>
+        {% endif %}
+        {% if section.settings.content_description != blank %}
+          <p>{{ section.settings.content_description }}</p>
+        {% endif %}
       </div>
       <ul>
-        <li>
-          <span class="label">{{ section.settings.phone_label | default: 'Phone Orders' }}</span>
-          <a href="tel:{{ section.settings.phone_number }}">
-            {{- section.settings.phone_number | default: '1-844-682-2354' -}}
-          </a>
-        </li>
+        {% if section.settings.phone_number != blank %}
+          <li>
+            {% if section.settings.phone_label != blank %}
+              <span class="label">{{ section.settings.phone_label }}</span>
+            {% endif %}
+            <a href="tel:{{ section.settings.phone_number }}">{{- section.settings.phone_number -}}</a>
+          </li>
+        {% endif %}
 
-        <li>
-          <span class="label">{{ section.settings.quote_label | default: 'REQUEST A QUOTE' }}</span>
-          <p>{{ section.settings.quote_description | default: 'Looking to purchase for your course?' }}</p>
-          {% if section.settings.quote_url != blank %}
-            <a href="{{ section.settings.quote_url }}" class="link--primary green">
-              {{- section.settings.quote_button_text | default: 'Get a Quote' -}}
-            </a>
-          {% else %}
-            <a class="link--primary green">{{ section.settings.quote_button_text | default: 'Get a Quote' }}</a>
-          {% endif %}
-        </li>
-        <li>
-          <span class="label">{{ section.settings.hours_label | default: 'Hours' }}</span>
-          <p>{{ section.settings.hours_text | default: '8:30am - 3:30pm PST' }}</p>
-        </li>
+        {% assign show_quote = false %}
+        {% if section.settings.quote_label != blank or section.settings.quote_description != blank or section.settings.quote_url != blank %}
+          {% assign show_quote = true %}
+        {% endif %}
+        {% if show_quote %}
+          <li>
+            {% if section.settings.quote_label != blank %}
+              <span class="label">{{ section.settings.quote_label }}</span>
+            {% endif %}
+            {% if section.settings.quote_description != blank %}
+              <p>{{ section.settings.quote_description }}</p>
+            {% endif %}
+            {% if section.settings.quote_url != blank and section.settings.quote_button_text != blank %}
+              <a href="{{ section.settings.quote_url }}" class="link--primary green">
+                {{- section.settings.quote_button_text -}}
+              </a>
+            {% endif %}
+          </li>
+        {% endif %}
 
-        <li>
-          <span class="label">{{ section.settings.help_label | default: 'HELP CENTER' }}</span>
-          <p>
-            {{
-              section.settings.help_description
-              | default: 'For information on returns, warranties and product problems please see our'
-            }}
-          </p>
-          {% if section.settings.help_url != blank %}
-            <a href="{{ section.settings.help_url }}" class="link--primary green">
-              {{- section.settings.help_button_text | default: 'Visit Our Help Center' -}}
-            </a>
-          {% else %}
-            <a class="link--primary green">
-              {{- section.settings.help_button_text | default: 'Visit Our Help Center' -}}
-            </a>
-          {% endif %}
-        </li>
+        {% if section.settings.hours_label != blank or section.settings.hours_text != blank %}
+          <li>
+            {% if section.settings.hours_label != blank %}
+              <span class="label">{{ section.settings.hours_label }}</span>
+            {% endif %}
+            {% if section.settings.hours_text != blank %}
+              <p>{{ section.settings.hours_text }}</p>
+            {% endif %}
+          </li>
+        {% endif %}
+
+        {% assign show_help = false %}
+        {% if section.settings.help_label != blank or section.settings.help_description != blank or section.settings.help_url != blank %}
+          {% assign show_help = true %}
+        {% endif %}
+        {% if show_help %}
+          <li>
+            {% if section.settings.help_label != blank %}
+              <span class="label">{{ section.settings.help_label }}</span>
+            {% endif %}
+            {% if section.settings.help_description != blank %}
+              <p>{{ section.settings.help_description }}</p>
+            {% endif %}
+            {% if section.settings.help_url != blank and section.settings.help_button_text != blank %}
+              <a href="{{ section.settings.help_url }}" class="link--primary green">
+                {{- section.settings.help_button_text -}}
+              </a>
+            {% endif %}
+          </li>
+        {% endif %}
       </ul>
     </div>
 
     <div class="form-section">
       <div class="ipad-block">
-        <h2 class="h1 small text-center">{{ section.settings.form_title | default: 'Contact Us' }}</h2>
+        {% if section.settings.form_title != blank %}
+          <h2 class="h1 small text-center">{{ section.settings.form_title }}</h2>
+        {% endif %}
       </div>
-      <p>
-        {{
-          section.settings.form_description
-          | default: 'Please fill out the form below and someone will reach out to you shortly.'
-        }}
-      </p>
+      {% if section.settings.form_description != blank %}
+        <p>{{ section.settings.form_description }}</p>
+      {% endif %}
       {% form 'contact', id: 'ContactForm', class: 'contact-form' %}
         {% include 'form-status', form: form, form_id: 'ContactForm' %}
         <div class="field">
-          <label for="ContactForm-name">Name</label>
+          {% if section.settings.name_label != blank %}
+            <label for="ContactForm-name">{{ section.settings.name_label }}</label>
+          {% endif %}
           <input
             type="text"
             id="ContactForm-name"
@@ -91,7 +109,9 @@
           >
         </div>
         <div class="field">
-          <label for="ContactForm-email">Email</label>
+          {% if section.settings.email_label != blank %}
+            <label for="ContactForm-email">{{ section.settings.email_label }}</label>
+          {% endif %}
           <input
             type="email"
             id="ContactForm-email"
@@ -103,7 +123,9 @@
           >
         </div>
         <div class="field">
-          <label for="ContactForm-body">Message</label>
+          {% if section.settings.message_label != blank %}
+            <label for="ContactForm-body">{{ section.settings.message_label }}</label>
+          {% endif %}
           <textarea
             id="ContactForm-body"
             name="contact[body]"
@@ -111,7 +133,9 @@
             required
           >{% if form.body %}{{ form.body }}{% endif %}</textarea>
         </div>
-        <button type="submit" class="btn--primary">Send</button>
+        {% if section.settings.submit_button_text != blank %}
+          <button type="submit" class="btn--primary">{{ section.settings.submit_button_text }}</button>
+        {% endif %}
       {% endform %}
     </div>
   </div>
@@ -239,6 +263,30 @@
       "id": "form_description",
       "label": "Form Description",
       "default": "Please fill out the form below and someone will reach out to you shortly."
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Name Field Label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email Field Label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Message Field Label",
+      "default": "Message"
+    },
+    {
+      "type": "text",
+      "id": "submit_button_text",
+      "label": "Submit Button Text",
+      "default": "Send"
     },
     {
       "type": "header",
