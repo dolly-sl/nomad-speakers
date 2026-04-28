@@ -96,7 +96,7 @@
             "image": "shopify://shop_images/card-image.jpg",
             "title": "Steering Wheel Remote",
             "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
-            "buttonText": "BUILD NOMAD",
+            "buttonText": "SHOP NOW",
             "buttonLink": "#"
           }
         },
@@ -124,9 +124,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
-            "buttonText": "BUILD NOMAD",
+            "title": "Flexible Setup",
+            "description": "<p>Use it on a tripod, mount it to the wall, wrap it around a post, or anywhere else you want a premium portable screen and speaker setup.</p>",
+            "buttonText": "SHOP NOW",
             "buttonLink": "#"
           }
         },
