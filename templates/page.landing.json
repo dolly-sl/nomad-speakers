@@ -93,8 +93,8 @@
         "card_fG7Fmy": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_2.png",
+            "title": "Steering Wheel Remote",
             "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
@@ -103,9 +103,9 @@
         "card_ECY98d": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
+            "image": "shopify://shop_images/image_11.png",
+            "title": "Built-In Microphone",
+            "description": "<p>Use Siri and other voice commands, or take calls through CarPlay without grabbing your phone.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -113,9 +113,9 @@
         "card_FqVJrw": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
+            "image": "shopify://shop_images/image_7.png",
+            "title": "Flexible Setup",
+            "description": "<p>Use it on a tripod, mount it to the wall, wrap it around a post, or anywhere else you want a premium portable screen and speaker setup.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -124,18 +124,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
-            "buttonText": "BUILD NOMAD",
-            "buttonLink": "#"
-          }
-        },
-        "card_gxqyxF": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/card-image.jpg",
-            "title": "Nomad for the Shower",
-            "description": "<p>Adjust volume, skip tracks, and control playback right from the wheel.</p>",
+            "title": "More than bluetooth Audio",
+            "description": "<p>Get CarPlay, app streaming, navigation, and a real display — not just sound.</p>",
             "buttonText": "BUILD NOMAD",
             "buttonLink": "#"
           }
@@ -145,12 +135,11 @@
         "card_fG7Fmy",
         "card_ECY98d",
         "card_FqVJrw",
-        "card_nkiMPU",
-        "card_gxqyxF"
+        "card_nkiMPU"
       ],
       "name": "Three Column Card Slider",
       "settings": {
-        "pre_title": "Where Nomad Fits",
+        "pre_title": "Convenience That Actually Matters",
         "title": "Built for your favorite spot",
         "buttonText": "Build Your NomaD",
         "buttonLink": "#",
