@@ -1,10 +1,7 @@
 <div
   class="product-wrapper"
 >
-   <a class="full-link js__quick-view-click" href="javascript:;" title="Shop {{productRelated.title}}"  data-id="{{productRelated.id}}"
-          data-slider_main="{%- for img in productRelated.images -%}{{- img | img_url: '355x355' -}}|{%- endfor -%}"
-          data-slider_thumb="{%- for img in productRelated.images -%}{{- img | img_url: '150x150' -}}|{%- endfor -%}"
-          data-var_images="{%- for var in productRelated.variants -%}{{- var.image | img_url: '150x150' -}}|{%- endfor -%}"></a>
+   <a class="full-link" href="{{productRelated.url}}" title="Shop {{productRelated.title}}" ></a>
     
   <div class="image-section">
   {% assign secondaryImage = productRelated.metafields.custom.product_secondary_image.value.image %}

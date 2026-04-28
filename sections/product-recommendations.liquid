@@ -2,13 +2,13 @@
 {% assign metafieldsHandleForProducts = product.metafields.custom.pdp_recommandation_products.value %}
 {% if metafieldsHandleForProducts != blank %}
   <div
-    class="pdp-recommendations four-column-product-slider"
+    class="pdp-recommendations three-column-product-slider"
     data-aos="fade-up"
     data-aos-duration="2000"
   >
-    <div class="container-1686">
+    <div class="container-1400">
       {% if metafieldsHandleForProducts.heading != blank %}
-        <div class="top-section">
+        <div class="top-section flex">
           <h2 class="h3">
             {{ metafieldsHandleForProducts.heading }}
           </h2>
@@ -18,15 +18,16 @@
               href="{{ metafieldsHandleForProducts.link_url }}"
               title="Read More About {{ metafieldsHandleForProducts.link_text  }}"
               aria-label="Read More About {{  metafieldsHandleForProducts.link_text  }}"
-              class="link--primary"
+              class="btn--secondary"
             >
               {{ metafieldsHandleForProducts.link_text }}
             </a>
           {% endif %}
         </div>
       {% endif %}
-
+</div>
       <div class="slider-outer">
+         <div class="container-1400 flex">
         <div class="swiper js__recommendations-product-slider">
           <div class="swiper-wrapper">
             {% for productRelated in metafieldsHandleForProducts.products.value %}
@@ -38,7 +39,8 @@
         </div>
         <div class="swiper-button-prev swiper-button-prev-product"></div>
         <div class="swiper-button-next swiper-button-next-product "></div>
-        <div class="swiper-pagination swiper-pagination-product "></div>
+        <div class="swiper-pagination dark-bg swiper-pagination-product "></div>
+        
       </div>
     </div>
   </div>
@@ -53,9 +55,9 @@
     data-aos-duration="2000"
   >
     {%- if recommendations.products_count > 0 -%}
-      <div class="pdp-recommendations  four-column-product-slider">
-        <div class="container-1686">
-          <div class="top-section">
+      <div class="pdp-recommendations  three-column-product-slider">
+         <div class="container-1400">
+          <div class="top-section flex">
             <h2 class="h3">
               {% if section.settings.title != blank %}
                 {{ section.settings.title }}
@@ -68,13 +70,15 @@
               href="/collections/all"
               title="Read More About Shop"
               aria-label="Read More About Shop"
-              class="link--primary"
+              class="btn--secondary"
             >
               Shop All Products
             </a>
           </div>
+        </div>
 
           <div class="slider-outer">
+             <div class="container-1400">
             <div class="swiper js__recommendations-product-slider  ">
               <div class="swiper-wrapper">
                 {% comment %}
@@ -92,10 +96,10 @@
                 {% endfor %}
               </div>
             </div>
-
+</div>
             <div class="swiper-button-prev swiper-button-prev-product"></div>
-            <div class="swiper-button-next swiper-button-next-product "></div>
-            <div class="swiper-pagination swiper-pagination-product "></div>
+        <div class="swiper-button-next swiper-button-next-product "></div>
+        <div class="swiper-pagination dark-bg swiper-pagination-product "></div>
           </div>
         </div>
         {%- for productRelated in recommendations.products -%}
@@ -139,36 +143,27 @@
             }
 
             productRecommendationsSection.parentElement.innerHTML = newContent.innerHTML;
-            var swiper = new Swiper('.js__recommendations-product-slider', {
-              slidesPerView: 1,
-              spaceBetween: 21,
-              slidesPerGroup: 1,
-              pagination: {
-                el: '.swiper-pagination-product',
-                clickable: true,
-              },
-              navigation: {
-                nextEl: '.swiper-button-next-product',
-                prevEl: '.swiper-button-prev-product',
-              },
-              breakpoints: {
-                601: {
-                  slidesPerView: 2,
-                  slidesPerGroup: 2,
-                  spaceBetween: 25,
-                },
-                981: {
-                  slidesPerView: 3,
-                  slidesPerGroup: 3,
-                  spaceBetween: 25,
-                },
-                1101: {
-                  slidesPerView: 4,
-                  slidesPerGroup: 4,
-                  spaceBetween: 25,
-                },
-              },
-            });
+           var swiper = new Swiper('.js__recommendations-product-slider', {
+      slidesPerView: 'auto',
+     spaceBetween: 10,
+      breakpoints: {
+        0: {
+          spaceBetween: 10,
+        },
+        769: {
+          spaceBetween: 20,
+        },
+      },
+      pagination: {
+        el: '.swiper-pagination-product',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-product',
+        prevEl: '.swiper-button-prev-product',
+      }
+    
+    });
           }
         };
         request.send();

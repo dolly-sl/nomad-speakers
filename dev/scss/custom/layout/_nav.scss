@@ -137,7 +137,7 @@ header {
         padding: 13.5px 0px;
         cursor: pointer;
         z-index: 90;
-        margin-right: 20px;
+        margin-right: 10px;
 
         @include MQ(MQ-980) {
           padding: 18px 0 !important;
@@ -172,7 +172,7 @@ header {
           display: block;
           color: $color-black;
           cursor: pointer;
-          padding: 10px;
+          padding: 5px 11.5px 6px;
           border-radius: 80px;
           @include MQ(MQ-980) {
             font-size: 20px;
@@ -690,7 +690,7 @@ header {
               }
               // max-width: 303px;
               li {
-                margin: 0;
+                margin: 0 0 10px;
                 padding: 0 0 0px 0;
                 height: auto;
                 a {

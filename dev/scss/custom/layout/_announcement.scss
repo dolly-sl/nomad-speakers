@@ -11,6 +11,7 @@
   // height: 33px;
   transition: all 0.3s ease;
   display: block;
+  
   &.active {
     display: none;
   }
@@ -31,7 +32,7 @@
       justify-content: center;
       height: auto !important;
       width: 100% !important;
-      padding: 9.5px 0px 9.5px;
+      padding: 14.5px 0;
       * {
         // color: $color-white;
         text-align: center;

@@ -11,151 +11,9 @@
   "sections": {
     "product_gDBkfE": {
       "type": "product",
-      "blocks": {
-        "product_block_ApphMD": {
-          "type": "product_block",
-          "settings": {
-            "product": "bluedriver2",
-            "productText": "Version 1"
-          }
-        },
-        "product_block_G9Ne96": {
-          "type": "product_block",
-          "settings": {
-            "product": "bluedriver-scan-tool",
-            "productText": "Version 2"
-          }
-        },
-        "sticky_menu_rped7c": {
-          "type": "sticky-menu",
-          "settings": {
-            "menuTitle": "Overview",
-            "menuUrl": "#Overview"
-          }
-        },
-        "sticky_menu_7ay3QU": {
-          "type": "sticky-menu",
-          "settings": {
-            "menuTitle": "Pro Features",
-            "menuUrl": "#ProFeatures"
-          }
-        },
-        "sticky_menu_N6pXaw": {
-          "type": "sticky-menu",
-          "settings": {
-            "menuTitle": "Specs & Details",
-            "menuUrl": "#Specs-Details"
-          }
-        },
-        "sticky_menu_PTJD6g": {
-          "type": "sticky-menu",
-          "settings": {
-            "menuTitle": "Setup",
-            "menuUrl": "#Setup"
-          }
-        },
-        "sticky_menu_WGMzJW": {
-          "type": "sticky-menu",
-          "settings": {
-            "menuTitle": "App",
-            "menuUrl": "#App"
-          }
-        }
-      },
-      "block_order": [
-        "product_block_ApphMD",
-        "product_block_G9Ne96",
-        "sticky_menu_rped7c",
-        "sticky_menu_7ay3QU",
-        "sticky_menu_N6pXaw",
-        "sticky_menu_PTJD6g",
-        "sticky_menu_WGMzJW"
-      ],
       "settings": {
         "product_quantity_enable": false,
         "enable_payment_button": true
-      }
-    },
-    "pdp_full_width_video_image_XDcQMQ": {
-      "type": "pdp-full-width-video-image",
-      "name": "PDP Full Width Video/Image",
-      "settings": {
-        "desktop_image": "{{ product.metafields.custom.pdp_full_width_video_image_section.value.image_desktop.value }}",
-        "mobile_image": "{{ product.metafields.custom.pdp_full_width_video_image_section.value.image_mobile.value }}",
-        "video": "{{ product.metafields.custom.pdp_full_width_video_image_section.value.video_desktop.value }}",
-        "mobile_video": "{{ product.metafields.custom.pdp_full_width_video_image_section.value.video_mobile.value }}"
-      }
-    },
-    "pdp_full_width_product_with_content_eWChgr": {
-      "type": "pdp-full-width-product-with-content",
-      "name": "PDP Full width product with content",
-      "settings": {
-        "product": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.product.value }}",
-        "subtitle": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.pre_title.value }}",
-        "title": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.title.value }}",
-        "image": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.product_image_desktop.value }}",
-        "mobileImage": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.product_image_mobile.value }}",
-        "point1": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.point_one.value }}",
-        "point2": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.point_two.value }}",
-        "point3": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.point_three.value }}",
-        "point4": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.point_four.value }}",
-        "buttonText": "{{ product.metafields.custom.pdp_full_width_product_with_content.value.button_text.value }}",
-        "paddingtop": 104,
-        "paddingtopmobile": 78,
-        "paddingbottom": 0,
-        "paddingbottomMobile": 0
-      }
-    },
-    "compare_product_section_J9T8tf": {
-      "type": "compare-product-section",
-      "blocks": {
-        "block_NrGNUK": {
-          "type": "block",
-          "settings": {
-            "product": "{{ product.metafields.custom.pdp_compare_product_section.value.first_product.value }}"
-          }
-        },
-        "block_j87dDc": {
-          "type": "block",
-          "settings": {
-            "product": "{{ product.metafields.custom.pdp_compare_product_section.value.second_product.value }}"
-          }
-        },
-        "block_NrtEW4": {
-          "type": "block",
-          "settings": {
-            "product": "{{ product.metafields.custom.pdp_compare_product_section.value.third_product.value }}"
-          }
-        }
-      },
-      "block_order": [
-        "block_NrGNUK",
-        "block_j87dDc",
-        "block_NrtEW4"
-      ],
-      "name": "PDP Compare Product",
-      "settings": {
-        "title": "{{ product.metafields.custom.pdp_compare_product_section.value.title.value }}",
-        "text_size": "h5",
-        "buttonText": "Shop All Products",
-        "buttonLink": "shopify://collections/ball-washers",
-        "paddingtop": 74,
-        "paddingtopmobile": 54,
-        "paddingbottom": 100,
-        "paddingbottomMobile": 56
-      }
-    },
-    "pdp_tab_section_mm74dq": {
-      "type": "pdp-tab-section",
-      "name": "PDP Tab Section",
-      "settings": {
-        "pretitle": "{{ product.metafields.custom.pdp_tab_section.value.pre_title.value }}",
-        "title": "{{ product.metafields.custom.pdp_tab_section.value.title.value }}",
-        "paddingtop": 120,
-        "paddingtopmobile": 60,
-        "paddingbottom": 100,
-        "paddingbottomMobile": 60,
-        "sectionID": ""
       }
     },
     "product_recommendations_JPKrrL": {
@@ -168,10 +26,6 @@
   },
   "order": [
     "product_gDBkfE",
-    "pdp_full_width_video_image_XDcQMQ",
-    "pdp_full_width_product_with_content_eWChgr",
-    "compare_product_section_J9T8tf",
-    "pdp_tab_section_mm74dq",
     "product_recommendations_JPKrrL"
   ]
 }

@@ -35,8 +35,14 @@ z-index: 3;
       }
       .description{
         max-width: 404px;
+        p{
+          padding-bottom: 21px !important;
+          &:last-child{
+            padding-bottom: 0 !important;
+          }
+        }
         ul {
-          margin-top: 21px;
+          
           li{
           padding-left: 42px;
           margin-bottom: 23px;

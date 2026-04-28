@@ -3,7 +3,7 @@
 .cart-section {
     padding: 50px 0 100px;
        overflow: hidden;
-      background: url("graphics-embellish.svg") no-repeat left top / 1728px $color-yellow;
+     
  @include MQ(MQ-980) {
     padding: 40px 0 60px;
  }
@@ -32,10 +32,10 @@
     .header {
             display: flex;
             justify-content: space-between;
-            border-bottom: solid 2px $color-yellow;
+            border-bottom: solid 1px #3F3F3F;
             padding: 11.2px 30px 11.2px 20px;
             border-radius: 5px 5px 0 0;
-            background: $color-yellow;
+            background: $color-black;
             .table-head {
                 max-width: 150px;
                  @include MQ(MQ-1200) {

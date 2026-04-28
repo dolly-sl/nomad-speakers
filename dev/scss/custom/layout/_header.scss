@@ -25,6 +25,7 @@
 
   .navbar-collapse.active {
     top: 93px;
+     height: calc(100vh - 105px);
   }
 
   .btn--menu {
@@ -124,6 +125,7 @@
 
   @include MQ(MQ-980) {
     .navbar-collapse {
+       height: calc(100vh - 60px);
       top: 58px !important;
     }
   }
@@ -250,6 +252,7 @@ header {
 
     @include MQ(MQ-980) {
       .navbar-collapse {
+        height: calc(100vh - 60px);
         top: 58px !important;
       }
     }
