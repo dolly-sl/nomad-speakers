@@ -17,7 +17,7 @@
         "title": "Meet the Boombox of 2026",
         "description": "<p>Waterproof and portable, the Nomad combines a vibrant HD screen, massive sound, and true portability into one all-in-one device you can use on its own, with CarPlay, or like a Bluetooth speaker.</p>",
         "buttonText": "Shop Now",
-        "buttonLink": "shopify://collections/frontpage",
+        "buttonLink": "shopify://products/nomad-unit-only",
         "button_target_blank": false,
         "button_style": "btn--primary",
         "media_type": "video",
