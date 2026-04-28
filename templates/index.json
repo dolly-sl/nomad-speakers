@@ -506,8 +506,8 @@
       "name": "Instagram Slider",
       "settings": {
         "title": "Where We Roam",
-        "buttonText": "Learn More",
-        "buttonLink": "#",
+        "buttonText": "@upbeatsound.co",
+        "buttonLink": "https://www.instagram.com/upbeatsound.co/",
         "button_target_blank": true,
         "paddingtop": 88,
         "paddingtopmobile": 68,
