@@ -98,8 +98,8 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/Group_2.svg",
-            "title": "10-Hour battery",
-            "text": "All day streaming"
+            "title": "IP66 Waterproof",
+            "text": "Shower, rain, splash proof"
           }
         },
         "card_6D4MNT": {
@@ -315,6 +315,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": "golf-cart-bundle-hardwired"
@@ -324,6 +325,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": "golf-cart-bundle-hardwired"
@@ -427,21 +429,21 @@
         "card_qK3im9": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/insta.jpg",
+            "image": "shopify://shop_images/card-image.jpg",
             "buttonLink": ""
           }
         },
         "card_6NBmNM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/insta.jpg",
+            "image": "shopify://shop_images/beach_final_2.png",
             "buttonLink": ""
           }
         },
         "card_wTrQj8": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/insta.jpg",
+            "image": "shopify://shop_images/nano-banana-2025-11-13T17-32-44.png",
             "buttonLink": ""
           }
         },
