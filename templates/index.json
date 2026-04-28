@@ -49,7 +49,7 @@
             "title": "Nomad for Golf",
             "description": "",
             "buttonText": "Shop Now",
-            "buttonLink": "#"
+            "buttonLink": ""
           }
         },
         "card_xyYgJ4": {
@@ -59,7 +59,7 @@
             "title": "Nomad for Home",
             "description": "",
             "buttonText": "Shop Now",
-            "buttonLink": "#"
+            "buttonLink": "shopify://products/home-bundle"
           }
         },
         "card_EBQHKY": {
