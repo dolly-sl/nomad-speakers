@@ -329,6 +329,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""
@@ -337,7 +338,8 @@
         "slide_br6wCm": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_6036781f-62d7-4592-8a15-c9fc3b5fe1e9.jpg",
+            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""
@@ -347,6 +349,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/251108_HB_NOMAD_2065_1_1.jpg",
+            "mobileImage": "shopify://shop_images/251108_HB_NOMAD_2065_1.jpg",
             "rating": "shopify://shop_images/stars_1.svg",
             "title": "“Perfect for family movie nights under the stars. This outdoor entertainment system sets up in seconds.”",
             "product": ""
