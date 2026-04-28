@@ -14,7 +14,7 @@
       "name": "Half Content Half Form",
       "settings": {
         "content_title": "Contact Us",
-        "content_description": "Our customer service staff can help answer your questions. Your patronage is important to us, so please contact us!",
+        "content_description": "Have questions? Send us a message and we’ll point you in the right direction.",
         "phone_label": "Phone Orders",
         "phone_number": "1-844-682-2354",
         "hours_label": "Hours",
