@@ -640,9 +640,7 @@ function progressBar() {
       console.log("totalAmount" + totalAmount);
       console.log("freeShippingAmount" + freeShippingAmount);
 
-      if (function (totalAmount) {
-        return freeShippingAmount;
-      }) {
+      if (totalAmount > freeShippingAmount) {
         console.log("if");
         $(".js__cart-shipping").removeClass("hide");
       }
