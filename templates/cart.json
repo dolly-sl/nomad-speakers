@@ -14,7 +14,7 @@
       "settings": {
         "buttonText": "Continue Shopping",
         "buttonLink": "shopify://collections/all",
-        "titleEmptyCart": "Your Cart IS EMPTY",
+        "titleEmptyCart": "Your Cart is empty!",
         "buttonText2": "Continue Shopping",
         "buttonLink2": "shopify://collections"
       }
