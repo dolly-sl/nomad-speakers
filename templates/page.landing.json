@@ -28,33 +28,33 @@
         "card_ehGUB6": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Group.svg",
+            "title": "Big Sound",
+            "text": "Over 100 dB of premium audio. Cuts through wind at full cart speed."
           }
         },
         "card_xq6Ajh": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Group_1.svg",
+            "title": "Runs any app",
+            "text": "Stream ESPN, Spotify, YouTube, SiriusXM, and more."
           }
         },
         "card_CfxNgY": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "title": "CARPLAY & ANDROID 14",
+            "text": "Hands-free calls, turn-by-turn navigation, and your full music library."
           }
         },
         "card_nA7d73": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon.svg",
-            "title": "IP66 Waterproof",
-            "text": "Shower, rain, splash proof"
+            "icon": "shopify://shop_images/Vector.svg",
+            "title": "Outdoor ready",
+            "text": "Waterproof and built for environments that would ruin ordinary electronics."
           }
         }
       },
