@@ -643,6 +643,7 @@ function progressBar() {
       if (function (totalAmount) {
         return freeShippingAmount;
       }) {
+        console.log("if");
         $(".js__cart-shipping").removeClass("hide");
       }
     });
