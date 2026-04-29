@@ -124,6 +124,7 @@
       "404": {
         "type": "404",
         "settings": {
+          "backgroundImage": "shopify://shop_images/251108_HB_NOMAD_2065_1_6036781f-62d7-4592-8a15-c9fc3b5fe1e9.jpg",
           "video": "",
           "videobanner": false,
           "pretitle": "404 error - Not Found",
