@@ -395,7 +395,7 @@
           "settings": {
             "feature": "A Real Speaker System",
             "nomad_has": true,
-            "standard_has": true
+            "standard_has": false
           }
         },
         "row_jN8Kij": {
