@@ -11,7 +11,18 @@
     <div class="outer">
       <div class="image-section ">
         {% if section.settings.video != blank %}
-          {{
+           <video autoplay loop muted playsinline>
+            <source
+              src="{{ section.settings.video.sources[1].url }}"
+              {% if section.settings.video_mobile != blank %}
+                media="(min-width:768px)"
+              {% endif %}
+            >
+            {% if section.settings.video_mobile != blank %}
+              <source src="{{ section.settings.video_mobile.sources[1].url }}" media="(max-width:768px)">
+            {% endif %}
+          </video>
+          {% comment %} {{
             section.settings.video
             | video_tag:
               image_size: '1920x',
@@ -20,7 +31,7 @@
               controls: false,
               muted: true,
               alt: section.settings.title
-          }}
+          }} {% endcomment %}
         {% elsif section.settings.image != blank %}
           {% assign imageAlt = section.settings.image.alt | default: section.settings.title %}
           {% include 'image_code' with mobileImage: section.settings.mobileImage, tabletImage: section.settings.mobileImage, desktopImage: section.settings.image, imageAlt: imageAlt, critical: true %}
@@ -88,6 +99,12 @@
       "id": "video",
       "label": "Background video",
       "info": "If set, video is shown instead of images. Autoplays muted in a loop."
+    },
+     {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Background video - Mobile",
+      "info": "Vertical video for mobile layout."
     },
     {
       "type": "image_picker",
