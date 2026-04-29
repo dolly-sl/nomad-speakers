@@ -275,6 +275,7 @@
       "name": "Hero image content list",
       "settings": {
         "video": "shopify://files/videos/05f5fb5ae71a46a9bb758fb8d5b64d67.mp4",
+        "video_mobile": "shopify://files/videos/Vertical Components.mp4",
         "content_alignment": "right",
         "text_size": "h2",
         "pretitle": "Drill 4 holes. Tighten 4 screws. That’s it.",
