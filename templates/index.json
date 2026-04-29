@@ -187,13 +187,24 @@
         "paddingbottomMobile": 76
       }
     },
+    "custom_liquid_aBNwYh": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"nomad-three-ways-section\">\n  <div class=\"nomad-three-ways-container\">\n    <h2 class=\"nomad-three-ways-heading\">\n      One device. Three ways to enjoy it.\n    </h2>\n\n    <div class=\"nomad-three-ways-grid\">\n      <!-- Card 1 -->\n      <div class=\"nomad-three-ways-card\">\n        <div class=\"nomad-three-ways-media\">\n          <span class=\"nomad-three-ways-badge\">01</span>\n          <img\n            src=\"https://cdn.shopify.com/s/files/1/0931/1525/3054/files/create-an-icon-that-shows-alot-of-apps-like-spotify-netflix-youtube-tv-peacock-etc.png?v=1775484494\"\n            alt=\"Stream any app on Nomad\"\n            class=\"nomad-three-ways-img\"\n            loading=\"lazy\"\n          >\n        </div>\n\n        <div class=\"nomad-three-ways-copy\">\n          <h3>Stream Any App</h3>\n          <p>\n            Stream music, watch shows, and follow live sports. Download playlists right to Nomad for offline listening with no Wi-Fi.\n          </p>\n        </div>\n      </div>\n\n      <!-- Card 2 -->\n      <div class=\"nomad-three-ways-card\">\n        <div class=\"nomad-three-ways-media\">\n          <span class=\"nomad-three-ways-badge\">02</span>\n          <img\n            src=\"https://cdn.shopify.com/s/files/1/0931/1525/3054/files/Photoroom_20251117_095054.jpg?v=1764150799\"\n            alt=\"CarPlay built into Nomad\"\n            class=\"nomad-three-ways-img\"\n            loading=\"lazy\"\n          >\n        </div>\n\n        <div class=\"nomad-three-ways-copy\">\n          <h3>CarPlay Built In</h3>\n          <p>\n            Skip the basic speaker controls. Nomad gives you full touchscreen and voice control over your music, with Apple CarPlay and Android Auto built in.\n          </p>\n        </div>\n      </div>\n\n      <!-- Card 3 -->\n      <div class=\"nomad-three-ways-card\">\n        <div class=\"nomad-three-ways-media nomad-three-ways-media-icon\">\n          <span class=\"nomad-three-ways-badge\">03</span>\n          <img\n            src=\"https://cdn.shopify.com/s/files/1/0931/1525/3054/files/loud-speaker-icon.png?v=1775483711\"\n            alt=\"Use Nomad as a Bluetooth speaker\"\n            class=\"nomad-three-ways-img nomad-three-ways-icon-img\"\n            loading=\"lazy\"\n          >\n        </div>\n\n        <div class=\"nomad-three-ways-copy\">\n          <h3>Use It as a Bluetooth Speaker</h3>\n          <p>\n            Want that familiar speaker experience? Turn off the screen, connect over Bluetooth, and use Nomad as a powerful portable speaker.\n          </p>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"nomad-three-ways-button-wrap\">\n      <a href=\"/pages/build-your-setup\" class=\"nomad-three-ways-button\">\n        Build Your Setup\n      </a>\n    </div>\n  </div>\n</section>\n\n<style>\n  .nomad-three-ways-section {\n    width: 100%;\n    background: #ffffff;\n    color: #1b1b1d;\n    padding: 28px 20px 40px;\n    font-family: inherit;\n  }\n\n  .nomad-three-ways-section * {\n    box-sizing: border-box;\n    font-family: inherit;\n  }\n\n  .nomad-three-ways-container {\n    width: 100%;\n    max-width: 1320px;\n    margin: 0 auto;\n  }\n\n  .nomad-three-ways-heading {\n    margin: 0 0 30px;\n    text-align: center;\n    font-size: clamp(40px, 4.8vw, 64px);\n    line-height: 1.05;\n    letter-spacing: -0.025em;\n    font-weight: 700;\n    color: #1b1b1d;\n  }\n\n  .nomad-three-ways-grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 20px;\n  }\n\n  .nomad-three-ways-card {\n    background: #e9e9ea;\n    border-radius: 22px;\n    overflow: hidden;\n    min-width: 0;\n  }\n\n  .nomad-three-ways-media {\n    position: relative;\n    width: 100%;\n    aspect-ratio: 4 / 3;\n    overflow: hidden;\n    background: #f7f7f8;\n  }\n\n  .nomad-three-ways-img {\n    width: 100%;\n    height: 100%;\n    display: block;\n    object-fit: cover;\n    object-position: center;\n  }\n\n  .nomad-three-ways-media-icon {\n    background: #4b4b4f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .nomad-three-ways-icon-img {\n    width: 46%;\n    height: auto;\n    object-fit: contain;\n  }\n\n  .nomad-three-ways-badge {\n    position: absolute;\n    top: 16px;\n    left: 16px;\n    z-index: 2;\n    width: 44px;\n    height: 44px;\n    border-radius: 999px;\n    background: #f1f1f2;\n    color: #1b1b1d;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 12px;\n    letter-spacing: 0.04em;\n    font-weight: 500;\n  }\n\n  .nomad-three-ways-copy {\n    padding: 20px 22px 26px;\n  }\n\n  .nomad-three-ways-copy h3 {\n    margin: 0 0 10px;\n    font-size: 24px;\n    line-height: 1.15;\n    letter-spacing: -0.015em;\n    font-weight: 700;\n    color: #1b1b1d;\n  }\n\n  .nomad-three-ways-copy p {\n    margin: 0;\n    font-size: 15px;\n    line-height: 1.65;\n    font-weight: 400;\n    color: #55565a;\n  }\n\n  .nomad-three-ways-button-wrap {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px;\n  }\n\n  .nomad-three-ways-button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    min-height: 54px;\n    padding: 0 30px;\n    border-radius: 999px;\n    background: #1b1b1d;\n    color: #ffffff;\n    text-decoration: none;\n    font-size: 16px;\n    line-height: 1;\n    font-weight: 800;\n    transition: transform 0.2s ease, background 0.2s ease;\n  }\n\n  .nomad-three-ways-button:hover {\n    transform: translateY(-2px);\n    background: #000000;\n    color: #ffffff;\n  }\n\n  @media screen and (max-width: 990px) {\n    .nomad-three-ways-section {\n      padding: 34px 18px 38px;\n    }\n\n    .nomad-three-ways-heading {\n      max-width: 720px;\n      margin-left: auto;\n      margin-right: auto;\n      margin-bottom: 26px;\n      font-size: 46px;\n      letter-spacing: -0.02em;\n    }\n\n    .nomad-three-ways-grid {\n      grid-template-columns: 1fr;\n      gap: 18px;\n      max-width: 620px;\n      margin: 0 auto;\n    }\n\n    .nomad-three-ways-media {\n      aspect-ratio: 16 / 11;\n    }\n\n    .nomad-three-ways-copy {\n      padding: 20px 20px 24px;\n    }\n\n    .nomad-three-ways-copy h3 {\n      font-size: 25px;\n    }\n  }\n\n  @media screen and (max-width: 600px) {\n    .nomad-three-ways-section {\n      padding: 30px 14px 34px;\n      background: #ffffff;\n    }\n\n    .nomad-three-ways-heading {\n      font-size: 38px;\n      line-height: 1.06;\n      letter-spacing: -0.015em;\n      font-weight: 700;\n      margin-bottom: 26px;\n    }\n\n    .nomad-three-ways-grid {\n      gap: 20px;\n    }\n\n    .nomad-three-ways-card {\n      border-radius: 20px;\n    }\n\n    .nomad-three-ways-media {\n      aspect-ratio: 1 / 0.72;\n    }\n\n    .nomad-three-ways-img {\n  object-fit: contain;\n  object-position: center;\n  background: #071d32;\n}\n\n    .nomad-three-ways-badge {\n      top: 16px;\n      left: 16px;\n      width: 44px;\n      height: 44px;\n      font-size: 11px;\n    }\n\n    .nomad-three-ways-copy {\n      padding: 20px 20px 24px;\n    }\n\n    .nomad-three-ways-copy h3 {\n      font-size: 25px;\n      line-height: 1.1;\n      letter-spacing: -0.01em;\n      font-weight: 700;\n      margin-bottom: 10px;\n    }\n\n    .nomad-three-ways-copy p {\n      font-size: 15px;\n      line-height: 1.55;\n    }\n\n    .nomad-three-ways-button-wrap {\n      margin-top: 24px;\n    }\n\n    .nomad-three-ways-button {\n      width: 100%;\n      max-width: 260px;\n      min-height: 52px;\n      font-size: 15px;\n      font-weight: 800;\n    }\n  }\n</style>",
+        "paddingtop": 0,
+        "paddingtopmobile": 0,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
+    },
     "hero_image_with_content_slider_aKgCLg": {
       "type": "hero-image-with-content-slider",
       "blocks": {
         "slide_hkWFkY": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bg-img.jpg",
+            "image": "shopify://shop_images/Rendering1_eed4489a-4280-449f-99bd-ab5591bd66c7.jpg",
             "mobileImage": "shopify://shop_images/hf_20260429_162254_77e14af4-4b8a-4602-8052-18cbc6410b8f.png",
             "content_alignment": "right",
             "text_size": "h2",
@@ -207,12 +218,13 @@
         "slide_xNdbU9": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bg-img.jpg",
+            "image": "shopify://shop_images/Rendering1.jpg",
+            "mobileImage": "shopify://shop_images/Rendering1.jpg",
             "content_alignment": "left",
             "text_size": "h2",
             "pretitle": "One device. Three ways to enjoy it",
             "title": "Wireless CarPlay & Android Auto",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "description": "",
             "buttonText": "Shop now",
             "buttonLink": "#"
           }
@@ -224,8 +236,8 @@
             "content_alignment": "center",
             "text_size": "h2",
             "pretitle": "One device. Three ways to enjoy it",
-            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "title": "Bluetooth Speaker Mode",
+            "description": "",
             "buttonText": "Shop now",
             "buttonLink": "#"
           }
@@ -236,6 +248,7 @@
         "slide_xNdbU9",
         "slide_4Xy4X4"
       ],
+      "disabled": true,
       "name": "Hero Image Content Slider",
       "settings": {
         "slider_loop": "true"
@@ -533,6 +546,7 @@
     "custom_liquid_eFadVG",
     "three_column_card_slider_VXjQr9",
     "five_column_icon_card_with_heading_image_WqRfq8",
+    "custom_liquid_aBNwYh",
     "hero_image_with_content_slider_aKgCLg",
     "three_column_product_slider_XW7j4M",
     "marquee_HqfbWU",
