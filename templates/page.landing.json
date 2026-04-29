@@ -14,7 +14,6 @@
       "name": "Hero image with content",
       "settings": {
         "video": "shopify://files/videos/60148eb18385454e8e9160253b8413e5.mp4",
-        "video_mobile": "shopify://files/videos/Vertical Components.mp4",
         "content_alignment": "left",
         "text_size": "h1",
         "pretitle": "CADDYBAR™ x Nomad",
