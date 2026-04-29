@@ -55,7 +55,23 @@ z-index: 3;
   }
    
   .product-section{
-   background: $color-white url("icon-arrow-next.svg") no-repeat right 27px center / 10px;
+    position: relative;
+    
+    &::before{
+      width: 10px;
+      content: '';
+      height: 18px;
+      top: calc(50% - 5px);
+      right: 27px;
+     transition: 0.6s ease all;
+      position: absolute;
+      background: $color-white url("icon-arrow-next.svg") no-repeat center / 10px;
+    }
+   &:hover{
+     &::before{
+      right: 15px;
+     }
+   }
     margin-top: 36px;
     border-radius: 5px;
 border: 1px solid $color-white;
