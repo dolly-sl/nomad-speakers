@@ -29,6 +29,17 @@
         "paddingbottomMobile": 0
       }
     },
+    "custom_liquid_eFadVG": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "",
+        "paddingtop": 0,
+        "paddingtopmobile": 0,
+        "paddingbottom": 0,
+        "paddingbottomMobile": 0
+      }
+    },
     "three_column_card_slider_VXjQr9": {
       "type": "three-column-card-slider",
       "blocks": {
@@ -42,16 +53,6 @@
             "buttonLink": ""
           }
         },
-        "card_38rqkf": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Golf.jpg",
-            "title": "Nomad for Golf",
-            "description": "",
-            "buttonText": "Learn More",
-            "buttonLink": ""
-          }
-        },
         "card_xyYgJ4": {
           "type": "card",
           "settings": {
@@ -60,6 +61,16 @@
             "description": "",
             "buttonText": "Shop Now",
             "buttonLink": "shopify://products/home-bundle"
+          }
+        },
+        "card_38rqkf": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Golf.jpg",
+            "title": "Nomad for Golf",
+            "description": "",
+            "buttonText": "Learn More",
+            "buttonLink": ""
           }
         },
         "card_EBQHKY": {
@@ -85,8 +96,8 @@
       },
       "block_order": [
         "card_9WGrit",
-        "card_38rqkf",
         "card_xyYgJ4",
+        "card_38rqkf",
         "card_EBQHKY",
         "card_4Q3xUd"
       ],
@@ -158,7 +169,7 @@
         "color_scheme": "dark",
         "pretitle": "THE ALL NEW NOMAD",
         "title": "Big sound. Real screen. Built different.",
-        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>",
+        "description": "",
         "buttonText": "Shop now",
         "buttonLink": "shopify://products/nomad-unit-only",
         "button_style": "btn--secondary",
@@ -183,11 +194,12 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/bg-img.jpg",
+            "mobileImage": "shopify://shop_images/hf_20260429_162254_77e14af4-4b8a-4602-8052-18cbc6410b8f.png",
             "content_alignment": "right",
             "text_size": "h2",
             "pretitle": "One device. Three ways to enjoy it",
             "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "description": "",
             "buttonText": "Shop now",
             "buttonLink": "#"
           }
@@ -199,7 +211,7 @@
             "content_alignment": "left",
             "text_size": "h2",
             "pretitle": "One device. Three ways to enjoy it",
-            "title": "Stream Your Favorite App Anywhere With HI-FI Audio",
+            "title": "Wireless CarPlay & Android Auto",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "buttonText": "Shop now",
             "buttonLink": "#"
@@ -518,6 +530,7 @@
   },
   "order": [
     "half_content_half_media_ggNqne",
+    "custom_liquid_eFadVG",
     "three_column_card_slider_VXjQr9",
     "five_column_icon_card_with_heading_image_WqRfq8",
     "hero_image_with_content_slider_aKgCLg",
