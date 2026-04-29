@@ -120,6 +120,18 @@
           "newscontent": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
           "copyright": ""
         }
+      },
+      "404": {
+        "type": "404",
+        "settings": {
+          "video": "",
+          "videobanner": false,
+          "pretitle": "404 error - Not Found",
+          "title": "Looks Like You’re Lost",
+          "subtitle": "",
+          "buttonText": "Home",
+          "buttonUrl": "/"
+        }
       }
     },
     "content_for_index": []
