@@ -5,13 +5,13 @@
       {% if section.settings.video != blank %}
          <video autoplay loop muted playsinline>
           <source
-            src="{{ block.settings.video.sources[1].url }}"
-            {% if block.settings.video_mobile != blank %}
+            src="{{ section.settings.video.sources[1].url }}"
+            {% if section.settings.video_mobile != blank %}
               media="(min-width:768px)"
             {% endif %}
           >
-          {% if block.settings.video_mobile != blank %}
-            <source src="{{ block.settings.video_mobile.sources[1].url }}" media="(max-width:768px)">
+          {% if section.settings.video_mobile != blank %}
+            <source src="{{ section.settings.video_mobile.sources[1].url }}" media="(max-width:768px)">
           {% endif %}
         </video>
         {% comment %} {{
